@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../lib/schema_org_parser.dart'; // ignore: avoid_relative_lib_imports
+import '../lib/schema_org_parser.dart';
 
 void main(List<String> args) async {
   final schemaUrl = args.isNotEmpty
@@ -90,8 +90,12 @@ class Schema {
 }
 
 /// Base interface for all Schema.org entities
+@Schema()
 abstract class \$SchemaThing {
+  @Schema(description: 'JSON-LD context declaration')
   String? get context;
+
+  @Schema(description: 'Schema.org type name')
   String get type;
 }
 
@@ -172,14 +176,6 @@ abstract class \$SchemaUnion {
       sb.writeln('/// ${_escapeComment(cls.comment)}');
       sb.writeln('@Schema()');
       sb.writeln('abstract class $schemaClassName $implementsClause{');
-
-      // Add JSON-LD context and type
-      sb.writeln("  @Schema(description: 'JSON-LD context declaration')");
-      sb.writeln('  String? get context;');
-      sb.writeln();
-      sb.writeln("  @Schema(description: 'Schema.org type name')");
-      sb.writeln('  String get type;');
-      sb.writeln();
 
       // Direct properties for this class
       final classProps = domainProperties[classId] ?? [];

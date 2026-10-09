@@ -96,10 +96,19 @@ void testGeneratedModels() {
     priceRange: '\$\$\$',
   );
 
-  assert((business as Object) is $SchemaThing, 'Should implement \$SchemaThing');
-  assert((business as Object) is $Organization, 'Should implement \$Organization');
+  assert(
+    (business as Object) is $SchemaThing,
+    'Should implement \$SchemaThing',
+  );
+  assert(
+    (business as Object) is $Organization,
+    'Should implement \$Organization',
+  );
   assert((business as Object) is $Place, 'Should implement \$Place');
-  assert((business as Object) is $LocalBusiness, 'Should implement \$LocalBusiness');
+  assert(
+    (business as Object) is $LocalBusiness,
+    'Should implement \$LocalBusiness',
+  );
 
   assert(business.context == 'https://schema.org', 'Context mismatch');
   assert(business.type == 'LocalBusiness', 'Type mismatch');

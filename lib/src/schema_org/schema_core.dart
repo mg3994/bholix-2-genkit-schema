@@ -8,8 +8,12 @@ class Schema {
 }
 
 /// Base interface for all Schema.org entities
+@Schema()
 abstract class $SchemaThing {
+  @Schema(description: 'JSON-LD context declaration')
   String? get context;
+
+  @Schema(description: 'Schema.org type name')
   String get type;
 }
 

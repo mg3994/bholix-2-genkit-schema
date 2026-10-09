@@ -7,12 +7,6 @@ import 'schema_core.dart';
 /// A 3D model represents some kind of 3D content, which may have [[encoding]]s in one or more [[MediaObject]]s. Many 3D formats are available (e.g. see [Wikipedia](https://en.wikipedia.org/wiki/Category:3D_graphics_file_formats)); specific encoding formats can be represented using the [[encodingFormat]] property applied to the relevant [[MediaObject]]. For the case of a single file published after Zip compression, the convention of appending '+zip' to the [[encodingFormat]] can be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific content can all be represented using [[3DModel]].
 @Schema()
 abstract class $3DModel implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Whether the 3DModel allows resizing. For example, room layout applications often do not allow 3DModel elements to be resized to reflect reality.
   @Schema(
     description:
@@ -23,23 +17,11 @@ abstract class $3DModel implements $MediaObject {
 
 /// A radio channel that uses AM.
 @Schema()
-abstract class $AMRadioChannel implements $RadioChannel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AMRadioChannel implements $RadioChannel {}
 
 /// Reference documentation for application programming interfaces (APIs).
 @Schema()
 abstract class $APIReference implements $TechArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Library file name, e.g., mscorlib.dll, system.web.dll.
   @Schema(description: "Library file name, e.g., mscorlib.dll, system.web.dll.")
   String? get assembly;
@@ -69,33 +51,15 @@ abstract class $APIReference implements $TechArticle {
 
 /// Web page type: About page.
 @Schema()
-abstract class $AboutPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AboutPage implements $WebPage {}
 
 /// The act of committing to/adopting an object.\n\nRelated actions:\n\n* [[RejectAction]]: The antonym of AcceptAction.
 @Schema()
-abstract class $AcceptAction implements $AllocateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AcceptAction implements $AllocateAction {}
 
 /// An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement. For more specific types of accommodations not defined in schema.org, one can use [[additionalType]] with external vocabularies. <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
 abstract class $Accommodation implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Category of an [[Accommodation]], following real estate conventions, e.g. RESO (see [PropertySubType](https://ddwiki.reso.org/display/DDW17/PropertySubType+Field), and [PropertyType](https://ddwiki.reso.org/display/DDW17/PropertyType+Field) fields  for suggested values).
   @Schema(
     description:
@@ -215,33 +179,15 @@ abstract class $Accommodation implements $Place {
 
 /// Accountancy business.\n\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\(s).
 @Schema()
-abstract class $AccountingService implements $FinancialService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AccountingService implements $FinancialService {}
 
 /// The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process.
 @Schema()
-abstract class $AchieveAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AchieveAction implements $Action {}
 
 /// An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.\n\nSee also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-actions/) and [Actions overview document](https://schema.org/docs/actions.html).
 @Schema()
 abstract class $Action implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Description of the process by which the action was performed.
   @Schema(
     description:
@@ -330,12 +276,6 @@ abstract class $Action implements $Thing {
 /// A set of requirements that must be fulfilled in order to perform an Action.
 @Schema()
 abstract class $ActionAccessSpecification implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The end of the availability of the product or service included in the offer.
   @Schema(
     description:
@@ -388,83 +328,35 @@ abstract class $ActionAccessSpecification implements $Intangible {
 
 /// The status of an Action.
 @Schema()
-abstract class $ActionStatusType implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ActionStatusType implements $StatusEnumeration {}
 
 /// The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight).
 @Schema()
-abstract class $ActivateAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ActivateAction implements $ControlAction {}
 
 /// The act of editing by adding an object to a collection.
 @Schema()
-abstract class $AddAction implements $UpdateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AddAction implements $UpdateAction {}
 
 /// A geographical region, typically under the jurisdiction of a particular government.
 @Schema()
-abstract class $AdministrativeArea implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AdministrativeArea implements $Place {}
 
 /// An adult entertainment establishment.
 @Schema()
-abstract class $AdultEntertainment implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AdultEntertainment implements $EntertainmentBusiness {}
 
 /// Enumeration of considerations that make a product relevant or potentially restricted for adults only.
 @Schema()
-abstract class $AdultOrientedEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AdultOrientedEnumeration implements $Enumeration {}
 
 /// An [[Article]] that an external entity has paid to place or to produce to its specifications. Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored content, native advertising and other paid content.
 @Schema()
-abstract class $AdvertiserContentArticle implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AdvertiserContentArticle implements $Article {}
 
 /// When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\n\nNote: AggregateOffers are normally expected to associate multiple offers that all share the same defined [[businessFunction]] value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined.
 @Schema()
 abstract class $AggregateOffer implements $Offer {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The highest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
   @Schema(
     description:
@@ -494,12 +386,6 @@ abstract class $AggregateOffer implements $Offer {
 /// The average rating based on multiple ratings or reviews.
 @Schema()
 abstract class $AggregateRating implements $Rating {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The item that is being reviewed/rated.
   @Schema(description: "The item that is being reviewed/rated.")
   $Thing? get itemReviewed;
@@ -515,23 +401,11 @@ abstract class $AggregateRating implements $Rating {
 
 /// The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants.
 @Schema()
-abstract class $AgreeAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AgreeAction implements $ReactAction {}
 
 /// An organization that provides flights for passengers.
 @Schema()
 abstract class $Airline implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of boarding policy used by the airline (e.g. zone-based or group-based).
   @Schema(
     description:
@@ -547,12 +421,6 @@ abstract class $Airline implements $Organization {
 /// An airport.
 @Schema()
 abstract class $Airport implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// IATA identifier for an airline or airport.
   @Schema(description: "IATA identifier for an airline or airport.")
   String? get iataCode;
@@ -565,12 +433,6 @@ abstract class $Airport implements $CivicStructure {
 /// An intangible item that describes an alignment between a learning resource and a node in an educational framework. Should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
 @Schema()
 abstract class $AlignmentObject implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.
   @Schema(
     description:
@@ -607,53 +469,23 @@ abstract class $AlignmentObject implements $Intangible {
 
 /// The act of organizing tasks/objects/events by associating resources to it.
 @Schema()
-abstract class $AllocateAction implements $OrganizeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AllocateAction implements $OrganizeAction {}
 
 /// A creative work with a visual storytelling format intended to be viewed online, particularly on mobile devices.
 @Schema()
-abstract class $AmpStory implements $CreativeWork, $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AmpStory implements $CreativeWork, $MediaObject {}
 
 /// An amusement park.
 @Schema()
-abstract class $AmusementPark implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AmusementPark implements $EntertainmentBusiness {}
 
 /// An AnalysisNewsArticle is a [[NewsArticle]] that, while based on factual reporting, incorporates the expertise of the author/producer, offering interpretations and conclusions.
 @Schema()
-abstract class $AnalysisNewsArticle implements $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AnalysisNewsArticle implements $NewsArticle {}
 
 /// Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures.
 @Schema()
 abstract class $AnatomicalStructure implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
   @Schema(
     description:
@@ -705,12 +537,6 @@ abstract class $AnatomicalStructure implements $MedicalEntity {
 /// An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can include circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.
 @Schema()
 abstract class $AnatomicalSystem implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
   @Schema(
     description:
@@ -743,23 +569,11 @@ abstract class $AnatomicalSystem implements $MedicalEntity {
 
 /// Animal shelter.
 @Schema()
-abstract class $AnimalShelter implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AnimalShelter implements $LocalBusiness {}
 
 /// An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
 @Schema()
 abstract class $Answer implements $Comment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.
   @Schema(
     description:
@@ -778,12 +592,6 @@ abstract class $Answer implements $Comment {
 /// An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Apartment">http://en.wikipedia.org/wiki/Apartment</a>).
 @Schema()
 abstract class $Apartment implements $Accommodation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
   @Schema(
     description:
@@ -802,12 +610,6 @@ abstract class $Apartment implements $Accommodation {
 /// Residence type: Apartment complex.
 @Schema()
 abstract class $ApartmentComplex implements $Residence {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the total (available plus unavailable) number of accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].
   @Schema(
     description:
@@ -846,53 +648,23 @@ abstract class $ApartmentComplex implements $Residence {
 
 /// The act of inserting at the end if an ordered collection.
 @Schema()
-abstract class $AppendAction implements $InsertAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AppendAction implements $InsertAction {}
 
 /// The act of registering to an organization/service without the guarantee to receive it.\n\nRelated actions:\n\n* [[RegisterAction]]: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.
 @Schema()
-abstract class $ApplyAction implements $OrganizeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ApplyAction implements $OrganizeAction {}
 
 /// An indication for a medical therapy that has been formally specified or approved by a regulatory body that regulates use of the therapy; for example, the US FDA approves indications for most drugs in the US.
 @Schema()
-abstract class $ApprovedIndication implements $MedicalIndication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ApprovedIndication implements $MedicalIndication {}
 
 /// Aquarium.
 @Schema()
-abstract class $Aquarium implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Aquarium implements $CivicStructure {}
 
 /// An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections.
 @Schema()
 abstract class $ArchiveComponent implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// [[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]].
   @Schema(
     description:
@@ -908,12 +680,6 @@ abstract class $ArchiveComponent implements $CreativeWork {
 /// An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.
 @Schema()
 abstract class $ArchiveOrganization implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept or maintained by an [[ArchiveOrganization]].
   @Schema(
     description:
@@ -924,33 +690,15 @@ abstract class $ArchiveOrganization implements $LocalBusiness {
 
 /// The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants.
 @Schema()
-abstract class $ArriveAction implements $MoveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ArriveAction implements $MoveAction {}
 
 /// An art gallery.
 @Schema()
-abstract class $ArtGallery implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ArtGallery implements $EntertainmentBusiness {}
 
 /// A type of blood vessel that specifically carries blood away from the heart.
 @Schema()
 abstract class $Artery implements $Vessel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The branches that comprise the arterial structure.
   @Schema(description: "The branches that comprise the arterial structure.")
   $AnatomicalStructure? get arterialBranch;
@@ -963,12 +711,6 @@ abstract class $Artery implements $Vessel {
 /// An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.\n\nSee also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
 @Schema()
 abstract class $Article implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The actual body of the article.
   @Schema(description: "The actual body of the article.")
   String? get articleBody;
@@ -1026,12 +768,6 @@ abstract class $Article implements $CreativeWork {
 /// The act of posing a question / favor to someone.\n\nRelated actions:\n\n* [[ReplyAction]]: Appears generally as a response to AskAction.
 @Schema()
 abstract class $AskAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. A question.
   @Schema(description: "A sub property of object. A question.")
   $Question? get question;
@@ -1039,63 +775,27 @@ abstract class $AskAction implements $CommunicateAction {
 
 /// A [[NewsArticle]] expressing an open call by a [[NewsMediaOrganization]] asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes.
 @Schema()
-abstract class $AskPublicNewsArticle implements $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AskPublicNewsArticle implements $NewsArticle {}
 
 /// The act of forming one's opinion, reaction or sentiment.
 @Schema()
-abstract class $AssessAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AssessAction implements $Action {}
 
 /// The act of allocating an action/event/task to some destination (someone or something).
 @Schema()
-abstract class $AssignAction implements $AllocateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AssignAction implements $AllocateAction {}
 
 /// A collection or bound volume of maps, charts, plates or tables, physical or in media form illustrating any subject.
 @Schema()
-abstract class $Atlas implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Atlas implements $CreativeWork {}
 
 /// Professional service: Attorney. \n\nThis type is deprecated - [[LegalService]] is more inclusive and less ambiguous.
 @Schema()
-abstract class $Attorney implements $LegalService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Attorney implements $LegalService {}
 
 /// Intended audience for an item, i.e. the group for whom the item was created.
 @Schema()
 abstract class $Audience implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
   @Schema(
     description:
@@ -1111,12 +811,6 @@ abstract class $Audience implements $Intangible {
 /// An audio file.
 @Schema()
 abstract class $AudioObject implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
   @Schema(
     description:
@@ -1141,23 +835,11 @@ abstract class $AudioObject implements $MediaObject {
 
 /// A specific and exact (byte-for-byte) version of an [[AudioObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
 @Schema()
-abstract class $AudioObjectSnapshot implements $AudioObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AudioObjectSnapshot implements $AudioObject {}
 
 /// An audiobook.
 @Schema()
 abstract class $Audiobook implements $AudioObject, $Book {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
   @Schema(
     description:
@@ -1172,23 +854,11 @@ abstract class $Audiobook implements $AudioObject, $Book {
 
 /// The action of authenticating into a device or application.
 @Schema()
-abstract class $AuthenticateAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AuthenticateAction implements $ControlAction {}
 
 /// The act of granting permission to an object.
 @Schema()
 abstract class $AuthorizeAction implements $AllocateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant who is at the receiving end of the action.
   @Schema(
     description:
@@ -1199,113 +869,47 @@ abstract class $AuthorizeAction implements $AllocateAction {
 
 /// Auto body shop.
 @Schema()
-abstract class $AutoBodyShop implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoBodyShop implements $AutomotiveBusiness {}
 
 /// An car dealership.
 @Schema()
-abstract class $AutoDealer implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoDealer implements $AutomotiveBusiness {}
 
 /// An auto parts store.
 @Schema()
-abstract class $AutoPartsStore implements $AutomotiveBusiness, $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoPartsStore implements $AutomotiveBusiness, $Store {}
 
 /// A car rental business.
 @Schema()
-abstract class $AutoRental implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoRental implements $AutomotiveBusiness {}
 
 /// Car repair business.
 @Schema()
-abstract class $AutoRepair implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoRepair implements $AutomotiveBusiness {}
 
 /// A car wash business.
 @Schema()
-abstract class $AutoWash implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutoWash implements $AutomotiveBusiness {}
 
 /// ATM/cash machine.
 @Schema()
-abstract class $AutomatedTeller implements $FinancialService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutomatedTeller implements $FinancialService {}
 
 /// Car repair, sales, or parts.
 @Schema()
-abstract class $AutomotiveBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $AutomotiveBusiness implements $LocalBusiness {}
 
 /// A [[NewsArticle]] providing historical context, definition and detail on a specific topic (aka "explainer" or "backgrounder"). For example, an in-depth article or frequently-asked-questions ([FAQ](https://en.wikipedia.org/wiki/FAQ)) document on topics such as Climate Change or the European Union. Other kinds of background material from a non-news setting are often described using [[Book]] or [[Article]], in particular [[ScholarlyArticle]]. See also [[NewsArticle]] for related vocabulary from a learning/education perspective.
 @Schema()
-abstract class $BackgroundNewsArticle implements $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BackgroundNewsArticle implements $NewsArticle {}
 
 /// A bakery.
 @Schema()
-abstract class $Bakery implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Bakery implements $FoodEstablishment {}
 
 /// A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest.
 @Schema()
 abstract class $BankAccount implements $FinancialProduct {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A minimum amount that has to be paid in every month.
   @Schema(description: "A minimum amount that has to be paid in every month.")
   $MonetaryAmount? get accountMinimumInflow;
@@ -1324,73 +928,31 @@ abstract class $BankAccount implements $FinancialProduct {
 
 /// Bank or credit union.
 @Schema()
-abstract class $BankOrCreditUnion implements $FinancialService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BankOrCreditUnion implements $FinancialService {}
 
 /// A bar or pub.
 @Schema()
-abstract class $BarOrPub implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BarOrPub implements $FoodEstablishment {}
 
 /// An image of a visual machine-readable code such as a barcode or QR code.
 @Schema()
-abstract class $Barcode implements $ImageObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Barcode implements $ImageObject {}
 
 /// Beach.
 @Schema()
-abstract class $Beach implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Beach implements $CivicStructure {}
 
 /// Beauty salon.
 @Schema()
-abstract class $BeautySalon implements $HealthAndBeautyBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BeautySalon implements $HealthAndBeautyBusiness {}
 
 /// Bed and breakfast. <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $BedAndBreakfast implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BedAndBreakfast implements $LodgingBusiness {}
 
 /// An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also [[BedType]] (under development).
 @Schema()
 abstract class $BedDetails implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.
   @Schema(
     description:
@@ -1408,43 +970,19 @@ abstract class $BedDetails implements $Intangible {
 
 /// A type of bed. This is used for indicating the bed or beds available in an accommodation.
 @Schema()
-abstract class $BedType implements $QualitativeValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BedType implements $QualitativeValue {}
 
 /// The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\n\nRelated actions:\n\n* [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.
 @Schema()
-abstract class $BefriendAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BefriendAction implements $InteractAction {}
 
 /// A bike store.
 @Schema()
-abstract class $BikeStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BikeStore implements $Store {}
 
 /// Any biological, chemical, or biochemical thing. For example: a protein; a gene; a chemical; a synthetic chemical.
 @Schema()
 abstract class $BioChemEntity implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.
   @Schema(
     description:
@@ -1536,12 +1074,6 @@ abstract class $BioChemEntity implements $Thing {
 /// A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term.
 @Schema()
 abstract class $Blog implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A posting that is part of this blog.
   @Schema(description: "A posting that is part of this blog.")
   $BlogPosting? get blogPost;
@@ -1563,63 +1095,27 @@ abstract class $Blog implements $CreativeWork {
 
 /// A blog post.
 @Schema()
-abstract class $BlogPosting implements $SocialMediaPosting {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BlogPosting implements $SocialMediaPosting {}
 
 /// A medical test performed on a sample of a patient's blood.
 @Schema()
-abstract class $BloodTest implements $MedicalTest {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BloodTest implements $MedicalTest {}
 
 /// A type of boarding policy used by an airline.
 @Schema()
-abstract class $BoardingPolicyType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BoardingPolicyType implements $Enumeration {}
 
 /// A reservation for boat travel.  Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
-abstract class $BoatReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BoatReservation implements $Reservation {}
 
 /// A terminal for boats, ships, and other water vessels.
 @Schema()
-abstract class $BoatTerminal implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BoatTerminal implements $CivicStructure {}
 
 /// A trip on a commercial ferry line.
 @Schema()
 abstract class $BoatTrip implements $Trip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The terminal or port from which the boat arrives.
   @Schema(description: "The terminal or port from which the boat arrives.")
   $BoatTerminal? get arrivalBoatTerminal;
@@ -1632,43 +1128,19 @@ abstract class $BoatTrip implements $Trip {
 /// Enumerates types (or dimensions) of a person's body measurements, for example for fitting of clothes.
 @Schema()
 abstract class $BodyMeasurementTypeEnumeration
-    implements $MeasurementTypeEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $MeasurementTypeEnumeration {}
 
 /// A body of water, such as a sea, ocean, or lake.
 @Schema()
-abstract class $BodyOfWater implements $Landform {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BodyOfWater implements $Landform {}
 
 /// Rigid connective tissue that comprises up the skeletal structure of the human body.
 @Schema()
-abstract class $Bone implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Bone implements $AnatomicalStructure {}
 
 /// A book.
 @Schema()
 abstract class $Book implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates whether the book is an abridged edition.
   @Schema(description: "Indicates whether the book is an abridged edition.")
   bool? get abridged;
@@ -1696,63 +1168,27 @@ abstract class $Book implements $CreativeWork {
 
 /// The publication format of the book.
 @Schema()
-abstract class $BookFormatType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BookFormatType implements $Enumeration {}
 
 /// A series of books. Included books can be indicated with the hasPart property.
 @Schema()
-abstract class $BookSeries implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BookSeries implements $CreativeWorkSeries {}
 
 /// A bookstore.
 @Schema()
-abstract class $BookStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BookStore implements $Store {}
 
 /// An agent bookmarks/flags/labels/tags/marks an object.
 @Schema()
-abstract class $BookmarkAction implements $OrganizeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BookmarkAction implements $OrganizeAction {}
 
 /// Boolean: True or False.
 @Schema()
-abstract class $Boolean implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Boolean implements $SchemaThing {}
 
 /// The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\n\nRelated actions:\n\n* [[LendAction]]: Reciprocal of BorrowAction.
 @Schema()
 abstract class $BorrowAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The person that lends the object being borrowed.
   @Schema(
     description:
@@ -1763,33 +1199,15 @@ abstract class $BorrowAction implements $TransferAction {
 
 /// A bowling alley.
 @Schema()
-abstract class $BowlingAlley implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BowlingAlley implements $SportsActivityLocation {}
 
 /// Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.
 @Schema()
-abstract class $BrainStructure implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BrainStructure implements $AnatomicalStructure {}
 
 /// A brand is a name used by an organization or business person for labeling a product, product group, or similar.
 @Schema()
 abstract class $Brand implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The overall rating, based on a collection of reviews or ratings, of the item.
   @Schema(
     description:
@@ -1812,43 +1230,19 @@ abstract class $Brand implements $Intangible {
 
 /// A BreadcrumbList is an ItemList consisting of a chain of linked Web pages, typically described using at least their URL and their name, and typically ending with the current page.\n\nThe [[position]] property is used to reconstruct the order of the items in a BreadcrumbList. The convention is that a breadcrumb list has an [[itemListOrder]] of [[ItemListOrderAscending]] (lower values listed first), and that the first items in this list correspond to the "top" or beginning of the breadcrumb trail, e.g. with a site or section homepage. The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list.
 @Schema()
-abstract class $BreadcrumbList implements $ItemList {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BreadcrumbList implements $ItemList {}
 
 /// Brewery.
 @Schema()
-abstract class $Brewery implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Brewery implements $FoodEstablishment {}
 
 /// A bridge.
 @Schema()
-abstract class $Bridge implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Bridge implements $CivicStructure {}
 
 /// A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
 @Schema()
 abstract class $BroadcastChannel implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
   @Schema(
     description:
@@ -1888,12 +1282,6 @@ abstract class $BroadcastChannel implements $Intangible {
 /// An over the air or online broadcast event.
 @Schema()
 abstract class $BroadcastEvent implements $PublicationEvent {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The event being broadcast such as a sporting event or awards ceremony.
   @Schema(
     description:
@@ -1923,12 +1311,6 @@ abstract class $BroadcastEvent implements $PublicationEvent {
 /// The frequency in MHz and the modulation used for a particular BroadcastService.
 @Schema()
 abstract class $BroadcastFrequencySpecification implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The frequency in MHz for a particular broadcast.
   @Schema(description: "The frequency in MHz for a particular broadcast.")
   $SchemaUnion? get broadcastFrequencyValue;
@@ -1948,12 +1330,6 @@ abstract class $BroadcastFrequencySpecification implements $Intangible {
 /// A delivery service through which content is provided via broadcast over the air or online.
 @Schema()
 abstract class $BroadcastService implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The area within which users can expect to reach the broadcast service.
   @Schema(
     description:
@@ -2030,33 +1406,15 @@ abstract class $BroadcastService implements $Service {
 
 /// An account that allows an investor to deposit funds and place investment orders with a licensed broker or brokerage firm.
 @Schema()
-abstract class $BrokerageAccount implements $InvestmentOrDeposit {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BrokerageAccount implements $InvestmentOrDeposit {}
 
 /// A Buddhist temple.
 @Schema()
-abstract class $BuddhistTemple implements $PlaceOfWorship {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BuddhistTemple implements $PlaceOfWorship {}
 
 /// A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Coaches are luxury buses, usually in service for long distance travel.
 @Schema()
 abstract class $BusOrCoach implements $Vehicle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
   @Schema(
     description:
@@ -2074,43 +1432,19 @@ abstract class $BusOrCoach implements $Vehicle {
 
 /// A reservation for bus travel. \n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
-abstract class $BusReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusReservation implements $Reservation {}
 
 /// A bus station.
 @Schema()
-abstract class $BusStation implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusStation implements $CivicStructure {}
 
 /// A bus stop.
 @Schema()
-abstract class $BusStop implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusStop implements $CivicStructure {}
 
 /// A trip on a commercial bus line.
 @Schema()
 abstract class $BusTrip implements $Trip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The stop or station from which the bus arrives.
   @Schema(description: "The stop or station from which the bus arrives.")
   $SchemaUnion? get arrivalBusStop;
@@ -2131,12 +1465,6 @@ abstract class $BusTrip implements $Trip {
 /// A set of characteristics belonging to businesses, e.g. who compose an item's target audience.
 @Schema()
 abstract class $BusinessAudience implements $Audience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of employees in an organization, e.g. business.
   @Schema(
     description: "The number of employees in an organization, e.g. business.",
@@ -2154,43 +1482,19 @@ abstract class $BusinessAudience implements $Audience {
 
 /// A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.\n\nCommonly used values:\n\n* http://purl.org/goodrelations/v1#Business\n* http://purl.org/goodrelations/v1#Enduser\n* http://purl.org/goodrelations/v1#PublicInstitution\n* http://purl.org/goodrelations/v1#Reseller
 @Schema()
-abstract class $BusinessEntityType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusinessEntityType implements $Enumeration {}
 
 /// Event type: Business event.
 @Schema()
-abstract class $BusinessEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusinessEvent implements $Event {}
 
 /// The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.\n\nCommonly used values:\n\n* http://purl.org/goodrelations/v1#ConstructionInstallation\n* http://purl.org/goodrelations/v1#Dispose\n* http://purl.org/goodrelations/v1#LeaseOut\n* http://purl.org/goodrelations/v1#Maintain\n* http://purl.org/goodrelations/v1#ProvideService\n* http://purl.org/goodrelations/v1#Repair\n* http://purl.org/goodrelations/v1#Sell\n* http://purl.org/goodrelations/v1#Buy
 @Schema()
-abstract class $BusinessFunction implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $BusinessFunction implements $Enumeration {}
 
 /// The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.
 @Schema()
 abstract class $BuyAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
   @Schema(
     description:
@@ -2210,12 +1514,6 @@ abstract class $BuyAction implements $TradeAction {
 /// A CDCPMDRecord is a data structure representing a record in a CDC tabular data format       used for hospital data reporting. See [documentation](/docs/cdc-covid.html) for details, and the linked CDC materials for authoritative       definitions used as the source here.
 @Schema()
 abstract class $CDCPMDRecord implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// collectiondate - Date for which patient counts are reported.
   @Schema(
     description: "collectiondate - Date for which patient counts are reported.",
@@ -2334,73 +1632,31 @@ abstract class $CDCPMDRecord implements $StructuredValue {
 
 /// A service which provides access to media programming like TV or radio. Access may be via cable or satellite.
 @Schema()
-abstract class $CableOrSatelliteService implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CableOrSatelliteService implements $Service {}
 
 /// A cafe or coffee shop.
 @Schema()
-abstract class $CafeOrCoffeeShop implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CafeOrCoffeeShop implements $FoodEstablishment {}
 
 /// A camping site, campsite, or [[Campground]] is a place used for overnight stay in the outdoors, typically containing individual [[CampingPitch]] locations. \n\n In British English a campsite is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites (source: Wikipedia, see [https://en.wikipedia.org/wiki/Campsite](https://en.wikipedia.org/wiki/Campsite)).\n\n  See also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).
 @Schema()
-abstract class $Campground implements $CivicStructure, $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Campground implements $CivicStructure, $LodgingBusiness {}
 
 /// A [[CampingPitch]] is an individual place for overnight stay in the outdoors, typically being part of a larger camping site, or [[Campground]].\n\n In British English a campsite, or campground, is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites. (Source: Wikipedia, see [https://en.wikipedia.org/wiki/Campsite](https://en.wikipedia.org/wiki/Campsite).)\n\n See also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).
 @Schema()
-abstract class $CampingPitch implements $Accommodation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CampingPitch implements $Accommodation {}
 
 /// A canal, like the Panama Canal.
 @Schema()
-abstract class $Canal implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Canal implements $BodyOfWater {}
 
 /// The act of asserting that a future event/action is no longer going to happen.\n\nRelated actions:\n\n* [[ConfirmAction]]: The antonym of CancelAction.
 @Schema()
-abstract class $CancelAction implements $PlanAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CancelAction implements $PlanAction {}
 
 /// A car is a wheeled, self-powered motor vehicle used for transportation.
 @Schema()
 abstract class $Car implements $Vehicle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
   @Schema(
     description:
@@ -2418,33 +1674,15 @@ abstract class $Car implements $Vehicle {
 
 /// A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.
 @Schema()
-abstract class $CarUsageType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CarUsageType implements $Enumeration {}
 
 /// A casino.
 @Schema()
-abstract class $Casino implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Casino implements $EntertainmentBusiness {}
 
 /// A Category Code.
 @Schema()
 abstract class $CategoryCode implements $DefinedTerm {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A short textual code that uniquely identifies the value.
   @Schema(
     description: "A short textual code that uniquely identifies the value.",
@@ -2461,12 +1699,6 @@ abstract class $CategoryCode implements $DefinedTerm {
 /// A set of Category Code values.
 @Schema()
 abstract class $CategoryCodeSet implements $DefinedTermSet {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A Category code contained in this code set.
   @Schema(description: "A Category code contained in this code set.")
   $CategoryCode? get hasCategoryCode;
@@ -2474,33 +1706,15 @@ abstract class $CategoryCodeSet implements $DefinedTermSet {
 
 /// A Catholic church.
 @Schema()
-abstract class $CatholicChurch implements $Church {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CatholicChurch implements $Church {}
 
 /// A graveyard.
 @Schema()
-abstract class $Cemetery implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Cemetery implements $CivicStructure {}
 
 /// A Certification is an official and authoritative statement about a subject, for example a product, service, person, or organization. A certification is typically issued by an indendent certification body, for example a professional organization or government. It formally attests certain characteristics about the subject, for example Organizations can be ISO certified, Food products can be certified Organic or Vegan, a Person can be a certified professional, a Place can be certified for food processing. There are certifications for many domains: regulatory, organizational, recycling, food, efficiency, educational, ecological, etc. A certification is a form of credential, as are accreditations and licenses. Mapped from the [gs1:CertificationDetails](https://www.gs1.org/voc/CertificationDetails) class in the GS1 Web Vocabulary.
 @Schema()
 abstract class $Certification implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -2579,23 +1793,11 @@ abstract class $Certification implements $CreativeWork {
 
 /// Enumerates the different statuses of a Certification (Active and Inactive).
 @Schema()
-abstract class $CertificationStatusEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CertificationStatusEnumeration implements $Enumeration {}
 
 /// One of the sections into which a book is divided. A chapter usually has a section number or a name.
 @Schema()
 abstract class $Chapter implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The page on which the work ends; for example "138" or "xvi".
   @Schema(
     description:
@@ -2620,53 +1822,23 @@ abstract class $Chapter implements $CreativeWork {
 
 /// An agent inspects, determines, investigates, inquires, or examines an object's accuracy, quality, condition, or state.
 @Schema()
-abstract class $CheckAction implements $FindAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CheckAction implements $FindAction {}
 
 /// The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).\n\nRelated actions:\n\n* [[CheckOutAction]]: The antonym of CheckInAction.\n* [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\n* [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.
 @Schema()
-abstract class $CheckInAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CheckInAction implements $CommunicateAction {}
 
 /// The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).\n\nRelated actions:\n\n* [[CheckInAction]]: The antonym of CheckOutAction.\n* [[DepartAction]]: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.\n* [[CancelAction]]: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.
 @Schema()
-abstract class $CheckOutAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CheckOutAction implements $CommunicateAction {}
 
 /// Web page type: Checkout page.
 @Schema()
-abstract class $CheckoutPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CheckoutPage implements $WebPage {}
 
 /// A chemical substance is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: [ChEBI:59999](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999)).
 @Schema()
 abstract class $ChemicalSubstance implements $BioChemEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The chemical composition describes the identity and relative ratio of the chemical elements that make up the substance.
   @Schema(
     description:
@@ -2688,33 +1860,15 @@ abstract class $ChemicalSubstance implements $BioChemEntity {
 
 /// A Childcare center.
 @Schema()
-abstract class $ChildCare implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ChildCare implements $LocalBusiness {}
 
 /// Event type: Children's event.
 @Schema()
-abstract class $ChildrensEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ChildrensEvent implements $Event {}
 
 /// The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
 @Schema()
 abstract class $ChooseAction implements $AssessAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. The options subject to this action.
   @Schema(
     description:
@@ -2732,43 +1886,19 @@ abstract class $ChooseAction implements $AssessAction {
 
 /// A church.
 @Schema()
-abstract class $Church implements $PlaceOfWorship {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Church implements $PlaceOfWorship {}
 
 /// A city or town.
 @Schema()
-abstract class $City implements $AdministrativeArea {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $City implements $AdministrativeArea {}
 
 /// A city hall.
 @Schema()
-abstract class $CityHall implements $GovernmentBuilding {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CityHall implements $GovernmentBuilding {}
 
 /// A public structure, such as a town hall or concert hall.
 @Schema()
 abstract class $CivicStructure implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\n\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \n* Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
   @Schema(
     description:
@@ -2780,12 +1910,6 @@ abstract class $CivicStructure implements $Place {
 /// A [[Claim]] in Schema.org represents a specific, factually-oriented claim that could be the [[itemReviewed]] in a [[ClaimReview]]. The content of a claim can be summarized with the [[text]] property. Variations on well known claims can have their common identity indicated via [[sameAs]] links, and summarized with a [[name]]. Ideally, a [[Claim]] description includes enough contextual information to minimize the risk of ambiguity or inclarity. In practice, many claims are better understood in the context in which they appear or the interpretations provided by claim reviews.    Beyond [[ClaimReview]], the Claim type can be associated with related creative works - for example a [[ScholarlyArticle]] or [[Question]] might be [[about]] some [[Claim]].    At this time, Schema.org does not define any types of relationship between claims. This is a natural area for future exploration.
 @Schema()
 abstract class $Claim implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates an occurrence of a [[Claim]] in some [[CreativeWork]].
   @Schema(
     description:
@@ -2811,12 +1935,6 @@ abstract class $Claim implements $CreativeWork {
 /// A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).
 @Schema()
 abstract class $ClaimReview implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A short summary of the specific claims reviewed in a ClaimReview.
   @Schema(
     description:
@@ -2828,12 +1946,6 @@ abstract class $ClaimReview implements $Review {
 /// A class, also often called a 'Type'; equivalent to rdfs:Class.
 @Schema()
 abstract class $Class implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
   @Schema(
     description:
@@ -2845,12 +1957,6 @@ abstract class $Class implements $Intangible {
 /// A short TV or radio program or a segment/part of a program.
 @Schema()
 abstract class $Clip implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -2916,33 +2022,15 @@ abstract class $Clip implements $CreativeWork {
 
 /// A clothing store.
 @Schema()
-abstract class $ClothingStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ClothingStore implements $Store {}
 
 /// Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
 @Schema()
-abstract class $Code implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Code implements $CreativeWork {}
 
 /// A collection of items, e.g. creative works or products.
 @Schema()
 abstract class $Collection implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of items in the [[Collection]].
   @Schema(description: "The number of items in the [[Collection]].")
   num? get collectionSize;
@@ -2950,63 +2038,27 @@ abstract class $Collection implements $CreativeWork {
 
 /// Web page type: Collection page.
 @Schema()
-abstract class $CollectionPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CollectionPage implements $WebPage {}
 
 /// A college, university, or other third-level educational institution.
 @Schema()
-abstract class $CollegeOrUniversity implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CollegeOrUniversity implements $EducationalOrganization {}
 
 /// A comedy club.
 @Schema()
-abstract class $ComedyClub implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComedyClub implements $EntertainmentBusiness {}
 
 /// Event type: Comedy event.
 @Schema()
-abstract class $ComedyEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComedyEvent implements $Event {}
 
 /// The artwork on the cover of a comic.
 @Schema()
-abstract class $ComicCoverArt implements $ComicStory, $CoverArt {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComicCoverArt implements $ComicStory, $CoverArt {}
 
 /// Individual comic issues are serially published as     	part of a larger series. For the sake of consistency, even one-shot issues     	belong to a series comprised of a single issue. All comic issues can be     	uniquely identified by: the combination of the name and volume number of the     	series to which the issue belongs; the issue number; and the variant     	description of the issue (if any).
 @Schema()
 abstract class $ComicIssue implements $PublicationIssue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The primary artist for a work     	in a medium other than pencils or digital line art--for example, if the     	primary artwork is done in watercolors or digital paints.
   @Schema(
     description:
@@ -3048,23 +2100,11 @@ abstract class $ComicIssue implements $PublicationIssue {
 
 /// A sequential publication of comic stories under a     	unifying title, for example "The Amazing Spider-Man" or "Groo the     	Wanderer".
 @Schema()
-abstract class $ComicSeries implements $Periodical {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComicSeries implements $Periodical {}
 
 /// The term "story" is any indivisible, re-printable     	unit of a comic, including the interior stories, covers, and backmatter. Most     	comics have at least two stories: a cover (ComicCoverArt) and an interior story.
 @Schema()
 abstract class $ComicStory implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The primary artist for a work     	in a medium other than pencils or digital line art--for example, if the     	primary artwork is done in watercolors or digital paints.
   @Schema(
     description:
@@ -3100,12 +2140,6 @@ abstract class $ComicStory implements $CreativeWork {
 /// A comment on an item - for example, a comment on a blog post. The comment's content is expressed via the [[text]] property, and its topic via [[about]], properties shared with all CreativeWorks.
 @Schema()
 abstract class $Comment implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of downvotes this question, answer or comment has received from the community.
   @Schema(
     description:
@@ -3138,12 +2172,6 @@ abstract class $Comment implements $CreativeWork {
 /// The act of generating a comment about a subject.
 @Schema()
 abstract class $CommentAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of result. The Comment created or sent as a result of this action.
   @Schema(
     description:
@@ -3155,12 +2183,6 @@ abstract class $CommentAction implements $CommunicateAction {
 /// The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.
 @Schema()
 abstract class $CommunicateAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -3189,23 +2211,11 @@ abstract class $CommunicateAction implements $InteractAction {
 
 /// A [[CompleteDataFeed]] is a [[DataFeed]] whose standard representation includes content for every item currently in the feed.  This is the equivalent of Atom's element as defined in Feed Paging and Archiving [RFC 5005](https://tools.ietf.org/html/rfc5005), for example (and as defined for Atom), when using data from a feed that represents a collection of items that varies over time (e.g. "Top Twenty Records") there is no need to have newer entries mixed in alongside older, obsolete entries. By marking this feed as a CompleteDataFeed, old entries can be safely discarded when the feed is refreshed, since we can assume the feed has provided descriptions for all current items.
 @Schema()
-abstract class $CompleteDataFeed implements $DataFeed {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CompleteDataFeed implements $DataFeed {}
 
 /// A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. "electricity" or "final cleaning").
 @Schema()
 abstract class $CompoundPriceSpecification implements $PriceSpecification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// This property links to all [[UnitPriceSpecification]] nodes that apply in parallel for the [[CompoundPriceSpecification]] node.
   @Schema(
     description:
@@ -3223,63 +2233,27 @@ abstract class $CompoundPriceSpecification implements $PriceSpecification {
 
 /// This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the [[Language]] type.
 @Schema()
-abstract class $ComputerLanguage implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComputerLanguage implements $Intangible {}
 
 /// A computer store.
 @Schema()
-abstract class $ComputerStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ComputerStore implements $Store {}
 
 /// Event type: Conference event.
 @Schema()
-abstract class $ConferenceEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ConferenceEvent implements $Event {}
 
 /// The act of notifying someone that a future event/action is going to happen as expected.\n\nRelated actions:\n\n* [[CancelAction]]: The antonym of ConfirmAction.
 @Schema()
-abstract class $ConfirmAction implements $InformAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ConfirmAction implements $InformAction {}
 
 /// A Consortium is a membership [[Organization]] whose members are typically Organizations.
 @Schema()
-abstract class $Consortium implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Consortium implements $Organization {}
 
 /// The ConstraintNode type is provided to support usecases in which a node in a structured data graph is described with properties which appear to describe a single entity, but are being used in a situation where they serve a more abstract purpose. A [[ConstraintNode]] can be described using [[constraintProperty]] and [[numConstraints]]. These constraint properties can serve a     variety of purposes, and their values may sometimes be understood to indicate sets of possible values rather than single, exact and specific values.
 @Schema()
 abstract class $ConstraintNode implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a property used as a constraint. For example, in the definition of a [[StatisticalVariable]]. The value is a property, either from within Schema.org or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org.
   @Schema(
     description:
@@ -3298,12 +2272,6 @@ abstract class $ConstraintNode implements $Intangible {
 /// The act of ingesting information/resources/food.
 @Schema()
 abstract class $ConsumeAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A set of requirements that must be fulfilled in order to perform an Action. If more than one value is specified, fulfilling one set of requirements will allow the Action to be performed.
   @Schema(
     description:
@@ -3321,23 +2289,11 @@ abstract class $ConsumeAction implements $Action {
 
 /// Web page type: Contact page.
 @Schema()
-abstract class $ContactPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ContactPage implements $WebPage {}
 
 /// A contact point&#x2014;for example, a Customer Complaints department.
 @Schema()
 abstract class $ContactPoint implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The geographic area where a service or offered item is provided.
   @Schema(
     description:
@@ -3398,63 +2354,27 @@ abstract class $ContactPoint implements $StructuredValue {
 
 /// Enumerated options related to a ContactPoint.
 @Schema()
-abstract class $ContactPointOption implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ContactPointOption implements $Enumeration {}
 
 /// One of the continents (for example, Europe or Africa).
 @Schema()
-abstract class $Continent implements $Landform {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Continent implements $Landform {}
 
 /// An agent controls a device or application.
 @Schema()
-abstract class $ControlAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ControlAction implements $Action {}
 
 /// A convenience store.
 @Schema()
-abstract class $ConvenienceStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ConvenienceStore implements $Store {}
 
 /// One or more messages between organizations or people on a particular topic. Individual messages can be linked to the conversation with isPartOf or hasPart properties.
 @Schema()
-abstract class $Conversation implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Conversation implements $CreativeWork {}
 
 /// The act of producing/preparing food.
 @Schema()
 abstract class $CookAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The specific food establishment where the action occurred.
   @Schema(
     description:
@@ -3479,23 +2399,11 @@ abstract class $CookAction implements $CreateAction {
 
 /// An organization that is a joint project of multiple organizations or persons.
 @Schema()
-abstract class $Cooperative implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Cooperative implements $Organization {}
 
 /// Organization: A business corporation.
 @Schema()
 abstract class $Corporation implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we recommend using the controlled vocabulary of Market Identifier Codes (MIC) specified in ISO 15022.
   @Schema(
     description:
@@ -3506,33 +2414,15 @@ abstract class $Corporation implements $Organization {
 
 /// A [[comment]] that corrects [[CreativeWork]].
 @Schema()
-abstract class $CorrectionComment implements $Comment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CorrectionComment implements $Comment {}
 
 /// A country.
 @Schema()
-abstract class $Country implements $AdministrativeArea {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Country implements $AdministrativeArea {}
 
 /// A description of an educational course which may be offered as distinct instances which take place at different times or take place at different locations, or be offered through different media or modes of study. An educational course is a sequence of one or more educational events and/or creative works which aims to build knowledge, competence or ability of learners.
 @Schema()
 abstract class $Course implements $CreativeWork, $LearningResource {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
   @Schema(
     description:
@@ -3607,12 +2497,6 @@ abstract class $Course implements $CreativeWork, $LearningResource {
 /// An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.
 @Schema()
 abstract class $CourseInstance implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous).
   @Schema(
     description:
@@ -3644,53 +2528,23 @@ abstract class $CourseInstance implements $Event {
 
 /// A courthouse.
 @Schema()
-abstract class $Courthouse implements $GovernmentBuilding {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Courthouse implements $GovernmentBuilding {}
 
 /// The artwork on the outer surface of a CreativeWork.
 @Schema()
-abstract class $CoverArt implements $VisualArtwork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CoverArt implements $VisualArtwork {}
 
 /// A CovidTestingFacility is a [[MedicalClinic]] where testing for the COVID-19 Coronavirus       disease is available. If the facility is being made available from an established [[Pharmacy]], [[Hotel]], or other       non-medical organization, multiple types can be listed. This makes it easier to re-use existing schema.org information       about that place, e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable.
 @Schema()
-abstract class $CovidTestingFacility implements $MedicalClinic {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CovidTestingFacility implements $MedicalClinic {}
 
 /// The act of deliberately creating/producing/generating/building a result out of the agent.
 @Schema()
-abstract class $CreateAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CreateAction implements $Action {}
 
 /// The most generic kind of creative work, including books, movies, photographs, software programs, etc.
 @Schema()
 abstract class $CreativeWork implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -4437,12 +3291,6 @@ abstract class $CreativeWork implements $Thing {
 /// A media season, e.g. TV, radio, video game etc.
 @Schema()
 abstract class $CreativeWorkSeason implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -4514,12 +3362,6 @@ abstract class $CreativeWorkSeason implements $CreativeWork {
 /// A CreativeWorkSeries in schema.org is a group of related items, typically but not necessarily of the same kind. CreativeWorkSeries are usually organized into some order, often chronological. Unlike [[ItemList]] which is a general purpose data structure for lists of things, the emphasis with CreativeWorkSeries is on published materials (written e.g. books and periodicals, or media such as TV, radio and games).\n\nSpecific subtypes are available for describing [[TVSeries]], [[RadioSeries]], [[MovieSeries]], [[BookSeries]], [[Periodical]] and [[VideoGameSeries]]. In each case, the [[hasPart]] / [[isPartOf]] properties can be used to relate the CreativeWorkSeries to its parts. The general CreativeWorkSeries type serves largely just to organize these more specific and practical subtypes.\n\nIt is common for properties applicable to an item from the series to be usefully applied to the containing group. Schema.org attempts to anticipate some of these cases, but publishers should be free to apply properties of the series parts to the series as a whole wherever they seem appropriate.
 @Schema()
 abstract class $CreativeWorkSeries implements $CreativeWork, $Series {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
   @Schema(
     description:
@@ -4545,12 +3387,6 @@ abstract class $CreativeWorkSeries implements $CreativeWork, $Series {
 /// A credential is a certificate that is used to verify the identity of a person or entity.
 @Schema()
 abstract class $Credential implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The category or type of credential being described, for example "degree”, “certificate”, “badge”, or more specific term.
   @Schema(
     description:
@@ -4579,63 +3415,27 @@ abstract class $Credential implements $CreativeWork {
 
 /// A card payment method of a particular brand or name.  Used to mark up a particular payment method and/or the financial product/service that supplies the card account.\n\nCommonly used values:\n\n* http://purl.org/goodrelations/v1#AmericanExpress\n* http://purl.org/goodrelations/v1#DinersClub\n* http://purl.org/goodrelations/v1#Discover\n* http://purl.org/goodrelations/v1#JCB\n* http://purl.org/goodrelations/v1#MasterCard\n* http://purl.org/goodrelations/v1#VISA
 @Schema()
-abstract class $CreditCard implements $LoanOrCredit, $PaymentCard {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CreditCard implements $LoanOrCredit, $PaymentCard {}
 
 /// A crematorium.
 @Schema()
-abstract class $Crematorium implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Crematorium implements $CivicStructure {}
 
 /// A [[CriticReview]] is a more specialized form of Review written or published by a source that is recognized for its reviewing activities. These can include online columns, travel and food guides, TV and radio shows, blogs and other independent Web sites. [[CriticReview]]s are typically more in-depth and professionally written. For simpler, casually written user/visitor/viewer/customer reviews, it is more appropriate to use the [[UserReview]] type. Review aggregator sites such as Metacritic already separate out the site's user reviews from selected critic reviews that originate from third-party sources.
 @Schema()
-abstract class $CriticReview implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CriticReview implements $Review {}
 
 /// Text representing a CSS selector.
 @Schema()
-abstract class $CssSelectorType implements $Text {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CssSelectorType implements $Text {}
 
 /// A service to convert funds from one currency to another currency.
 @Schema()
-abstract class $CurrencyConversionService implements $FinancialProduct {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $CurrencyConversionService implements $FinancialProduct {}
 
 /// An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.
 @Schema()
 abstract class $DDxElement implements $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
   @Schema(
     description:
@@ -4653,43 +3453,19 @@ abstract class $DDxElement implements $MedicalIntangible {
 
 /// DENonprofitType: Non-profit organization type originating from Germany in accordance with article 52 of the German fiscal code (Abgabenverordnung or AO).
 @Schema()
-abstract class $DENonprofitType implements $NonprofitType {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DENonprofitType implements $NonprofitType {}
 
 /// Event type: A social dance.
 @Schema()
-abstract class $DanceEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DanceEvent implements $Event {}
 
 /// A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.
 @Schema()
-abstract class $DanceGroup implements $PerformingGroup {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DanceGroup implements $PerformingGroup {}
 
 /// A collection of datasets.
 @Schema()
 abstract class $DataCatalog implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A dataset contained in this catalog.
   @Schema(description: "A dataset contained in this catalog.")
   $Dataset? get dataset;
@@ -4712,12 +3488,6 @@ abstract class $DataCatalog implements $CreativeWork {
 /// All or part of a [[Dataset]] in downloadable form.
 @Schema()
 abstract class $DataDownload implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
   @Schema(
     description:
@@ -4736,12 +3506,6 @@ abstract class $DataDownload implements $MediaObject {
 /// A single feed providing structured information about one or more entities or topics.
 @Schema()
 abstract class $DataFeed implements $Dataset {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An item within a data feed. Data feeds may have many elements.
   @Schema(
     description:
@@ -4753,12 +3517,6 @@ abstract class $DataFeed implements $Dataset {
 /// A single item within a larger data feed.
 @Schema()
 abstract class $DataFeedItem implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The date on which the CreativeWork was created or the item was added to a DataFeed.
   @Schema(
     description:
@@ -4787,23 +3545,11 @@ abstract class $DataFeedItem implements $Intangible {
 
 /// The basic data types such as Integers, Strings, etc.
 @Schema()
-abstract class $DataType implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DataType implements $SchemaThing {}
 
 /// A body of structured information describing some topic(s) of interest.
 @Schema()
 abstract class $Dataset implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A data catalog which contains this dataset.
   @Schema(description: "A data catalog which contains this dataset.")
   $DataCatalog? get catalog;
@@ -4864,33 +3610,15 @@ abstract class $Dataset implements $CreativeWork {
 
 /// A date value in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
 @Schema()
-abstract class $Date implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Date implements $SchemaThing {}
 
 /// A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601).
 @Schema()
-abstract class $DateTime implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DateTime implements $SchemaThing {}
 
 /// A DatedMoneySpecification represents monetary values with optional start and end dates. For example, this could represent an employee's salary over a specific period of time. __Note:__ This type has been superseded by [[MonetaryAmount]], use of that type is recommended.
 @Schema()
 abstract class $DatedMoneySpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The amount of money.
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
@@ -4919,63 +3647,27 @@ abstract class $DatedMoneySpecification implements $StructuredValue {
 
 /// The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.  Originally, URLs from [GoodRelations](http://purl.org/goodrelations/v1) were used (for [[Monday]], [[Tuesday]], [[Wednesday]], [[Thursday]], [[Friday]], [[Saturday]], [[Sunday]] plus a special entry for [[PublicHolidays]]); these have now been integrated directly into schema.org.
 @Schema()
-abstract class $DayOfWeek implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DayOfWeek implements $Enumeration {}
 
 /// A day spa.
 @Schema()
-abstract class $DaySpa implements $HealthAndBeautyBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DaySpa implements $HealthAndBeautyBusiness {}
 
 /// The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight).
 @Schema()
-abstract class $DeactivateAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DeactivateAction implements $ControlAction {}
 
 /// A Declaration of Conformity (DoC), a formal document issued by a manufacturer declaring that a product meets specific regulatory requirements.
 @Schema()
-abstract class $DeclarationOfConformity implements $Certification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DeclarationOfConformity implements $Certification {}
 
 /// A defence establishment, such as an army or navy base.
 @Schema()
-abstract class $DefenceEstablishment implements $GovernmentBuilding {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DefenceEstablishment implements $GovernmentBuilding {}
 
 /// A DefinedRegion is a geographic area defined by potentially arbitrary (rather than political, administrative or natural geographical) criteria. Properties are provided for defining a region by reference to sets of postal codes.  Examples: a delivery destination when shopping. Region where regional pricing is configured.  Requirement 1: Country: US States: "NY", "CA"  Requirement 2: Country: US PostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]} { [12345, 12345], [78945, 78945], } Region = state, canton, prefecture, autonomous community...
 @Schema()
 abstract class $DefinedRegion implements $Place, $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
   @Schema(
     description:
@@ -5009,12 +3701,6 @@ abstract class $DefinedRegion implements $Place, $StructuredValue {
 /// A word, name, acronym, phrase, etc. with a formal definition. Often used in the context of category or subject classification, glossaries or dictionaries, product or creative work types, etc. Use the name property for the term being defined, use termCode if the term has an alpha-numeric code allocated, use description to provide the definition of the term. Use the about property to specify what the term is about.
 @Schema()
 abstract class $DefinedTerm implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -5034,12 +3720,6 @@ abstract class $DefinedTerm implements $Intangible {
 /// A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration. Use the about property to specify what the term set is about.
 @Schema()
 abstract class $DefinedTermSet implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -5051,23 +3731,11 @@ abstract class $DefinedTermSet implements $CreativeWork {
 
 /// The act of editing a recipient by removing one of its objects.
 @Schema()
-abstract class $DeleteAction implements $UpdateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DeleteAction implements $UpdateAction {}
 
 /// The price for the delivery of an offer using a particular delivery method.
 @Schema()
 abstract class $DeliveryChargeSpecification implements $PriceSpecification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The delivery method(s) to which the delivery charge or payment charge specification applies.
   @Schema(
     description:
@@ -5100,12 +3768,6 @@ abstract class $DeliveryChargeSpecification implements $PriceSpecification {
 /// An event involving the delivery of an item.
 @Schema()
 abstract class $DeliveryEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Password, PIN, or access code needed for delivery (e.g. from a locker).
   @Schema(
     description:
@@ -5134,23 +3796,11 @@ abstract class $DeliveryEvent implements $Event {
 
 /// A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending organization or person.\n\nCommonly used values:\n\n* http://purl.org/goodrelations/v1#DeliveryModeDirectDownload\n* http://purl.org/goodrelations/v1#DeliveryModeFreight\n* http://purl.org/goodrelations/v1#DeliveryModeMail\n* http://purl.org/goodrelations/v1#DeliveryModeOwnFleet\n* http://purl.org/goodrelations/v1#DeliveryModePickUp\n* http://purl.org/goodrelations/v1#DHL\n* http://purl.org/goodrelations/v1#FederalExpress\n* http://purl.org/goodrelations/v1#UPS
 @Schema()
-abstract class $DeliveryMethod implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DeliveryMethod implements $Enumeration {}
 
 /// A DeliveryTimeSettings represents re-usable pieces of shipping information, relating to timing. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished (and identified/referenced) by their different values for [[transitTimeLabel]].
 @Schema()
 abstract class $DeliveryTimeSettings implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The total delay between the receipt of the order and the goods reaching the final customer.
   @Schema(
     description:
@@ -5183,12 +3833,6 @@ abstract class $DeliveryTimeSettings implements $StructuredValue {
 /// A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.
 @Schema()
 abstract class $Demand implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
   @Schema(
     description:
@@ -5418,53 +4062,23 @@ abstract class $Demand implements $Intangible {
 /// A dentist.
 @Schema()
 abstract class $Dentist
-    implements $LocalBusiness, $MedicalBusiness, $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $LocalBusiness, $MedicalBusiness, $MedicalOrganization {}
 
 /// The act of  departing from a place. An agent departs from a fromLocation for a destination, optionally with participants.
 @Schema()
-abstract class $DepartAction implements $MoveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DepartAction implements $MoveAction {}
 
 /// A department store.
 @Schema()
-abstract class $DepartmentStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DepartmentStore implements $Store {}
 
 /// A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits.
 @Schema()
-abstract class $DepositAccount implements $BankAccount, $InvestmentOrDeposit {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DepositAccount implements $BankAccount, $InvestmentOrDeposit {}
 
 /// A medical laboratory that offers on-site or off-site diagnostic services.
 @Schema()
 abstract class $DiagnosticLab implements $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A diagnostic test or procedure offered by this lab.
   @Schema(description: "A diagnostic test or procedure offered by this lab.")
   $MedicalTest? get availableTest;
@@ -5472,23 +4086,11 @@ abstract class $DiagnosticLab implements $MedicalOrganization {
 
 /// A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.
 @Schema()
-abstract class $DiagnosticProcedure implements $MedicalProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DiagnosticProcedure implements $MedicalProcedure {}
 
 /// A strategy of regulating the intake of food to achieve or maintain a specific health-related goal.
 @Schema()
 abstract class $Diet implements $CreativeWork, $LifestyleModification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines.
   @Schema(
     description:
@@ -5518,12 +4120,6 @@ abstract class $Diet implements $CreativeWork, $LifestyleModification {
 /// A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.
 @Schema()
 abstract class $DietarySupplement implements $Product, $Substance {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An active ingredient, typically chemical compounds and/or biologic substances.
   @Schema(
     description:
@@ -5595,12 +4191,6 @@ abstract class $DietarySupplement implements $Product, $Substance {
 /// An electronic file or document.
 @Schema()
 abstract class $DigitalDocument implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A permission related to the access to this document (e.g. permission to read or write an electronic document). For a public document, specify a grantee with an Audience with audienceType equal to "public".
   @Schema(
     description:
@@ -5612,12 +4202,6 @@ abstract class $DigitalDocument implements $CreativeWork {
 /// A permission for a particular person or group to access a particular file.
 @Schema()
 abstract class $DigitalDocumentPermission implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The person, organization, contact point, or audience that has been granted this permission.
   @Schema(
     description:
@@ -5635,103 +4219,43 @@ abstract class $DigitalDocumentPermission implements $Intangible {
 
 /// A type of permission which can be granted for accessing a digital document.
 @Schema()
-abstract class $DigitalDocumentPermissionType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DigitalDocumentPermissionType implements $Enumeration {}
 
 /// Enumerates some common technology platforms, for use with properties such as [[actionPlatform]]. It is not supposed to be comprehensive - when a suitable code is not enumerated here, textual or URL values can be used instead. These codes are at a fairly high level and do not deal with versioning and other nuance. Additional codes can be suggested [in github](https://github.com/schemaorg/schemaorg/issues/3057).
 @Schema()
-abstract class $DigitalPlatformEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DigitalPlatformEnumeration implements $Enumeration {}
 
 /// A digital product passport (DPP), a record containing information about a product's lifecycle, sustainability, and compliance.
 @Schema()
-abstract class $DigitalProductPassport implements $Certification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DigitalProductPassport implements $Certification {}
 
 /// The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.
 @Schema()
-abstract class $DisagreeAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DisagreeAction implements $ReactAction {}
 
 /// The act of discovering/finding an object.
 @Schema()
-abstract class $DiscoverAction implements $FindAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DiscoverAction implements $FindAction {}
 
 /// A posting to a discussion forum.
 @Schema()
-abstract class $DiscussionForumPosting implements $SocialMediaPosting {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DiscussionForumPosting implements $SocialMediaPosting {}
 
 /// The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.
 @Schema()
-abstract class $DislikeAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DislikeAction implements $ReactAction {}
 
 /// Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'.
 @Schema()
-abstract class $Distance implements $Quantity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Distance implements $Quantity {}
 
 /// A distillery.
 @Schema()
-abstract class $Distillery implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Distillery implements $FoodEstablishment {}
 
 /// The act of providing goods, services, or money without compensation, often for philanthropic reasons.
 @Schema()
 abstract class $DonateAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
   @Schema(
     description:
@@ -5764,12 +4288,6 @@ abstract class $DonateAction implements $TransferAction {
 /// A specific dosing schedule for a drug or supplement.
 @Schema()
 abstract class $DoseSchedule implements $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The unit of the dose, e.g. 'mg'.
   @Schema(description: "The unit of the dose, e.g. 'mg'.")
   String? get doseUnit;
@@ -5792,63 +4310,27 @@ abstract class $DoseSchedule implements $MedicalIntangible {
 
 /// The act of downloading an object.
 @Schema()
-abstract class $DownloadAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DownloadAction implements $TransferAction {}
 
 /// The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments.
 @Schema()
-abstract class $DrawAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DrawAction implements $CreateAction {}
 
 /// A picture or diagram made with a pencil, pen, or crayon rather than paint.
 @Schema()
-abstract class $Drawing implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Drawing implements $CreativeWork {}
 
 /// The act of swallowing liquids.
 @Schema()
-abstract class $DrinkAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DrinkAction implements $ConsumeAction {}
 
 /// A value indicating which roadwheels will receive torque.
 @Schema()
-abstract class $DriveWheelConfigurationValue implements $QualitativeValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DriveWheelConfigurationValue implements $QualitativeValue {}
 
 /// A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism. Here the term drug is used interchangeably with the term medicine although clinical knowledge makes a clear difference between them.
 @Schema()
 abstract class $Drug implements $Product, $Substance {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An active ingredient, typically chemical compounds and/or biologic substances.
   @Schema(
     description:
@@ -6036,12 +4518,6 @@ abstract class $Drug implements $Product, $Substance {
 /// A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.
 @Schema()
 abstract class $DrugClass implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifying a drug or medicine used in a medication procedure.
   @Schema(
     description:
@@ -6053,12 +4529,6 @@ abstract class $DrugClass implements $MedicalEntity {
 /// The cost per unit of a medical drug. Note that this type is not meant to represent the price in an offer of a drug for sale; see the Offer type for that. This type will typically be used to tag wholesale or average retail cost of a drug, or maximum reimbursable cost. Costs of medical drugs vary widely depending on how and where they are paid for, so while this type captures some of the variables, costs should be used with caution by consumers of this schema's markup.
 @Schema()
 abstract class $DrugCost implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The location in which the status applies.
   @Schema(description: "The location in which the status applies.")
   $AdministrativeArea? get applicableLocation;
@@ -6097,23 +4567,11 @@ abstract class $DrugCost implements $MedicalEntity {
 
 /// Enumerated categories of medical drug costs.
 @Schema()
-abstract class $DrugCostCategory implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DrugCostCategory implements $MedicalEnumeration {}
 
 /// The legal availability status of a medical drug.
 @Schema()
 abstract class $DrugLegalStatus implements $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The location in which the status applies.
   @Schema(description: "The location in which the status applies.")
   $AdministrativeArea? get applicableLocation;
@@ -6121,33 +4579,15 @@ abstract class $DrugLegalStatus implements $MedicalIntangible {
 
 /// Categories that represent an assessment of the risk of fetal injury due to a drug or pharmaceutical used as directed by the mother during pregnancy.
 @Schema()
-abstract class $DrugPregnancyCategory implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DrugPregnancyCategory implements $MedicalEnumeration {}
 
 /// Indicates whether this drug is available by prescription or over-the-counter.
 @Schema()
-abstract class $DrugPrescriptionStatus implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DrugPrescriptionStatus implements $MedicalEnumeration {}
 
 /// A specific strength in which a medical drug is available in a specific country.
 @Schema()
 abstract class $DrugStrength implements $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An active ingredient, typically chemical compounds and/or biologic substances.
   @Schema(
     description:
@@ -6179,54 +4619,24 @@ abstract class $DrugStrength implements $MedicalIntangible {
 
 /// A dry-cleaning business.
 @Schema()
-abstract class $DryCleaningOrLaundry implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $DryCleaningOrLaundry implements $LocalBusiness {}
 
 /// Quantity: Duration (use [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)).
 @Schema()
-abstract class $Duration implements $Quantity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Duration implements $Quantity {}
 
 /// Enumerates the EU energy efficiency classes A-G as well as A+, A++, and A+++ as defined in EU directive 2017/1369.
 @Schema()
 abstract class $EUEnergyEfficiencyEnumeration
-    implements $EnergyEfficiencyEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $EnergyEfficiencyEnumeration {}
 
 /// The act of swallowing solid objects.
 @Schema()
-abstract class $EatAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EatAction implements $ConsumeAction {}
 
 /// Event type: Education event.
 @Schema()
 abstract class $EducationEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The item being described is intended to assess the competency or learning outcome defined by the referenced term.
   @Schema(
     description:
@@ -6252,12 +4662,6 @@ abstract class $EducationEvent implements $Event {
 /// An EducationalAudience.
 @Schema()
 abstract class $EducationalAudience implements $Audience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An educationalRole of an EducationalAudience.
   @Schema(description: "An educationalRole of an EducationalAudience.")
   String? get educationalRole;
@@ -6266,12 +4670,6 @@ abstract class $EducationalAudience implements $Audience {
 /// An educational or occupational credential. A diploma, academic degree, certification, qualification, badge, etc., that may be awarded to a person or other entity that meets the requirements defined by the credentialer.
 @Schema()
 abstract class $EducationalOccupationalCredential implements $Credential {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
   @Schema(
     description:
@@ -6290,12 +4688,6 @@ abstract class $EducationalOccupationalCredential implements $Credential {
 /// A program offered by an institution which determines the learning progress to achieve an outcome, usually a credential like a degree or certificate. This would define a discrete set of opportunities (e.g., job, courses) that together constitute a program with a clear start, end, set of requirements, and transition to a new occupational opportunity (e.g., a job), or sometimes a higher educational opportunity (e.g., an advanced degree).
 @Schema()
 abstract class $EducationalOccupationalProgram implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The date on which the program stops collecting applications for the next enrollment cycle. Flexible application deadlines (for example, a program with rolling admissions) can be described in a textual string, rather than as a DateTime.
   @Schema(
     description:
@@ -6459,12 +4851,6 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
 @Schema()
 abstract class $EducationalOrganization
     implements $CivicStructure, $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Alumni of an organization.
   @Schema(description: "Alumni of an organization.")
   $Person? get alumni;
@@ -6472,73 +4858,31 @@ abstract class $EducationalOrganization
 
 /// An electrician.
 @Schema()
-abstract class $Electrician implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Electrician implements $HomeAndConstructionBusiness {}
 
 /// An electronics store.
 @Schema()
-abstract class $ElectronicsStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ElectronicsStore implements $Store {}
 
 /// An elementary school.
 @Schema()
-abstract class $ElementarySchool implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ElementarySchool implements $EducationalOrganization {}
 
 /// An email message.
 @Schema()
-abstract class $EmailMessage implements $Message {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EmailMessage implements $Message {}
 
 /// An embassy.
 @Schema()
-abstract class $Embassy implements $GovernmentBuilding {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Embassy implements $GovernmentBuilding {}
 
 /// An emergency service, such as a fire station or ER.
 @Schema()
-abstract class $EmergencyService implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EmergencyService implements $LocalBusiness {}
 
 /// A subclass of OrganizationRole used to describe employee relationships.
 @Schema()
 abstract class $EmployeeRole implements $OrganizationRole {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The base salary of the job or of an employee in an EmployeeRole.
   @Schema(
     description:
@@ -6556,43 +4900,19 @@ abstract class $EmployeeRole implements $OrganizationRole {
 
 /// An aggregate rating of an Organization related to its role as an employer.
 @Schema()
-abstract class $EmployerAggregateRating implements $AggregateRating {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EmployerAggregateRating implements $AggregateRating {}
 
 /// An [[EmployerReview]] is a review of an [[Organization]] regarding its role as an employer, written by a current or former employee of that organization.
 @Schema()
-abstract class $EmployerReview implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EmployerReview implements $Review {}
 
 /// An employment agency.
 @Schema()
-abstract class $EmploymentAgency implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EmploymentAgency implements $LocalBusiness {}
 
 /// An agent approves/certifies/likes/supports/sanctions an object.
 @Schema()
 abstract class $EndorseAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The person/organization being supported.
   @Schema(
     description:
@@ -6603,33 +4923,15 @@ abstract class $EndorseAction implements $ReactAction {
 
 /// An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a "critic's pick" blog, a "Like" or "+1" on a social network. It can be considered the [[result]] of an [[EndorseAction]] in which the [[object]] of the action is rated positively by some [[agent]]. As is common elsewhere in schema.org, it is sometimes more useful to describe the results of such an action without explicitly describing the [[Action]].  An [[EndorsementRating]] may be part of a numeric scale or organized system, but this is not required: having an explicit type for indicating a positive, endorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.
 @Schema()
-abstract class $EndorsementRating implements $Rating {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EndorsementRating implements $Rating {}
 
 /// Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'.
 @Schema()
-abstract class $Energy implements $Quantity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Energy implements $Quantity {}
 
 /// EnergyConsumptionDetails represents information related to the energy efficiency of a product that consumes energy. The information that can be provided is based on international regulations such as for example [EU directive 2017/1369](https://eur-lex.europa.eu/eli/reg/2017/1369/oj) for energy labeling and the [Energy labeling rule](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/energy-water-use-labeling-consumer) under the Energy Policy and Conservation Act (EPCA) in the US.
 @Schema()
 abstract class $EnergyConsumptionDetails implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifies the most energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++.
   @Schema(
     description:
@@ -6654,34 +4956,16 @@ abstract class $EnergyConsumptionDetails implements $Intangible {
 
 /// Enumerates energy efficiency levels (also known as "classes" or "ratings") and certifications that are part of several international energy efficiency standards.
 @Schema()
-abstract class $EnergyEfficiencyEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EnergyEfficiencyEnumeration implements $Enumeration {}
 
 /// Used to indicate whether a product is EnergyStar certified.
 @Schema()
 abstract class $EnergyStarEnergyEfficiencyEnumeration
-    implements $EnergyEfficiencyEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $EnergyEfficiencyEnumeration {}
 
 /// Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities.
 @Schema()
 abstract class $EngineSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. \n\nTypical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches\n* Note 1: You can link to information about how the given value has been determined using the [[valueReference]] property.\n* Note 2: You can use [[minValue]] and [[maxValue]] to indicate ranges.
   @Schema(
     description:
@@ -6717,23 +5001,11 @@ abstract class $EngineSpecification implements $StructuredValue {
 
 /// A business providing entertainment.
 @Schema()
-abstract class $EntertainmentBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EntertainmentBusiness implements $LocalBusiness {}
 
 /// An entry point, within some Web-based protocol.
 @Schema()
 abstract class $EntryPoint implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An application that can complete the request.
   @Schema(description: "An application that can complete the request.")
   $SoftwareApplication? get actionApplication;
@@ -6779,12 +5051,6 @@ abstract class $EntryPoint implements $Intangible {
 /// Lists or enumerations—for example, a list of cuisines or music genres, etc.
 @Schema()
 abstract class $Enumeration implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
   @Schema(
     description:
@@ -6795,23 +5061,11 @@ abstract class $Enumeration implements $Intangible {
 
 /// An Environmental Product Declaration (EPD) that quantifies environmental information on the life cycle of a product.
 @Schema()
-abstract class $EnvironmentalProductDeclaration implements $Certification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EnvironmentalProductDeclaration implements $Certification {}
 
 /// A media episode (e.g. TV, radio, video game) which can be part of a series or season.
 @Schema()
 abstract class $Episode implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -6883,12 +5137,6 @@ abstract class $Episode implements $CreativeWork {
 /// Representation of an Error.
 @Schema()
 abstract class $Error implements $InstantaneousEvent {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Application or platform dependant error code.
   @Schema(description: "Application or platform dependant error code.")
   $SchemaUnion? get errorCode;
@@ -6897,12 +5145,6 @@ abstract class $Error implements $InstantaneousEvent {
 /// An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the [[offers]] property. Repeated events may be structured as separate Event objects.
 @Schema()
 abstract class $Event implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The subject matter of an object.
   @Schema(description: "The subject matter of an object.")
   $Thing? get about;
@@ -7182,63 +5424,27 @@ abstract class $Event implements $Thing {
 
 /// An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.
 @Schema()
-abstract class $EventAttendanceModeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EventAttendanceModeEnumeration implements $Enumeration {}
 
 /// A reservation for an event like a concert, sporting event, or lecture.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
-abstract class $EventReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EventReservation implements $Reservation {}
 
 /// A series of [[Event]]s. Included events can relate with the series using the [[superEvent]] property.  An EventSeries is a collection of events that share some unifying characteristic. For example, "The Olympic Games" is a series, which is repeated regularly. The "2012 London Olympics" can be presented both as an [[Event]] in the series "Olympic Games", and as an [[EventSeries]] that included a number of sporting competitions as Events.  The nature of the association between the events in an [[EventSeries]] can vary, but typical examples could include a thematic event series (e.g. topical meetups or classes), or a series of regular events that share a location, attendee group and/or organizers.  EventSeries has been defined as a kind of Event to make it easy for publishers to use it in an Event context without worrying about which kinds of series are really event-like enough to call an Event. In general an EventSeries may seem more Event-like when the period of time is compact and when aspects such as location are fixed, but it may also sometimes prove useful to describe a longer-term series as an Event.
 @Schema()
-abstract class $EventSeries implements $Event, $Series {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EventSeries implements $Event, $Series {}
 
 /// EventStatusType is an enumeration type whose instances represent several states that an Event may be in.
 @Schema()
-abstract class $EventStatusType implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EventStatusType implements $StatusEnumeration {}
 
 /// An event venue.
 @Schema()
-abstract class $EventVenue implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $EventVenue implements $CivicStructure {}
 
 /// A structured value representing exchange rate.
 @Schema()
 abstract class $ExchangeRateSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR".
   @Schema(
     description:
@@ -7261,12 +5467,6 @@ abstract class $ExchangeRateSpecification implements $StructuredValue {
 /// The act of participating in exertive activity for the purposes of improving health and fitness.
 @Schema()
 abstract class $ExerciseAction implements $PlayAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The course where this action was taken.
   @Schema(
     description:
@@ -7355,23 +5555,11 @@ abstract class $ExerciseAction implements $PlayAction {
 
 /// A gym.
 @Schema()
-abstract class $ExerciseGym implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ExerciseGym implements $SportsActivityLocation {}
 
 /// Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician.
 @Schema()
 abstract class $ExercisePlan implements $CreativeWork, $PhysicalActivity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Length of time to engage in the activity.
   @Schema(description: "Length of time to engage in the activity.")
   $SchemaUnion? get activityDuration;
@@ -7419,73 +5607,31 @@ abstract class $ExercisePlan implements $CreativeWork, $PhysicalActivity {
 
 /// Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow, ...
 @Schema()
-abstract class $ExhibitionEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ExhibitionEvent implements $Event {}
 
 /// A [[FAQPage]] is a [[WebPage]] presenting one or more "[Frequently asked questions](https://en.wikipedia.org/wiki/FAQ)" (see also [[QAPage]]).
 @Schema()
-abstract class $FAQPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FAQPage implements $WebPage {}
 
 /// A radio channel that uses FM.
 @Schema()
-abstract class $FMRadioChannel implements $RadioChannel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FMRadioChannel implements $RadioChannel {}
 
 /// A fast-food restaurant.
 @Schema()
-abstract class $FastFoodRestaurant implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FastFoodRestaurant implements $FoodEstablishment {}
 
 /// Event type: Festival.
 @Schema()
-abstract class $Festival implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Festival implements $Event {}
 
 /// The act of capturing sound and moving images on film, video, or digitally.
 @Schema()
-abstract class $FilmAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FilmAction implements $CreateAction {}
 
 /// <p>Represents financial incentives for goods/services offered by an organization (or individual).</p>  <p>Typically contains the [[name]] of the incentive, the [[incentivizedItem]], the [[incentiveAmount]], the [[incentiveStatus]], [[incentiveType]], the [[provider]] of the incentive, and [[eligibleWithSupplier]].</p>  <p>Optionally contains criteria on whether the incentive is limited based on [[purchaseType]], [[purchasePriceLimit]], [[incomeLimit]], and the [[qualifiedExpense]].
 @Schema()
 abstract class $FinancialIncentive implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The geographic area where a service or offered item is provided.
   @Schema(
     description:
@@ -7582,12 +5728,6 @@ abstract class $FinancialIncentive implements $Intangible {
 /// A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry.
 @Schema()
 abstract class $FinancialProduct implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
   @Schema(
     description:
@@ -7613,12 +5753,6 @@ abstract class $FinancialProduct implements $Service {
 /// Financial services business.
 @Schema()
 abstract class $FinancialService implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
   @Schema(
     description:
@@ -7629,33 +5763,15 @@ abstract class $FinancialService implements $LocalBusiness {
 
 /// The act of finding an object.\n\nRelated actions:\n\n* [[SearchAction]]: FindAction is generally lead by a SearchAction, but not necessarily.
 @Schema()
-abstract class $FindAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FindAction implements $Action {}
 
 /// A fire station. With firemen.
 @Schema()
-abstract class $FireStation implements $CivicStructure, $EmergencyService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FireStation implements $CivicStructure, $EmergencyService {}
 
 /// An airline flight.
 @Schema()
 abstract class $Flight implements $Trip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The kind of aircraft (e.g., "Boeing 747").
   @Schema(description: "The kind of aircraft (e.g., \"Boeing 747\").")
   $SchemaUnion? get aircraft;
@@ -7737,12 +5853,6 @@ abstract class $Flight implements $Trip {
 /// A reservation for air travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
 abstract class $FlightReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The airline-specific indicator of boarding order / preference.
   @Schema(
     description:
@@ -7772,23 +5882,11 @@ abstract class $FlightReservation implements $Reservation {
 
 /// Data type: Floating number.
 @Schema()
-abstract class $Float implements $Number {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Float implements $Number {}
 
 /// A FloorPlan is an explicit representation of a collection of similar accommodations, allowing the provision of common information (room counts, sizes, layout diagrams) and offers for rental or sale. In typical use, some [[ApartmentComplex]] has an [[accommodationFloorPlan]] which is a [[FloorPlan]].  A FloorPlan is always in the context of a particular place, either a larger [[ApartmentComplex]] or a single [[Apartment]]. The visual/spatial aspects of a floor plan (i.e. room layout, [see wikipedia](https://en.wikipedia.org/wiki/Floor_plan)) can be indicated using [[image]].
 @Schema()
 abstract class $FloorPlan implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
   @Schema(
     description:
@@ -7872,23 +5970,11 @@ abstract class $FloorPlan implements $Intangible {
 
 /// A florist.
 @Schema()
-abstract class $Florist implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Florist implements $Store {}
 
 /// The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.\n\nRelated actions:\n\n* [[BefriendAction]]: Unlike BefriendAction, FollowAction implies that the connection is *not* necessarily reciprocal.\n* [[SubscribeAction]]: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.\n* [[RegisterAction]]: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.\n* [[JoinAction]]: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.\n* [[TrackAction]]: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).
 @Schema()
 abstract class $FollowAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. The person or organization being followed.
   @Schema(
     description:
@@ -7900,12 +5986,6 @@ abstract class $FollowAction implements $InteractAction {
 /// A food-related business.
 @Schema()
 abstract class $FoodEstablishment implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```.
   @Schema(
     description:
@@ -7942,12 +6022,6 @@ abstract class $FoodEstablishment implements $LocalBusiness {
 /// A reservation to dine at a food-related business.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 @Schema()
 abstract class $FoodEstablishmentReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
   @Schema(
     description:
@@ -7969,73 +6043,31 @@ abstract class $FoodEstablishmentReservation implements $Reservation {
 
 /// Event type: Food event.
 @Schema()
-abstract class $FoodEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FoodEvent implements $Event {}
 
 /// A food service, like breakfast, lunch, or dinner.
 @Schema()
-abstract class $FoodService implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FoodService implements $Service {}
 
 /// A type of product fulfillment.
 @Schema()
-abstract class $FulfillmentTypeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FulfillmentTypeEnumeration implements $Enumeration {}
 
 /// A FundingAgency is an organization that implements one or more [[FundingScheme]]s and manages     the granting process (via [[Grant]]s, typically [[MonetaryGrant]]s).     A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc.      Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...
 @Schema()
-abstract class $FundingAgency implements $Project {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FundingAgency implements $Project {}
 
 /// A FundingScheme combines organizational, project and policy aspects of grant-based funding     that sets guidelines, principles and mechanisms to support other kinds of projects and activities.     Funding is typically organized via [[Grant]] funding. Examples of funding schemes: Swiss Priority Programmes (SPPs); EU Framework 7 (FP7); Horizon 2020; the NIH-R01 Grant Program; Wellcome institutional strategic support fund. For large scale public sector funding, the management and administration of grant awards is often handled by other, dedicated, organizations - [[FundingAgency]]s such as ERC, REA, ...
 @Schema()
-abstract class $FundingScheme implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FundingScheme implements $Organization {}
 
 /// A furniture store.
 @Schema()
-abstract class $FurnitureStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $FurnitureStore implements $Store {}
 
 /// The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.
 @Schema()
 abstract class $Game implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
   @Schema(
     description:
@@ -8073,33 +6105,15 @@ abstract class $Game implements $CreativeWork {
 
 /// For a [[VideoGame]], such as used with a [[PlayGameAction]], an enumeration of the kind of game availability offered.
 @Schema()
-abstract class $GameAvailabilityEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GameAvailabilityEnumeration implements $Enumeration {}
 
 /// Indicates whether this game is multi-player, co-op or single-player.
 @Schema()
-abstract class $GamePlayMode implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GamePlayMode implements $Enumeration {}
 
 /// Server that provides game interaction in a multiplayer game.
 @Schema()
 abstract class $GameServer implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Video game which is played on this server.
   @Schema(description: "Video game which is played on this server.")
   $VideoGame? get game;
@@ -8115,63 +6129,27 @@ abstract class $GameServer implements $Intangible {
 
 /// Status of a game server.
 @Schema()
-abstract class $GameServerStatus implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GameServerStatus implements $StatusEnumeration {}
 
 /// A garden store.
 @Schema()
-abstract class $GardenStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GardenStore implements $Store {}
 
 /// A gas station.
 @Schema()
-abstract class $GasStation implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GasStation implements $AutomotiveBusiness {}
 
 /// Residence type: Gated community.
 @Schema()
-abstract class $GatedResidenceCommunity implements $Residence {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GatedResidenceCommunity implements $Residence {}
 
 /// An enumeration of genders.
 @Schema()
-abstract class $GenderType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GenderType implements $Enumeration {}
 
 /// A discrete unit of inheritance which affects one or more biological traits (Source: [https://en.wikipedia.org/wiki/Gene](https://en.wikipedia.org/wiki/Gene)). Examples include FOXP2 (Forkhead box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype).
 @Schema()
 abstract class $Gene implements $BioChemEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Another gene which is a variation of this one.
   @Schema(description: "Another gene which is a variation of this one.")
   $Gene? get alternativeOf;
@@ -8197,23 +6175,11 @@ abstract class $Gene implements $BioChemEntity {
 
 /// A general contractor.
 @Schema()
-abstract class $GeneralContractor implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GeneralContractor implements $HomeAndConstructionBusiness {}
 
 /// A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape           it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius.           The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.
 @Schema()
 abstract class $GeoCircle implements $GeoShape {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the GeoCoordinates at the centre of a GeoShape, e.g. GeoCircle.
   @Schema(
     description:
@@ -8232,12 +6198,6 @@ abstract class $GeoCircle implements $GeoShape {
 /// The geographic coordinates of a place or event.
 @Schema()
 abstract class $GeoCoordinates implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Physical address of the item.
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
@@ -8278,12 +6238,6 @@ abstract class $GeoCoordinates implements $StructuredValue {
 /// The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.
 @Schema()
 abstract class $GeoShape implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Physical address of the item.
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
@@ -8338,12 +6292,6 @@ abstract class $GeoShape implements $StructuredValue {
 /// (Eventually to be defined as) a supertype of GeoShape designed to accommodate definitions from Geo-Spatial best practices.
 @Schema()
 abstract class $GeospatialGeometry implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
   @Schema(
     description:
@@ -8418,12 +6366,6 @@ abstract class $GeospatialGeometry implements $Intangible {
 /// The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\n\nRelated actions:\n\n* [[TakeAction]]: Reciprocal of GiveAction.\n* [[SendAction]]: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).
 @Schema()
 abstract class $GiveAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant who is at the receiving end of the action.
   @Schema(
     description:
@@ -8434,73 +6376,31 @@ abstract class $GiveAction implements $TransferAction {
 
 /// A golf course.
 @Schema()
-abstract class $GolfCourse implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GolfCourse implements $SportsActivityLocation {}
 
 /// GovernmentBenefitsType enumerates several kinds of government benefits to support the COVID-19 situation. Note that this structure may not capture all benefits offered.
 @Schema()
-abstract class $GovernmentBenefitsType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GovernmentBenefitsType implements $Enumeration {}
 
 /// A government building.
 @Schema()
-abstract class $GovernmentBuilding implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GovernmentBuilding implements $CivicStructure {}
 
 /// A government office&#x2014;for example, an IRS or DMV office.
 @Schema()
-abstract class $GovernmentOffice implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GovernmentOffice implements $LocalBusiness {}
 
 /// A governmental organization or agency.
 @Schema()
-abstract class $GovernmentOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GovernmentOrganization implements $Organization {}
 
 /// A permit issued by a government agency.
 @Schema()
-abstract class $GovernmentPermit implements $Permit {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GovernmentPermit implements $Permit {}
 
 /// A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
 @Schema()
 abstract class $GovernmentService implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
   @Schema(
     description:
@@ -8519,12 +6419,6 @@ abstract class $GovernmentService implements $Service {
 /// A grant, typically financial or otherwise quantifiable, of resources. Typically a [[funder]] sponsors some [[MonetaryAmount]] to an [[Organization]] or [[Person]],     sometimes not necessarily via a dedicated or long-lived [[Project]], resulting in one or more outputs, or [[fundedItem]]s. For financial sponsorship, indicate the [[funder]] of a [[MonetaryGrant]]. For non-financial support, indicate [[sponsor]] of [[Grant]]s of resources (e.g. office space).  Grants support  activities directed towards some agreed collective goals, often but not always organized as [[Project]]s. Long-lived projects are sometimes sponsored by a variety of grants over time, but it is also common for a project to be associated with a single grant.  The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]].
 @Schema()
 abstract class $Grant implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].
   @Schema(
     description:
@@ -8549,23 +6443,11 @@ abstract class $Grant implements $Intangible {
 
 /// A grocery store.
 @Schema()
-abstract class $GroceryStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $GroceryStore implements $Store {}
 
 /// [[Guide]] is a page or article that recommends specific products or services, or aspects of a thing for a user to consider. A [[Guide]] may represent a Buying Guide and detail aspects of products or services for a user to consider. A [[Guide]] may represent a Product Guide and recommend specific products or services. A [[Guide]] may represent a Ranked List and recommend specific products or services with ranking.
 @Schema()
 abstract class $Guide implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
   @Schema(
     description:
@@ -8583,84 +6465,36 @@ abstract class $Guide implements $CreativeWork {
 
 /// A business that provides Heating, Ventilation and Air Conditioning services.
 @Schema()
-abstract class $HVACBusiness implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HVACBusiness implements $HomeAndConstructionBusiness {}
 
 /// A [hackathon](https://en.wikipedia.org/wiki/Hackathon) event.
 @Schema()
-abstract class $Hackathon implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Hackathon implements $Event {}
 
 /// A hair salon.
 @Schema()
-abstract class $HairSalon implements $HealthAndBeautyBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HairSalon implements $HealthAndBeautyBusiness {}
 
 /// A hardware store.
 @Schema()
-abstract class $HardwareStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HardwareStore implements $Store {}
 
 /// Health and beauty.
 @Schema()
-abstract class $HealthAndBeautyBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HealthAndBeautyBusiness implements $LocalBusiness {}
 
 /// HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]].
 @Schema()
-abstract class $HealthAspectEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HealthAspectEnumeration implements $Enumeration {}
 
 /// A health club.
 @Schema()
 abstract class $HealthClub
-    implements $HealthAndBeautyBusiness, $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $HealthAndBeautyBusiness, $SportsActivityLocation {}
 
 /// A US-style health insurance plan, including PPOs, EPOs, and HMOs.
 @Schema()
 abstract class $HealthInsurancePlan implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The URL that goes directly to the summary of benefits and coverage for the specific standard plan or plan variation.
   @Schema(
     description:
@@ -8716,12 +6550,6 @@ abstract class $HealthInsurancePlan implements $Intangible {
 /// A description of costs to the patient under a given network or formulary.
 @Schema()
 abstract class $HealthPlanCostSharingSpecification implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?
   @Schema(
     description:
@@ -8758,12 +6586,6 @@ abstract class $HealthPlanCostSharingSpecification implements $Intangible {
 /// For a given health insurance plan, the specification for costs and coverage of prescription drugs.
 @Schema()
 abstract class $HealthPlanFormulary implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The costs to the patient for services under this network or formulary.
   @Schema(
     description:
@@ -8786,12 +6608,6 @@ abstract class $HealthPlanFormulary implements $Intangible {
 /// A US-style health insurance plan network.
 @Schema()
 abstract class $HealthPlanNetwork implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The costs to the patient for services under this network or formulary.
   @Schema(
     description:
@@ -8814,12 +6630,6 @@ abstract class $HealthPlanNetwork implements $Intangible {
 /// [[HealthTopicContent]] is [[WebContent]] that is about some aspect of a health topic, e.g. a condition, its symptoms or treatments. Such content may be comprised of several parts or sections and use different types of media. Multiple instances of [[WebContent]] (and hence [[HealthTopicContent]]) can be related using [[hasPart]] / [[isPartOf]] where there is some kind of content hierarchy, and their content described with [[about]] and [[mentions]] e.g. building upon the existing [[MedicalCondition]] vocabulary.
 @Schema()
 abstract class $HealthTopicContent implements $WebContent {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]. For example, that the content is an overview, or that it talks about treatment, self-care, treatments or their side-effects.
   @Schema(
     description:
@@ -8830,64 +6640,28 @@ abstract class $HealthTopicContent implements $WebContent {
 
 /// A high school.
 @Schema()
-abstract class $HighSchool implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HighSchool implements $EducationalOrganization {}
 
 /// A Hindu temple.
 @Schema()
-abstract class $HinduTemple implements $PlaceOfWorship {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HinduTemple implements $PlaceOfWorship {}
 
 /// A store that sells materials useful or necessary for various hobbies.
 @Schema()
-abstract class $HobbyShop implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HobbyShop implements $Store {}
 
 /// A construction business.\n\nA HomeAndConstructionBusiness is a [[LocalBusiness]] that provides services around homes and buildings.\n\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\(s).
 @Schema()
-abstract class $HomeAndConstructionBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HomeAndConstructionBusiness implements $LocalBusiness {}
 
 /// A home goods store.
 @Schema()
-abstract class $HomeGoodsStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HomeGoodsStore implements $Store {}
 
 /// A hospital.
 @Schema()
 abstract class $Hospital
     implements $CivicStructure, $EmergencyService, $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A medical service available from this provider.
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
@@ -8906,33 +6680,15 @@ abstract class $Hospital
 
 /// A hostel - cheap accommodation, often in shared dormitories. <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $Hostel implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Hostel implements $LodgingBusiness {}
 
 /// A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel). <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $Hotel implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Hotel implements $LodgingBusiness {}
 
 /// A hotel room is a single room in a hotel. <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
 abstract class $HotelRoom implements $Room {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
   @Schema(
     description:
@@ -8951,12 +6707,6 @@ abstract class $HotelRoom implements $Room {
 /// A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/House">http://en.wikipedia.org/wiki/House</a>).
 @Schema()
 abstract class $House implements $Accommodation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
   @Schema(
     description:
@@ -8967,23 +6717,11 @@ abstract class $House implements $Accommodation {
 
 /// A house painting service.
 @Schema()
-abstract class $HousePainter implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HousePainter implements $HomeAndConstructionBusiness {}
 
 /// Instructions that explain how to achieve a result by performing a sequence of steps.
 @Schema()
 abstract class $HowTo implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The estimated cost of the supply or supplies consumed when performing instructions.
   @Schema(
     description:
@@ -9051,12 +6789,6 @@ abstract class $HowTo implements $CreativeWork {
 /// A direction indicating a single action to do in the instructions for how to achieve a result.
 @Schema()
 abstract class $HowToDirection implements $CreativeWork, $ListItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A media object representing the circumstances after performing this direction.
   @Schema(
     description:
@@ -9117,12 +6849,6 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
 /// An item used as either a tool or supply when performing the instructions for how to achieve a result.
 @Schema()
 abstract class $HowToItem implements $ListItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The required quantity of the item(s).
   @Schema(description: "The required quantity of the item(s).")
   $SchemaUnion? get requiredQuantity;
@@ -9131,12 +6857,6 @@ abstract class $HowToItem implements $ListItem {
 /// A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).
 @Schema()
 abstract class $HowToSection implements $CreativeWork, $ItemList, $ListItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
   @Schema(
     description:
@@ -9147,23 +6867,11 @@ abstract class $HowToSection implements $CreativeWork, $ItemList, $ListItem {
 
 /// A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.
 @Schema()
-abstract class $HowToStep implements $CreativeWork, $ItemList, $ListItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HowToStep implements $CreativeWork, $ItemList, $ListItem {}
 
 /// A supply consumed when performing the instructions for how to achieve a result.
 @Schema()
 abstract class $HowToSupply implements $HowToItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The estimated cost of the supply or supplies consumed when performing instructions.
   @Schema(
     description:
@@ -9174,33 +6882,15 @@ abstract class $HowToSupply implements $HowToItem {
 
 /// An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection).
 @Schema()
-abstract class $HowToTip implements $CreativeWork, $ListItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HowToTip implements $CreativeWork, $ListItem {}
 
 /// A tool used (but not consumed) when performing instructions for how to achieve a result.
 @Schema()
-abstract class $HowToTool implements $HowToItem {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $HowToTool implements $HowToItem {}
 
 /// A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items.
 @Schema()
 abstract class $HyperToc implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A media object that encodes this CreativeWork. This property is a synonym for encoding.
   @Schema(
     description:
@@ -9216,12 +6906,6 @@ abstract class $HyperToc implements $CreativeWork {
 /// A HyperToEntry is an item within a [[HyperToc]], which represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. The media object itself is indicated using [[associatedMedia]]. Each section of interest within that content can be described with a [[HyperTocEntry]], with associated [[startOffset]] and [[endOffset]]. When several entries are all from the same file, [[associatedMedia]] is used on the overarching [[HyperTocEntry]]; if the content has been split into multiple files, they can be referenced using [[associatedMedia]] on each [[HyperTocEntry]].
 @Schema()
 abstract class $HyperTocEntry implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A media object that encodes this CreativeWork. This property is a synonym for encoding.
   @Schema(
     description:
@@ -9246,63 +6930,27 @@ abstract class $HyperTocEntry implements $CreativeWork {
 
 /// <a href="https://www.iptc.org/">IPTC</a> "Digital Source" codes for use with the [[digitalSourceType]] property, providing information about the source for a digital media object. In general these codes are not declared here to be mutually exclusive, although some combinations would be contradictory if applied simultaneously, or might be considered mutually incompatible by upstream maintainers of the definitions. See the IPTC <a href="https://www.iptc.org/std/photometadata/documentation/userguide/">documentation</a>  for <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">detailed definitions</a> of all terms.
 @Schema()
-abstract class $IPTCDigitalSourceEnumeration implements $MediaEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IPTCDigitalSourceEnumeration implements $MediaEnumeration {}
 
 /// ITNonprofitType: Non-profit organization type originating from Italy. Most categories are drawn from the Italian Third Sector Code (Legislative Decree No. 117 of 3 July 2017), although some Italian non-profit entities, such as amateur sports entities, are primarily governed by other legislation.
 @Schema()
-abstract class $ITNonprofitType implements $NonprofitType {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ITNonprofitType implements $NonprofitType {}
 
 /// An ice cream shop.
 @Schema()
-abstract class $IceCreamShop implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IceCreamShop implements $FoodEstablishment {}
 
 /// The act of intentionally disregarding the object. An agent ignores an object.
 @Schema()
-abstract class $IgnoreAction implements $AssessAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IgnoreAction implements $AssessAction {}
 
 /// Web page type: Image gallery page.
 @Schema()
-abstract class $ImageGallery implements $MediaGallery {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ImageGallery implements $MediaGallery {}
 
 /// An image file.
 @Schema()
 abstract class $ImageObject implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
   @Schema(
     description:
@@ -9331,23 +6979,11 @@ abstract class $ImageObject implements $MediaObject {
 
 /// A specific and exact (byte-for-byte) version of an [[ImageObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata (e.g. XMP, EXIF) the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
 @Schema()
-abstract class $ImageObjectSnapshot implements $ImageObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ImageObjectSnapshot implements $ImageObject {}
 
 /// Any medical imaging modality typically used for diagnostic purposes.
 @Schema()
 abstract class $ImagingTest implements $MedicalTest {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Imaging technique used.
   @Schema(description: "Imaging technique used.")
   $MedicalImagingTechnique? get imagingTechnique;
@@ -9355,43 +6991,19 @@ abstract class $ImagingTest implements $MedicalTest {
 
 /// The types of expenses that are covered by the incentive. For example some incentives are only for the goods (tangible items) but the services (labor) are excluded.
 @Schema()
-abstract class $IncentiveQualifiedExpenseType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IncentiveQualifiedExpenseType implements $Enumeration {}
 
 /// Enumerates a status for an incentive, such as whether it is active.
 @Schema()
-abstract class $IncentiveStatus implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IncentiveStatus implements $Enumeration {}
 
 /// Enumerates common financial incentives for products, including tax credits, tax deductions, rebates and subsidies, etc.
 @Schema()
-abstract class $IncentiveType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $IncentiveType implements $Enumeration {}
 
 /// An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]].  The [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices.
 @Schema()
 abstract class $IndividualPhysician implements $Physician {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A [[MedicalOrganization]] where the [[IndividualPhysician]] practices.
   @Schema(
     description:
@@ -9403,12 +7015,6 @@ abstract class $IndividualPhysician implements $Physician {
 /// A single, identifiable product instance (e.g. a laptop with a particular serial number).
 @Schema()
 abstract class $IndividualProduct implements $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
   @Schema(
     description:
@@ -9419,23 +7025,11 @@ abstract class $IndividualProduct implements $Product {
 
 /// Classes of agents or pathogens that transmit infectious diseases. Enumerated type.
 @Schema()
-abstract class $InfectiousAgentClass implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InfectiousAgentClass implements $MedicalEnumeration {}
 
 /// An infectious disease is a clinically evident human disease resulting from the presence of pathogenic microbial agents, like pathogenic viruses, pathogenic bacteria, fungi, protozoa, multicellular parasites, and prions. To be considered an infectious disease, such pathogens are known to be able to cause this disease.
 @Schema()
 abstract class $InfectiousDisease implements $MedicalCondition {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The actual infectious agent, such as a specific bacterium.
   @Schema(
     description: "The actual infectious agent, such as a specific bacterium.",
@@ -9460,12 +7054,6 @@ abstract class $InfectiousDisease implements $MedicalCondition {
 /// The act of notifying someone of information pertinent to them, with no expectation of a response.
 @Schema()
 abstract class $InformAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Upcoming or past event associated with this place, organization, or action.
   @Schema(
     description:
@@ -9477,12 +7065,6 @@ abstract class $InformAction implements $CommunicateAction {
 /// The act of adding at a specific location in an ordered collection.
 @Schema()
 abstract class $InsertAction implements $AddAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The final location of the object or the agent after the action.
   @Schema(
     description:
@@ -9493,23 +7075,11 @@ abstract class $InsertAction implements $AddAction {
 
 /// The act of installing an application.
 @Schema()
-abstract class $InstallAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InstallAction implements $ConsumeAction {}
 
 /// An event with no duration, like for instance a computer log entry.
 @Schema()
 abstract class $InstantaneousEvent implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Data associated with the event, like for instance a log message.
   @Schema(
     description:
@@ -9528,53 +7098,23 @@ abstract class $InstantaneousEvent implements $StructuredValue {
 
 /// An Insurance agency.
 @Schema()
-abstract class $InsuranceAgency implements $FinancialService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InsuranceAgency implements $FinancialService {}
 
 /// A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.
 @Schema()
-abstract class $Intangible implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Intangible implements $Thing {}
 
 /// Data type: Integer.
 @Schema()
-abstract class $Integer implements $Number {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Integer implements $Number {}
 
 /// The act of interacting with another person or organization.
 @Schema()
-abstract class $InteractAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InteractAction implements $Action {}
 
 /// A summary of how users have interacted with this CreativeWork. In most cases, authors will use a subtype to specify the specific type of interaction.
 @Schema()
 abstract class $InteractionCounter implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
   @Schema(
     description:
@@ -9620,33 +7160,15 @@ abstract class $InteractionCounter implements $StructuredValue {
 
 /// An internet cafe.
 @Schema()
-abstract class $InternetCafe implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InternetCafe implements $LocalBusiness {}
 
 /// A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.
 @Schema()
-abstract class $InvestmentFund implements $InvestmentOrDeposit {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $InvestmentFund implements $InvestmentOrDeposit {}
 
 /// A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return.
 @Schema()
 abstract class $InvestmentOrDeposit implements $FinancialProduct {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The amount of money.
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
@@ -9655,12 +7177,6 @@ abstract class $InvestmentOrDeposit implements $FinancialProduct {
 /// The act of asking someone to attend an event. Reciprocal of RsvpAction.
 @Schema()
 abstract class $InviteAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Upcoming or past event associated with this place, organization, or action.
   @Schema(
     description:
@@ -9672,12 +7188,6 @@ abstract class $InviteAction implements $CommunicateAction {
 /// A statement of the money due for goods or services; a bill.
 @Schema()
 abstract class $Invoice implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The identifier for the account the payment will be applied to.
   @Schema(
     description:
@@ -9772,23 +7282,11 @@ abstract class $Invoice implements $Intangible {
 
 /// A list of possible product availability options.
 @Schema()
-abstract class $ItemAvailability implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ItemAvailability implements $Enumeration {}
 
 /// A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting.
 @Schema()
 abstract class $ItemList implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a prototype of the elements in the list that is used to hold aggregate information (ratings, offers, etc.).
   @Schema(
     description:
@@ -9819,43 +7317,19 @@ abstract class $ItemList implements $Intangible {
 
 /// Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.
 @Schema()
-abstract class $ItemListOrderType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ItemListOrderType implements $Enumeration {}
 
 /// A page devoted to a single item, such as a particular product or hotel.
 @Schema()
-abstract class $ItemPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ItemPage implements $WebPage {}
 
 /// A jewelry store.
 @Schema()
-abstract class $JewelryStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $JewelryStore implements $Store {}
 
 /// A listing that describes a job opening in a certain organization.
 @Schema()
 abstract class $JobPosting implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office. Note: This should not be used for citizenship or work visa requirements.
   @Schema(
     description:
@@ -10104,12 +7578,6 @@ abstract class $JobPosting implements $Intangible {
 /// An agent joins an event/group with participants/friends at a location.\n\nRelated actions:\n\n* [[RegisterAction]]: Unlike RegisterAction, JoinAction refers to joining a group/team of people.\n* [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\n* [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.
 @Schema()
 abstract class $JoinAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Upcoming or past event associated with this place, organization, or action.
   @Schema(
     description:
@@ -10121,12 +7589,6 @@ abstract class $JoinAction implements $InteractAction {
 /// The anatomical location at which two or more bones make contact.
 @Schema()
 abstract class $Joint implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The biomechanical properties of the bone.
   @Schema(description: "The biomechanical properties of the bone.")
   String? get biomechnicalClass;
@@ -10145,53 +7607,23 @@ abstract class $Joint implements $AnatomicalStructure {
 
 /// A lake (for example, Lake Pontrachain).
 @Schema()
-abstract class $LakeBodyOfWater implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LakeBodyOfWater implements $BodyOfWater {}
 
 /// A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.
 @Schema()
-abstract class $Landform implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Landform implements $Place {}
 
 /// An historical landmark or building.
 @Schema()
-abstract class $LandmarksOrHistoricalBuildings implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LandmarksOrHistoricalBuildings implements $Place {}
 
 /// Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) can be used via the [[alternateName]] property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using [[ComputerLanguage]].
 @Schema()
-abstract class $Language implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Language implements $Intangible {}
 
 /// The LearningResource type can be used to indicate [[CreativeWork]]s (whether physical or digital) that have a particular and explicit orientation towards learning, education, skill acquisition, and other educational purposes.  [[LearningResource]] is expected to be used as an addition to a primary type such as [[Book]], [[VideoObject]], [[Product]] etc.  [[EducationEvent]] serves a similar purpose for event-like things (e.g. a [[Trip]]). A [[LearningResource]] may be created as a result of an [[EducationEvent]], for example by recording one.
 @Schema()
 abstract class $LearningResource implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The item being described is intended to assess the competency or learning outcome defined by the referenced term.
   @Schema(
     description:
@@ -10245,12 +7677,6 @@ abstract class $LearningResource implements $CreativeWork {
 /// An agent leaves an event / group with participants/friends at a location.\n\nRelated actions:\n\n* [[JoinAction]]: The antonym of LeaveAction.\n* [[UnRegisterAction]]: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.
 @Schema()
 abstract class $LeaveAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Upcoming or past event associated with this place, organization, or action.
   @Schema(
     description:
@@ -10261,43 +7687,19 @@ abstract class $LeaveAction implements $InteractAction {
 
 /// A list of possible statuses for the legal force of a legislation.
 @Schema()
-abstract class $LegalForceStatus implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LegalForceStatus implements $StatusEnumeration {}
 
 /// A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\n\nAs a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\(s).
 @Schema()
-abstract class $LegalService implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LegalService implements $LocalBusiness {}
 
 /// A list of possible levels for the legal validity of a legislation.
 @Schema()
-abstract class $LegalValueLevel implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LegalValueLevel implements $Enumeration {}
 
 /// A legal document such as an act, decree, bill, etc. (enforceable or not) or a component of a legal act (like an article).
 @Schema()
 abstract class $Legislation implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
   @Schema(
     description:
@@ -10438,12 +7840,6 @@ abstract class $Legislation implements $CreativeWork {
 /// A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.
 @Schema()
 abstract class $LegislationObject implements $Legislation, $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The legal value of this legislation file. The same legislation can be written in multiple files with different legal values. Typically a digitally signed PDF have a "stronger" legal value than the HTML file of the same act.
   @Schema(
     description:
@@ -10454,23 +7850,11 @@ abstract class $LegislationObject implements $Legislation, $MediaObject {
 
 /// A legislative building&#x2014;for example, the state capitol.
 @Schema()
-abstract class $LegislativeBuilding implements $GovernmentBuilding {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LegislativeBuilding implements $GovernmentBuilding {}
 
 /// The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\n\nRelated actions:\n\n* [[BorrowAction]]: Reciprocal of LendAction.
 @Schema()
 abstract class $LendAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The person that borrows the object being lent.
   @Schema(
     description:
@@ -10481,63 +7865,27 @@ abstract class $LendAction implements $TransferAction {
 
 /// A library.
 @Schema()
-abstract class $Library implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Library implements $LocalBusiness {}
 
 /// A [[LibrarySystem]] is a collaborative system amongst several libraries.
 @Schema()
-abstract class $LibrarySystem implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LibrarySystem implements $Organization {}
 
 /// A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition.
 @Schema()
-abstract class $LifestyleModification implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LifestyleModification implements $MedicalEntity {}
 
 /// A short band of tough, flexible, fibrous connective tissue that functions to connect multiple bones, cartilages, and structurally support joints.
 @Schema()
-abstract class $Ligament implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Ligament implements $AnatomicalStructure {}
 
 /// The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants.
 @Schema()
-abstract class $LikeAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LikeAction implements $ReactAction {}
 
 /// A Role that represents a Web link, e.g. as expressed via the 'url' property. Its linkRelationship property can indicate URL-based and plain textual link types, e.g. those in IANA link registry or others such as 'amphtml'. This structure provides a placeholder where details from HTML's link element can be represented outside of HTML, e.g. in JSON-LD feeds.
 @Schema()
 abstract class $LinkRole implements $Role {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
   @Schema(
     description:
@@ -10552,23 +7900,11 @@ abstract class $LinkRole implements $Role {
 
 /// A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits.
 @Schema()
-abstract class $LiquorStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LiquorStore implements $Store {}
 
 /// An list item, e.g. a step in a checklist or how-to description.
 @Schema()
 abstract class $ListItem implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists').
   @Schema(
     description:
@@ -10593,33 +7929,15 @@ abstract class $ListItem implements $Intangible {
 
 /// The act of consuming audio content.
 @Schema()
-abstract class $ListenAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ListenAction implements $ConsumeAction {}
 
 /// Event type: Literary event.
 @Schema()
-abstract class $LiteraryEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LiteraryEvent implements $Event {}
 
 /// A [[LiveBlogPosting]] is a [[BlogPosting]] intended to provide a rolling textual coverage of an ongoing event through continuous updates.
 @Schema()
 abstract class $LiveBlogPosting implements $BlogPosting {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
   @Schema(
     description:
@@ -10642,12 +7960,6 @@ abstract class $LiveBlogPosting implements $BlogPosting {
 /// A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges.
 @Schema()
 abstract class $LoanOrCredit implements $FinancialProduct {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The amount of money.
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
@@ -10706,12 +8018,6 @@ abstract class $LoanOrCredit implements $FinancialProduct {
 /// A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.
 @Schema()
 abstract class $LocalBusiness implements $Organization, $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical) [[branch]].
   @Schema(
     description:
@@ -10757,12 +8063,6 @@ abstract class $LocalBusiness implements $Organization, $Place {
 /// Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.
 @Schema()
 abstract class $LocationFeatureSpecification implements $PropertyValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The hours during which this service or contact is available.
   @Schema(
     description: "The hours during which this service or contact is available.",
@@ -10783,23 +8083,11 @@ abstract class $LocationFeatureSpecification implements $PropertyValue {
 
 /// A locksmith.
 @Schema()
-abstract class $Locksmith implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Locksmith implements $HomeAndConstructionBusiness {}
 
 /// A lodging business, such as a motel, hotel, or inn.
 @Schema()
 abstract class $LodgingBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
   @Schema(
     description:
@@ -10858,12 +8146,6 @@ abstract class $LodgingBusiness implements $LocalBusiness {
 /// A reservation for lodging at a hotel, motel, inn, etc.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 @Schema()
 abstract class $LodgingReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The earliest someone may check into a lodging establishment.
   @Schema(
     description: "The earliest someone may check into a lodging establishment.",
@@ -10898,23 +8180,11 @@ abstract class $LodgingReservation implements $Reservation {
 
 /// The action of logging into a device or application.
 @Schema()
-abstract class $LoginAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $LoginAction implements $ControlAction {}
 
 /// The act of being defeated in a competitive activity.
 @Schema()
 abstract class $LoseAction implements $AchieveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The winner of the action.
   @Schema(
     description: "A sub property of participant. The winner of the action.",
@@ -10925,12 +8195,6 @@ abstract class $LoseAction implements $AchieveAction {
 /// A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.
 @Schema()
 abstract class $LymphaticVessel implements $Vessel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The vasculature the lymphatic structure originates, or afferents, from.
   @Schema(
     description:
@@ -10955,23 +8219,11 @@ abstract class $LymphaticVessel implements $Vessel {
 
 /// A book, document, or piece of music written by hand rather than typed or printed.
 @Schema()
-abstract class $Manuscript implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Manuscript implements $CreativeWork {}
 
 /// A map.
 @Schema()
 abstract class $Map implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the kind of Map, from the MapCategoryType Enumeration.
   @Schema(
     description:
@@ -10982,43 +8234,19 @@ abstract class $Map implements $CreativeWork {
 
 /// An enumeration of several kinds of Map.
 @Schema()
-abstract class $MapCategoryType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MapCategoryType implements $Enumeration {}
 
 /// The act of marrying a person.
 @Schema()
-abstract class $MarryAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MarryAction implements $InteractAction {}
 
 /// Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'.
 @Schema()
-abstract class $Mass implements $Quantity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Mass implements $Quantity {}
 
 /// A math solver which is capable of solving a subset of mathematical problems.
 @Schema()
 abstract class $MathSolver implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard.
   @Schema(
     description:
@@ -11029,73 +8257,31 @@ abstract class $MathSolver implements $CreativeWork {
 
 /// The maximum dosing schedule considered safe for a drug or supplement as recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
 @Schema()
-abstract class $MaximumDoseSchedule implements $DoseSchedule {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MaximumDoseSchedule implements $DoseSchedule {}
 
 /// Enumeration(s) for use with [[measurementMethod]].
 @Schema()
-abstract class $MeasurementMethodEnum implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MeasurementMethodEnum implements $Enumeration {}
 
 /// Enumeration of common measurement types (or dimensions), for example "chest" for a person, "inseam" for pants, "gauge" for screws, or "wheel" for bicycles.
 @Schema()
-abstract class $MeasurementTypeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MeasurementTypeEnumeration implements $Enumeration {}
 
 /// MediaEnumeration enumerations are lists of codes, labels etc. useful for describing media objects. They may be reflections of externally developed lists, or created at schema.org, or a combination.
 @Schema()
-abstract class $MediaEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MediaEnumeration implements $Enumeration {}
 
 /// Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.
 @Schema()
-abstract class $MediaGallery implements $CollectionPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MediaGallery implements $CollectionPage {}
 
 /// Codes for use with the [[mediaAuthenticityCategory]] property, indicating the authenticity of a media object (in the context of how it was published or shared). In general these codes are not mutually exclusive, although some combinations (such as 'original' versus 'transformed', 'edited' and 'staged') would be contradictory if applied in the same [[MediaReview]]. Note that the application of these codes is with regard to a piece of media shared or published in a particular context.
 @Schema()
-abstract class $MediaManipulationRatingEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MediaManipulationRatingEnumeration implements $Enumeration {}
 
 /// A media object, such as an image, video, audio, or text object embedded in a web page or a downloadable dataset i.e. DataDownload. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 AudioObject's).
 @Schema()
 abstract class $MediaObject implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A NewsArticle associated with the Media Object.
   @Schema(description: "A NewsArticle associated with the Media Object.")
   $NewsArticle? get associatedArticle;
@@ -11222,12 +8408,6 @@ abstract class $MediaObject implements $CreativeWork {
 /// A [[MediaReview]] is a more specialized form of Review dedicated to the evaluation of media content online, typically in the context of fact-checking and misinformation.     For more general reviews of media in the broader sense, use [[UserReview]], [[CriticReview]] or other [[Review]] types. This definition is     a work in progress. While the [[MediaManipulationRatingEnumeration]] list reflects significant community review amongst fact-checkers and others working     to combat misinformation, the specific structures for representing media objects, their versions and publication context, are still evolving. Similarly, best practices for the relationship between [[MediaReview]] and [[ClaimReview]] markup have not yet been finalized.
 @Schema()
 abstract class $MediaReview implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a MediaManipulationRatingEnumeration classification of a media object (in the context of how it was published or shared).
   @Schema(
     description:
@@ -11253,12 +8433,6 @@ abstract class $MediaReview implements $Review {
 /// Represents an item or group of closely related items treated as a unit for the sake of evaluation in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party.
 @Schema()
 abstract class $MediaReviewItem implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// In the context of a [[MediaReview]], indicates specific media item(s) that are grouped using a [[MediaReviewItem]].
   @Schema(
     description:
@@ -11270,12 +8444,6 @@ abstract class $MediaReviewItem implements $CreativeWork {
 /// A subscription which allows a user to access media including audio, video, books, etc.
 @Schema()
 abstract class $MediaSubscription implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.
   @Schema(
     description:
@@ -11293,43 +8461,19 @@ abstract class $MediaSubscription implements $Intangible {
 
 /// Target audiences for medical web pages.
 @Schema()
-abstract class $MedicalAudience implements $Audience, $PeopleAudience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalAudience implements $Audience, $PeopleAudience {}
 
 /// Target audiences types for medical web pages. Enumerated type.
 @Schema()
-abstract class $MedicalAudienceType implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalAudienceType implements $MedicalEnumeration {}
 
 /// A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include different businesses run by health professionals.
 @Schema()
-abstract class $MedicalBusiness implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalBusiness implements $LocalBusiness {}
 
 /// The causative agent(s) that are responsible for the pathophysiologic process that eventually results in a medical condition, symptom or sign. In this schema, unless otherwise specified this is meant to be the proximate cause of the medical condition, symptom or sign. The proximate cause is defined as the causative agent that most directly results in the medical condition, symptom or sign. For example, the HIV virus could be considered a cause of AIDS. Or in a diagnostic context, if a patient fell and sustained a hip fracture and two days later sustained a pulmonary embolism which eventuated in a cardiac arrest, the cause of the cardiac arrest (the proximate cause) would be the pulmonary embolism and not the fall. Medical causes can include cardiovascular, chemical, dermatologic, endocrine, environmental, gastroenterologic, genetic, hematologic, gynecologic, iatrogenic, infectious, musculoskeletal, neurologic, nutritional, obstetric, oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic, toxic, traumatic, or urologic causes; medical conditions can be causes as well.
 @Schema()
 abstract class $MedicalCause implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The condition, complication, symptom, sign, etc. caused.
   @Schema(
     description: "The condition, complication, symptom, sign, etc. caused.",
@@ -11341,12 +8485,6 @@ abstract class $MedicalCause implements $MedicalEntity {
 @Schema()
 abstract class $MedicalClinic
     implements $MedicalBusiness, $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A medical service available from this provider.
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
@@ -11359,12 +8497,6 @@ abstract class $MedicalClinic
 /// A code for a medical entity.
 @Schema()
 abstract class $MedicalCode implements $CategoryCode, $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A short textual code that uniquely identifies the value.
   @Schema(
     description: "A short textual code that uniquely identifies the value.",
@@ -11379,12 +8511,6 @@ abstract class $MedicalCode implements $CategoryCode, $MedicalIntangible {
 /// Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.
 @Schema()
 abstract class $MedicalCondition implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The anatomy of the underlying organ system or structures associated with this entity.
   @Schema(
     description:
@@ -11498,12 +8624,6 @@ abstract class $MedicalCondition implements $MedicalEntity {
 /// A stage of a medical condition, such as 'Stage IIIa'.
 @Schema()
 abstract class $MedicalConditionStage implements $MedicalIntangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The stage represented as a number, e.g. 3.
   @Schema(description: "The stage represented as a number, e.g. 3.")
   num? get stageAsNumber;
@@ -11515,23 +8635,11 @@ abstract class $MedicalConditionStage implements $MedicalIntangible {
 
 /// A condition or factor that serves as a reason to withhold a certain medical therapy. Contraindications can be absolute (there are no reasonable circumstances for undertaking a course of action) or relative (the patient is at higher risk of complications, but these risks may be outweighed by other considerations or mitigated by other measures).
 @Schema()
-abstract class $MedicalContraindication implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalContraindication implements $MedicalEntity {}
 
 /// Any object used in a medical capacity, such as to diagnose or treat a patient.
 @Schema()
 abstract class $MedicalDevice implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or otherwise life-threatening or requiring immediate medical attention), tag it as a seriousAdverseOutcome instead.
   @Schema(
     description:
@@ -11574,23 +8682,11 @@ abstract class $MedicalDevice implements $MedicalEntity {
 
 /// Categories of medical devices, organized by the purpose or intended use of the device.
 @Schema()
-abstract class $MedicalDevicePurpose implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalDevicePurpose implements $MedicalEnumeration {}
 
 /// The most generic type of entity related to health and the practice of medicine.
 @Schema()
 abstract class $MedicalEntity implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.
   @Schema(
     description:
@@ -11644,33 +8740,15 @@ abstract class $MedicalEntity implements $Thing {
 
 /// Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice.
 @Schema()
-abstract class $MedicalEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalEnumeration implements $Enumeration {}
 
 /// Level of evidence for a medical guideline. Enumerated type.
 @Schema()
-abstract class $MedicalEvidenceLevel implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalEvidenceLevel implements $MedicalEnumeration {}
 
 /// Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statement that denotes how to diagnose and treat a particular condition. Note: this type should be used to tag the actual guideline recommendation; if the guideline recommendation occurs in a larger scholarly article, use MedicalScholarlyArticle to tag the overall article, not this type. Note also: the organization making the recommendation should be captured in the recognizingAuthority base property of MedicalEntity.
 @Schema()
 abstract class $MedicalGuideline implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Strength of evidence of the data used to formulate the guideline (enumerated).
   @Schema(
     description:
@@ -11701,23 +8779,11 @@ abstract class $MedicalGuideline implements $MedicalEntity {
 
 /// A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.
 @Schema()
-abstract class $MedicalGuidelineContraindication implements $MedicalGuideline {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalGuidelineContraindication implements $MedicalGuideline {}
 
 /// A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.
 @Schema()
 abstract class $MedicalGuidelineRecommendation implements $MedicalGuideline {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Strength of the guideline's recommendation (e.g. 'class I').
   @Schema(
     description: "Strength of the guideline's recommendation (e.g. 'class I').",
@@ -11727,43 +8793,19 @@ abstract class $MedicalGuidelineRecommendation implements $MedicalGuideline {
 
 /// Any medical imaging modality typically used for diagnostic purposes. Enumerated type.
 @Schema()
-abstract class $MedicalImagingTechnique implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalImagingTechnique implements $MedicalEnumeration {}
 
 /// A condition or factor that indicates use of a medical therapy, including signs, symptoms, risk factors, anatomical states, etc.
 @Schema()
-abstract class $MedicalIndication implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalIndication implements $MedicalEntity {}
 
 /// A utility class that serves as the umbrella for a number of 'intangible' things in the medical space.
 @Schema()
-abstract class $MedicalIntangible implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalIntangible implements $MedicalEntity {}
 
 /// An observational study is a type of medical study that attempts to infer the possible effect of a treatment through observation of a cohort of subjects over a period of time. In an observational study, the assignment of subjects into treatment groups versus control groups is outside the control of the investigator. This is in contrast with controlled studies, such as the randomized controlled trials represented by MedicalTrial, where each subject is randomly assigned to a treatment group or a control group before the start of the treatment.
 @Schema()
 abstract class $MedicalObservationalStudy implements $MedicalStudy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifics about the observational study design (enumerated).
   @Schema(
     description: "Specifics about the observational study design (enumerated).",
@@ -11773,23 +8815,12 @@ abstract class $MedicalObservationalStudy implements $MedicalStudy {
 
 /// Design models for observational medical studies. Enumerated type.
 @Schema()
-abstract class $MedicalObservationalStudyDesign implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalObservationalStudyDesign
+    implements $MedicalEnumeration {}
 
 /// A medical organization (physical or not), such as hospital, institution or clinic.
 @Schema()
 abstract class $MedicalOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Name or unique ID of network. (Networks are often reused across different insurance plans.)
   @Schema(
     description:
@@ -11809,12 +8840,6 @@ abstract class $MedicalOrganization implements $Organization {
 /// A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.
 @Schema()
 abstract class $MedicalProcedure implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Location in the body of the anatomical structure.
   @Schema(description: "Location in the body of the anatomical structure.")
   String? get bodyLocation;
@@ -11851,33 +8876,15 @@ abstract class $MedicalProcedure implements $MedicalEntity {
 
 /// An enumeration that describes different types of medical procedures.
 @Schema()
-abstract class $MedicalProcedureType implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalProcedureType implements $MedicalEnumeration {}
 
 /// A complex mathematical calculation requiring an online calculator, used to assess prognosis. Note: use the url property of Thing to record any URLs for online calculators.
 @Schema()
-abstract class $MedicalRiskCalculator implements $MedicalRiskEstimator {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalRiskCalculator implements $MedicalRiskEstimator {}
 
 /// Any rule set or interactive tool for estimating the risk of developing a complication or condition.
 @Schema()
 abstract class $MedicalRiskEstimator implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The condition, complication, or symptom whose risk is being estimated.
   @Schema(
     description:
@@ -11896,12 +8903,6 @@ abstract class $MedicalRiskEstimator implements $MedicalEntity {
 /// A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.
 @Schema()
 abstract class $MedicalRiskFactor implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The condition, complication, etc. influenced by this factor.
   @Schema(
     description: "The condition, complication, etc. influenced by this factor.",
@@ -11912,12 +8913,6 @@ abstract class $MedicalRiskFactor implements $MedicalEntity {
 /// A simple system that adds up the number of risk factors to yield a score that is associated with prognosis, e.g. CHAD score, TIMI risk score.
 @Schema()
 abstract class $MedicalRiskScore implements $MedicalRiskEstimator {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The algorithm or rules to follow to compute the score.
   @Schema(description: "The algorithm or rules to follow to compute the score.")
   String? get algorithm;
@@ -11926,12 +8921,6 @@ abstract class $MedicalRiskScore implements $MedicalRiskEstimator {
 /// A scholarly article in the medical domain.
 @Schema()
 abstract class $MedicalScholarlyArticle implements $ScholarlyArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of the medical article, taken from the US NLM MeSH publication type catalog. See also [MeSH documentation](http://www.nlm.nih.gov/mesh/pubtypes.html).
   @Schema(
     description:
@@ -11943,12 +8932,6 @@ abstract class $MedicalScholarlyArticle implements $ScholarlyArticle {
 /// Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.
 @Schema()
 abstract class $MedicalSign implements $MedicalSignOrSymptom {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A physical examination that can identify this sign.
   @Schema(description: "A physical examination that can identify this sign.")
   $PhysicalExam? get identifyingExam;
@@ -11961,12 +8944,6 @@ abstract class $MedicalSign implements $MedicalSignOrSymptom {
 /// Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.
 @Schema()
 abstract class $MedicalSignOrSymptom implements $MedicalCondition {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A possible treatment to address this condition, sign or symptom.
   @Schema(
     description:
@@ -11977,23 +8954,11 @@ abstract class $MedicalSignOrSymptom implements $MedicalCondition {
 
 /// Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.
 @Schema()
-abstract class $MedicalSpecialty implements $MedicalEnumeration, $Specialty {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalSpecialty implements $MedicalEnumeration, $Specialty {}
 
 /// A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID.
 @Schema()
 abstract class $MedicalStudy implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifying the health condition(s) of a patient, medical study, or other target audience.
   @Schema(
     description:
@@ -12026,33 +8991,15 @@ abstract class $MedicalStudy implements $MedicalEntity {
 
 /// The status of a medical study. Enumerated type.
 @Schema()
-abstract class $MedicalStudyStatus implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalStudyStatus implements $MedicalEnumeration {}
 
 /// Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.
 @Schema()
-abstract class $MedicalSymptom implements $MedicalSignOrSymptom {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalSymptom implements $MedicalSignOrSymptom {}
 
 /// Any medical test, typically performed for diagnostic purposes.
 @Schema()
 abstract class $MedicalTest implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Drugs that affect the test's results.
   @Schema(description: "Drugs that affect the test's results.")
   $Drug? get affectedBy;
@@ -12080,12 +9027,6 @@ abstract class $MedicalTest implements $MedicalEntity {
 /// Any collection of tests commonly ordered together.
 @Schema()
 abstract class $MedicalTestPanel implements $MedicalTest {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A component test of the panel.
   @Schema(description: "A component test of the panel.")
   $MedicalTest? get subTest;
@@ -12094,12 +9035,6 @@ abstract class $MedicalTestPanel implements $MedicalTest {
 /// Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition.
 @Schema()
 abstract class $MedicalTherapy implements $TherapeuticProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A contraindication for this therapy.
   @Schema(description: "A contraindication for this therapy.")
   $SchemaUnion? get contraindication;
@@ -12119,12 +9054,6 @@ abstract class $MedicalTherapy implements $TherapeuticProcedure {
 /// A medical trial is a type of medical study that uses a scientific process to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups.
 @Schema()
 abstract class $MedicalTrial implements $MedicalStudy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifics about the trial design (enumerated).
   @Schema(description: "Specifics about the trial design (enumerated).")
   $MedicalTrialDesign? get trialDesign;
@@ -12132,23 +9061,11 @@ abstract class $MedicalTrial implements $MedicalStudy {
 
 /// Design models for medical trials. Enumerated type.
 @Schema()
-abstract class $MedicalTrialDesign implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicalTrialDesign implements $MedicalEnumeration {}
 
 /// A web page that provides medical information.
 @Schema()
 abstract class $MedicalWebPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc.
   @Schema(
     description:
@@ -12163,33 +9080,15 @@ abstract class $MedicalWebPage implements $WebPage {
 
 /// Systems of medical practice.
 @Schema()
-abstract class $MedicineSystem implements $MedicalEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MedicineSystem implements $MedicalEnumeration {}
 
 /// A meeting room, conference room, or conference hall is a room provided for singular events such as business conferences and meetings (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Conference_hall">http://en.wikipedia.org/wiki/Conference_hall</a>). <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $MeetingRoom implements $Room {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MeetingRoom implements $Room {}
 
 /// A MemberProgram defines a loyalty (or membership) program that provides its members with certain benefits, for example better pricing, free shipping or returns, or the ability to earn loyalty points. Member programs may have multiple tiers, for example silver and gold members, each with different benefits.
 @Schema()
 abstract class $MemberProgram implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The tiers of a member program.
   @Schema(description: "The tiers of a member program.")
   $MemberProgramTier? get hasTiers;
@@ -12205,12 +9104,6 @@ abstract class $MemberProgram implements $Intangible {
 /// A MemberProgramTier specifies a tier under a loyalty (member) program, for example "gold".
 @Schema()
 abstract class $MemberProgramTier implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A member benefit for a particular tier of a loyalty program.
   @Schema(
     description: "A member benefit for a particular tier of a loyalty program.",
@@ -12238,23 +9131,11 @@ abstract class $MemberProgramTier implements $Intangible {
 
 /// A men's clothing store.
 @Schema()
-abstract class $MensClothingStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MensClothingStore implements $Store {}
 
 /// A structured representation of food or drink items available from a FoodEstablishment.
 @Schema()
 abstract class $Menu implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A food or drink item contained in a menu or menu section.
   @Schema(
     description: "A food or drink item contained in a menu or menu section.",
@@ -12272,12 +9153,6 @@ abstract class $Menu implements $CreativeWork {
 /// A food or drink item listed in a menu or menu section.
 @Schema()
 abstract class $MenuItem implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.
   @Schema(
     description:
@@ -12307,12 +9182,6 @@ abstract class $MenuItem implements $Intangible {
 /// A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider.
 @Schema()
 abstract class $MenuSection implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A food or drink item contained in a menu or menu section.
   @Schema(
     description: "A food or drink item contained in a menu or menu section.",
@@ -12329,23 +9198,11 @@ abstract class $MenuSection implements $CreativeWork {
 
 /// Enumerates several kinds of product return policies.
 @Schema()
-abstract class $MerchantReturnEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MerchantReturnEnumeration implements $Enumeration {}
 
 /// A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].
 @Schema()
 abstract class $MerchantReturnPolicy implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   @Schema(
     description:
@@ -12495,12 +9352,6 @@ abstract class $MerchantReturnPolicy implements $Intangible {
 /// A seasonal override of a return policy, for example used for holidays.
 @Schema()
 abstract class $MerchantReturnPolicySeasonalOverride implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
   @Schema(
     description:
@@ -12564,12 +9415,6 @@ abstract class $MerchantReturnPolicySeasonalOverride implements $Intangible {
 /// A single message from a sender to one or more organizations or people.
 @Schema()
 abstract class $Message implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of recipient. The recipient blind copied on a message.
   @Schema(
     description:
@@ -12630,23 +9475,11 @@ abstract class $Message implements $CreativeWork {
 
 /// A middle school (typically for children aged around 11-14, although this varies somewhat).
 @Schema()
-abstract class $MiddleSchool implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MiddleSchool implements $EducationalOrganization {}
 
 /// A software application designed specifically to work well on a mobile device such as a telephone.
 @Schema()
 abstract class $MobileApplication implements $SoftwareApplication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).
   @Schema(
     description:
@@ -12657,23 +9490,11 @@ abstract class $MobileApplication implements $SoftwareApplication {
 
 /// A store that sells mobile phones and related accessories.
 @Schema()
-abstract class $MobilePhoneStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MobilePhoneStore implements $Store {}
 
 /// Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.
 @Schema()
 abstract class $MolecularEntity implements $BioChemEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A role played by the BioChemEntity within a chemical context.
   @Schema(
     description:
@@ -12738,12 +9559,6 @@ abstract class $MolecularEntity implements $BioChemEntity {
 /// A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use [[PriceSpecification]] Types to describe the price of an Offer, Invoice, etc.
 @Schema()
 abstract class $MonetaryAmount implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR".
   @Schema(
     description:
@@ -12782,12 +9597,6 @@ abstract class $MonetaryAmount implements $StructuredValue {
 @Schema()
 abstract class $MonetaryAmountDistribution
     implements $QuantitativeValueDistribution {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR".
   @Schema(
     description:
@@ -12799,12 +9608,6 @@ abstract class $MonetaryAmountDistribution
 /// A monetary grant.
 @Schema()
 abstract class $MonetaryGrant implements $Grant {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The amount of money.
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
@@ -12820,12 +9623,6 @@ abstract class $MonetaryGrant implements $Grant {
 /// The act of transferring money from one place to another place. This may occur electronically or physically.
 @Schema()
 abstract class $MoneyTransfer implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The amount of money.
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
@@ -12841,12 +9638,6 @@ abstract class $MoneyTransfer implements $TransferAction {
 /// A loan in which property or real estate is used as collateral. (A loan securitized against some real estate.)
 @Schema()
 abstract class $MortgageLoan implements $LoanOrCredit {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Whether borrower is a resident of the jurisdiction where the property is located.
   @Schema(
     description:
@@ -12864,83 +9655,35 @@ abstract class $MortgageLoan implements $LoanOrCredit {
 
 /// A mosque.
 @Schema()
-abstract class $Mosque implements $PlaceOfWorship {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Mosque implements $PlaceOfWorship {}
 
 /// A motel. <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $Motel implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Motel implements $LodgingBusiness {}
 
 /// A motorcycle or motorbike is a single-track, two-wheeled motor vehicle.
 @Schema()
-abstract class $Motorcycle implements $Vehicle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Motorcycle implements $Vehicle {}
 
 /// A motorcycle dealer.
 @Schema()
-abstract class $MotorcycleDealer implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MotorcycleDealer implements $AutomotiveBusiness {}
 
 /// A motorcycle repair shop.
 @Schema()
-abstract class $MotorcycleRepair implements $AutomotiveBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MotorcycleRepair implements $AutomotiveBusiness {}
 
 /// A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.
 @Schema()
-abstract class $MotorizedBicycle implements $Vehicle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MotorizedBicycle implements $Vehicle {}
 
 /// A mountain, like Mount Whitney or Mount Everest.
 @Schema()
-abstract class $Mountain implements $Landform {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Mountain implements $Landform {}
 
 /// The act of an agent relocating to a place.\n\nRelated actions:\n\n* [[TransferAction]]: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.
 @Schema()
 abstract class $MoveAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The original location of the object or the agent before the action.
   @Schema(
     description:
@@ -12959,12 +9702,6 @@ abstract class $MoveAction implements $Action {
 /// A movie.
 @Schema()
 abstract class $Movie implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -13042,33 +9779,15 @@ abstract class $Movie implements $CreativeWork {
 
 /// A short segment/part of a movie.
 @Schema()
-abstract class $MovieClip implements $Clip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MovieClip implements $Clip {}
 
 /// A movie rental store.
 @Schema()
-abstract class $MovieRentalStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MovieRentalStore implements $Store {}
 
 /// A series of movies. Included movies can be indicated with the hasPart property.
 @Schema()
 abstract class $MovieSeries implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -13120,12 +9839,6 @@ abstract class $MovieSeries implements $CreativeWorkSeries {
 @Schema()
 abstract class $MovieTheater
     implements $CivicStructure, $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of screens in the movie theater.
   @Schema(description: "The number of screens in the movie theater.")
   num? get screenCount;
@@ -13133,23 +9846,11 @@ abstract class $MovieTheater
 
 /// A moving company.
 @Schema()
-abstract class $MovingCompany implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MovingCompany implements $HomeAndConstructionBusiness {}
 
 /// A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.
 @Schema()
 abstract class $Muscle implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The muscle whose action counteracts the specified muscle.
   @Schema(
     description: "The muscle whose action counteracts the specified muscle.",
@@ -13181,23 +9882,11 @@ abstract class $Muscle implements $AnatomicalStructure {
 
 /// A museum.
 @Schema()
-abstract class $Museum implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Museum implements $CivicStructure {}
 
 /// A collection of music tracks.
 @Schema()
 abstract class $MusicAlbum implements $MusicPlaylist {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Classification of the album by its type of content: soundtrack, live album, studio album, etc.
   @Schema(
     description:
@@ -13223,33 +9912,15 @@ abstract class $MusicAlbum implements $MusicPlaylist {
 
 /// Classification of the album by its type of content: soundtrack, live album, studio album, etc.
 @Schema()
-abstract class $MusicAlbumProductionType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicAlbumProductionType implements $Enumeration {}
 
 /// The kind of release which this album is: single, EP or album.
 @Schema()
-abstract class $MusicAlbumReleaseType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicAlbumReleaseType implements $Enumeration {}
 
 /// A musical composition.
 @Schema()
 abstract class $MusicComposition implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The person or organization who wrote a composition, or who is the composer of a work performed at some event.
   @Schema(
     description:
@@ -13305,23 +9976,11 @@ abstract class $MusicComposition implements $CreativeWork {
 
 /// Event type: Music event.
 @Schema()
-abstract class $MusicEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicEvent implements $Event {}
 
 /// A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.
 @Schema()
 abstract class $MusicGroup implements $PerformingGroup {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A music album.
   @Schema(description: "A music album.")
   $MusicAlbum? get album;
@@ -13360,12 +10019,6 @@ abstract class $MusicGroup implements $PerformingGroup {
 /// A collection of music tracks in playlist form.
 @Schema()
 abstract class $MusicPlaylist implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of tracks in this album or playlist.
   @Schema(description: "The number of tracks in this album or playlist.")
   num? get numTracks;
@@ -13387,12 +10040,6 @@ abstract class $MusicPlaylist implements $CreativeWork {
 /// A music recording (track), usually a single song.
 @Schema()
 abstract class $MusicRecording implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The artist that performed this album or recording.
   @Schema(description: "The artist that performed this album or recording.")
   $SchemaUnion? get byArtist;
@@ -13426,12 +10073,6 @@ abstract class $MusicRecording implements $CreativeWork {
 /// A MusicRelease is a specific release of a music album.
 @Schema()
 abstract class $MusicRelease implements $MusicPlaylist {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The catalog number for the release.
   @Schema(description: "The catalog number for the release.")
   String? get catalogNumber;
@@ -13468,83 +10109,35 @@ abstract class $MusicRelease implements $MusicPlaylist {
 
 /// Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).
 @Schema()
-abstract class $MusicReleaseFormatType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicReleaseFormatType implements $Enumeration {}
 
 /// A music store.
 @Schema()
-abstract class $MusicStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicStore implements $Store {}
 
 /// A music venue.
 @Schema()
-abstract class $MusicVenue implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicVenue implements $CivicStructure {}
 
 /// A music video file.
 @Schema()
-abstract class $MusicVideoObject implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $MusicVideoObject implements $MediaObject {}
 
 /// Organization: Non-governmental Organization.
 @Schema()
-abstract class $NGO implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NGO implements $Organization {}
 
 /// NLNonprofitType: Non-profit organization type originating from the Netherlands.
 @Schema()
-abstract class $NLNonprofitType implements $NonprofitType {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NLNonprofitType implements $NonprofitType {}
 
 /// A nail salon.
 @Schema()
-abstract class $NailSalon implements $HealthAndBeautyBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NailSalon implements $HealthAndBeautyBusiness {}
 
 /// A common pathway for the electrochemical nerve impulses that are transmitted along each of the axons.
 @Schema()
 abstract class $Nerve implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].
   @Schema(
     description:
@@ -13574,12 +10167,6 @@ abstract class $Nerve implements $AnatomicalStructure {
 /// A NewsArticle is an article whose content reports news, or provides background context and supporting materials for understanding the news.  A more detailed overview of [schema.org News markup](/docs/news.html) is also available.
 @Schema()
 abstract class $NewsArticle implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A [dateline](https://en.wikipedia.org/wiki/Dateline) is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.  Structured representations of dateline-related information can also be expressed more explicitly using [[locationCreated]] (which represents where a work was created, e.g. where a news report was written).  For location depicted or described in the content, use [[contentLocation]].  Dateline summaries are oriented more towards human readers than towards automated processing, and can vary substantially. Some examples: "BEIRUT, Lebanon, June 2.", "Paris, France", "December 19, 2017 11:43AM Reporting from Washington", "Beijing/Moscow", "QUEZON CITY, Philippines".
   @Schema(
     description:
@@ -13619,12 +10206,6 @@ abstract class $NewsArticle implements $Article {
 /// A News/Media organization such as a newspaper or TV station.
 @Schema()
 abstract class $NewsMediaOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
   @Schema(
     description:
@@ -13705,73 +10286,31 @@ abstract class $NewsMediaOrganization implements $Organization {
 
 /// A publication containing information about varied topics that are pertinent to general information, a geographic area, or a specific subject matter (i.e. business, culture, education). Often published daily.
 @Schema()
-abstract class $Newspaper implements $Periodical {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Newspaper implements $Periodical {}
 
 /// A nightclub or discotheque.
 @Schema()
-abstract class $NightClub implements $EntertainmentBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NightClub implements $EntertainmentBusiness {}
 
 /// NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be.
 @Schema()
-abstract class $NonprofitType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NonprofitType implements $Enumeration {}
 
 /// A notary.
 @Schema()
-abstract class $Notary implements $LegalService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Notary implements $LegalService {}
 
 /// A file containing a note, primarily for the author.
 @Schema()
-abstract class $NoteDigitalDocument implements $DigitalDocument {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $NoteDigitalDocument implements $DigitalDocument {}
 
 /// Data type: Number.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
 @Schema()
-abstract class $Number implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Number implements $SchemaThing {}
 
 /// Nutritional information about the recipe.
 @Schema()
 abstract class $NutritionInformation implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of calories.
   @Schema(description: "The number of calories.")
   $Energy? get calories;
@@ -13826,12 +10365,6 @@ abstract class $NutritionInformation implements $StructuredValue {
 /// Instances of the class [[Observation]] are used to specify observations about an entity at a particular time. The principal properties of an [[Observation]] are [[observationAbout]], [[measuredProperty]], [[statType]], [[value] and [[observationDate]]  and [[measuredProperty]]. Some but not all Observations represent a [[QuantitativeValue]]. Quantitative observations can be about a [[StatisticalVariable]], which is an abstract specification about which we can make observations that are grounded at a particular location and time.  Observations can also encode a subset of simple RDF-like statements (its observationAbout, a StatisticalVariable, defining the measuredPoperty; its observationAbout property indicating the entity the statement is about, and [[value]] )  In the context of a quantitative knowledge graph, typical properties could include [[measuredProperty]], [[observationAbout]], [[observationDate]], [[value]], [[unitCode]], [[unitText]], [[measurementMethod]].
 @Schema()
 abstract class $Observation implements $Intangible, $QuantitativeValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A [[marginOfError]] for an [[Observation]].
   @Schema(description: "A [[marginOfError]] for an [[Observation]].")
   $QuantitativeValue? get marginOfError;
@@ -13900,12 +10433,6 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
 /// A profession, may involve prolonged training and/or a formal qualification.
 @Schema()
 abstract class $Occupation implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Educational background needed for the position or Occupation.
   @Schema(
     description:
@@ -13965,12 +10492,6 @@ abstract class $Occupation implements $Intangible {
 /// Indicates employment-related experience requirements, e.g. [[monthsOfExperience]].
 @Schema()
 abstract class $OccupationalExperienceRequirements implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the minimal number of months of experience required for a position.
   @Schema(
     description:
@@ -13981,33 +10502,15 @@ abstract class $OccupationalExperienceRequirements implements $Intangible {
 
 /// A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems.
 @Schema()
-abstract class $OccupationalTherapy implements $MedicalTherapy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OccupationalTherapy implements $MedicalTherapy {}
 
 /// An ocean (for example, the Pacific).
 @Schema()
-abstract class $OceanBodyOfWater implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OceanBodyOfWater implements $BodyOfWater {}
 
 /// An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.\n\nNote: As the [[businessFunction]] property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.\n\nFor [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/).
 @Schema()
 abstract class $Offer implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
   @Schema(
     description:
@@ -14376,53 +10879,23 @@ abstract class $Offer implements $Intangible {
 
 /// An OfferCatalog is an ItemList that contains related Offers and/or further OfferCatalogs that are offeredBy the same provider.
 @Schema()
-abstract class $OfferCatalog implements $ItemList {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OfferCatalog implements $ItemList {}
 
 /// An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out something, i.e. an [[Offer]] whose   [[businessFunction]] is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for   background on the underlying concepts.
 @Schema()
-abstract class $OfferForLease implements $Offer {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OfferForLease implements $Offer {}
 
 /// An [[OfferForPurchase]] in Schema.org represents an [[Offer]] to sell something, i.e. an [[Offer]] whose   [[businessFunction]] is [sell](http://purl.org/goodrelations/v1#Sell.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for   background on the underlying concepts.
 @Schema()
-abstract class $OfferForPurchase implements $Offer {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OfferForPurchase implements $Offer {}
 
 /// A list of possible conditions for the item.
 @Schema()
-abstract class $OfferItemCondition implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OfferItemCondition implements $Enumeration {}
 
 /// OfferShippingDetails represents information about shipping destinations.  Multiple of these entities can be used to represent different shipping rates for different destinations:  One entity for Alaska/Hawaii. A different one for continental US. A different one for all France.  Multiple of these entities can be used to represent different shipping costs and delivery times.  Two entities that are identical but differ in rate and time:  E.g. Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days.
 @Schema()
 abstract class $OfferShippingDetails implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The total delay between the receipt of the order and the goods reaching the final customer.
   @Schema(
     description:
@@ -14519,43 +10992,19 @@ abstract class $OfferShippingDetails implements $StructuredValue {
 
 /// An office equipment store.
 @Schema()
-abstract class $OfficeEquipmentStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OfficeEquipmentStore implements $Store {}
 
 /// A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand.
 @Schema()
-abstract class $OnDemandEvent implements $PublicationEvent {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OnDemandEvent implements $PublicationEvent {}
 
 /// A particular online business, either standalone or the online part of a broader organization. Examples include an eCommerce site, an online travel booking site, an online learning site, an online logistics and shipping provider, an online (virtual) doctor, etc.
 @Schema()
-abstract class $OnlineBusiness implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OnlineBusiness implements $Organization {}
 
 /// An eCommerce marketplace.
 @Schema()
 abstract class $OnlineMarketplace implements $OnlineStore {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An eCommerce store part of an online marketplace.
   @Schema(description: "An eCommerce store part of an online marketplace.")
   $OnlineStore? get hasStore;
@@ -14564,12 +11013,6 @@ abstract class $OnlineMarketplace implements $OnlineStore {
 /// An eCommerce site.
 @Schema()
 abstract class $OnlineStore implements $OnlineBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The eCommerce marketplace this online store is on.
   @Schema(description: "The eCommerce marketplace this online store is on.")
   $OnlineMarketplace? get isStoreOn;
@@ -14578,12 +11021,6 @@ abstract class $OnlineStore implements $OnlineBusiness {
 /// A structured value providing information about the opening hours of a place or a certain service inside a place.\n\n The place is __open__ if the [[opens]] property is specified, and __closed__ otherwise.\n\nIf the value for the [[closes]] property is less than the value for the [[opens]] property then the hour range is assumed to span over the next day.
 @Schema()
 abstract class $OpeningHoursSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The closing hour of the place or service on the given day(s) of the week.
   @Schema(
     description:
@@ -14618,43 +11055,19 @@ abstract class $OpeningHoursSpecification implements $StructuredValue {
 
 /// System software that manages computer hardware and software resources, and provides common services for computer programs.
 @Schema()
-abstract class $OperatingSystem implements $SoftwareApplication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OperatingSystem implements $SoftwareApplication {}
 
 /// An [[OpinionNewsArticle]] is a [[NewsArticle]] that primarily expresses opinions rather than journalistic reporting of news and events. For example, a [[NewsArticle]] consisting of a column or [[Blog]]/[[BlogPosting]] entry in the Opinions section of a news publication.
 @Schema()
-abstract class $OpinionNewsArticle implements $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OpinionNewsArticle implements $NewsArticle {}
 
 /// A store that sells reading glasses and similar devices for improving vision.
 @Schema()
-abstract class $Optician implements $MedicalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Optician implements $MedicalBusiness {}
 
 /// An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
 @Schema()
 abstract class $Order implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
   @Schema(
     description:
@@ -14776,12 +11189,6 @@ abstract class $Order implements $Intangible {
 /// An agent orders an object/product/service to be delivered/sent.
 @Schema()
 abstract class $OrderAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of instrument. The method of delivery.
   @Schema(description: "A sub property of instrument. The method of delivery.")
   $DeliveryMethod? get deliveryMethod;
@@ -14790,12 +11197,6 @@ abstract class $OrderAction implements $TradeAction {
 /// An order item is a line of an order. It includes the quantity and shipping details of a bought offer.
 @Schema()
 abstract class $OrderItem implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The delivery of the parcel related to this order or order item.
   @Schema(
     description:
@@ -14825,23 +11226,11 @@ abstract class $OrderItem implements $StructuredValue {
 
 /// Enumerated status values for Order.
 @Schema()
-abstract class $OrderStatus implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OrderStatus implements $StatusEnumeration {}
 
 /// An organization such as a school, NGO, corporation, club, etc.
 @Schema()
 abstract class $Organization implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
   @Schema(
     description:
@@ -15318,12 +11707,6 @@ abstract class $Organization implements $Thing {
 /// A subclass of Role used to describe roles within organizations.
 @Schema()
 abstract class $OrganizationRole implements $Role {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A number associated with a role in an organization, for example, the number on an athlete's jersey.
   @Schema(
     description:
@@ -15334,33 +11717,15 @@ abstract class $OrganizationRole implements $Role {
 
 /// The act of manipulating/administering/supervising/controlling one or more objects.
 @Schema()
-abstract class $OrganizeAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OrganizeAction implements $Action {}
 
 /// An outlet store.
 @Schema()
-abstract class $OutletStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $OutletStore implements $Store {}
 
 /// A structured value providing information about when a certain organization or person owned a certain product.
 @Schema()
 abstract class $OwnershipInfo implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The organization or person from which the product was acquired.
   @Schema(
     description:
@@ -15387,44 +11752,20 @@ abstract class $OwnershipInfo implements $StructuredValue {
 
 /// The act of producing a painting, typically with paint and canvas as instruments.
 @Schema()
-abstract class $PaintAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PaintAction implements $CreateAction {}
 
 /// A painting.
 @Schema()
-abstract class $Painting implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Painting implements $CreativeWork {}
 
 /// A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition.
 @Schema()
 abstract class $PalliativeProcedure
-    implements $MedicalProcedure, $MedicalTherapy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $MedicalProcedure, $MedicalTherapy {}
 
 /// The delivery of a parcel either via the postal service or a commercial service.
 @Schema()
 abstract class $ParcelDelivery implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
   @Schema(
     description:
@@ -15489,12 +11830,6 @@ abstract class $ParcelDelivery implements $Intangible {
 /// A set of characteristics describing parents, who can be interested in viewing some content.
 @Schema()
 abstract class $ParentAudience implements $PeopleAudience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Maximal age of the child.
   @Schema(description: "Maximal age of the child.")
   num? get childMaxAge;
@@ -15506,33 +11841,15 @@ abstract class $ParentAudience implements $PeopleAudience {
 
 /// A park.
 @Schema()
-abstract class $Park implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Park implements $CivicStructure {}
 
 /// A parking lot or other parking facility.
 @Schema()
-abstract class $ParkingFacility implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ParkingFacility implements $CivicStructure {}
 
 /// A medical test performed by a laboratory that typically involves examination of a tissue sample by a pathologist.
 @Schema()
 abstract class $PathologyTest implements $MedicalTest {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of tissue sample required for the test.
   @Schema(description: "The type of tissue sample required for the test.")
   String? get tissueSample;
@@ -15541,12 +11858,6 @@ abstract class $PathologyTest implements $MedicalTest {
 /// A patient is any person recipient of health care services.
 @Schema()
 abstract class $Patient implements $MedicalAudience, $Person {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
   @Schema(
     description:
@@ -15571,23 +11882,11 @@ abstract class $Patient implements $MedicalAudience, $Person {
 
 /// A shop that will buy, or lend money against the security of, personal possessions.
 @Schema()
-abstract class $PawnShop implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PawnShop implements $Store {}
 
 /// An agent pays a price to a participant.
 @Schema()
 abstract class $PayAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant who is at the receiving end of the action.
   @Schema(
     description:
@@ -15599,12 +11898,6 @@ abstract class $PayAction implements $TradeAction {
 /// A payment method using a credit, debit, store or other card to associate the payment with an account.
 @Schema()
 abstract class $PaymentCard implements $FinancialProduct, $PaymentMethod {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
   @Schema(
     description:
@@ -15637,12 +11930,6 @@ abstract class $PaymentCard implements $FinancialProduct, $PaymentMethod {
 /// The costs of settling the payment using a particular payment method.
 @Schema()
 abstract class $PaymentChargeSpecification implements $PriceSpecification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The delivery method(s) to which the delivery charge or payment charge specification applies.
   @Schema(
     description:
@@ -15661,12 +11948,6 @@ abstract class $PaymentChargeSpecification implements $PriceSpecification {
 /// A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction. The following legacy values should be accepted: \n\n* http://purl.org/goodrelations/v1#ByBankTransferInAdvance\n* http://purl.org/goodrelations/v1#ByInvoice\n* http://purl.org/goodrelations/v1#Cash\n* http://purl.org/goodrelations/v1#CheckInAdvance\n* http://purl.org/goodrelations/v1#COD\n* http://purl.org/goodrelations/v1#DirectDebit\n* http://purl.org/goodrelations/v1#GoogleCheckout\n* http://purl.org/goodrelations/v1#PayPal\n* http://purl.org/goodrelations/v1#PaySwarm\n\nStructured values, or [UNCE payment means](https://vocabulary.uncefact.org/PaymentMeans) are recommended or for newer annotations.
 @Schema()
 abstract class $PaymentMethod implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of a payment method.
   @Schema(description: "The type of a payment method.")
   $PaymentMethodType? get paymentMethodType;
@@ -15674,43 +11955,19 @@ abstract class $PaymentMethod implements $Intangible {
 
 /// The type of payment method, only for generic payment types, specific forms of payments, like card payment should be expressed using subclasses of PaymentMethod.
 @Schema()
-abstract class $PaymentMethodType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PaymentMethodType implements $Enumeration {}
 
 /// A Service to transfer funds from a person or organization to a beneficiary person or organization.
 @Schema()
-abstract class $PaymentService implements $FinancialProduct, $PaymentMethod {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PaymentService implements $FinancialProduct, $PaymentMethod {}
 
 /// A specific payment status. For example, PaymentDue, PaymentComplete, etc.
 @Schema()
-abstract class $PaymentStatusType implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PaymentStatusType implements $StatusEnumeration {}
 
 /// A set of characteristics belonging to people, e.g. who compose an item's target audience.
 @Schema()
 abstract class $PeopleAudience implements $Audience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifying the health condition(s) of a patient, medical study, or other target audience.
   @Schema(
     description:
@@ -15767,12 +12024,6 @@ abstract class $PeopleAudience implements $Audience {
 /// The act of participating in performance arts.
 @Schema()
 abstract class $PerformAction implements $PlayAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The entertainment business where the action occurred.
   @Schema(
     description:
@@ -15784,12 +12035,6 @@ abstract class $PerformAction implements $PlayAction {
 /// A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.
 @Schema()
 abstract class $PerformanceRole implements $Role {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
   @Schema(
     description:
@@ -15800,53 +12045,23 @@ abstract class $PerformanceRole implements $Role {
 
 /// Live performance <a class="localLink" href="http://schema.org/Event">Event of the performing arts (music, theatre, dance, acrobatics, spoken word), including performance art and performative sports (e.g. choreographed forms of martial arts, figure skating, competitive ballroom dancing).<br/><br/>Note: Use <a class="localLink" href="http://schema.org/additionalType">additionalType</a> to differentiate between productions / shows (PerformanceWork, EventSeries), tours (EventSeries), and individual performances.
 @Schema()
-abstract class $PerformingArtsEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PerformingArtsEvent implements $Event {}
 
 /// A theater or other performing art center.
 @Schema()
-abstract class $PerformingArtsTheater implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PerformingArtsTheater implements $CivicStructure {}
 
 /// A performance group, such as a band, an orchestra, or a circus.
 @Schema()
-abstract class $PerformingGroup implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PerformingGroup implements $Organization {}
 
 /// A publication in any medium issued in successive parts bearing numerical or chronological designations and intended to continue indefinitely, such as a magazine, scholarly journal, or newspaper.\n\nSee also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
 @Schema()
-abstract class $Periodical implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Periodical implements $CreativeWorkSeries {}
 
 /// A permit issued by an organization, e.g. a parking pass.
 @Schema()
 abstract class $Permit implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The organization issuing the item, for example a [[Permit]], [[Ticket]], or [[Certification]].
   @Schema(
     description:
@@ -15885,12 +12100,6 @@ abstract class $Permit implements $Intangible {
 /// A person (alive, dead, undead, or fictional).
 @Schema()
 abstract class $Person implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An additional name for a Person, can be used for a middle name.
   @Schema(
     description:
@@ -16266,53 +12475,23 @@ abstract class $Person implements $Thing {
 
 /// A pet store.
 @Schema()
-abstract class $PetStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PetStore implements $Store {}
 
 /// A pharmacy or drugstore.
 @Schema()
-abstract class $Pharmacy implements $MedicalBusiness, $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Pharmacy implements $MedicalBusiness, $MedicalOrganization {}
 
 /// A photograph.
 @Schema()
-abstract class $Photograph implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Photograph implements $CreativeWork {}
 
 /// The act of capturing still images of objects using a camera.
 @Schema()
-abstract class $PhotographAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PhotographAction implements $CreateAction {}
 
 /// Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan.
 @Schema()
 abstract class $PhysicalActivity implements $LifestyleModification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The anatomy of the underlying organ system or structures associated with this entity.
   @Schema(
     description:
@@ -16344,43 +12523,20 @@ abstract class $PhysicalActivity implements $LifestyleModification {
 
 /// Categories of physical activity, organized by physiologic classification.
 @Schema()
-abstract class $PhysicalActivityCategory implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PhysicalActivityCategory implements $Enumeration {}
 
 /// A type of physical examination of a patient performed by a physician.
 @Schema()
-abstract class $PhysicalExam implements $MedicalEnumeration, $MedicalProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PhysicalExam
+    implements $MedicalEnumeration, $MedicalProcedure {}
 
 /// A process of progressive physical care and rehabilitation aimed at improving a health condition.
 @Schema()
-abstract class $PhysicalTherapy implements $MedicalTherapy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PhysicalTherapy implements $MedicalTherapy {}
 
 /// An individual physician or a physician's office considered as a [[MedicalOrganization]].
 @Schema()
 abstract class $Physician implements $MedicalBusiness, $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A medical service available from this provider.
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
@@ -16412,23 +12568,11 @@ abstract class $Physician implements $MedicalBusiness, $MedicalOrganization {
 
 /// A doctor's office or clinic.
 @Schema()
-abstract class $PhysiciansOffice implements $Physician {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PhysiciansOffice implements $Physician {}
 
 /// Entities that have a somewhat fixed, physical extension.
 @Schema()
 abstract class $Place implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   @Schema(
     description:
@@ -16719,23 +12863,11 @@ abstract class $Place implements $Thing {
 
 /// Place of worship, such as a church, synagogue, or mosque.
 @Schema()
-abstract class $PlaceOfWorship implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PlaceOfWorship implements $CivicStructure {}
 
 /// The act of planning the execution of an event/task/action/reservation/plan to a future date.
 @Schema()
 abstract class $PlanAction implements $OrganizeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The time the object is scheduled to.
   @Schema(description: "The time the object is scheduled to.")
   $SchemaUnion? get scheduledTime;
@@ -16743,23 +12875,11 @@ abstract class $PlanAction implements $OrganizeAction {
 
 /// A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a [[TheaterEvent]] or [[BroadcastEvent]] - the *Play* being the [[workPerformed]].
 @Schema()
-abstract class $Play implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Play implements $CreativeWork {}
 
 /// The act of playing/exercising/training/performing for enjoyment, leisure, recreation, competition or exercise.\n\nRelated actions:\n\n* [[ListenAction]]: Unlike ListenAction (which is under ConsumeAction), PlayAction refers to performing for an audience or at an event, rather than consuming music.\n* [[WatchAction]]: Unlike WatchAction (which is under ConsumeAction), PlayAction refers to showing/displaying for an audience or at an event, rather than consuming visual content.
 @Schema()
 abstract class $PlayAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An intended audience, i.e. a group for whom something was created.
   @Schema(
     description:
@@ -16778,12 +12898,6 @@ abstract class $PlayAction implements $Action {
 /// The act of playing a video game.
 @Schema()
 abstract class $PlayGameAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.
   @Schema(
     description:
@@ -16794,53 +12908,23 @@ abstract class $PlayGameAction implements $ConsumeAction {
 
 /// A playground.
 @Schema()
-abstract class $Playground implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Playground implements $CivicStructure {}
 
 /// A plumbing service.
 @Schema()
-abstract class $Plumber implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Plumber implements $HomeAndConstructionBusiness {}
 
 /// A single episode of a podcast series.
 @Schema()
-abstract class $PodcastEpisode implements $Episode {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PodcastEpisode implements $Episode {}
 
 /// A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.
 @Schema()
-abstract class $PodcastSeason implements $CreativeWorkSeason {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PodcastSeason implements $CreativeWorkSeason {}
 
 /// A podcast is an episodic series of digital audio or video files which a user can download and listen to.
 @Schema()
 abstract class $PodcastSeries implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -16858,53 +12942,23 @@ abstract class $PodcastSeries implements $CreativeWorkSeries {
 
 /// A police station.
 @Schema()
-abstract class $PoliceStation implements $CivicStructure, $EmergencyService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PoliceStation implements $CivicStructure, $EmergencyService {}
 
 /// Organization: Political Party.
 @Schema()
-abstract class $PoliticalParty implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PoliticalParty implements $Organization {}
 
 /// A pond.
 @Schema()
-abstract class $Pond implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Pond implements $BodyOfWater {}
 
 /// A post office.
 @Schema()
-abstract class $PostOffice implements $GovernmentOffice {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PostOffice implements $GovernmentOffice {}
 
 /// The mailing address.
 @Schema()
 abstract class $PostalAddress implements $ContactPoint {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
   @Schema(
     description:
@@ -16951,12 +13005,6 @@ abstract class $PostalAddress implements $ContactPoint {
 /// Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.
 @Schema()
 abstract class $PostalCodeRangeSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// First postal code in a range (included).
   @Schema(description: "First postal code in a range (included).")
   String? get postalCodeBegin;
@@ -16971,83 +13019,35 @@ abstract class $PostalCodeRangeSpecification implements $StructuredValue {
 
 /// A large, usually printed placard, bill, or announcement, often illustrated, that is posted to advertise or publicize something.
 @Schema()
-abstract class $Poster implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Poster implements $CreativeWork {}
 
 /// An agent orders a (not yet released) object/product/service to be delivered/sent.
 @Schema()
-abstract class $PreOrderAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PreOrderAction implements $TradeAction {}
 
 /// The act of inserting at the beginning if an ordered collection.
 @Schema()
-abstract class $PrependAction implements $InsertAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PrependAction implements $InsertAction {}
 
 /// A preschool.
 @Schema()
-abstract class $Preschool implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Preschool implements $EducationalOrganization {}
 
 /// A file containing slides or used for a presentation.
 @Schema()
-abstract class $PresentationDigitalDocument implements $DigitalDocument {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PresentationDigitalDocument implements $DigitalDocument {}
 
 /// An indication for preventing an underlying condition, symptom, etc.
 @Schema()
-abstract class $PreventionIndication implements $MedicalIndication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PreventionIndication implements $MedicalIndication {}
 
 /// Enumerates different price components that together make up the total price for an offered product.
 @Schema()
-abstract class $PriceComponentTypeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PriceComponentTypeEnumeration implements $Enumeration {}
 
 /// A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use [[MonetaryAmount]] to describe independent amounts of money such as a salary, credit card limits, etc.
 @Schema()
 abstract class $PriceSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
   @Schema(
     description:
@@ -17119,23 +13119,11 @@ abstract class $PriceSpecification implements $StructuredValue {
 
 /// Enumerates different price types, for example list price, invoice price, and sale price.
 @Schema()
-abstract class $PriceTypeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PriceTypeEnumeration implements $Enumeration {}
 
 /// Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.
 @Schema()
 abstract class $Product implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   @Schema(
     description:
@@ -17566,12 +13554,6 @@ abstract class $Product implements $Thing {
 /// A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]].
 @Schema()
 abstract class $ProductCollection implements $Collection, $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
   @Schema(
     description:
@@ -17583,12 +13565,6 @@ abstract class $ProductCollection implements $Collection, $Product {
 /// A ProductGroup represents a group of [[Product]]s that vary only in certain well-described ways, such as by [[size]], [[color]], [[material]] etc.  While a ProductGroup itself is not directly offered for sale, the various varying products that it represents can be. The ProductGroup serves as a prototype or template, standing in for all of the products who have an [[isVariantOf]] relationship to it. As such, properties (including additional types) can be applied to the ProductGroup to represent characteristics shared by each of the (possibly very many) variants. Properties that reference a ProductGroup are not included in this mechanism; neither are the following specific properties [[variesBy]], [[hasVariant]], [[url]].
 @Schema()
 abstract class $ProductGroup implements $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).
   @Schema(
     description:
@@ -17611,12 +13587,6 @@ abstract class $ProductGroup implements $Product {
 /// A datasheet or vendor specification of a product (in the sense of a prototypical description).
 @Schema()
 abstract class $ProductModel implements $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
   @Schema(
     description:
@@ -17641,23 +13611,11 @@ abstract class $ProductModel implements $Product {
 
 /// ProductReturnEnumeration enumerates several kinds of product return policy. Note that this structure may not capture all aspects of the policy.
 @Schema()
-abstract class $ProductReturnEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ProductReturnEnumeration implements $Enumeration {}
 
 /// A ProductReturnPolicy provides information about product return policies associated with an [[Organization]] or [[Product]].
 @Schema()
 abstract class $ProductReturnPolicy implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The productReturnDays property indicates the number of days (from purchase) within which relevant product return policy is applicable.
   @Schema(
     description:
@@ -17674,33 +13632,15 @@ abstract class $ProductReturnPolicy implements $Intangible {
 
 /// Original definition: "provider of professional services."\n\nThe general [[ProfessionalService]] type for local businesses was deprecated due to confusion with [[Service]]. For reference, the types that it included were: [[Dentist]],         [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],         [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]].
 @Schema()
-abstract class $ProfessionalService implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ProfessionalService implements $LocalBusiness {}
 
 /// Web page type: Profile page.
 @Schema()
-abstract class $ProfilePage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ProfilePage implements $WebPage {}
 
 /// Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
 @Schema()
 abstract class $ProgramMembership implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the  MemberProgram.
   @Schema(
     description:
@@ -17747,23 +13687,11 @@ abstract class $ProgramMembership implements $Intangible {
 
 /// An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim. Use properties from [[Organization]], [[subOrganization]]/[[parentOrganization]] to indicate project sub-structures.
 @Schema()
-abstract class $Project implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Project implements $Organization {}
 
 /// Data type: PronounceableText.
 @Schema()
 abstract class $PronounceableText implements $Text {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
   @Schema(
     description:
@@ -17793,12 +13721,6 @@ abstract class $PronounceableText implements $Text {
 /// A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.
 @Schema()
 abstract class $Property implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Relates a property to a class that is (one of) the type(s) the property is expected to be used on.
   @Schema(
     description:
@@ -17831,12 +13753,6 @@ abstract class $Property implements $Intangible {
 /// A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.\n\n Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.
 @Schema()
 abstract class $PropertyValue implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The upper value of some characteristic or property.
   @Schema(description: "The upper value of some characteristic or property.")
   num? get maxValue;
@@ -17905,12 +13821,6 @@ abstract class $PropertyValue implements $StructuredValue {
 /// A Property value specification.
 @Schema()
 abstract class $PropertyValueSpecification implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
   @Schema(
     description:
@@ -17986,12 +13896,6 @@ abstract class $PropertyValueSpecification implements $Intangible {
 /// Protein is here used in its widest possible definition, as classes of amino acid based molecules. Amyloid-beta Protein in human (UniProt P05067), eukaryota (e.g. an OrthoDB group) or even a single molecule that one can point to are all of type :Protein. A protein can thus be a subclass of another protein, e.g. :Protein as a UniProt record can have multiple isoforms inside it which would also be :Protein. They can be imagined, synthetic, hypothetical or naturally occurring.
 @Schema()
 abstract class $Protein implements $BioChemEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A symbolic representation of a BioChemEntity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein.
   @Schema(
     description:
@@ -18002,43 +13906,19 @@ abstract class $Protein implements $BioChemEntity {
 
 /// A process of care relying upon counseling, dialogue and communication  aimed at improving a mental health condition without use of drugs.
 @Schema()
-abstract class $PsychologicalTreatment implements $TherapeuticProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PsychologicalTreatment implements $TherapeuticProcedure {}
 
 /// A public swimming pool.
 @Schema()
-abstract class $PublicSwimmingPool implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PublicSwimmingPool implements $SportsActivityLocation {}
 
 /// A public toilet is a room or small building containing one or more toilets (and possibly also urinals) which is available for use by the general public, or by customers or employees of certain businesses.
 @Schema()
-abstract class $PublicToilet implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PublicToilet implements $CivicStructure {}
 
 /// A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
 @Schema()
 abstract class $PublicationEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A flag to signal that the item, event, or place is accessible for free.
   @Schema(
     description:
@@ -18060,12 +13940,6 @@ abstract class $PublicationEvent implements $Event {
 /// A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.\n\nSee also [blog post](https://blog-schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
 @Schema()
 abstract class $PublicationIssue implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Identifies the issue of publication; for example, "iii" or "2".
   @Schema(
     description:
@@ -18098,12 +13972,6 @@ abstract class $PublicationIssue implements $CreativeWork {
 /// A part of a successively published publication such as a periodical or multi-volume work, often numbered. It may represent a time span, such as a year.\n\nSee also [blog post](https://blog-schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
 @Schema()
 abstract class $PublicationVolume implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The page on which the work ends; for example "138" or "xvi".
   @Schema(
     description:
@@ -18135,33 +14003,15 @@ abstract class $PublicationVolume implements $CreativeWork {
 
 /// Enumerates a purchase type for an item.
 @Schema()
-abstract class $PurchaseType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $PurchaseType implements $Enumeration {}
 
 /// A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).
 @Schema()
-abstract class $QAPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $QAPage implements $WebPage {}
 
 /// A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.
 @Schema()
 abstract class $QualitativeValue implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   @Schema(
     description:
@@ -18222,12 +14072,6 @@ abstract class $QualitativeValue implements $Enumeration {
 /// A point value or interval for product characteristics and other purposes.
 @Schema()
 abstract class $QuantitativeValue implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   @Schema(
     description:
@@ -18275,12 +14119,6 @@ abstract class $QuantitativeValue implements $StructuredValue {
 /// A statistical distribution of values.
 @Schema()
 abstract class $QuantitativeValueDistribution implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
   @Schema(
     description:
@@ -18311,23 +14149,11 @@ abstract class $QuantitativeValueDistribution implements $StructuredValue {
 
 /// Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are strings like '3 kg' or '4 milligrams'.
 @Schema()
-abstract class $Quantity implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Quantity implements $SchemaThing {}
 
 /// A specific question - e.g. from a user seeking answers online, or collected in a Frequently Asked Questions (FAQ) document.
 @Schema()
 abstract class $Question implements $Comment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
   @Schema(
     description:
@@ -18363,23 +14189,11 @@ abstract class $Question implements $Comment {
 
 /// Quiz: A test of knowledge, skills and abilities.
 @Schema()
-abstract class $Quiz implements $LearningResource {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Quiz implements $LearningResource {}
 
 /// A quotation. Often but not necessarily from some written work, attributable to a real world author and - if associated with a fictional character - to any fictional Person. Use [[isBasedOn]] to link to source/origin. The [[recordedIn]] property can be used to reference a Quotation from an [[Event]].
 @Schema()
 abstract class $Quotation implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.
   @Schema(
     description:
@@ -18390,93 +14204,39 @@ abstract class $Quotation implements $CreativeWork {
 
 /// An agent quotes/estimates/appraises an object/product/service with a price at a location/store.
 @Schema()
-abstract class $QuoteAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $QuoteAction implements $TradeAction {}
 
 /// A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.
 @Schema()
-abstract class $RVPark implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RVPark implements $CivicStructure {}
 
 /// A process of care using radiation aimed at improving a health condition.
 @Schema()
-abstract class $RadiationTherapy implements $MedicalTherapy {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadiationTherapy implements $MedicalTherapy {}
 
 /// A delivery service through which radio content is provided via broadcast over the air or online.
 @Schema()
-abstract class $RadioBroadcastService implements $BroadcastService {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioBroadcastService implements $BroadcastService {}
 
 /// A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup.
 @Schema()
-abstract class $RadioChannel implements $BroadcastChannel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioChannel implements $BroadcastChannel {}
 
 /// A short radio program or a segment/part of a radio program.
 @Schema()
-abstract class $RadioClip implements $Clip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioClip implements $Clip {}
 
 /// A radio episode which can be part of a series or season.
 @Schema()
-abstract class $RadioEpisode implements $Episode {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioEpisode implements $Episode {}
 
 /// Season dedicated to radio broadcast and associated online delivery.
 @Schema()
-abstract class $RadioSeason implements $CreativeWorkSeason {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioSeason implements $CreativeWorkSeason {}
 
 /// CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
 @Schema()
 abstract class $RadioSeries implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -18557,23 +14317,11 @@ abstract class $RadioSeries implements $CreativeWorkSeries {
 
 /// A radio station.
 @Schema()
-abstract class $RadioStation implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RadioStation implements $LocalBusiness {}
 
 /// A rating is an evaluation on a numeric scale, such as 1 to 5 stars.
 @Schema()
 abstract class $Rating implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
   @Schema(
     description:
@@ -18613,43 +14361,19 @@ abstract class $Rating implements $Intangible {
 
 /// The act of responding instinctively and emotionally to an object, expressing a sentiment.
 @Schema()
-abstract class $ReactAction implements $AssessAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReactAction implements $AssessAction {}
 
 /// The act of consuming written content.
 @Schema()
-abstract class $ReadAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReadAction implements $ConsumeAction {}
 
 /// A real-estate agent.
 @Schema()
-abstract class $RealEstateAgent implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RealEstateAgent implements $LocalBusiness {}
 
 /// A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).   The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].
 @Schema()
 abstract class $RealEstateListing implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Publication date of an online listing.
   @Schema(description: "Publication date of an online listing.")
   $SchemaUnion? get datePosted;
@@ -18665,12 +14389,6 @@ abstract class $RealEstateListing implements $WebPage {
 /// The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\n\nRelated actions:\n\n* [[SendAction]]: The reciprocal of ReceiveAction.\n* [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).
 @Schema()
 abstract class $ReceiveAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of instrument. The method of delivery.
   @Schema(description: "A sub property of instrument. The method of delivery.")
   $DeliveryMethod? get deliveryMethod;
@@ -18686,12 +14404,6 @@ abstract class $ReceiveAction implements $TransferAction {
 /// A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail.
 @Schema()
 abstract class $Recipe implements $HowTo {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
   @Schema(
     description:
@@ -18760,12 +14472,6 @@ abstract class $Recipe implements $HowTo {
 /// [[Recommendation]] is a type of [[Review]] that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A [[Guide]] may list multiple recommendations for different categories. For example, in a [[Guide]] about which TVs to buy, the author may have several [[Recommendation]]s.
 @Schema()
 abstract class $Recommendation implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
   @Schema(
     description:
@@ -18776,63 +14482,27 @@ abstract class $Recommendation implements $Review {
 
 /// A recommended dosing schedule for a drug or supplement as prescribed or recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
 @Schema()
-abstract class $RecommendedDoseSchedule implements $DoseSchedule {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RecommendedDoseSchedule implements $DoseSchedule {}
 
 /// A recycling center.
 @Schema()
-abstract class $RecyclingCenter implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RecyclingCenter implements $LocalBusiness {}
 
 /// Enumerates several kinds of product return refund types.
 @Schema()
-abstract class $RefundTypeEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RefundTypeEnumeration implements $Enumeration {}
 
 /// The act of registering to be a user of a service, product or web page.\n\nRelated actions:\n\n* [[JoinAction]]: Unlike JoinAction, RegisterAction implies you are registering to be a user of a service, *not* a group/team of people.\n* [[FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.\n* [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.
 @Schema()
-abstract class $RegisterAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RegisterAction implements $InteractAction {}
 
 /// The act of rejecting to/adopting an object.\n\nRelated actions:\n\n* [[AcceptAction]]: The antonym of RejectAction.
 @Schema()
-abstract class $RejectAction implements $AllocateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RejectAction implements $AllocateAction {}
 
 /// The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.
 @Schema()
 abstract class $RentAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The owner of the real estate property.
   @Schema(
     description:
@@ -18851,12 +14521,6 @@ abstract class $RentAction implements $TradeAction {
 /// A reservation for a rental car.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 @Schema()
 abstract class $RentalCarReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Where a rental car can be dropped off.
   @Schema(description: "Where a rental car can be dropped off.")
   $Place? get dropoffLocation;
@@ -18883,12 +14547,6 @@ abstract class $RentalCarReservation implements $Reservation {
 /// A structured value representing repayment.
 @Schema()
 abstract class $RepaymentSpecification implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.
   @Schema(
     description:
@@ -18925,12 +14583,6 @@ abstract class $RepaymentSpecification implements $StructuredValue {
 /// The act of editing a recipient by replacing an old object with a new object.
 @Schema()
 abstract class $ReplaceAction implements $UpdateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. The object that is being replaced.
   @Schema(
     description: "A sub property of object. The object that is being replaced.",
@@ -18945,12 +14597,6 @@ abstract class $ReplaceAction implements $UpdateAction {
 /// The act of responding to a question/message asked/sent by the object. Related to [[AskAction]].\n\nRelated actions:\n\n* [[AskAction]]: Appears generally as an origin of a ReplyAction.
 @Schema()
 abstract class $ReplyAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of result. The Comment created or sent as a result of this action.
   @Schema(
     description:
@@ -18962,12 +14608,6 @@ abstract class $ReplyAction implements $CommunicateAction {
 /// A Report generated by governmental or non-governmental organization.
 @Schema()
 abstract class $Report implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number or other unique designator assigned to a Report by the publishing organization.
   @Schema(
     description:
@@ -18978,63 +14618,27 @@ abstract class $Report implements $Article {
 
 /// The [[ReportageNewsArticle]] type is a subtype of [[NewsArticle]] representing  news articles which are the result of journalistic news reporting conventions.  In practice many news publishers produce a wide variety of article types, many of which might be considered a [[NewsArticle]] but not a [[ReportageNewsArticle]]. For example, opinion pieces, reviews, analysis, sponsored or satirical articles, or articles that combine several of these elements.  The [[ReportageNewsArticle]] type is based on a stricter ideal for "news" as a work of journalism, with articles based on factual information either observed or verified by the author, or reported and verified from knowledgeable sources.  This often includes perspectives from multiple viewpoints on a particular issue (distinguishing news reports from public relations or propaganda).  News reports in the [[ReportageNewsArticle]] sense de-emphasize the opinion of the author, with commentary and value judgements typically expressed elsewhere.  A [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 @Schema()
-abstract class $ReportageNewsArticle implements $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReportageNewsArticle implements $NewsArticle {}
 
 /// A patient-reported or observed dosing schedule for a drug or supplement.
 @Schema()
-abstract class $ReportedDoseSchedule implements $DoseSchedule {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReportedDoseSchedule implements $DoseSchedule {}
 
 /// A Research Organization (e.g. scientific institute, research company).
 @Schema()
-abstract class $ResearchOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ResearchOrganization implements $Organization {}
 
 /// A Research project.
 @Schema()
-abstract class $ResearchProject implements $Project {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ResearchProject implements $Project {}
 
 /// Researchers.
 @Schema()
-abstract class $Researcher implements $Audience {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Researcher implements $Audience {}
 
 /// Describes a reservation for travel, dining or an event. Some reservations require tickets. \n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use [[Offer]].
 @Schema()
 abstract class $Reservation implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// 'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.
   @Schema(
     description:
@@ -19113,12 +14717,6 @@ abstract class $Reservation implements $Intangible {
 /// A group of multiple reservations with common values for all sub-reservations.
 @Schema()
 abstract class $ReservationPackage implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The individual reservations included in the package. Typically a repeated property.
   @Schema(
     description:
@@ -19129,53 +14727,23 @@ abstract class $ReservationPackage implements $Reservation {
 
 /// Enumerated status values for Reservation.
 @Schema()
-abstract class $ReservationStatusType implements $StatusEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReservationStatusType implements $StatusEnumeration {}
 
 /// Reserving a concrete object.\n\nRelated actions:\n\n* [[ScheduleAction]]: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.
 @Schema()
-abstract class $ReserveAction implements $PlanAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReserveAction implements $PlanAction {}
 
 /// A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir.
 @Schema()
-abstract class $Reservoir implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Reservoir implements $BodyOfWater {}
 
 /// The action of resetting the password of a device or application.
 @Schema()
-abstract class $ResetPasswordAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ResetPasswordAction implements $ControlAction {}
 
 /// The place where a person lives.
 @Schema()
 abstract class $Residence implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A floorplan of some [[Accommodation]].
   @Schema(description: "A floorplan of some [[Accommodation]].")
   $FloorPlan? get accommodationFloorPlan;
@@ -19190,53 +14758,23 @@ abstract class $Residence implements $Place {
 
 /// A resort is a place used for relaxation or recreation, attracting visitors for holidays or vacations. Resorts are places, towns or sometimes commercial establishments operated by a single company (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Resort">http://en.wikipedia.org/wiki/Resort</a>). <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $Resort implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Resort implements $LodgingBusiness {}
 
 /// A restaurant.
 @Schema()
-abstract class $Restaurant implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Restaurant implements $FoodEstablishment {}
 
 /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
 @Schema()
-abstract class $RestrictedDiet implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RestrictedDiet implements $Enumeration {}
 
 /// The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer).
 @Schema()
-abstract class $ResumeAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ResumeAction implements $ControlAction {}
 
 /// The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
 @Schema()
 abstract class $ReturnAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant who is at the receiving end of the action.
   @Schema(
     description:
@@ -19247,43 +14785,19 @@ abstract class $ReturnAction implements $TransferAction {
 
 /// Enumerates several kinds of policies for product return fees.
 @Schema()
-abstract class $ReturnFeesEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReturnFeesEnumeration implements $Enumeration {}
 
 /// Enumerates several types of return labels for product returns.
 @Schema()
-abstract class $ReturnLabelSourceEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReturnLabelSourceEnumeration implements $Enumeration {}
 
 /// Enumerates several types of product return methods.
 @Schema()
-abstract class $ReturnMethodEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReturnMethodEnumeration implements $Enumeration {}
 
 /// A review of an item - for example, of a restaurant, movie, or store.
 @Schema()
 abstract class $Review implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An associated [[ClaimReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[associatedClaimReview]] would be used on [[MediaReview]].
   @Schema(
     description:
@@ -19342,12 +14856,6 @@ abstract class $Review implements $CreativeWork {
 /// The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.
 @Schema()
 abstract class $ReviewAction implements $AssessAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of result. The review that resulted in the performing of the action.
   @Schema(
     description:
@@ -19358,33 +14866,15 @@ abstract class $ReviewAction implements $AssessAction {
 
 /// A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work.
 @Schema()
-abstract class $ReviewNewsArticle implements $CriticReview, $NewsArticle {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ReviewNewsArticle implements $CriticReview, $NewsArticle {}
 
 /// A river (for example, the broad majestic Shannon).
 @Schema()
-abstract class $RiverBodyOfWater implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RiverBodyOfWater implements $BodyOfWater {}
 
 /// Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.\n\nSee also [blog post](https://blog.schema.org/2014/06/16/introducing-role/).
 @Schema()
 abstract class $Role implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
   @Schema(
     description:
@@ -19416,33 +14906,15 @@ abstract class $Role implements $Intangible {
 
 /// A roofing contractor.
 @Schema()
-abstract class $RoofingContractor implements $HomeAndConstructionBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RoofingContractor implements $HomeAndConstructionBusiness {}
 
 /// A room is a distinguishable space within a structure, usually separated from other spaces by interior walls (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Room">http://en.wikipedia.org/wiki/Room</a>). <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
-abstract class $Room implements $Accommodation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Room implements $Accommodation {}
 
 /// The act of notifying an event organizer as to whether you expect to attend the event.
 @Schema()
 abstract class $RsvpAction implements $InformAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// If responding yes, the number of guests who will attend in addition to the invitee.
   @Schema(
     description:
@@ -19461,53 +14933,23 @@ abstract class $RsvpAction implements $InformAction {
 
 /// RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request.
 @Schema()
-abstract class $RsvpResponseType implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RsvpResponseType implements $Enumeration {}
 
 /// Specialized software environment that provides the essential infrastructure, libraries, and services required to execute a program.
 @Schema()
-abstract class $RuntimePlatform implements $SoftwareApplication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $RuntimePlatform implements $SoftwareApplication {}
 
 /// Event type: Sales event.
 @Schema()
-abstract class $SaleEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SaleEvent implements $Event {}
 
 /// An [[Article]] whose content is primarily [[satirical]](https://en.wikipedia.org/wiki/Satire) in nature, i.e. unlikely to be literally true. A satirical article is sometimes but not necessarily also a [[NewsArticle]]. [[ScholarlyArticle]]s are also sometimes satirized.
 @Schema()
-abstract class $SatiricalArticle implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SatiricalArticle implements $Article {}
 
 /// A schedule defines a repeating time period used to describe a regularly occurring [[Event]]. At a minimum a schedule will specify [[repeatFrequency]] which describes the interval between occurrences of the event. Additional information can be provided to specify the schedule more precisely.       This includes identifying the day(s) of the week or month when the recurring event will take place, in addition to its start and end time. Schedules may also       have start and end dates to indicate when they are active, e.g. to define a limited calendar of events.
 @Schema()
 abstract class $Schedule implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.
   @Schema(
     description:
@@ -19602,53 +15044,23 @@ abstract class $Schedule implements $Intangible {
 
 /// Scheduling future actions, events, or tasks.\n\nRelated actions:\n\n* [[ReserveAction]]: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.
 @Schema()
-abstract class $ScheduleAction implements $PlanAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ScheduleAction implements $PlanAction {}
 
 /// A scholarly article.
 @Schema()
-abstract class $ScholarlyArticle implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ScholarlyArticle implements $Article {}
 
 /// A school.
 @Schema()
-abstract class $School implements $EducationalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $School implements $EducationalOrganization {}
 
 /// A School District is an administrative area for the administration of schools.
 @Schema()
-abstract class $SchoolDistrict implements $AdministrativeArea {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SchoolDistrict implements $AdministrativeArea {}
 
 /// A screening of a movie or other video.
 @Schema()
 abstract class $ScreeningEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
   @Schema(
     description:
@@ -19670,33 +15082,15 @@ abstract class $ScreeningEvent implements $Event {
 
 /// A piece of sculpture.
 @Schema()
-abstract class $Sculpture implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Sculpture implements $CreativeWork {}
 
 /// A sea (for example, the Caspian sea).
 @Schema()
-abstract class $SeaBodyOfWater implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SeaBodyOfWater implements $BodyOfWater {}
 
 /// The act of searching for an object.\n\nRelated actions:\n\n* [[FindAction]]: SearchAction generally leads to a FindAction, but not necessarily.
 @Schema()
 abstract class $SearchAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of instrument. The query used on this action.
   @Schema(
     description: "A sub property of instrument. The query used on this action.",
@@ -19706,43 +15100,19 @@ abstract class $SearchAction implements $Action {
 
 /// A Search and Rescue organization of some kind.
 @Schema()
-abstract class $SearchRescueOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SearchRescueOrganization implements $Organization {}
 
 /// Web page type: Search results page.
 @Schema()
-abstract class $SearchResultsPage implements $WebPage {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SearchResultsPage implements $WebPage {}
 
 /// A media season, e.g. TV, radio, video game etc.
 @Schema()
-abstract class $Season implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Season implements $CreativeWork {}
 
 /// Used to describe a seat, such as a reserved seat in an event reservation.
 @Schema()
 abstract class $Seat implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The location of the reserved seat (e.g., 27).
   @Schema(description: "The location of the reserved seat (e.g., 27).")
   String? get seatNumber;
@@ -19765,12 +15135,6 @@ abstract class $Seat implements $Intangible {
 /// This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure.
 @Schema()
 abstract class $SeekToAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The start time of the clip expressed as the number of seconds from the beginning of the work.
   @Schema(
     description:
@@ -19781,23 +15145,11 @@ abstract class $SeekToAction implements $Action {
 
 /// A self-storage facility.
 @Schema()
-abstract class $SelfStorage implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SelfStorage implements $LocalBusiness {}
 
 /// The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.
 @Schema()
 abstract class $SellAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant/person/organization that bought the object.
   @Schema(
     description:
@@ -19813,12 +15165,6 @@ abstract class $SellAction implements $TradeAction {
 /// The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:\n\n* [[ReceiveAction]]: The reciprocal of SendAction.\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).
 @Schema()
 abstract class $SendAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of instrument. The method of delivery.
   @Schema(description: "A sub property of instrument. The method of delivery.")
   $DeliveryMethod? get deliveryMethod;
@@ -19833,33 +15179,15 @@ abstract class $SendAction implements $TransferAction {
 
 /// An art forms that use images deployed in a specific order for the purpose of graphic storytelling (i.e., narration of graphic stories) or conveying information. Examples of SequentialArt are Franco-Belgian Bande Dessinée, Comics in the USA and 漫画 (Manga) in Japan.
 @Schema()
-abstract class $SequentialArt implements $Book, $VisualArtwork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SequentialArt implements $Book, $VisualArtwork {}
 
 /// A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also [[CreativeWorkSeries]], [[EventSeries]].
 @Schema()
-abstract class $Series implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Series implements $Intangible {}
 
 /// A service provided by an organization, e.g. delivery service, print services, etc.
 @Schema()
 abstract class $Service implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The overall rating, based on a collection of reviews or ratings, of the item.
   @Schema(
     description:
@@ -20017,12 +15345,6 @@ abstract class $Service implements $Intangible {
 /// A means for accessing a service, e.g. a government office location, web site, or phone number.
 @Schema()
 abstract class $ServiceChannel implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
   @Schema(
     description:
@@ -20068,12 +15390,6 @@ abstract class $ServiceChannel implements $Intangible {
 /// ServicePeriod represents a duration with some constraints about cutoff time and business days. This is used e.g. in shipping for handling times or transit time.
 @Schema()
 abstract class $ServicePeriod implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Days of the week when the merchant typically operates, indicated via opening hours markup.
   @Schema(
     description:
@@ -20098,33 +15414,15 @@ abstract class $ServicePeriod implements $StructuredValue {
 
 /// The act of distributing content to people for their amusement or edification.
 @Schema()
-abstract class $ShareAction implements $CommunicateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ShareAction implements $CommunicateAction {}
 
 /// Printed music, as opposed to performed or recorded music.
 @Schema()
-abstract class $SheetMusic implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SheetMusic implements $CreativeWork {}
 
 /// ShippingConditions represent a set of constraints and information about the conditions of shipping a product. Such conditions may apply to only a subset of the products being shipped, depending on aspects of the product like weight, size, price, destination, and others. All the specified conditions must be met for this ShippingConditions to apply.
 @Schema()
 abstract class $ShippingConditions implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The depth of the item.
   @Schema(description: "The depth of the item.")
   $SchemaUnion? get depth;
@@ -20200,12 +15498,6 @@ abstract class $ShippingConditions implements $StructuredValue {
 /// ShippingDeliveryTime provides various pieces of information about delivery times for shipping.
 @Schema()
 abstract class $ShippingDeliveryTime implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Days of the week when the merchant typically operates, indicated via opening hours markup.
   @Schema(
     description:
@@ -20238,12 +15530,6 @@ abstract class $ShippingDeliveryTime implements $StructuredValue {
 /// A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].
 @Schema()
 abstract class $ShippingRateSettings implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates when shipping to a particular [[shippingDestination]] is not available.
   @Schema(
     description:
@@ -20311,12 +15597,6 @@ abstract class $ShippingRateSettings implements $StructuredValue {
 /// ShippingService represents the criteria used to determine if and how an offer could be shipped to a customer.
 @Schema()
 abstract class $ShippingService implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Type of fulfillment applicable to the [[ShippingService]].
   @Schema(
     description: "Type of fulfillment applicable to the [[ShippingService]].",
@@ -20347,43 +15627,19 @@ abstract class $ShippingService implements $StructuredValue {
 
 /// A shoe store.
 @Schema()
-abstract class $ShoeStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ShoeStore implements $Store {}
 
 /// A shopping center or mall.
 @Schema()
-abstract class $ShoppingCenter implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ShoppingCenter implements $LocalBusiness {}
 
 /// Short story or tale. A brief work of literature, usually written in narrative prose.
 @Schema()
-abstract class $ShortStory implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ShortStory implements $CreativeWork {}
 
 /// Residence type: Single-family home.
 @Schema()
 abstract class $SingleFamilyResidence implements $House {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
   @Schema(
     description:
@@ -20401,33 +15657,15 @@ abstract class $SingleFamilyResidence implements $House {
 
 /// A navigation element of the page.
 @Schema()
-abstract class $SiteNavigationElement implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SiteNavigationElement implements $WebPageElement {}
 
 /// Enumerates common size groups for various product categories.
 @Schema()
-abstract class $SizeGroupEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SizeGroupEnumeration implements $Enumeration {}
 
 /// Size related properties of a product, typically a size code ([[name]]) and optionally a [[sizeSystem]], [[sizeGroup]], and product measurements ([[hasMeasurement]]). In addition, the intended audience can be defined through [[suggestedAge]], [[suggestedGender]], and suggested body measurements ([[suggestedMeasurement]]).
 @Schema()
 abstract class $SizeSpecification implements $QualitativeValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A measurement of an item, For example, the inseam of pants, the wheel size of a bicycle, the gauge of a screw, or the carbon footprint measured for certification by an authority. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
   @Schema(
     description:
@@ -20473,43 +15711,19 @@ abstract class $SizeSpecification implements $QualitativeValue {
 
 /// Enumerates common size systems for different categories of products, for example "EN-13402" or "UK" for wearables or "Imperial" for screws.
 @Schema()
-abstract class $SizeSystemEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SizeSystemEnumeration implements $Enumeration {}
 
 /// A ski resort.
 @Schema()
-abstract class $SkiResort implements $Resort, $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SkiResort implements $Resort, $SportsActivityLocation {}
 
 /// Event type: Social event.
 @Schema()
-abstract class $SocialEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SocialEvent implements $Event {}
 
 /// A post to a social media platform, including blog posts, tweets, Facebook posts, etc.
 @Schema()
 abstract class $SocialMediaPosting implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A CreativeWork such as an image, video, or audio clip shared as part of this posting.
   @Schema(
     description:
@@ -20521,12 +15735,6 @@ abstract class $SocialMediaPosting implements $Article {
 /// A software application.
 @Schema()
 abstract class $SoftwareApplication implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Type of software application, e.g. 'Game, Multimedia'.
   @Schema(description: "Type of software application, e.g. 'Game, Multimedia'.")
   $SchemaUnion? get applicationCategory;
@@ -20675,12 +15883,6 @@ abstract class $SoftwareApplication implements $CreativeWork {
 /// Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
 @Schema()
 abstract class $SoftwareSourceCode implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Link to the repository where the un-compiled, human readable code and related code is located (SVN, GitHub, CodePlex).
   @Schema(
     description:
@@ -20731,12 +15933,6 @@ abstract class $SoftwareSourceCode implements $CreativeWork {
 /// The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.
 @Schema()
 abstract class $SolveMathAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: "Multiple choice", "Open ended", "Flashcard".
   @Schema(
     description:
@@ -20748,12 +15944,6 @@ abstract class $SolveMathAction implements $Action {
 /// A placeholder for multiple similar products of the same kind.
 @Schema()
 abstract class $SomeProducts implements $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The current approximate inventory level for the item or items.
   @Schema(
     description:
@@ -20765,12 +15955,6 @@ abstract class $SomeProducts implements $Product {
 /// A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property.
 @Schema()
 abstract class $SpeakableSpecification implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
   @Schema(
     description:
@@ -20789,12 +15973,6 @@ abstract class $SpeakableSpecification implements $Intangible {
 /// A SpecialAnnouncement combines a simple date-stamped textual information update       with contextualized Web links and other structured data.  It represents an information update made by a       locally-oriented organization, for example schools, pharmacies, healthcare providers,  community groups, police,       local government.  For work in progress guidelines on Coronavirus-related markup see [this doc](https://docs.google.com/document/d/14ikaGCKxo50rRM7nvKSlbUpjyIk2WMQd3IkB1lItlrM/edit#).  The motivating scenario for SpecialAnnouncement is the [Coronavirus pandemic](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic), and the initial vocabulary is oriented to this urgent situation. Schema.org expect to improve the markup iteratively as it is deployed and as feedback emerges from use. In addition to our usual [Github entry](https://github.com/schemaorg/schemaorg/issues/2490), feedback comments can also be provided in [this document](https://docs.google.com/document/d/1fpdFFxk8s87CWwACs53SGkYv3aafSxz_DTtOQxMrBJQ/edit#).   While this schema is designed to communicate urgent crisis-related information, it is not the same as an emergency warning technology like [CAP](https://en.wikipedia.org/wiki/Common_Alerting_Protocol), although there may be overlaps. The intent is to cover the kinds of everyday practical information being posted to existing websites during an emergency situation.  Several kinds of information can be provided:  We encourage the provision of "name", "text", "datePosted", "expires" (if appropriate), "category" and "url" as a simple baseline. It is important to provide a value for "category" where possible, most ideally as a well known URL from Wikipedia or Wikidata. In the case of the 2019-2020 Coronavirus pandemic, this should be "https://en.wikipedia.org/w/index.php?title=2019-20\_coronavirus\_pandemic" or "https://www.wikidata.org/wiki/Q81068910".  For many of the possible properties, values can either be simple links or an inline description, depending on whether a summary is available. For a link, provide just the URL of the appropriate page as the property's value. For an inline description, use a [[WebContent]] type, and provide the url as a property of that, alongside at least a simple "[[text]]" summary of the page. It is unlikely that a single SpecialAnnouncement will need all of the possible properties simultaneously.  We expect that in many cases the page referenced might contain more specialized structured data, e.g. contact info, [[openingHours]], [[Event]], [[FAQPage]] etc. By linking to those pages from a [[SpecialAnnouncement]] you can help make it clearer that the events are related to the situation (e.g. Coronavirus) indicated by the [[category]] property of the [[SpecialAnnouncement]].  Many [[SpecialAnnouncement]]s will relate to particular regions and to identifiable local organizations. Use [[spatialCoverage]] for the region, and [[announcementLocation]] to indicate specific [[LocalBusiness]]es and [[CivicStructure]]s. If the announcement affects both a particular region and a specific location (for example, a library closure that serves an entire region), use both [[spatialCoverage]] and [[announcementLocation]].  The [[about]] property can be used to indicate entities that are the focus of the announcement. We now recommend using [[about]] only for representing non-location entities (e.g. a [[Course]] or a [[RadioStation]]). For places, use [[announcementLocation]] and [[spatialCoverage]]. Consumers of this markup should be aware that the initial design encouraged the use of [[about]] for locations too.  The basic content of [[SpecialAnnouncement]] is similar to that of an [RSS](https://en.wikipedia.org/wiki/RSS) or [Atom](https://en.wikipedia.org/wiki/Atom_(Web_standard)) feed. For publishers without such feeds, basic feed-like information can be shared by posting [[SpecialAnnouncement]] updates in a page, e.g. using JSON-LD. For sites with Atom/RSS functionality, you can point to a feed with the [[webFeed]] property. This can be a simple URL, or an inline [[DataFeed]] object, with [[encodingFormat]] providing media type information, e.g. "application/rss+xml" or "application/atom+xml".
 @Schema()
 abstract class $SpecialAnnouncement implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].
   @Schema(
     description:
@@ -20877,53 +16055,23 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
 
 /// Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.
 @Schema()
-abstract class $Specialty implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Specialty implements $Enumeration {}
 
 /// A sporting goods store.
 @Schema()
-abstract class $SportingGoodsStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SportingGoodsStore implements $Store {}
 
 /// A sports location, such as a playing field.
 @Schema()
-abstract class $SportsActivityLocation implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SportsActivityLocation implements $LocalBusiness {}
 
 /// A sports club.
 @Schema()
-abstract class $SportsClub implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SportsClub implements $SportsActivityLocation {}
 
 /// Event type: Sports event.
 @Schema()
 abstract class $SportsEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The away team in a sports event.
   @Schema(description: "The away team in a sports event.")
   $SchemaUnion? get awayTeam;
@@ -20951,12 +16099,6 @@ abstract class $SportsEvent implements $Event {
 /// Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations.
 @Schema()
 abstract class $SportsOrganization implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A type of sport (e.g. Baseball).
   @Schema(description: "A type of sport (e.g. Baseball).")
   $SchemaUnion? get sport;
@@ -20965,12 +16107,6 @@ abstract class $SportsOrganization implements $Organization {
 /// Organization: Sports team.
 @Schema()
 abstract class $SportsTeam implements $SportsOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A person that acts as performing member of a sports team; a player as opposed to a coach.
   @Schema(
     description:
@@ -20994,54 +16130,24 @@ abstract class $SportsTeam implements $SportsOrganization {
 
 /// A spreadsheet file.
 @Schema()
-abstract class $SpreadsheetDigitalDocument implements $DigitalDocument {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SpreadsheetDigitalDocument implements $DigitalDocument {}
 
 /// A stadium.
 @Schema()
 abstract class $StadiumOrArena
-    implements $CivicStructure, $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $CivicStructure, $SportsActivityLocation {}
 
 /// A state or province of a country.
 @Schema()
-abstract class $State implements $AdministrativeArea {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $State implements $AdministrativeArea {}
 
 /// A statement about something, for example a fun or interesting fact. If known, the main entity this statement is about can be indicated using mainEntity. For more formal claims (e.g. in Fact Checking), consider using [[Claim]] instead. Use the [[text]] property to capture the text of the statement.
 @Schema()
-abstract class $Statement implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Statement implements $CreativeWork {}
 
 /// A StatisticalPopulation is a set of instances of a certain given type that satisfy some set of constraints. The property [[populationType]] is used to specify the type. Any property that can be used on instances of that type can appear on the statistical population. For example, a [[StatisticalPopulation]] representing all [[Person]]s with a [[homeLocation]] of East Podunk California would be described by applying the appropriate [[homeLocation]] and [[populationType]] properties to a [[StatisticalPopulation]] item that stands for that set of people. The properties [[numConstraints]] and [[constraintProperty]] are used to specify which of the populations properties are used to specify the population. Note that the sense of "population" used here is the general sense of a statistical population, and does not imply that the population consists of people. For example, a [[populationType]] of [[Event]] or [[NewsArticle]] could be used. See also [[Observation]], where a [[populationType]] such as [[Person]] or [[Event]] can be indicated directly. In most cases it may be better to use [[StatisticalVariable]] instead of [[StatisticalPopulation]].
 @Schema()
 abstract class $StatisticalPopulation implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Indicates the populationType common to all members of a [[StatisticalPopulation]] or all cases within the scope of a [[StatisticalVariable]].
   @Schema(
     description:
@@ -21053,12 +16159,6 @@ abstract class $StatisticalPopulation implements $Intangible {
 /// [[StatisticalVariable]] represents any type of statistical metric that can be measured at a place and time. The usage pattern for [[StatisticalVariable]] is typically expressed using [[Observation]] with an explicit [[populationType]], which is a type, typically drawn from Schema.org. Each [[StatisticalVariable]] is marked as a [[ConstraintNode]], meaning that some properties (those listed using [[constraintProperty]]) serve in this setting solely to define the statistical variable rather than literally describe a specific person, place or thing. For example, a [[StatisticalVariable]] Median_Height_Person_Female representing the median height of women, could be written as follows: the population type is [[Person]]; the measuredProperty [[height]]; the [[statType]] [[median]]; the [[gender]] [[Female]]. It is important to note that there are many kinds of scientific quantitative observation which are not fully, perfectly or unambiguously described following this pattern, or with solely Schema.org terminology. The approach taken here is designed to allow partial, incremental or minimal description of [[StatisticalVariable]]s, and the use of detailed sets of entity and property IDs from external repositories. The [[measurementMethod]], [[unitCode]] and [[unitText]] properties can also be used to clarify the specific nature and notation of an observed measurement.
 @Schema()
 abstract class $StatisticalVariable implements $ConstraintNode {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The measuredProperty of an [[Observation]], typically via its [[StatisticalVariable]]. There are various kinds of applicable [[Property]]: a schema.org property, a property from other RDF-compatible systems, e.g. W3C RDF Data Cube, Data Commons, Wikidata, or schema.org extensions such as [GS1's](https://www.gs1.org/voc/?show=properties).
   @Schema(
     description:
@@ -21111,63 +16211,27 @@ abstract class $StatisticalVariable implements $ConstraintNode {
 
 /// Lists or enumerations dealing with status types.
 @Schema()
-abstract class $StatusEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $StatusEnumeration implements $Enumeration {}
 
 /// A value indicating a steering position.
 @Schema()
-abstract class $SteeringPositionValue implements $QualitativeValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SteeringPositionValue implements $QualitativeValue {}
 
 /// A retail good store.
 @Schema()
-abstract class $Store implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Store implements $LocalBusiness {}
 
 /// Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing.
 @Schema()
-abstract class $StructuredValue implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $StructuredValue implements $Intangible {}
 
 /// The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.\n\nRelated actions:\n\n* [[FollowAction]]: Unlike FollowAction, SubscribeAction implies that the subscriber acts as a passive agent being constantly/actively pushed for updates.\n* [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\n* [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.
 @Schema()
-abstract class $SubscribeAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SubscribeAction implements $InteractAction {}
 
 /// Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.
 @Schema()
 abstract class $Substance implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An active ingredient, typically chemical compounds and/or biologic substances.
   @Schema(
     description:
@@ -21185,23 +16249,11 @@ abstract class $Substance implements $MedicalEntity {
 
 /// A subway station.
 @Schema()
-abstract class $SubwayStation implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SubwayStation implements $CivicStructure {}
 
 /// A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Suite_(hotel)">http://en.wikipedia.org/wiki/Suite_(hotel)</a>). <br /><br /> See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 @Schema()
 abstract class $Suite implements $Accommodation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
   @Schema(
     description:
@@ -21227,12 +16279,6 @@ abstract class $Suite implements $Accommodation {
 /// Anatomical features that can be observed by sight (without dissection), including the form and proportions of the human body as well as surface landmarks that correspond to deeper subcutaneous structures. Superficial anatomy plays an important role in sports medicine, phlebotomy, and other medical specialties as underlying anatomical structures can be identified through surface palpation. For example, during back surgery, superficial anatomy can be used to palpate and count vertebrae to find the site of incision. Or in phlebotomy, superficial anatomy can be used to locate an underlying vein; for example, the median cubital vein can be located by palpating the borders of the cubital fossa (such as the epicondyles of the humerus) and then looking for the superficial signs of the vein, such as size, prominence, ability to refill after depression, and feel of surrounding tissue support. As another example, in a subluxation (dislocation) of the glenohumeral joint, the bony structure becomes pronounced with the deltoid muscle failing to cover the glenohumeral joint allowing the edges of the scapula to be superficially visible. Here, the superficial anatomy is the visible edges of the scapula, implying the underlying dislocation of the joint (the related anatomical structure).
 @Schema()
 abstract class $SuperficialAnatomy implements $MedicalEntity {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
   @Schema(
     description:
@@ -21265,53 +16311,23 @@ abstract class $SuperficialAnatomy implements $MedicalEntity {
 
 /// A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.
 @Schema()
-abstract class $SurgicalProcedure implements $MedicalProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SurgicalProcedure implements $MedicalProcedure {}
 
 /// The act of momentarily pausing a device or application (e.g. pause music playback or pause a timer).
 @Schema()
-abstract class $SuspendAction implements $ControlAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $SuspendAction implements $ControlAction {}
 
 /// A syllabus that describes the material covered in a course, often with several such sections per [[Course]] so that a distinct [[timeRequired]] can be provided for that section of the [[Course]].
 @Schema()
-abstract class $Syllabus implements $LearningResource {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Syllabus implements $LearningResource {}
 
 /// A synagogue.
 @Schema()
-abstract class $Synagogue implements $PlaceOfWorship {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Synagogue implements $PlaceOfWorship {}
 
 /// A short TV program or a segment/part of a TV program.
 @Schema()
 abstract class $TVClip implements $Clip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The TV series to which this episode or season belongs.
   @Schema(description: "The TV series to which this episode or season belongs.")
   $TVSeries? get partOfTVSeries;
@@ -21320,12 +16336,6 @@ abstract class $TVClip implements $Clip {
 /// A TV episode which can be part of a series or season.
 @Schema()
 abstract class $TVEpisode implements $Episode {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The country of origin of something, including products as well as creative  works such as movie and TV content.  In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.  In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
   @Schema(
     description:
@@ -21355,12 +16365,6 @@ abstract class $TVEpisode implements $Episode {
 /// Season dedicated to TV broadcast and associated online delivery.
 @Schema()
 abstract class $TVSeason implements $CreativeWork, $CreativeWorkSeason {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The country of origin of something, including products as well as creative  works such as movie and TV content.  In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.  In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
   @Schema(
     description:
@@ -21383,12 +16387,6 @@ abstract class $TVSeason implements $CreativeWork, $CreativeWorkSeason {
 /// CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
 @Schema()
 abstract class $TVSeries implements $CreativeWork, $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -21483,53 +16481,23 @@ abstract class $TVSeries implements $CreativeWork, $CreativeWorkSeries {
 
 /// A table on a Web page.
 @Schema()
-abstract class $Table implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Table implements $WebPageElement {}
 
 /// The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\n\nRelated actions:\n\n* [[GiveAction]]: The reciprocal of TakeAction.\n* [[ReceiveAction]]: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.
 @Schema()
-abstract class $TakeAction implements $TransferAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TakeAction implements $TransferAction {}
 
 /// A tattoo parlor.
 @Schema()
-abstract class $TattooParlor implements $HealthAndBeautyBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TattooParlor implements $HealthAndBeautyBusiness {}
 
 /// A taxi.
 @Schema()
-abstract class $Taxi implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Taxi implements $Service {}
 
 /// A reservation for a taxi.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
 abstract class $TaxiReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Number of people the reservation should accommodate.
   @Schema(description: "Number of people the reservation should accommodate.")
   $SchemaUnion? get partySize;
@@ -21551,33 +16519,15 @@ abstract class $TaxiReservation implements $Reservation {
 
 /// A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled.
 @Schema()
-abstract class $TaxiService implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TaxiService implements $Service {}
 
 /// A taxi stand.
 @Schema()
-abstract class $TaxiStand implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TaxiStand implements $CivicStructure {}
 
 /// A set of organisms asserted to represent a natural cohesive biological unit.
 @Schema()
 abstract class $Taxon implements $Thing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Closest child taxa of the taxon in question.
   @Schema(description: "Closest child taxa of the taxon in question.")
   $SchemaUnion? get childTaxon;
@@ -21601,12 +16551,6 @@ abstract class $Taxon implements $Thing {
 /// A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.
 @Schema()
 abstract class $TechArticle implements $Article {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Prerequisites needed to fulfill steps in article.
   @Schema(description: "Prerequisites needed to fulfill steps in article.")
   String? get dependencies;
@@ -21621,93 +16565,39 @@ abstract class $TechArticle implements $Article {
 
 /// A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.
 @Schema()
-abstract class $TelevisionChannel implements $BroadcastChannel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TelevisionChannel implements $BroadcastChannel {}
 
 /// A television station.
 @Schema()
-abstract class $TelevisionStation implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TelevisionStation implements $LocalBusiness {}
 
 /// A tennis complex.
 @Schema()
-abstract class $TennisComplex implements $SportsActivityLocation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TennisComplex implements $SportsActivityLocation {}
 
 /// Data type: Text.
 @Schema()
-abstract class $Text implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Text implements $SchemaThing {}
 
 /// A file composed primarily of text.
 @Schema()
-abstract class $TextDigitalDocument implements $DigitalDocument {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TextDigitalDocument implements $DigitalDocument {}
 
 /// A text file. The text can be unformatted or contain markup, html, etc.
 @Schema()
-abstract class $TextObject implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TextObject implements $MediaObject {}
 
 /// Event type: Theater performance.
 @Schema()
-abstract class $TheaterEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TheaterEvent implements $Event {}
 
 /// A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.
 @Schema()
-abstract class $TheaterGroup implements $PerformingGroup {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TheaterGroup implements $PerformingGroup {}
 
 /// A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.
 @Schema()
 abstract class $TherapeuticProcedure implements $MedicalProcedure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or otherwise life-threatening or requiring immediate medical attention), tag it as a seriousAdverseOutcome instead.
   @Schema(
     description:
@@ -21733,12 +16623,6 @@ abstract class $TherapeuticProcedure implements $MedicalProcedure {
 /// A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.
 @Schema()
 abstract class $Thesis implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Qualification, candidature, degree, application that Thesis supports.
   @Schema(
     description:
@@ -21750,12 +16634,6 @@ abstract class $Thesis implements $CreativeWork {
 /// The most generic type of item.
 @Schema()
 abstract class $Thing implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the     use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.
   @Schema(
     description:
@@ -21833,12 +16711,6 @@ abstract class $Thing implements $SchemaThing {
 /// Used to describe a ticket to an event, a flight, a bus ride, etc.
 @Schema()
 abstract class $Ticket implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The date the ticket was issued.
   @Schema(description: "The date the ticket was issued.")
   $SchemaUnion? get dateIssued;
@@ -21888,43 +16760,19 @@ abstract class $Ticket implements $Intangible {
 
 /// The act of reaching a draw in a competitive activity.
 @Schema()
-abstract class $TieAction implements $AchieveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TieAction implements $AchieveAction {}
 
 /// An enumeration of possible benefits as part of a loyalty (members) program.
 @Schema()
-abstract class $TierBenefitEnumeration implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TierBenefitEnumeration implements $Enumeration {}
 
 /// A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm] (see [XML schema for details](http://www.w3.org/TR/xmlschema-2/#time)).
 @Schema()
-abstract class $Time implements $SchemaThing {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Time implements $SchemaThing {}
 
 /// The act of giving money voluntarily to a beneficiary in recognition of services rendered.
 @Schema()
 abstract class $TipAction implements $TradeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The participant who is at the receiving end of the action.
   @Schema(
     description:
@@ -21935,23 +16783,11 @@ abstract class $TipAction implements $TradeAction {
 
 /// A tire shop.
 @Schema()
-abstract class $TireShop implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TireShop implements $Store {}
 
 /// A tourist attraction.  In principle any Thing can be a [[TouristAttraction]], from a [[Mountain]] and [[LandmarksOrHistoricalBuildings]] to a [[LocalBusiness]].  This Type can be used on its own to describe a general [[TouristAttraction]], or be used as an [[additionalType]] to add tourist attraction properties to any other type.  (See examples below)
 @Schema()
 abstract class $TouristAttraction implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
   @Schema(
     description:
@@ -21970,12 +16806,6 @@ abstract class $TouristAttraction implements $Place {
 /// A tourist destination. In principle any [[Place]] can be a [[TouristDestination]] from a [[City]], Region or [[Country]] to an [[AmusementPark]] or [[Hotel]]. This Type can be used on its own to describe a general [[TouristDestination]], or be used as an [[additionalType]] to add tourist relevant properties to any other [[Place]].  A [[TouristDestination]] is defined as a [[Place]] that contains, or is colocated with, one or more [[TouristAttraction]]s, often linked by a similar theme or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines Destination (main destination of a tourism trip) as the place visited that is central to the decision to take the trip.   (See examples below.)
 @Schema()
 abstract class $TouristDestination implements $Place {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Attraction located at destination.
   @Schema(description: "Attraction located at destination.")
   $TouristAttraction? get includesAttraction;
@@ -21990,23 +16820,11 @@ abstract class $TouristDestination implements $Place {
 
 /// A tourist information center.
 @Schema()
-abstract class $TouristInformationCenter implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TouristInformationCenter implements $LocalBusiness {}
 
 /// A tourist trip. A created itinerary of visits to one or more places of interest ([[TouristAttraction]]/[[TouristDestination]]) often linked by a similar theme, geographic area, or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors.   (See examples below.)
 @Schema()
 abstract class $TouristTrip implements $Trip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.
   @Schema(
     description:
@@ -22017,23 +16835,11 @@ abstract class $TouristTrip implements $Trip {
 
 /// A toy store.
 @Schema()
-abstract class $ToyStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ToyStore implements $Store {}
 
 /// An agent tracks an object for updates.\n\nRelated actions:\n\n* [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\n* [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.
 @Schema()
 abstract class $TrackAction implements $FindAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of instrument. The method of delivery.
   @Schema(description: "A sub property of instrument. The method of delivery.")
   $DeliveryMethod? get deliveryMethod;
@@ -22042,12 +16848,6 @@ abstract class $TrackAction implements $FindAction {
 /// The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment.
 @Schema()
 abstract class $TradeAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
   @Schema(
     description:
@@ -22072,33 +16872,15 @@ abstract class $TradeAction implements $Action {
 
 /// A reservation for train travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 @Schema()
-abstract class $TrainReservation implements $Reservation {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TrainReservation implements $Reservation {}
 
 /// A train station.
 @Schema()
-abstract class $TrainStation implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TrainStation implements $CivicStructure {}
 
 /// A trip on a commercial train line.
 @Schema()
 abstract class $TrainTrip implements $Trip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The platform where the train arrives.
   @Schema(description: "The platform where the train arrives.")
   String? get arrivalPlatform;
@@ -22127,12 +16909,6 @@ abstract class $TrainTrip implements $Trip {
 /// The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another.
 @Schema()
 abstract class $TransferAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of location. The original location of the object or the agent before the action.
   @Schema(
     description:
@@ -22151,12 +16927,6 @@ abstract class $TransferAction implements $Action {
 /// The act of traveling from a fromLocation to a destination by a specified mode of transport, optionally with participants.
 @Schema()
 abstract class $TravelAction implements $MoveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The distance travelled, e.g. exercising or travelling.
   @Schema(description: "The distance travelled, e.g. exercising or travelling.")
   $Distance? get distance;
@@ -22164,33 +16934,15 @@ abstract class $TravelAction implements $MoveAction {
 
 /// A travel agency.
 @Schema()
-abstract class $TravelAgency implements $LocalBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TravelAgency implements $LocalBusiness {}
 
 /// An indication for treating an underlying condition, symptom, etc.
 @Schema()
-abstract class $TreatmentIndication implements $MedicalIndication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $TreatmentIndication implements $MedicalIndication {}
 
 /// A trip or journey. An itinerary of visits to one or more places.
 @Schema()
 abstract class $Trip implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The expected arrival time.
   @Schema(description: "The expected arrival time.")
   $SchemaUnion? get arrivalTime;
@@ -22245,12 +16997,6 @@ abstract class $Trip implements $Intangible {
 /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
 @Schema()
 abstract class $TypeAndQuantityNode implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The quantity of the goods included in the offer.
   @Schema(description: "The quantity of the goods included in the offer.")
   num? get amountOfThisGood;
@@ -22285,53 +17031,23 @@ abstract class $TypeAndQuantityNode implements $StructuredValue {
 
 /// UKNonprofitType: Non-profit organization type originating from the United Kingdom.
 @Schema()
-abstract class $UKNonprofitType implements $NonprofitType {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UKNonprofitType implements $NonprofitType {}
 
 /// Data type: URL.
 @Schema()
-abstract class $URL implements $Text {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $URL implements $Text {}
 
 /// USNonprofitType: Non-profit organization type originating from the United States.
 @Schema()
-abstract class $USNonprofitType implements $NonprofitType {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $USNonprofitType implements $NonprofitType {}
 
 /// The act of un-registering from a service.\n\nRelated actions:\n\n* [[RegisterAction]]: antonym of UnRegisterAction.\n* [[LeaveAction]]: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.
 @Schema()
-abstract class $UnRegisterAction implements $InteractAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UnRegisterAction implements $InteractAction {}
 
 /// The price asked for a given offer by the respective organization or person.
 @Schema()
 abstract class $UnitPriceSpecification implements $PriceSpecification {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).
   @Schema(
     description:
@@ -22392,12 +17108,6 @@ abstract class $UnitPriceSpecification implements $PriceSpecification {
 /// The act of managing by changing/editing the state of the object.
 @Schema()
 abstract class $UpdateAction implements $Action {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. The collection target of the action.
   @Schema(
     description:
@@ -22415,43 +17125,19 @@ abstract class $UpdateAction implements $Action {
 
 /// The act of applying an object to its intended purpose.
 @Schema()
-abstract class $UseAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UseAction implements $ConsumeAction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserBlocks implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserBlocks implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserCheckins implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserCheckins implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
 abstract class $UserComments implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The text of the UserComment.
   @Schema(description: "The text of the UserComment.")
   String? get commentText;
@@ -22483,103 +17169,43 @@ abstract class $UserComments implements $UserInteraction {
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserDownloads implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserDownloads implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserInteraction implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserInteraction implements $Event {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserLikes implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserLikes implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserPageVisits implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserPageVisits implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserPlays implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserPlays implements $UserInteraction {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserPlusOnes implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserPlusOnes implements $UserInteraction {}
 
 /// A review created by an end-user (e.g. consumer, purchaser, attendee etc.), in contrast with [[CriticReview]].
 @Schema()
-abstract class $UserReview implements $Review {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserReview implements $Review {}
 
 /// UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
 @Schema()
-abstract class $UserTweets implements $UserInteraction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $UserTweets implements $UserInteraction {}
 
 /// A kind of lodging business that focuses on renting single properties for limited time.
 @Schema()
-abstract class $VacationRental implements $LodgingBusiness {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VacationRental implements $LodgingBusiness {}
 
 /// A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.
 @Schema()
 abstract class $Vehicle implements $Product {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The time needed to accelerate the vehicle from a given start velocity to a given target velocity.\n\nTypical unit code(s): SEC for seconds\n\n* Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use "SEC" for seconds and indicate the velocities in the [[name]] of the [[QuantitativeValue]], or use [[valueReference]] with a [[QuantitativeValue]] of 0..60 mph or 0..100 km/h to specify the reference speeds.
   @Schema(
     description:
@@ -22844,12 +17470,6 @@ abstract class $Vehicle implements $Product {
 /// A type of blood vessel that specifically carries blood to the heart.
 @Schema()
 abstract class $Vein implements $Vessel {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The vasculature that the vein drains into.
   @Schema(description: "The vasculature that the vein drains into.")
   $Vessel? get drainsTo;
@@ -22871,43 +17491,19 @@ abstract class $Vein implements $Vessel {
 
 /// A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body.
 @Schema()
-abstract class $Vessel implements $AnatomicalStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Vessel implements $AnatomicalStructure {}
 
 /// A vet's office.
 @Schema()
-abstract class $VeterinaryCare implements $MedicalOrganization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VeterinaryCare implements $MedicalOrganization {}
 
 /// Web page type: Video gallery page.
 @Schema()
-abstract class $VideoGallery implements $MediaGallery {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VideoGallery implements $MediaGallery {}
 
 /// A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device.
 @Schema()
 abstract class $VideoGame implements $Game, $SoftwareApplication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -22980,23 +17576,11 @@ abstract class $VideoGame implements $Game, $SoftwareApplication {
 
 /// A short segment/part of a video game.
 @Schema()
-abstract class $VideoGameClip implements $Clip {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VideoGameClip implements $Clip {}
 
 /// A video game series.
 @Schema()
 abstract class $VideoGameSeries implements $CreativeWorkSeries {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -23130,12 +17714,6 @@ abstract class $VideoGameSeries implements $CreativeWorkSeries {
 /// A video file.
 @Schema()
 abstract class $VideoObject implements $MediaObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
   @Schema(
     description:
@@ -23200,53 +17778,23 @@ abstract class $VideoObject implements $MediaObject {
 
 /// A specific and exact (byte-for-byte) version of a [[VideoObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
 @Schema()
-abstract class $VideoObjectSnapshot implements $VideoObject {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VideoObjectSnapshot implements $VideoObject {}
 
 /// The act of consuming static visual content.
 @Schema()
-abstract class $ViewAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $ViewAction implements $ConsumeAction {}
 
 /// An online or virtual location for attending events. For example, one may attend an online seminar or educational event. While a virtual location may be used as the location of an event, virtual locations should not be confused with physical locations in the real world.
 @Schema()
-abstract class $VirtualLocation implements $Intangible {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VirtualLocation implements $Intangible {}
 
 /// Event type: Visual arts event.
 @Schema()
-abstract class $VisualArtsEvent implements $Event {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VisualArtsEvent implements $Event {}
 
 /// A work of art that is primarily visual in character.
 @Schema()
 abstract class $VisualArtwork implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example "20").
   @Schema(
     description:
@@ -23332,33 +17880,15 @@ abstract class $VisualArtwork implements $CreativeWork {
 
 /// Vital signs are measures of various physiological functions in order to assess the most basic body functions.
 @Schema()
-abstract class $VitalSign implements $MedicalSign {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $VitalSign implements $MedicalSign {}
 
 /// A volcano, like Fujisan.
 @Schema()
-abstract class $Volcano implements $Landform {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Volcano implements $Landform {}
 
 /// The act of expressing a preference from a fixed/finite/structured set of choices/options.
 @Schema()
 abstract class $VoteAction implements $ChooseAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of object. The candidate subject of this action.
   @Schema(
     description:
@@ -23369,63 +17899,27 @@ abstract class $VoteAction implements $ChooseAction {
 
 /// An advertising section of the page.
 @Schema()
-abstract class $WPAdBlock implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WPAdBlock implements $WebPageElement {}
 
 /// The footer section of the page.
 @Schema()
-abstract class $WPFooter implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WPFooter implements $WebPageElement {}
 
 /// The header section of the page.
 @Schema()
-abstract class $WPHeader implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WPHeader implements $WebPageElement {}
 
 /// A sidebar section of the page.
 @Schema()
-abstract class $WPSideBar implements $WebPageElement {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WPSideBar implements $WebPageElement {}
 
 /// The act of expressing a desire about the object. An agent wants an object.
 @Schema()
-abstract class $WantAction implements $ReactAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WantAction implements $ReactAction {}
 
 /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
 @Schema()
 abstract class $WarrantyPromise implements $StructuredValue {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
   @Schema(
     description:
@@ -23440,85 +17934,37 @@ abstract class $WarrantyPromise implements $StructuredValue {
 
 /// A range of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.\n\nCommonly used values:\n\n* http://purl.org/goodrelations/v1#Labor-BringIn\n* http://purl.org/goodrelations/v1#PartsAndLabor-BringIn\n* http://purl.org/goodrelations/v1#PartsAndLabor-PickUp
 @Schema()
-abstract class $WarrantyScope implements $Enumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WarrantyScope implements $Enumeration {}
 
 /// The act of consuming dynamic/moving visual content.
 @Schema()
-abstract class $WatchAction implements $ConsumeAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WatchAction implements $ConsumeAction {}
 
 /// A waterfall, like Niagara.
 @Schema()
-abstract class $Waterfall implements $BodyOfWater {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Waterfall implements $BodyOfWater {}
 
 /// The act of dressing oneself in clothing.
 @Schema()
-abstract class $WearAction implements $UseAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WearAction implements $UseAction {}
 
 /// Enumerates common types of measurement for wearables products.
 @Schema()
 abstract class $WearableMeasurementTypeEnumeration
-    implements $MeasurementTypeEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $MeasurementTypeEnumeration {}
 
 /// Enumerates common size groups (also known as "size types") for wearable products.
 @Schema()
-abstract class $WearableSizeGroupEnumeration implements $SizeGroupEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WearableSizeGroupEnumeration implements $SizeGroupEnumeration {}
 
 /// Enumerates common size systems specific for wearable products.
 @Schema()
 abstract class $WearableSizeSystemEnumeration
-    implements $SizeSystemEnumeration {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+    implements $SizeSystemEnumeration {}
 
 /// An application programming interface accessible over Web/Internet technologies.
 @Schema()
 abstract class $WebAPI implements $Service {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Further documentation describing the Web API in more detail.
   @Schema(
     description: "Further documentation describing the Web API in more detail.",
@@ -23529,12 +17975,6 @@ abstract class $WebAPI implements $Service {
 /// Web applications.
 @Schema()
 abstract class $WebApplication implements $SoftwareApplication {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.
   @Schema(
     description:
@@ -23545,23 +17985,11 @@ abstract class $WebApplication implements $SoftwareApplication {
 
 /// WebContent is a type representing all [[WebPage]], [[WebSite]] and [[WebPageElement]] content. It is sometimes the case that detailed distinctions between Web pages, sites and their parts are not always important or obvious. The  [[WebContent]] type makes it easier to describe Web-addressable content without requiring such distinctions to always be stated. (The intent is that the existing types [[WebPage]], [[WebSite]] and [[WebPageElement]] will eventually be declared as subtypes of [[WebContent]].)
 @Schema()
-abstract class $WebContent implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WebContent implements $CreativeWork {}
 
 /// A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
 @Schema()
 abstract class $WebPage implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A set of links that can help a user understand and navigate a website hierarchy.
   @Schema(
     description:
@@ -23633,12 +18061,6 @@ abstract class $WebPage implements $CreativeWork {
 /// A web page element, like a table or an image.
 @Schema()
 abstract class $WebPageElement implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
   @Schema(
     description:
@@ -23657,12 +18079,6 @@ abstract class $WebPageElement implements $CreativeWork {
 /// A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.
 @Schema()
 abstract class $WebSite implements $CreativeWork {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
   @Schema(
     description:
@@ -23673,23 +18089,11 @@ abstract class $WebSite implements $CreativeWork {
 
 /// A wholesale store.
 @Schema()
-abstract class $WholesaleStore implements $Store {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WholesaleStore implements $Store {}
 
 /// The act of achieving victory in a competitive activity.
 @Schema()
 abstract class $WinAction implements $AchieveAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A sub property of participant. The loser of the action.
   @Schema(
     description: "A sub property of participant. The loser of the action.",
@@ -23699,23 +18103,11 @@ abstract class $WinAction implements $AchieveAction {
 
 /// A winery.
 @Schema()
-abstract class $Winery implements $FoodEstablishment {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Winery implements $FoodEstablishment {}
 
 /// A program with both an educational and employment component. Typically based at a workplace and structured around work-based learning, with the aim of instilling competencies related to an occupation. WorkBasedProgram is used to distinguish programs such as apprenticeships from school, college or other classroom based educational programs.
 @Schema()
 abstract class $WorkBasedProgram implements $EducationalOccupationalProgram {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
   @Schema(
     description:
@@ -23730,23 +18122,11 @@ abstract class $WorkBasedProgram implements $EducationalOccupationalProgram {
 
 /// A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying.
 @Schema()
-abstract class $WorkersUnion implements $Organization {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $WorkersUnion implements $Organization {}
 
 /// The act of authoring written creative content.
 @Schema()
 abstract class $WriteAction implements $CreateAction {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
   @Schema(
     description:
@@ -23764,20 +18144,8 @@ abstract class $WriteAction implements $CreateAction {
 
 /// Text representing an XPath (typically but not necessarily version 1.0).
 @Schema()
-abstract class $XPathType implements $Text {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $XPathType implements $Text {}
 
 /// A zoo.
 @Schema()
-abstract class $Zoo implements $CivicStructure {
-  @Schema(description: 'JSON-LD context declaration')
-  String? get context;
-
-  @Schema(description: 'Schema.org type name')
-  String get type;
-}
+abstract class $Zoo implements $CivicStructure {}
