@@ -80,6 +80,7 @@ abstract class $Accommodation implements $Place {
   $LocationFeatureSpecification? get amenityFeature;
 
   /// The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
+  @AnyOf([$BedDetails, $BedType, String])
   @Schema(
     description:
         "The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.",
@@ -101,6 +102,7 @@ abstract class $Accommodation implements $Place {
   $QuantitativeValue? get floorSize;
 
   /// Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.",
@@ -115,6 +117,7 @@ abstract class $Accommodation implements $Place {
   num? get numberOfBathroomsTotal;
 
   /// The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
@@ -136,6 +139,7 @@ abstract class $Accommodation implements $Place {
   num? get numberOfPartialBathrooms;
 
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -157,6 +161,7 @@ abstract class $Accommodation implements $Place {
   String? get permittedUsage;
 
   /// Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+  @AnyOf([bool, String])
   @Schema(
     description:
         "Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.",
@@ -201,6 +206,7 @@ abstract class $Action implements $Thing {
   $ActionStatusType? get actionStatus;
 
   /// The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book.",
@@ -229,6 +235,7 @@ abstract class $Action implements $Thing {
   $Thing? get instrument;
 
   /// The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  @AnyOf([$Place, $PostalAddress, String, $VirtualLocation])
   @Schema(
     description:
         "The location of, for example, where an event is happening, where an organization is located, or where an action takes place.",
@@ -243,6 +250,7 @@ abstract class $Action implements $Thing {
   $Thing? get object;
 
   /// Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*.",
@@ -250,6 +258,7 @@ abstract class $Action implements $Thing {
   $SchemaUnion? get participant;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -270,6 +279,7 @@ abstract class $Action implements $Thing {
   $SchemaUnion? get startTime;
 
   /// Indicates a target EntryPoint, or url, for an Action.
+  @AnyOf([$EntryPoint, String])
   @Schema(description: "Indicates a target EntryPoint, or url, for an Action.")
   $SchemaUnion? get target;
 }
@@ -292,6 +302,7 @@ abstract class $ActionAccessSpecification implements $Intangible {
   $SchemaUnion? get availabilityStarts;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -299,6 +310,7 @@ abstract class $ActionAccessSpecification implements $Intangible {
   $SchemaUnion? get category;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].",
@@ -313,6 +325,7 @@ abstract class $ActionAccessSpecification implements $Intangible {
   $Offer? get expectsAcceptanceOf;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].",
@@ -320,6 +333,7 @@ abstract class $ActionAccessSpecification implements $Intangible {
   $SchemaUnion? get ineligibleRegion;
 
   /// Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
+  @AnyOf([bool, $MediaSubscription])
   @Schema(
     description:
         "Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').",
@@ -359,6 +373,7 @@ abstract class $AdvertiserContentArticle implements $Article {}
 @Schema()
 abstract class $AggregateOffer implements $Offer {
   /// The highest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The highest price of all offers available.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -366,6 +381,7 @@ abstract class $AggregateOffer implements $Offer {
   $SchemaUnion? get highPrice;
 
   /// The lowest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The lowest price of all offers available.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -377,6 +393,7 @@ abstract class $AggregateOffer implements $Offer {
   num? get offerCount;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -546,6 +563,7 @@ abstract class $AnatomicalSystem implements $MedicalEntity {
   String? get associatedPathophysiology;
 
   /// Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem])
   @Schema(
     description:
         "Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system.",
@@ -576,6 +594,7 @@ abstract class $AnimalShelter implements $LocalBusiness {}
 @Schema()
 abstract class $Answer implements $Comment {
   /// A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.
+  @AnyOf([$Comment, $WebContent])
   @Schema(
     description:
         "A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.",
@@ -583,6 +602,7 @@ abstract class $Answer implements $Comment {
   $SchemaUnion? get answerExplanation;
 
   /// The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.
+  @AnyOf([$Comment, $CreativeWork])
   @Schema(
     description:
         "The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.",
@@ -594,6 +614,7 @@ abstract class $Answer implements $Comment {
 @Schema()
 abstract class $Apartment implements $Accommodation {
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -626,6 +647,7 @@ abstract class $ApartmentComplex implements $Residence {
   $QuantitativeValue? get numberOfAvailableAccommodationUnits;
 
   /// The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
@@ -633,6 +655,7 @@ abstract class $ApartmentComplex implements $Residence {
   $SchemaUnion? get numberOfBedrooms;
 
   /// Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+  @AnyOf([bool, String])
   @Schema(
     description:
         "Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.",
@@ -674,6 +697,7 @@ abstract class $ArchiveComponent implements $CreativeWork {
   $ArchiveOrganization? get holdingArchive;
 
   /// Current location of the item.
+  @AnyOf([$Place, $PostalAddress, String])
   @Schema(description: "Current location of the item.")
   $SchemaUnion? get itemLocation;
 }
@@ -724,6 +748,7 @@ abstract class $Article implements $CreativeWork {
   String? get articleSection;
 
   /// For an [[Article]], typically a [[NewsArticle]], the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For an [[Article]], typically a [[NewsArticle]], the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.",
@@ -731,6 +756,7 @@ abstract class $Article implements $CreativeWork {
   $SchemaUnion? get backstory;
 
   /// The page on which the work ends; for example "138" or "xvi".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work ends; for example \"138\" or \"xvi\".",
@@ -738,6 +764,7 @@ abstract class $Article implements $CreativeWork {
   $SchemaUnion? get pageEnd;
 
   /// The page on which the work starts; for example "135" or "xiii".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -752,6 +779,7 @@ abstract class $Article implements $CreativeWork {
   String? get pagination;
 
   /// Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.  The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:  1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.  2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.  3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.   For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.
+  @AnyOf([$SpeakableSpecification, String])
   @Schema(
     description:
         "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.  The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:  1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.  2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.  3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.   For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.",
@@ -813,6 +841,7 @@ abstract class $Audience implements $Intangible {
 @Schema()
 abstract class $AudioObject implements $MediaObject {
   /// The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].",
@@ -842,6 +871,7 @@ abstract class $AudioObjectSnapshot implements $AudioObject {}
 @Schema()
 abstract class $Audiobook implements $AudioObject, $Book {
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -861,6 +891,7 @@ abstract class $AuthenticateAction implements $ControlAction {}
 @Schema()
 abstract class $AuthorizeAction implements $AllocateAction {
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -962,6 +993,7 @@ abstract class $BedDetails implements $Intangible {
   num? get numberOfBeds;
 
   /// The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.
+  @AnyOf([$BedType, String])
   @Schema(
     description:
         "The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.",
@@ -985,6 +1017,7 @@ abstract class $BikeStore implements $Store {}
 @Schema()
 abstract class $BioChemEntity implements $Thing {
   /// Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.
+  @AnyOf([$MedicalCondition, $PropertyValue, String])
   @Schema(
     description:
         "Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.",
@@ -1026,6 +1059,7 @@ abstract class $BioChemEntity implements $Thing {
   $BioChemEntity? get hasBioChemEntityPart;
 
   /// Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.
+  @AnyOf([$DefinedTerm, $PropertyValue, String])
   @Schema(
     description:
         "Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.",
@@ -1033,6 +1067,7 @@ abstract class $BioChemEntity implements $Thing {
   $SchemaUnion? get hasMolecularFunction;
 
   /// A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.
+  @AnyOf([$PropertyValue, String])
   @Schema(
     description:
         "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
@@ -1044,6 +1079,7 @@ abstract class $BioChemEntity implements $Thing {
   $Gene? get isEncodedByBioChemEntity;
 
   /// Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence.
+  @AnyOf([$DefinedTerm, $PropertyValue, String])
   @Schema(
     description:
         "Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence.",
@@ -1051,6 +1087,7 @@ abstract class $BioChemEntity implements $Thing {
   $SchemaUnion? get isInvolvedInBiologicalProcess;
 
   /// Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.
+  @AnyOf([$DefinedTerm, $PropertyValue, String])
   @Schema(
     description:
         "Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.",
@@ -1065,6 +1102,7 @@ abstract class $BioChemEntity implements $Thing {
   $BioChemEntity? get isPartOfBioChemEntity;
 
   /// The taxonomic grouping of the organism that expresses, encodes, or in some way related to the BioChemEntity.
+  @AnyOf([$DefinedTerm, $Taxon, String])
   @Schema(
     description:
         "The taxonomic grouping of the organism that expresses, encodes, or in some way related to the BioChemEntity.",
@@ -1191,6 +1229,7 @@ abstract class $Boolean implements $SchemaThing {}
 @Schema()
 abstract class $BorrowAction implements $TransferAction {
   /// A sub property of participant. The person that lends the object being borrowed.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The person that lends the object being borrowed.",
@@ -1217,6 +1256,7 @@ abstract class $Brand implements $Intangible {
   $AggregateRating? get aggregateRating;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
@@ -1252,6 +1292,7 @@ abstract class $BroadcastChannel implements $Intangible {
   String? get broadcastChannelId;
 
   /// The frequency used for over-the-air broadcasts. Numeric values or simple ranges, e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. "87 FM".
+  @AnyOf([$BroadcastFrequencySpecification, String])
   @Schema(
     description:
         "The frequency used for over-the-air broadcasts. Numeric values or simple ranges, e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. \"87 FM\".",
@@ -1266,6 +1307,7 @@ abstract class $BroadcastChannel implements $Intangible {
   String? get broadcastServiceTier;
 
   /// Genre of the creative work, broadcast channel or group.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description: "Genre of the creative work, broadcast channel or group.",
   )
@@ -1295,6 +1337,7 @@ abstract class $BroadcastEvent implements $PublicationEvent {
   bool? get isLiveBroadcast;
 
   /// Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -1313,10 +1356,12 @@ abstract class $BroadcastEvent implements $PublicationEvent {
 @Schema()
 abstract class $BroadcastFrequencySpecification implements $Intangible {
   /// The frequency in MHz for a particular broadcast.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "The frequency in MHz for a particular broadcast.")
   $SchemaUnion? get broadcastFrequencyValue;
 
   /// The modulation (e.g. FM, AM, etc) used by a particular broadcast service.
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
@@ -1353,6 +1398,7 @@ abstract class $BroadcastService implements $Service {
   String? get broadcastDisplayName;
 
   /// The frequency used for over-the-air broadcasts. Numeric values or simple ranges, e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. "87 FM".
+  @AnyOf([$BroadcastFrequencySpecification, String])
   @Schema(
     description:
         "The frequency used for over-the-air broadcasts. Numeric values or simple ranges, e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. \"87 FM\".",
@@ -1384,6 +1430,7 @@ abstract class $BroadcastService implements $Service {
   $BroadcastChannel? get hasBroadcastChannel;
 
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -1447,6 +1494,7 @@ abstract class $BusStop implements $CivicStructure {}
 @Schema()
 abstract class $BusTrip implements $Trip {
   /// The stop or station from which the bus arrives.
+  @AnyOf([$BusStation, $BusStop])
   @Schema(description: "The stop or station from which the bus arrives.")
   $SchemaUnion? get arrivalBusStop;
 
@@ -1459,6 +1507,7 @@ abstract class $BusTrip implements $Trip {
   String? get busNumber;
 
   /// The stop or station from which the bus departs.
+  @AnyOf([$BusStation, $BusStop])
   @Schema(description: "The stop or station from which the bus departs.")
   $SchemaUnion? get departureBusStop;
 }
@@ -1497,6 +1546,7 @@ abstract class $BusinessFunction implements $Enumeration {}
 @Schema()
 abstract class $BuyAction implements $TradeAction {
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
@@ -1504,6 +1554,7 @@ abstract class $BuyAction implements $TradeAction {
   $SchemaUnion? get seller;
 
   /// 'vendor' is an earlier term for 'seller'.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "'vendor' is an earlier term for 'seller'.")
   $SchemaUnion? get vendor;
 
@@ -1691,6 +1742,7 @@ abstract class $CategoryCode implements $DefinedTerm {
   String? get codeValue;
 
   /// A [[CategoryCodeSet]] that contains this category code.
+  @AnyOf([$CategoryCodeSet, String])
   @Schema(
     description: "A [[CategoryCodeSet]] that contains this category code.",
   )
@@ -1728,6 +1780,7 @@ abstract class $Certification implements $CreativeWork {
   $SchemaUnion? get auditDate;
 
   /// Identifier of a certification instance (as registered with an independent certification body). Typically this identifier can be used to consult and verify the certification instance. See also [gs1:certificationIdentification](https://www.gs1.org/voc/certificationIdentification).
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Identifier of a certification instance (as registered with an independent certification body). Typically this identifier can be used to consult and verify the certification instance. See also [gs1:certificationIdentification](https://www.gs1.org/voc/certificationIdentification).",
@@ -1777,6 +1830,7 @@ abstract class $Certification implements $CreativeWork {
   $Organization? get issuedBy;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
@@ -1800,6 +1854,7 @@ abstract class $CertificationStatusEnumeration implements $Enumeration {}
 @Schema()
 abstract class $Chapter implements $CreativeWork {
   /// The page on which the work ends; for example "138" or "xvi".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work ends; for example \"138\" or \"xvi\".",
@@ -1807,6 +1862,7 @@ abstract class $Chapter implements $CreativeWork {
   $SchemaUnion? get pageEnd;
 
   /// The page on which the work starts; for example "135" or "xiii".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -1871,6 +1927,7 @@ abstract class $ChildrensEvent implements $Event {}
 @Schema()
 abstract class $ChooseAction implements $AssessAction {
   /// A sub property of object. The options subject to this action.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "A sub property of object. The options subject to this action.",
@@ -1878,6 +1935,7 @@ abstract class $ChooseAction implements $AssessAction {
   $SchemaUnion? get actionOption;
 
   /// A sub property of object. The options subject to this action.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "A sub property of object. The options subject to this action.",
@@ -1919,6 +1977,7 @@ abstract class $Claim implements $CreativeWork {
   $CreativeWork? get appearance;
 
   /// For a [[Claim]] interpreted from [[MediaObject]] content, the [[interpretedAsClaim]] property can be used to indicate a claim contained, implied or refined from the content of a [[MediaObject]].
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "For a [[Claim]] interpreted from [[MediaObject]] content, the [[interpretedAsClaim]] property can be used to indicate a claim contained, implied or refined from the content of a [[MediaObject]].",
@@ -1948,6 +2007,7 @@ abstract class $ClaimReview implements $Review {
 @Schema()
 abstract class $Class implements $Intangible {
   /// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+  @AnyOf([$Class, $Enumeration, $Property])
   @Schema(
     description:
         "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
@@ -1959,6 +2019,7 @@ abstract class $Class implements $Intangible {
 @Schema()
 abstract class $Clip implements $CreativeWork {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -1973,6 +2034,7 @@ abstract class $Clip implements $CreativeWork {
   $Person? get actors;
 
   /// Position of the clip within an ordered group of clips.
+  @AnyOf([num, String])
   @Schema(description: "Position of the clip within an ordered group of clips.")
   $SchemaUnion? get clipNumber;
 
@@ -1991,6 +2053,7 @@ abstract class $Clip implements $CreativeWork {
   $Person? get directors;
 
   /// The end time of the clip expressed as the number of seconds from the beginning of the work.
+  @AnyOf([$HyperTocEntry, num])
   @Schema(
     description:
         "The end time of the clip expressed as the number of seconds from the beginning of the work.",
@@ -1998,6 +2061,7 @@ abstract class $Clip implements $CreativeWork {
   $SchemaUnion? get endOffset;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -2014,6 +2078,7 @@ abstract class $Clip implements $CreativeWork {
   $CreativeWorkSeries? get partOfSeries;
 
   /// The start time of the clip expressed as the number of seconds from the beginning of the work.
+  @AnyOf([$HyperTocEntry, num])
   @Schema(
     description:
         "The start time of the clip expressed as the number of seconds from the beginning of the work.",
@@ -2149,6 +2214,7 @@ abstract class $Comment implements $CreativeWork {
   num? get downvoteCount;
 
   /// The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.
+  @AnyOf([$Comment, $CreativeWork])
   @Schema(
     description:
         "The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.",
@@ -2189,6 +2255,7 @@ abstract class $CommunicateAction implements $InteractAction {
   $Thing? get about;
 
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -2203,6 +2270,7 @@ abstract class $CommunicateAction implements $InteractAction {
   $Language? get language;
 
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -2225,6 +2293,7 @@ abstract class $CompoundPriceSpecification implements $PriceSpecification {
   $PriceSpecification? get priceComponent;
 
   /// Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or, a UN/EDIFACT 5387 code, or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
+  @AnyOf([$PriceTypeEnumeration, String])
   @Schema(
     description:
         "Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or, a UN/EDIFACT 5387 code, or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.",
@@ -2256,6 +2325,7 @@ abstract class $Consortium implements $Organization {}
 @Schema()
 abstract class $ConstraintNode implements $Intangible {
   /// Indicates a property used as a constraint. For example, in the definition of a [[StatisticalVariable]]. The value is a property, either from within Schema.org or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org.
+  @AnyOf([$Property, String])
   @Schema(
     description:
         "Indicates a property used as a constraint. For example, in the definition of a [[StatisticalVariable]]. The value is a property, either from within Schema.org or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org.",
@@ -2296,6 +2366,7 @@ abstract class $ContactPage implements $WebPage {}
 @Schema()
 abstract class $ContactPoint implements $StructuredValue {
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -2303,6 +2374,7 @@ abstract class $ContactPoint implements $StructuredValue {
   $SchemaUnion? get areaServed;
 
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
@@ -2338,6 +2410,7 @@ abstract class $ContactPoint implements $StructuredValue {
   $OpeningHoursSpecification? get hoursAvailable;
 
   /// The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+  @AnyOf([$Product, String])
   @Schema(
     description:
         "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\").",
@@ -2345,6 +2418,7 @@ abstract class $ContactPoint implements $StructuredValue {
   $SchemaUnion? get productSupported;
 
   /// The geographic area where the service is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place])
   @Schema(description: "The geographic area where the service is provided.")
   $SchemaUnion? get serviceArea;
 
@@ -2377,6 +2451,7 @@ abstract class $Conversation implements $CreativeWork {}
 @Schema()
 abstract class $CookAction implements $CreateAction {
   /// A sub property of location. The specific food establishment where the action occurred.
+  @AnyOf([$FoodEstablishment, $Place])
   @Schema(
     description:
         "A sub property of location. The specific food establishment where the action occurred.",
@@ -2425,6 +2500,7 @@ abstract class $Country implements $AdministrativeArea {}
 @Schema()
 abstract class $Course implements $CreativeWork, $LearningResource {
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
@@ -2439,6 +2515,7 @@ abstract class $Course implements $CreativeWork, $LearningResource {
   String? get courseCode;
 
   /// Requirements for taking the Course. May be completion of another [[Course]] or a textual description like "permission of instructor". Requirements may be a pre-requisite competency, referenced using [[AlignmentObject]].
+  @AnyOf([$AlignmentObject, $Course, String])
   @Schema(
     description:
         "Requirements for taking the Course. May be completion of another [[Course]] or a textual description like \"permission of instructor\". Requirements may be a pre-requisite competency, referenced using [[AlignmentObject]].",
@@ -2446,6 +2523,7 @@ abstract class $Course implements $CreativeWork, $LearningResource {
   $SchemaUnion? get coursePrerequisites;
 
   /// A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.",
@@ -2453,6 +2531,7 @@ abstract class $Course implements $CreativeWork, $LearningResource {
   $SchemaUnion? get educationalCredentialAwarded;
 
   /// A financial aid type or program which students may use to pay for tuition or fees associated with the program.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A financial aid type or program which students may use to pay for tuition or fees associated with the program.",
@@ -2467,6 +2546,7 @@ abstract class $Course implements $CreativeWork, $LearningResource {
   $CourseInstance? get hasCourseInstance;
 
   /// The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
+  @AnyOf([num, $StructuredValue])
   @Schema(
     description:
         "The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
@@ -2474,6 +2554,7 @@ abstract class $Course implements $CreativeWork, $LearningResource {
   $SchemaUnion? get numberOfCredits;
 
   /// A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.",
@@ -2614,6 +2695,7 @@ abstract class $CreativeWork implements $Thing {
   $Person? get accountablePerson;
 
   /// Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.",
@@ -2632,6 +2714,7 @@ abstract class $CreativeWork implements $Thing {
   String? get alternativeHeadline;
 
   /// Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content.
+  @AnyOf([String, $WebPage])
   @Schema(
     description:
         "Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content.",
@@ -2639,6 +2722,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get archivedAt;
 
   /// The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to assess the competency or learning outcome defined by the referenced term.",
@@ -2660,10 +2744,12 @@ abstract class $CreativeWork implements $Thing {
   $Audience? get audience;
 
   /// An embedded audio object.
+  @AnyOf([$AudioObject, $Clip, $MusicRecording])
   @Schema(description: "An embedded audio object.")
   $SchemaUnion? get audio;
 
   /// The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
@@ -2683,6 +2769,7 @@ abstract class $CreativeWork implements $Thing {
   $Person? get character;
 
   /// A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
@@ -2715,6 +2802,7 @@ abstract class $CreativeWork implements $Thing {
   $Place? get contentLocation;
 
   /// Official rating of a piece of content&#x2014;for example, 'MPAA PG-13'.
+  @AnyOf([$Rating, String])
   @Schema(
     description:
         "Official rating of a piece of content&#x2014;for example, 'MPAA PG-13'.",
@@ -2729,10 +2817,12 @@ abstract class $CreativeWork implements $Thing {
   String? get contentReferenceTime;
 
   /// A secondary contributor to the CreativeWork or Event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A secondary contributor to the CreativeWork or Event.")
   $SchemaUnion? get contributor;
 
   /// The party holding the legal copyright to the CreativeWork.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description: "The party holding the legal copyright to the CreativeWork.",
   )
@@ -2753,6 +2843,7 @@ abstract class $CreativeWork implements $Thing {
   num? get copyrightYear;
 
   /// Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document.
+  @AnyOf([$CorrectionComment, String])
   @Schema(
     description:
         "Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document.",
@@ -2767,6 +2858,7 @@ abstract class $CreativeWork implements $Thing {
   $Country? get countryOfOrigin;
 
   /// The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle.",
@@ -2774,6 +2866,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get creativeWorkStatus;
 
   /// The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
@@ -2848,6 +2941,7 @@ abstract class $CreativeWork implements $Thing {
   $AlignmentObject? get educationalAlignment;
 
   /// The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.",
@@ -2855,6 +2949,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get educationalLevel;
 
   /// The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The purpose of a work in the context of education; for example, 'assignment', 'group work'.",
@@ -2901,6 +2996,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get fileFormat;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -2915,6 +3011,7 @@ abstract class $CreativeWork implements $Thing {
   $Grant? get funding;
 
   /// Genre of the creative work, broadcast channel or group.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description: "Genre of the creative work, broadcast channel or group.",
   )
@@ -2932,6 +3029,7 @@ abstract class $CreativeWork implements $Thing {
   String? get headline;
 
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -2967,6 +3065,7 @@ abstract class $CreativeWork implements $Thing {
   bool? get isAccessibleForFree;
 
   /// A resource from which this work is derived or from which it is a modification or adaptation.
+  @AnyOf([$CreativeWork, $Product, String])
   @Schema(
     description:
         "A resource from which this work is derived or from which it is a modification or adaptation.",
@@ -2974,6 +3073,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get isBasedOn;
 
   /// A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.
+  @AnyOf([$CreativeWork, $Product, String])
   @Schema(
     description:
         "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.",
@@ -2985,6 +3085,7 @@ abstract class $CreativeWork implements $Thing {
   bool? get isFamilyFriendly;
 
   /// Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
@@ -2992,6 +3093,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get isPartOf;
 
   /// Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
@@ -2999,6 +3101,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get keywords;
 
   /// The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.",
@@ -3006,6 +3109,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get learningResourceType;
 
   /// A license document that applies to this content, typically indicated by URL.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "A license document that applies to this content, typically indicated by URL.",
@@ -3027,6 +3131,7 @@ abstract class $CreativeWork implements $Thing {
   $Thing? get mainEntity;
 
   /// A maintainer of a [[Dataset]], software package ([[SoftwareApplication]]), or other [[Project]]. A maintainer is a [[Person]] or [[Organization]] that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on "upstream" sources. When [[maintainer]] is applied to a specific version of something e.g. a particular version or packaging of a [[Dataset]], it is always  possible that the upstream source has a different maintainer. The [[isBasedOn]] property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A maintainer of a [[Dataset]], software package ([[SoftwareApplication]]), or other [[Project]]. A maintainer is a [[Person]] or [[Organization]] that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on \"upstream\" sources. When [[maintainer]] is applied to a specific version of something e.g. a particular version or packaging of a [[Dataset]], it is always  possible that the upstream source has a different maintainer. The [[isBasedOn]] property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.",
@@ -3034,6 +3139,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get maintainer;
 
   /// A material that something is made from, e.g. leather, wool, cotton, paper.
+  @AnyOf([$Product, String])
   @Schema(
     description:
         "A material that something is made from, e.g. leather, wool, cotton, paper.",
@@ -3041,6 +3147,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get material;
 
   /// The quantity of the materials being described or an expression of the physical space they occupy.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "The quantity of the materials being described or an expression of the physical space they occupy.",
@@ -3055,6 +3162,7 @@ abstract class $CreativeWork implements $Thing {
   $Thing? get mentions;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -3062,6 +3170,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get offers;
 
   /// A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.",
@@ -3069,12 +3178,14 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get pattern;
 
   /// The position of an item in a series or sequence of items.
+  @AnyOf([num, String])
   @Schema(
     description: "The position of an item in a series or sequence of items.",
   )
   $SchemaUnion? get position;
 
   /// The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.).
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.).",
@@ -3082,6 +3193,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get producer;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -3093,6 +3205,7 @@ abstract class $CreativeWork implements $Thing {
   $PublicationEvent? get publication;
 
   /// The publisher of the article in question.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "The publisher of the article in question.")
   $SchemaUnion? get publisher;
 
@@ -3101,6 +3214,7 @@ abstract class $CreativeWork implements $Thing {
   $Organization? get publisherImprint;
 
   /// The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.",
@@ -3144,6 +3258,7 @@ abstract class $CreativeWork implements $Thing {
   String? get sdDatePublished;
 
   /// A license document that applies to this structured data, typically indicated by URL.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "A license document that applies to this structured data, typically indicated by URL.",
@@ -3151,6 +3266,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get sdLicense;
 
   /// Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The [[sdPublisher]] property helps make such practices more explicit.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The [[sdPublisher]] property helps make such practices more explicit.",
@@ -3158,6 +3274,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get sdPublisher;
 
   /// A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
+  @AnyOf([$DefinedTerm, $QuantitativeValue, $SizeSpecification, String])
   @Schema(
     description:
         "A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.",
@@ -3185,6 +3302,7 @@ abstract class $CreativeWork implements $Thing {
   $Place? get spatialCoverage;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -3192,6 +3310,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get sponsor;
 
   /// The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.",
@@ -3239,6 +3358,7 @@ abstract class $CreativeWork implements $Thing {
   $CreativeWork? get translationOfWork;
 
   /// Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.",
@@ -3250,6 +3370,7 @@ abstract class $CreativeWork implements $Thing {
   String? get typicalAgeRange;
 
   /// The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.  This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.  This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.",
@@ -3257,6 +3378,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get usageInfo;
 
   /// The version of the CreativeWork embodied by a specified resource.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The version of the CreativeWork embodied by a specified resource.",
@@ -3264,6 +3386,7 @@ abstract class $CreativeWork implements $Thing {
   $SchemaUnion? get version;
 
   /// An embedded video object.
+  @AnyOf([$Clip, $VideoObject])
   @Schema(description: "An embedded video object.")
   $SchemaUnion? get video;
 
@@ -3293,6 +3416,7 @@ abstract class $CreativeWork implements $Thing {
 @Schema()
 abstract class $CreativeWorkSeason implements $CreativeWork {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -3340,6 +3464,7 @@ abstract class $CreativeWorkSeason implements $CreativeWork {
   $Organization? get productionCompany;
 
   /// Position of the season within an ordered group of seasons.
+  @AnyOf([num, String])
   @Schema(
     description: "Position of the season within an ordered group of seasons.",
   )
@@ -3389,6 +3514,7 @@ abstract class $CreativeWorkSeries implements $CreativeWork, $Series {
 @Schema()
 abstract class $Credential implements $CreativeWork {
   /// The category or type of credential being described, for example "degree”, “certificate”, “badge”, or more specific term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The category or type of credential being described, for example \"degree”, “certificate”, “badge”, or more specific term.",
@@ -3472,6 +3598,7 @@ abstract class $DataCatalog implements $CreativeWork {
   $Dataset? get dataset;
 
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -3479,6 +3606,7 @@ abstract class $DataCatalog implements $CreativeWork {
   $SchemaUnion? get measurementMethod;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -3490,6 +3618,7 @@ abstract class $DataCatalog implements $CreativeWork {
 @Schema()
 abstract class $DataDownload implements $MediaObject {
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -3497,6 +3626,7 @@ abstract class $DataDownload implements $MediaObject {
   $SchemaUnion? get measurementMethod;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -3508,6 +3638,7 @@ abstract class $DataDownload implements $MediaObject {
 @Schema()
 abstract class $DataFeed implements $Dataset {
   /// An item within a data feed. Data feeds may have many elements.
+  @AnyOf([$DataFeedItem, String, $Thing])
   @Schema(
     description:
         "An item within a data feed. Data feeds may have many elements.",
@@ -3588,6 +3719,7 @@ abstract class $Dataset implements $CreativeWork {
   String? get issn;
 
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -3595,6 +3727,7 @@ abstract class $Dataset implements $CreativeWork {
   $SchemaUnion? get measurementMethod;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -3602,6 +3735,7 @@ abstract class $Dataset implements $CreativeWork {
   $SchemaUnion? get measurementTechnique;
 
   /// The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]].
+  @AnyOf([$Property, $PropertyValue, $StatisticalVariable, String])
   @Schema(
     description:
         "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]].",
@@ -3621,6 +3755,7 @@ abstract class $DateTime implements $SchemaThing {}
 @Schema()
 abstract class $DatedMoneySpecification implements $StructuredValue {
   /// The amount of money.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
 
@@ -3670,6 +3805,7 @@ abstract class $DefenceEstablishment implements $GovernmentBuilding {}
 @Schema()
 abstract class $DefinedRegion implements $Place, $StructuredValue {
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used.",
@@ -3677,6 +3813,7 @@ abstract class $DefinedRegion implements $Place, $StructuredValue {
   $SchemaUnion? get addressCountry;
 
   /// The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany.
+  @AnyOf([$AdministrativeArea, String])
   @Schema(
     description:
         "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany.",
@@ -3707,6 +3844,7 @@ abstract class $DefinedTerm implements $Intangible {
   $Thing? get about;
 
   /// A [[DefinedTermSet]] that contains this term.
+  @AnyOf([$DefinedTermSet, String])
   @Schema(description: "A [[DefinedTermSet]] that contains this term.")
   $SchemaUnion? get inDefinedTermSet;
 
@@ -3745,6 +3883,7 @@ abstract class $DeliveryChargeSpecification implements $PriceSpecification {
   $DeliveryMethod? get appliesToDeliveryMethod;
 
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -3752,6 +3891,7 @@ abstract class $DeliveryChargeSpecification implements $PriceSpecification {
   $SchemaUnion? get areaServed;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].",
@@ -3759,6 +3899,7 @@ abstract class $DeliveryChargeSpecification implements $PriceSpecification {
   $SchemaUnion? get eligibleRegion;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].",
@@ -3835,6 +3976,7 @@ abstract class $DeliveryTimeSettings implements $StructuredValue {
 @Schema()
 abstract class $Demand implements $Intangible {
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
+  @AnyOf([$LoanOrCredit, $PaymentMethod, String])
   @Schema(
     description:
         "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.",
@@ -3849,6 +3991,7 @@ abstract class $Demand implements $Intangible {
   $QuantitativeValue? get advanceBookingRequirement;
 
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -3926,6 +4069,7 @@ abstract class $Demand implements $Intangible {
   $QuantitativeValue? get eligibleQuantity;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].",
@@ -3982,6 +4126,7 @@ abstract class $Demand implements $Intangible {
   $TypeAndQuantityNode? get includesObject;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].",
@@ -4003,6 +4148,15 @@ abstract class $Demand implements $Intangible {
   $OfferItemCondition? get itemCondition;
 
   /// An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([
+    $AggregateOffer,
+    $CreativeWork,
+    $Event,
+    $MenuItem,
+    $Product,
+    $Service,
+    $Trip,
+  ])
   @Schema(
     description:
         "An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -4024,6 +4178,7 @@ abstract class $Demand implements $Intangible {
   $PriceSpecification? get priceSpecification;
 
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
@@ -4100,6 +4255,7 @@ abstract class $Diet implements $CreativeWork, $LifestyleModification {
   String? get dietFeatures;
 
   /// People or organizations that endorse the plan.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "People or organizations that endorse the plan.")
   $SchemaUnion? get endorsers;
 
@@ -4136,6 +4292,7 @@ abstract class $DietarySupplement implements $Product, $Substance {
   bool? get isProprietary;
 
   /// The drug or supplement's legal status, including any controlled substance schedules that apply.
+  @AnyOf([$DrugLegalStatus, $MedicalEnumeration, String])
   @Schema(
     description:
         "The drug or supplement's legal status, including any controlled substance schedules that apply.",
@@ -4204,6 +4361,7 @@ abstract class $DigitalDocument implements $CreativeWork {
 @Schema()
 abstract class $DigitalDocumentPermission implements $Intangible {
   /// The person, organization, contact point, or audience that has been granted this permission.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "The person, organization, contact point, or audience that has been granted this permission.",
@@ -4258,6 +4416,7 @@ abstract class $Distillery implements $FoodEstablishment {}
 @Schema()
 abstract class $DonateAction implements $TransferAction {
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '\$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
@@ -4279,6 +4438,7 @@ abstract class $DonateAction implements $TransferAction {
   $PriceSpecification? get priceSpecification;
 
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -4294,6 +4454,7 @@ abstract class $DoseSchedule implements $MedicalIntangible {
   String? get doseUnit;
 
   /// The value of the dose, e.g. 500.
+  @AnyOf([num, $QualitativeValue])
   @Schema(description: "The value of the dose, e.g. 500.")
   $SchemaUnion? get doseValue;
 
@@ -4438,6 +4599,7 @@ abstract class $Drug implements $Product, $Substance {
   String? get labelDetails;
 
   /// The drug or supplement's legal status, including any controlled substance schedules that apply.
+  @AnyOf([$DrugLegalStatus, $MedicalEnumeration, String])
   @Schema(
     description:
         "The drug or supplement's legal status, including any controlled substance schedules that apply.",
@@ -4485,6 +4647,7 @@ abstract class $Drug implements $Product, $Substance {
   String? get prescribingInfo;
 
   /// Indicates the status of drug prescription, e.g. local catalogs classifications or whether the drug is available by prescription or over-the-counter, etc.
+  @AnyOf([$DrugPrescriptionStatus, String])
   @Schema(
     description:
         "Indicates the status of drug prescription, e.g. local catalogs classifications or whether the drug is available by prescription or over-the-counter, etc.",
@@ -4556,6 +4719,7 @@ abstract class $DrugCost implements $MedicalEntity {
   String? get costOrigin;
 
   /// The cost per unit of the drug.
+  @AnyOf([num, $QualitativeValue, String])
   @Schema(description: "The cost per unit of the drug.")
   $SchemaUnion? get costPerUnit;
 
@@ -4639,6 +4803,7 @@ abstract class $EatAction implements $ConsumeAction {}
 @Schema()
 abstract class $EducationEvent implements $Event {
   /// The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to assess the competency or learning outcome defined by the referenced term.",
@@ -4646,6 +4811,7 @@ abstract class $EducationEvent implements $Event {
   $SchemaUnion? get assesses;
 
   /// The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.",
@@ -4653,6 +4819,7 @@ abstract class $EducationEvent implements $Event {
   $SchemaUnion? get educationalLevel;
 
   /// The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.",
@@ -4672,6 +4839,7 @@ abstract class $EducationalAudience implements $Audience {
 @Schema()
 abstract class $EducationalOccupationalCredential implements $Credential {
   /// Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.",
@@ -4679,6 +4847,7 @@ abstract class $EducationalOccupationalCredential implements $Credential {
   $SchemaUnion? get competencyRequired;
 
   /// The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.",
@@ -4710,6 +4879,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $DayOfWeek? get dayOfWeek;
 
   /// A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.",
@@ -4731,6 +4901,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get endDate;
 
   /// A financial aid type or program which students may use to pay for tuition or fees associated with the program.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A financial aid type or program which students may use to pay for tuition or fees associated with the program.",
@@ -4752,6 +4923,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   num? get maximumEnrollment;
 
   /// The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
+  @AnyOf([num, $StructuredValue])
   @Schema(
     description:
         "The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
@@ -4759,6 +4931,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get numberOfCredits;
 
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.",
@@ -4766,6 +4939,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get occupationalCategory;
 
   /// A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.",
@@ -4773,6 +4947,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get occupationalCredentialAwarded;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -4780,10 +4955,17 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get offers;
 
   /// Prerequisites for enrolling in the program.
+  @AnyOf([
+    $AlignmentObject,
+    $Course,
+    $EducationalOccupationalCredential,
+    String,
+  ])
   @Schema(description: "Prerequisites for enrolling in the program.")
   $SchemaUnion? get programPrerequisites;
 
   /// The type of educational or occupational program. For example, classroom, internship, alternance, etc.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The type of educational or occupational program. For example, classroom, internship, alternance, etc.",
@@ -4791,6 +4973,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $SchemaUnion? get programType;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -4841,6 +5024,7 @@ abstract class $EducationalOccupationalProgram implements $Intangible {
   $MonetaryAmountDistribution? get trainingSalary;
 
   /// The number of credits or units a full-time student would be expected to take in 1 term however 'term' is defined by the institution.
+  @AnyOf([num, $StructuredValue])
   @Schema(
     description:
         "The number of credits or units a full-time student would be expected to take in 1 term however 'term' is defined by the institution.",
@@ -4885,6 +5069,7 @@ abstract class $EmergencyService implements $LocalBusiness {}
 @Schema()
 abstract class $EmployeeRole implements $OrganizationRole {
   /// The base salary of the job or of an employee in an EmployeeRole.
+  @AnyOf([$MonetaryAmount, num, $PriceSpecification])
   @Schema(
     description:
         "The base salary of the job or of an employee in an EmployeeRole.",
@@ -4915,6 +5100,7 @@ abstract class $EmploymentAgency implements $LocalBusiness {}
 @Schema()
 abstract class $EndorseAction implements $ReactAction {
   /// A sub property of participant. The person/organization being supported.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The person/organization being supported.",
@@ -4982,10 +5168,12 @@ abstract class $EngineSpecification implements $StructuredValue {
   $QuantitativeValue? get enginePower;
 
   /// The type of engine or engines powering the vehicle.
+  @AnyOf([$QualitativeValue, String])
   @Schema(description: "The type of engine or engines powering the vehicle.")
   $SchemaUnion? get engineType;
 
   /// The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.",
@@ -5012,6 +5200,7 @@ abstract class $EntryPoint implements $Intangible {
   $SoftwareApplication? get actionApplication;
 
   /// The high level platform(s) where the Action can be performed for the given URL. To specify a specific application or operating system instance, use actionApplication.
+  @AnyOf([$DigitalPlatformEnumeration, String])
   @Schema(
     description:
         "The high level platform(s) where the Action can be performed for the given URL. To specify a specific application or operating system instance, use actionApplication.",
@@ -5053,6 +5242,7 @@ abstract class $EntryPoint implements $Intangible {
 @Schema()
 abstract class $Enumeration implements $Intangible {
   /// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+  @AnyOf([$Class, $Enumeration, $Property])
   @Schema(
     description:
         "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
@@ -5068,6 +5258,7 @@ abstract class $EnvironmentalProductDeclaration implements $Certification {}
 @Schema()
 abstract class $Episode implements $CreativeWork {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -5096,6 +5287,7 @@ abstract class $Episode implements $CreativeWork {
   $Person? get directors;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -5103,12 +5295,14 @@ abstract class $Episode implements $CreativeWork {
   $SchemaUnion? get duration;
 
   /// Position of the episode within an ordered group of episodes.
+  @AnyOf([num, String])
   @Schema(
     description: "Position of the episode within an ordered group of episodes.",
   )
   $SchemaUnion? get episodeNumber;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -5139,6 +5333,7 @@ abstract class $Episode implements $CreativeWork {
 @Schema()
 abstract class $Error implements $InstantaneousEvent {
   /// Application or platform dependant error code.
+  @AnyOf([$DefinedTerm, num, $StatusEnumeration, String])
   @Schema(description: "Application or platform dependant error code.")
   $SchemaUnion? get errorCode;
 }
@@ -5151,6 +5346,7 @@ abstract class $Event implements $Thing {
   $Thing? get about;
 
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -5165,10 +5361,12 @@ abstract class $Event implements $Thing {
   $AggregateRating? get aggregateRating;
 
   /// A person or organization attending the event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A person or organization attending the event.")
   $SchemaUnion? get attendee;
 
   /// A person attending the event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A person attending the event.")
   $SchemaUnion? get attendees;
 
@@ -5180,6 +5378,7 @@ abstract class $Event implements $Thing {
   $Audience? get audience;
 
   /// The person or organization who wrote a composition, or who is the composer of a work performed at some event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The person or organization who wrote a composition, or who is the composer of a work performed at some event.",
@@ -5187,6 +5386,7 @@ abstract class $Event implements $Thing {
   $SchemaUnion? get composer;
 
   /// A secondary contributor to the CreativeWork or Event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A secondary contributor to the CreativeWork or Event.")
   $SchemaUnion? get contributor;
 
@@ -5202,6 +5402,7 @@ abstract class $Event implements $Thing {
   $SchemaUnion? get doorTime;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -5237,6 +5438,7 @@ abstract class $Event implements $Thing {
   $EventStatusType? get eventStatus;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -5265,6 +5467,7 @@ abstract class $Event implements $Thing {
   $Offer? get hasSponsorshipOffer;
 
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -5279,6 +5482,7 @@ abstract class $Event implements $Thing {
   bool? get isAccessibleForFree;
 
   /// Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
@@ -5286,6 +5490,7 @@ abstract class $Event implements $Thing {
   $SchemaUnion? get keywords;
 
   /// The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  @AnyOf([$Place, $PostalAddress, String, $VirtualLocation])
   @Schema(
     description:
         "The location of, for example, where an event is happening, where an organization is located, or where an action takes place.",
@@ -5314,6 +5519,7 @@ abstract class $Event implements $Thing {
   num? get maximumVirtualAttendeeCapacity;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -5321,10 +5527,12 @@ abstract class $Event implements $Thing {
   $SchemaUnion? get offers;
 
   /// An organizer of an Event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "An organizer of an Event.")
   $SchemaUnion? get organizer;
 
   /// A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.",
@@ -5332,6 +5540,7 @@ abstract class $Event implements $Thing {
   $SchemaUnion? get performer;
 
   /// The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.",
@@ -5363,6 +5572,7 @@ abstract class $Event implements $Thing {
   $Review? get review;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -5398,6 +5608,7 @@ abstract class $Event implements $Thing {
   $Event? get superEvent;
 
   /// Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.",
@@ -5458,6 +5669,7 @@ abstract class $ExchangeRateSpecification implements $StructuredValue {
   $UnitPriceSpecification? get currentExchangeRate;
 
   /// The difference between the price at which a broker or other intermediary buys and sells foreign currency.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(
     description:
         "The difference between the price at which a broker or other intermediary buys and sells foreign currency.",
@@ -5562,10 +5774,12 @@ abstract class $ExerciseGym implements $SportsActivityLocation {}
 @Schema()
 abstract class $ExercisePlan implements $CreativeWork, $PhysicalActivity {
   /// Length of time to engage in the activity.
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(description: "Length of time to engage in the activity.")
   $SchemaUnion? get activityDuration;
 
   /// How often one should engage in the activity.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(description: "How often one should engage in the activity.")
   $SchemaUnion? get activityFrequency;
 
@@ -5584,6 +5798,7 @@ abstract class $ExercisePlan implements $CreativeWork, $PhysicalActivity {
   String? get exerciseType;
 
   /// Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.",
@@ -5591,14 +5806,17 @@ abstract class $ExercisePlan implements $CreativeWork, $PhysicalActivity {
   $SchemaUnion? get intensity;
 
   /// Number of times one should repeat the activity.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "Number of times one should repeat the activity.")
   $SchemaUnion? get repetitions;
 
   /// How often one should break from the activity.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(description: "How often one should break from the activity.")
   $SchemaUnion? get restPeriods;
 
   /// Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
+  @AnyOf([$Energy, $QuantitativeValue])
   @Schema(
     description:
         "Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.",
@@ -5634,6 +5852,7 @@ abstract class $FilmAction implements $CreateAction {}
 @Schema()
 abstract class $FinancialIncentive implements $Intangible {
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -5648,6 +5867,7 @@ abstract class $FinancialIncentive implements $Intangible {
   $Organization? get eligibleWithSupplier;
 
   /// Describes the amount that can be redeemed from this incentive.      <p>[[QuantitativeValue]]: Use this for incentives based on price (either raw amount or percentage-based). For a raw amount example, "You can claim $2,500 - $7,500 from the total cost of installation" would be represented as the following:</p>     {         "@type": "QuantitativeValue",         “minValue”: 2500,         “maxValue”: 7500,         "unitCode": "USD"     } <p>[[QuantitativeValue]] can also be used for percentage amounts. In such cases, value is used to represent the incentive’s percentage, while maxValue represents a limit (if one exists) to that incentive. The unitCode should be 'P1' and the unitText should be '%', while valueReference should be used for holding the currency type. For example, "You can claim up to 30% of the total cost of installation, up to a maximum of $7,500" would be:</p>     {         "@type": "QuantitativeValue",         "value": 30,         "unitCode": "P1",         "unitText": "%",         “maxValue”: 7500,         “valueReference”: “USD”     } <p>[[UnitPriceSpecification]]: Use this for incentives that are based on amounts rather than price. For example, a net metering rebate that pays $10/kWh, up to $1,000:</p>     {         "@type": "UnitPriceSpecification",         "price": 10,         "priceCurrency": "USD",         "referenceQuantity": 1,         "unitCode": "DO3",         "unitText": "kw/h",         "maxPrice": 1000,         "description": "$10 / kwh up to $1000"     } <p>[[LoanOrCredit]]: Use for incentives that are loan based. For example, a loan of $4,000 - $50,000 with a repayment term of 10 years, interest free would look like:</p>     {         "@type": "LoanOrCredit",         "loanTerm": {                 "@type":"QuantitativeValue",                 "value":"10",                 "unitCode": "ANN"             },         "amount":[             {                 "@type": "QuantitativeValue",                 "Name":"fixed interest rate",                 "value":"0",             },         ],         "amount":[             {                 "@type": "MonetaryAmount",                 "Name":"min loan amount",                 "value":"4000",                 "currency":"CAD"             },             {                 "@type": "MonetaryAmount",                 "Name":"max loan amount",                 "value":"50000",                 "currency":"CAD"             }         ],     }  In summary: <ul><li>Use [[QuantitativeValue]] for absolute/percentage-based incentives applied on the price of a good/service.</li> <li>Use [[UnitPriceSpecification]] for incentives based on a per-unit basis (e.g. net metering).</li> <li>Use [[LoanOrCredit]] for loans/credits.</li> </ul>.
+  @AnyOf([$LoanOrCredit, $QuantitativeValue, $UnitPriceSpecification])
   @Schema(
     description:
         "Describes the amount that can be redeemed from this incentive.      <p>[[QuantitativeValue]]: Use this for incentives based on price (either raw amount or percentage-based). For a raw amount example, \"You can claim \$2,500 - \$7,500 from the total cost of installation\" would be represented as the following:</p>     {         \"@type\": \"QuantitativeValue\",         “minValue”: 2500,         “maxValue”: 7500,         \"unitCode\": \"USD\"     } <p>[[QuantitativeValue]] can also be used for percentage amounts. In such cases, value is used to represent the incentive’s percentage, while maxValue represents a limit (if one exists) to that incentive. The unitCode should be 'P1' and the unitText should be '%', while valueReference should be used for holding the currency type. For example, \"You can claim up to 30% of the total cost of installation, up to a maximum of \$7,500\" would be:</p>     {         \"@type\": \"QuantitativeValue\",         \"value\": 30,         \"unitCode\": \"P1\",         \"unitText\": \"%\",         “maxValue”: 7500,         “valueReference”: “USD”     } <p>[[UnitPriceSpecification]]: Use this for incentives that are based on amounts rather than price. For example, a net metering rebate that pays \$10/kWh, up to \$1,000:</p>     {         \"@type\": \"UnitPriceSpecification\",         \"price\": 10,         \"priceCurrency\": \"USD\",         \"referenceQuantity\": 1,         \"unitCode\": \"DO3\",         \"unitText\": \"kw/h\",         \"maxPrice\": 1000,         \"description\": \"\$10 / kwh up to \$1000\"     } <p>[[LoanOrCredit]]: Use for incentives that are loan based. For example, a loan of \$4,000 - \$50,000 with a repayment term of 10 years, interest free would look like:</p>     {         \"@type\": \"LoanOrCredit\",         \"loanTerm\": {                 \"@type\":\"QuantitativeValue\",                 \"value\":\"10\",                 \"unitCode\": \"ANN\"             },         \"amount\":[             {                 \"@type\": \"QuantitativeValue\",                 \"Name\":\"fixed interest rate\",                 \"value\":\"0\",             },         ],         \"amount\":[             {                 \"@type\": \"MonetaryAmount\",                 \"Name\":\"min loan amount\",                 \"value\":\"4000\",                 \"currency\":\"CAD\"             },             {                 \"@type\": \"MonetaryAmount\",                 \"Name\":\"max loan amount\",                 \"value\":\"50000\",                 \"currency\":\"CAD\"             }         ],     }  In summary: <ul><li>Use [[QuantitativeValue]] for absolute/percentage-based incentives applied on the price of a good/service.</li> <li>Use [[UnitPriceSpecification]] for incentives based on a per-unit basis (e.g. net metering).</li> <li>Use [[LoanOrCredit]] for loans/credits.</li> </ul>.",
@@ -5669,6 +5889,7 @@ abstract class $FinancialIncentive implements $Intangible {
   $IncentiveType? get incentiveType;
 
   /// The type or specific product(s) and/or service(s) being incentivized. <p>DefinedTermSets are used for product and service categories such as the United Nations Standard Products and Services Code:</p>     {         "@type": "DefinedTerm",         "inDefinedTermSet": "https://www.unspsc.org/",         "termCode": "261315XX",         "name": "Photovoltaic module"     }  <p>For a specific product or service, use the Product type:</p>     {         "@type": "Product",         "name": "Kenmore White 17" Microwave",     } For multiple different incentivized items, use multiple [[DefinedTerm]] or [[Product]].
+  @AnyOf([$DefinedTerm, $Product])
   @Schema(
     description:
         "The type or specific product(s) and/or service(s) being incentivized. <p>DefinedTermSets are used for product and service categories such as the United Nations Standard Products and Services Code:</p>     {         \"@type\": \"DefinedTerm\",         \"inDefinedTermSet\": \"https://www.unspsc.org/\",         \"termCode\": \"261315XX\",         \"name\": \"Photovoltaic module\"     }  <p>For a specific product or service, use the Product type:</p>     {         \"@type\": \"Product\",         \"name\": \"Kenmore White 17\" Microwave\",     } For multiple different incentivized items, use multiple [[DefinedTerm]] or [[Product]].",
@@ -5676,6 +5897,7 @@ abstract class $FinancialIncentive implements $Intangible {
   $SchemaUnion? get incentivizedItem;
 
   /// Optional. Income limit for which the incentive is applicable for.      <p>If MonetaryAmount is specified, this should be based on annualized income (e.g. if an incentive is limited to those making <$114,000 annually):</p>     {         "@type": "MonetaryAmount",         "maxValue": 114000,         "currency": "USD",     }  Use Text for incentives that are limited based on other criteria, for example if an incentive is only available to recipients making 120% of the median poverty income in their area.
+  @AnyOf([$MonetaryAmount, String])
   @Schema(
     description:
         "Optional. Income limit for which the incentive is applicable for.      <p>If MonetaryAmount is specified, this should be based on annualized income (e.g. if an incentive is limited to those making <\$114,000 annually):</p>     {         \"@type\": \"MonetaryAmount\",         \"maxValue\": 114000,         \"currency\": \"USD\",     }  Use Text for incentives that are limited based on other criteria, for example if an incentive is only available to recipients making 120% of the median poverty income in their area.",
@@ -5683,6 +5905,7 @@ abstract class $FinancialIncentive implements $Intangible {
   $SchemaUnion? get incomeLimit;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -5690,6 +5913,7 @@ abstract class $FinancialIncentive implements $Intangible {
   $SchemaUnion? get provider;
 
   /// The publisher of the article in question.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "The publisher of the article in question.")
   $SchemaUnion? get publisher;
 
@@ -5730,6 +5954,7 @@ abstract class $FinancialIncentive implements $Intangible {
 @Schema()
 abstract class $FinancialProduct implements $Service {
   /// The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.",
@@ -5744,6 +5969,7 @@ abstract class $FinancialProduct implements $Service {
   $SchemaUnion? get feesAndCommissionsSpecification;
 
   /// The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.",
@@ -5774,6 +6000,7 @@ abstract class $FireStation implements $CivicStructure, $EmergencyService {}
 @Schema()
 abstract class $Flight implements $Trip {
   /// The kind of aircraft (e.g., "Boeing 747").
+  @AnyOf([String, $Vehicle])
   @Schema(description: "The kind of aircraft (e.g., \"Boeing 747\").")
   $SchemaUnion? get aircraft;
 
@@ -5816,10 +6043,12 @@ abstract class $Flight implements $Trip {
   String? get departureTerminal;
 
   /// The estimated time the flight will take.
+  @AnyOf([$Duration, String])
   @Schema(description: "The estimated time the flight will take.")
   $SchemaUnion? get estimatedFlightDuration;
 
   /// The distance of the flight.
+  @AnyOf([$Distance, String])
   @Schema(description: "The distance of the flight.")
   $SchemaUnion? get flightDistance;
 
@@ -5838,6 +6067,7 @@ abstract class $Flight implements $Trip {
   String? get mealService;
 
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
@@ -5862,6 +6092,7 @@ abstract class $FlightReservation implements $Reservation {
   String? get boardingGroup;
 
   /// The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).",
@@ -5909,6 +6140,7 @@ abstract class $FloorPlan implements $Intangible {
   $Accommodation? get isPlanForApartment;
 
   /// A schematic image showing the floorplan layout.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "A schematic image showing the floorplan layout.")
   $SchemaUnion? get layoutImage;
 
@@ -5934,6 +6166,7 @@ abstract class $FloorPlan implements $Intangible {
   num? get numberOfBathroomsTotal;
 
   /// The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
@@ -5955,6 +6188,7 @@ abstract class $FloorPlan implements $Intangible {
   num? get numberOfPartialBathrooms;
 
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -5962,6 +6196,7 @@ abstract class $FloorPlan implements $Intangible {
   $SchemaUnion? get numberOfRooms;
 
   /// Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+  @AnyOf([bool, String])
   @Schema(
     description:
         "Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.",
@@ -5977,6 +6212,7 @@ abstract class $Florist implements $Store {}
 @Schema()
 abstract class $FollowAction implements $InteractAction {
   /// A sub property of object. The person or organization being followed.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A sub property of object. The person or organization being followed.",
@@ -5988,6 +6224,7 @@ abstract class $FollowAction implements $InteractAction {
 @Schema()
 abstract class $FoodEstablishment implements $LocalBusiness {
   /// Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```.
+  @AnyOf([bool, String])
   @Schema(
     description:
         "Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```.",
@@ -5995,6 +6232,7 @@ abstract class $FoodEstablishment implements $LocalBusiness {
   $SchemaUnion? get acceptsReservations;
 
   /// Either the actual menu as a structured representation, as text, or a URL of the menu.
+  @AnyOf([$Menu, String])
   @Schema(
     description:
         "Either the actual menu as a structured representation, as text, or a URL of the menu.",
@@ -6002,6 +6240,7 @@ abstract class $FoodEstablishment implements $LocalBusiness {
   $SchemaUnion? get hasMenu;
 
   /// Either the actual menu as a structured representation, as text, or a URL of the menu.
+  @AnyOf([$Menu, String])
   @Schema(
     description:
         "Either the actual menu as a structured representation, as text, or a URL of the menu.",
@@ -6031,6 +6270,7 @@ abstract class $FoodEstablishmentReservation implements $Reservation {
   $SchemaUnion? get endTime;
 
   /// Number of people the reservation should accommodate.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "Number of people the reservation should accommodate.")
   $SchemaUnion? get partySize;
 
@@ -6084,6 +6324,7 @@ abstract class $Game implements $CreativeWork {
   $Thing? get gameItem;
 
   /// Real or fictional location of the game (or part of game).
+  @AnyOf([$Place, $PostalAddress, String])
   @Schema(
     description: "Real or fictional location of the game (or part of game).",
   )
@@ -6160,6 +6401,12 @@ abstract class $Gene implements $BioChemEntity {
   $BioChemEntity? get encodesBioChemEntity;
 
   /// Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system.
+  @AnyOf([
+    $AnatomicalStructure,
+    $AnatomicalSystem,
+    $BioChemEntity,
+    $DefinedTerm,
+  ])
   @Schema(
     description:
         "Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system.",
@@ -6189,6 +6436,7 @@ abstract class $GeoCircle implements $GeoShape {
   $GeoCoordinates? get geoMidpoint;
 
   /// Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).
+  @AnyOf([$Distance, num, String])
   @Schema(
     description:
         "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).",
@@ -6200,10 +6448,12 @@ abstract class $GeoCircle implements $GeoShape {
 @Schema()
 abstract class $GeoCoordinates implements $StructuredValue {
   /// Physical address of the item.
+  @AnyOf([$PostalAddress, String])
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
 
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used.",
@@ -6211,6 +6461,7 @@ abstract class $GeoCoordinates implements $StructuredValue {
   $SchemaUnion? get addressCountry;
 
   /// The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT\_OF\_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT\\_OF\\_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.",
@@ -6218,6 +6469,7 @@ abstract class $GeoCoordinates implements $StructuredValue {
   $SchemaUnion? get elevation;
 
   /// The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+  @AnyOf([num, String])
   @Schema(
     description:
         "The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
@@ -6225,6 +6477,7 @@ abstract class $GeoCoordinates implements $StructuredValue {
   $SchemaUnion? get latitude;
 
   /// The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+  @AnyOf([num, String])
   @Schema(
     description:
         "The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
@@ -6240,10 +6493,12 @@ abstract class $GeoCoordinates implements $StructuredValue {
 @Schema()
 abstract class $GeoShape implements $StructuredValue {
   /// Physical address of the item.
+  @AnyOf([$PostalAddress, String])
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
 
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used.",
@@ -6265,6 +6520,7 @@ abstract class $GeoShape implements $StructuredValue {
   String? get circle;
 
   /// The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT\_OF\_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT\\_OF\\_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.",
@@ -6294,6 +6550,7 @@ abstract class $GeoShape implements $StructuredValue {
 @Schema()
 abstract class $GeospatialGeometry implements $Intangible {
   /// Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6301,6 +6558,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoContains;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6308,6 +6566,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoCoveredBy;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. \"Every point of b is a point of (the interior or boundary of) a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6315,6 +6574,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoCovers;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: \"a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6322,6 +6582,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoCrosses;
 
   /// Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: "they have no point in common. They form a set of disconnected geometries." (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: \"they have no point in common. They form a set of disconnected geometries.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
@@ -6329,6 +6590,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoDisjoint;
 
   /// Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). \"Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other\" (a symmetric relationship).",
@@ -6336,6 +6598,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoEquals;
 
   /// Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6343,6 +6606,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoIntersects;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6350,6 +6614,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoOverlaps;
 
   /// Represents spatial relations in which two geometries (or the places they represent) touch: "they have at least one boundary point in common, but no interior points." (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) touch: \"they have at least one boundary point in common, but no interior points.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
@@ -6357,6 +6622,7 @@ abstract class $GeospatialGeometry implements $Intangible {
   $SchemaUnion? get geoTouches;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -6368,6 +6634,7 @@ abstract class $GeospatialGeometry implements $Intangible {
 @Schema()
 abstract class $GiveAction implements $TransferAction {
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -6403,6 +6670,7 @@ abstract class $GovernmentPermit implements $Permit {}
 @Schema()
 abstract class $GovernmentService implements $Service {
   /// Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
+  @AnyOf([$AdministrativeArea, String])
   @Schema(
     description:
         "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
@@ -6421,6 +6689,15 @@ abstract class $GovernmentService implements $Service {
 @Schema()
 abstract class $Grant implements $Intangible {
   /// Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].
+  @AnyOf([
+    $BioChemEntity,
+    $CreativeWork,
+    $Event,
+    $MedicalEntity,
+    $Organization,
+    $Person,
+    $Product,
+  ])
   @Schema(
     description:
         "Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].",
@@ -6428,6 +6705,7 @@ abstract class $Grant implements $Intangible {
   $SchemaUnion? get fundedItem;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -6435,6 +6713,7 @@ abstract class $Grant implements $Intangible {
   $SchemaUnion? get funder;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -6450,6 +6729,7 @@ abstract class $GroceryStore implements $Store {}
 @Schema()
 abstract class $Guide implements $CreativeWork {
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -6457,6 +6737,7 @@ abstract class $Guide implements $CreativeWork {
   $SchemaUnion? get category;
 
   /// This Review or Rating is relevant to this part or facet of the itemReviewed.
+  @AnyOf([$StructuredValue, String])
   @Schema(
     description:
         "This Review or Rating is relevant to this part or facet of the itemReviewed.",
@@ -6588,6 +6869,7 @@ abstract class $HealthPlanCostSharingSpecification implements $Intangible {
 @Schema()
 abstract class $HealthPlanFormulary implements $Intangible {
   /// The costs to the patient for services under this network or formulary.
+  @AnyOf([bool, $HealthPlanCostSharingSpecification])
   @Schema(
     description:
         "The costs to the patient for services under this network or formulary.",
@@ -6610,6 +6892,7 @@ abstract class $HealthPlanFormulary implements $Intangible {
 @Schema()
 abstract class $HealthPlanNetwork implements $Intangible {
   /// The costs to the patient for services under this network or formulary.
+  @AnyOf([bool, $HealthPlanCostSharingSpecification])
   @Schema(
     description:
         "The costs to the patient for services under this network or formulary.",
@@ -6664,10 +6947,12 @@ abstract class $HomeGoodsStore implements $Store {}
 abstract class $Hospital
     implements $CivicStructure, $EmergencyService, $MedicalOrganization {
   /// A medical service available from this provider.
+  @AnyOf([$MedicalProcedure, $MedicalTest, $MedicalTherapy])
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
 
   /// Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]].
+  @AnyOf([$CDCPMDRecord, $Dataset])
   @Schema(
     description:
         "Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]].",
@@ -6691,6 +6976,7 @@ abstract class $Hotel implements $LodgingBusiness {}
 @Schema()
 abstract class $HotelRoom implements $Room {
   /// The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
+  @AnyOf([$BedDetails, $BedType, String])
   @Schema(
     description:
         "The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.",
@@ -6709,6 +6995,7 @@ abstract class $HotelRoom implements $Room {
 @Schema()
 abstract class $House implements $Accommodation {
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -6724,6 +7011,7 @@ abstract class $HousePainter implements $HomeAndConstructionBusiness {}
 @Schema()
 abstract class $HowTo implements $CreativeWork {
   /// The estimated cost of the supply or supplies consumed when performing instructions.
+  @AnyOf([$MonetaryAmount, String])
   @Schema(
     description:
         "The estimated cost of the supply or supplies consumed when performing instructions.",
@@ -6745,6 +7033,7 @@ abstract class $HowTo implements $CreativeWork {
   $Duration? get prepTime;
 
   /// A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.
+  @AnyOf([$CreativeWork, $HowToSection, $HowToStep, String])
   @Schema(
     description:
         "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.",
@@ -6752,6 +7041,7 @@ abstract class $HowTo implements $CreativeWork {
   $SchemaUnion? get step;
 
   /// A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
+  @AnyOf([$CreativeWork, $ItemList, String])
   @Schema(
     description:
         "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).",
@@ -6759,6 +7049,7 @@ abstract class $HowTo implements $CreativeWork {
   $SchemaUnion? get steps;
 
   /// A sub-property of instrument. A supply consumed when performing instructions or a direction.
+  @AnyOf([$HowToSupply, String])
   @Schema(
     description:
         "A sub-property of instrument. A supply consumed when performing instructions or a direction.",
@@ -6766,6 +7057,7 @@ abstract class $HowTo implements $CreativeWork {
   $SchemaUnion? get supply;
 
   /// A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
+  @AnyOf([$HowToTool, String])
   @Schema(
     description:
         "A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.",
@@ -6780,6 +7072,7 @@ abstract class $HowTo implements $CreativeWork {
   $Duration? get totalTime;
 
   /// The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.",
@@ -6791,6 +7084,7 @@ abstract class $HowTo implements $CreativeWork {
 @Schema()
 abstract class $HowToDirection implements $CreativeWork, $ListItem {
   /// A media object representing the circumstances after performing this direction.
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "A media object representing the circumstances after performing this direction.",
@@ -6798,6 +7092,7 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
   $SchemaUnion? get afterMedia;
 
   /// A media object representing the circumstances before performing this direction.
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "A media object representing the circumstances before performing this direction.",
@@ -6805,6 +7100,7 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
   $SchemaUnion? get beforeMedia;
 
   /// A media object representing the circumstances while performing this direction.
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "A media object representing the circumstances while performing this direction.",
@@ -6826,6 +7122,7 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
   $Duration? get prepTime;
 
   /// A sub-property of instrument. A supply consumed when performing instructions or a direction.
+  @AnyOf([$HowToSupply, String])
   @Schema(
     description:
         "A sub-property of instrument. A supply consumed when performing instructions or a direction.",
@@ -6833,6 +7130,7 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
   $SchemaUnion? get supply;
 
   /// A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
+  @AnyOf([$HowToTool, String])
   @Schema(
     description:
         "A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.",
@@ -6851,6 +7149,7 @@ abstract class $HowToDirection implements $CreativeWork, $ListItem {
 @Schema()
 abstract class $HowToItem implements $ListItem {
   /// The required quantity of the item(s).
+  @AnyOf([num, $QuantitativeValue, String])
   @Schema(description: "The required quantity of the item(s).")
   $SchemaUnion? get requiredQuantity;
 }
@@ -6859,6 +7158,7 @@ abstract class $HowToItem implements $ListItem {
 @Schema()
 abstract class $HowToSection implements $CreativeWork, $ItemList, $ListItem {
   /// A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
+  @AnyOf([$CreativeWork, $ItemList, String])
   @Schema(
     description:
         "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).",
@@ -6874,6 +7174,7 @@ abstract class $HowToStep implements $CreativeWork, $ItemList, $ListItem {}
 @Schema()
 abstract class $HowToSupply implements $HowToItem {
   /// The estimated cost of the supply or supplies consumed when performing instructions.
+  @AnyOf([$MonetaryAmount, String])
   @Schema(
     description:
         "The estimated cost of the supply or supplies consumed when performing instructions.",
@@ -6953,6 +7254,7 @@ abstract class $ImageGallery implements $MediaGallery {}
 @Schema()
 abstract class $ImageObject implements $MediaObject {
   /// The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].",
@@ -6967,6 +7269,7 @@ abstract class $ImageObject implements $MediaObject {
   String? get embeddedTextCaption;
 
   /// exif data for this object.
+  @AnyOf([$PropertyValue, String])
   @Schema(description: "exif data for this object.")
   $SchemaUnion? get exifData;
 
@@ -7124,6 +7427,7 @@ abstract class $InteractionCounter implements $StructuredValue {
   $SchemaUnion? get endTime;
 
   /// The WebSite or SoftwareApplication where the interactions took place.
+  @AnyOf([$SoftwareApplication, $WebSite])
   @Schema(
     description:
         "The WebSite or SoftwareApplication where the interactions took place.",
@@ -7138,6 +7442,7 @@ abstract class $InteractionCounter implements $StructuredValue {
   $Action? get interactionType;
 
   /// The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  @AnyOf([$Place, $PostalAddress, String, $VirtualLocation])
   @Schema(
     description:
         "The location of, for example, where an event is happening, where an organization is located, or where an action takes place.",
@@ -7171,6 +7476,7 @@ abstract class $InvestmentFund implements $InvestmentOrDeposit {}
 @Schema()
 abstract class $InvestmentOrDeposit implements $FinancialProduct {
   /// The amount of money.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
 }
@@ -7201,6 +7507,7 @@ abstract class $Invoice implements $Intangible {
   $Duration? get billingPeriod;
 
   /// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.",
@@ -7208,6 +7515,7 @@ abstract class $Invoice implements $Intangible {
   $SchemaUnion? get broker;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -7222,10 +7530,12 @@ abstract class $Invoice implements $Intangible {
   String? get confirmationNumber;
 
   /// Party placing the order or paying the invoice.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "Party placing the order or paying the invoice.")
   $SchemaUnion? get customer;
 
   /// The minimum payment required at this time.
+  @AnyOf([$MonetaryAmount, $PriceSpecification])
   @Schema(description: "The minimum payment required at this time.")
   $SchemaUnion? get minimumPaymentDue;
 
@@ -7238,6 +7548,7 @@ abstract class $Invoice implements $Intangible {
   $SchemaUnion? get paymentDueDate;
 
   /// The name of the credit card or other method of payment for the order.
+  @AnyOf([$PaymentMethod, String])
   @Schema(
     description:
         "The name of the credit card or other method of payment for the order.",
@@ -7252,6 +7563,7 @@ abstract class $Invoice implements $Intangible {
   String? get paymentMethodId;
 
   /// The status of payment; whether the invoice has been paid or not.
+  @AnyOf([$PaymentStatusType, String])
   @Schema(
     description:
         "The status of payment; whether the invoice has been paid or not.",
@@ -7259,6 +7571,7 @@ abstract class $Invoice implements $Intangible {
   $SchemaUnion? get paymentStatus;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -7277,6 +7590,7 @@ abstract class $Invoice implements $Intangible {
   String? get scheduledPaymentDate;
 
   /// The total amount due.
+  @AnyOf([$MonetaryAmount, $PriceSpecification])
   @Schema(description: "The total amount due.")
   $SchemaUnion? get totalPaymentDue;
 }
@@ -7296,6 +7610,7 @@ abstract class $ItemList implements $Intangible {
   $Thing? get aggregateElement;
 
   /// For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.\n\nText values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.\n\nNote: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.
+  @AnyOf([$ListItem, String, $Thing])
   @Schema(
     description:
         "For itemListElement values, you can use simple strings (e.g. \"Peter\", \"Paul\", \"Mary\"), existing entities, or use ListItem.\\n\\nText values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.\\n\\nNote: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.",
@@ -7303,6 +7618,7 @@ abstract class $ItemList implements $Intangible {
   $SchemaUnion? get itemListElement;
 
   /// Type of ordering (e.g. Ascending, Descending, Unordered).
+  @AnyOf([$ItemListOrderType, String])
   @Schema(
     description: "Type of ordering (e.g. Ascending, Descending, Unordered).",
   )
@@ -7346,6 +7662,7 @@ abstract class $JobPosting implements $Intangible {
   $ContactPoint? get applicationContact;
 
   /// The base salary of the job or of an employee in an EmployeeRole.
+  @AnyOf([$MonetaryAmount, num, $PriceSpecification])
   @Schema(
     description:
         "The base salary of the job or of an employee in an EmployeeRole.",
@@ -7368,6 +7685,7 @@ abstract class $JobPosting implements $Intangible {
   bool? get directApply;
 
   /// Educational background needed for the position or Occupation.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "Educational background needed for the position or Occupation.",
@@ -7403,6 +7721,7 @@ abstract class $JobPosting implements $Intangible {
   $Organization? get employmentUnit;
 
   /// An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
+  @AnyOf([$MonetaryAmount, $MonetaryAmountDistribution, num])
   @Schema(
     description:
         "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.",
@@ -7417,6 +7736,7 @@ abstract class $JobPosting implements $Intangible {
   bool? get experienceInPlaceOfEducation;
 
   /// Description of skills and experience needed for the position or Occupation.
+  @AnyOf([$OccupationalExperienceRequirements, String])
   @Schema(
     description:
         "Description of skills and experience needed for the position or Occupation.",
@@ -7424,6 +7744,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get experienceRequirements;
 
   /// Organization or Person offering the job position.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "Organization or Person offering the job position.")
   $SchemaUnion? get hiringOrganization;
 
@@ -7442,6 +7763,7 @@ abstract class $JobPosting implements $Intangible {
   String? get incentives;
 
   /// The industry associated with the job position.
+  @AnyOf([$DefinedTerm, String])
   @Schema(description: "The industry associated with the job position.")
   $SchemaUnion? get industry;
 
@@ -7450,6 +7772,7 @@ abstract class $JobPosting implements $Intangible {
   String? get jobBenefits;
 
   /// The expected duration of an employment offer as advertised by the employer. Relevant for job postings that have a clearly defined period in mind such as seasonal work, substitutes for maternal leave or any other temporary employment.
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The expected duration of an employment offer as advertised by the employer. Relevant for job postings that have a clearly defined period in mind such as seasonal work, substitutes for maternal leave or any other temporary employment.",
@@ -7485,6 +7808,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get jobStartDate;
 
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.",
@@ -7492,6 +7816,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get occupationalCategory;
 
   /// A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.",
@@ -7499,6 +7824,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get physicalRequirement;
 
   /// Specific qualifications required for this role or Occupation.
+  @AnyOf([$Credential, String])
   @Schema(
     description:
         "Specific qualifications required for this role or Occupation.",
@@ -7530,6 +7856,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get securityClearanceRequirement;
 
   /// A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.",
@@ -7537,6 +7864,7 @@ abstract class $JobPosting implements $Intangible {
   $SchemaUnion? get sensoryRequirement;
 
   /// A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.",
@@ -7595,6 +7923,7 @@ abstract class $Joint implements $AnatomicalStructure {
   String? get biomechnicalClass;
 
   /// The degree of mobility the joint allows.
+  @AnyOf([$MedicalEntity, String])
   @Schema(description: "The degree of mobility the joint allows.")
   $SchemaUnion? get functionalClass;
 
@@ -7626,6 +7955,7 @@ abstract class $Language implements $Intangible {}
 @Schema()
 abstract class $LearningResource implements $CreativeWork {
   /// The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to assess the competency or learning outcome defined by the referenced term.",
@@ -7633,6 +7963,7 @@ abstract class $LearningResource implements $CreativeWork {
   $SchemaUnion? get assesses;
 
   /// Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.",
@@ -7647,6 +7978,7 @@ abstract class $LearningResource implements $CreativeWork {
   $AlignmentObject? get educationalAlignment;
 
   /// The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.",
@@ -7654,6 +7986,7 @@ abstract class $LearningResource implements $CreativeWork {
   $SchemaUnion? get educationalLevel;
 
   /// The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The purpose of a work in the context of education; for example, 'assignment', 'group work'.",
@@ -7661,6 +7994,7 @@ abstract class $LearningResource implements $CreativeWork {
   $SchemaUnion? get educationalUse;
 
   /// The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.",
@@ -7668,6 +8002,7 @@ abstract class $LearningResource implements $CreativeWork {
   $SchemaUnion? get learningResourceType;
 
   /// The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.",
@@ -7702,6 +8037,7 @@ abstract class $LegalValueLevel implements $Enumeration {}
 @Schema()
 abstract class $Legislation implements $CreativeWork {
   /// Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
+  @AnyOf([$AdministrativeArea, String])
   @Schema(
     description:
         "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
@@ -7748,6 +8084,7 @@ abstract class $Legislation implements $CreativeWork {
   $Legislation? get legislationCorrects;
 
   /// The person or organization that countersigned the legislation. Depending on the legal context, a countersignature can indicate that the signed authority undertakes to assume responsibility for texts emanating from a person who is inviolable and irresponsible, (for example a King, Grand Duc or President), or that the authority is in charge of the implementation of the text.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The person or organization that countersigned the legislation. Depending on the legal context, a countersignature can indicate that the signed authority undertakes to assume responsibility for texts emanating from a person who is inviolable and irresponsible, (for example a King, Grand Duc or President), or that the authority is in charge of the implementation of the text.",
@@ -7790,6 +8127,7 @@ abstract class $Legislation implements $CreativeWork {
   $SchemaUnion? get legislationIdentifier;
 
   /// The jurisdiction from which the legislation originates.
+  @AnyOf([$AdministrativeArea, String])
   @Schema(
     description: "The jurisdiction from which the legislation originates.",
   )
@@ -7803,6 +8141,7 @@ abstract class $Legislation implements $CreativeWork {
   $LegalForceStatus? get legislationLegalForce;
 
   /// The person or organization that originally passed or made the law: typically parliament (for primary legislation) or government (for secondary legislation). This indicates the "legal author" of the law, as opposed to its physical author.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The person or organization that originally passed or made the law: typically parliament (for primary legislation) or government (for secondary legislation). This indicates the \"legal author\" of the law, as opposed to its physical author.",
@@ -7817,6 +8156,7 @@ abstract class $Legislation implements $CreativeWork {
   $Legislation? get legislationRepeals;
 
   /// An individual or organization that has some kind of responsibility for the legislation. Typically the ministry who is/was in charge of elaborating the legislation, or the adressee for potential questions about the legislation once it is published.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An individual or organization that has some kind of responsibility for the legislation. Typically the ministry who is/was in charge of elaborating the legislation, or the adressee for potential questions about the legislation once it is published.",
@@ -7831,6 +8171,7 @@ abstract class $Legislation implements $CreativeWork {
   $Legislation? get legislationTransposes;
 
   /// The type of the legislation. Examples of values are "law", "act", "directive", "decree", "regulation", "statutory instrument", "loi organique", "règlement grand-ducal", etc., depending on the country.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "The type of the legislation. Examples of values are \"law\", \"act\", \"directive\", \"decree\", \"regulation\", \"statutory instrument\", \"loi organique\", \"règlement grand-ducal\", etc., depending on the country.",
@@ -7888,6 +8229,7 @@ abstract class $LikeAction implements $ReactAction {}
 @Schema()
 abstract class $LinkRole implements $Role {
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -7918,6 +8260,7 @@ abstract class $ListItem implements $Intangible {
   $ListItem? get nextItem;
 
   /// The position of an item in a series or sequence of items.
+  @AnyOf([num, String])
   @Schema(
     description: "The position of an item in a series or sequence of items.",
   )
@@ -7962,6 +8305,7 @@ abstract class $LiveBlogPosting implements $BlogPosting {
 @Schema()
 abstract class $LoanOrCredit implements $FinancialProduct {
   /// The amount of money.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
 
@@ -8009,6 +8353,7 @@ abstract class $LoanOrCredit implements $FinancialProduct {
   bool? get renegotiableLoan;
 
   /// Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)",
@@ -8104,6 +8449,7 @@ abstract class $LodgingBusiness implements $LocalBusiness {
   $Audience? get audience;
 
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
@@ -8123,6 +8469,7 @@ abstract class $LodgingBusiness implements $LocalBusiness {
   $SchemaUnion? get checkoutTime;
 
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -8130,6 +8477,7 @@ abstract class $LodgingBusiness implements $LocalBusiness {
   $SchemaUnion? get numberOfRooms;
 
   /// Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+  @AnyOf([bool, String])
   @Schema(
     description:
         "Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.",
@@ -8164,6 +8512,7 @@ abstract class $LodgingReservation implements $Reservation {
   String? get lodgingUnitDescription;
 
   /// Textual description of the unit type (including suite vs. room, size of bed, etc.).
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "Textual description of the unit type (including suite vs. room, size of bed, etc.).",
@@ -8171,10 +8520,12 @@ abstract class $LodgingReservation implements $Reservation {
   $SchemaUnion? get lodgingUnitType;
 
   /// The number of adults staying in the unit.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "The number of adults staying in the unit.")
   $SchemaUnion? get numAdults;
 
   /// The number of children staying in the unit.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "The number of children staying in the unit.")
   $SchemaUnion? get numChildren;
 }
@@ -8204,6 +8555,7 @@ abstract class $LymphaticVessel implements $Vessel {
   $Vessel? get originatesFrom;
 
   /// The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem])
   @Schema(
     description:
         "The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.",
@@ -8249,6 +8601,7 @@ abstract class $Mass implements $Quantity {}
 @Schema()
 abstract class $MathSolver implements $CreativeWork {
   /// A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard.
+  @AnyOf([$SolveMathAction, String])
   @Schema(
     description:
         "A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard.",
@@ -8303,6 +8656,7 @@ abstract class $MediaObject implements $CreativeWork {
   String? get contentUrl;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -8335,10 +8689,12 @@ abstract class $MediaObject implements $CreativeWork {
   $SchemaUnion? get endTime;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].",
@@ -8374,6 +8730,7 @@ abstract class $MediaObject implements $CreativeWork {
   $Place? get regionsAllowed;
 
   /// Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
+  @AnyOf([bool, $MediaSubscription])
   @Schema(
     description:
         "Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').",
@@ -8402,6 +8759,7 @@ abstract class $MediaObject implements $CreativeWork {
   $SchemaUnion? get uploadDate;
 
   /// The width of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The width of the item.")
   $SchemaUnion? get width;
 }
@@ -8424,6 +8782,7 @@ abstract class $MediaReview implements $Review {
   String? get originalMediaContextDescription;
 
   /// Link to the page containing an original version of the content, or directly to an online copy of the original [[MediaObject]] content, e.g. video file.
+  @AnyOf([$MediaObject, String, $WebPage])
   @Schema(
     description:
         "Link to the page containing an original version of the content, or directly to an online copy of the original [[MediaObject]] content, e.g. video file.",
@@ -8487,6 +8846,7 @@ abstract class $MedicalCause implements $MedicalEntity {
 abstract class $MedicalClinic
     implements $MedicalBusiness, $MedicalOrganization {
   /// A medical service available from this provider.
+  @AnyOf([$MedicalProcedure, $MedicalTest, $MedicalTherapy])
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
 
@@ -8513,6 +8873,7 @@ abstract class $MedicalCode implements $CategoryCode, $MedicalIntangible {
 @Schema()
 abstract class $MedicalCondition implements $MedicalEntity {
   /// The anatomy of the underlying organ system or structures associated with this entity.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem, $SuperficialAnatomy])
   @Schema(
     description:
         "The anatomy of the underlying organ system or structures associated with this entity.",
@@ -8573,6 +8934,7 @@ abstract class $MedicalCondition implements $MedicalEntity {
   String? get possibleComplication;
 
   /// A possible treatment to address this condition, sign or symptom.
+  @AnyOf([$Drug, $DrugClass, $LifestyleModification, $MedicalTherapy])
   @Schema(
     description:
         "A possible treatment to address this condition, sign or symptom.",
@@ -8594,6 +8956,7 @@ abstract class $MedicalCondition implements $MedicalEntity {
   $MedicalRiskFactor? get riskFactor;
 
   /// A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.
+  @AnyOf([$Drug, $DrugClass, $LifestyleModification, $MedicalTherapy])
   @Schema(
     description:
         "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.",
@@ -8612,6 +8975,7 @@ abstract class $MedicalCondition implements $MedicalEntity {
   $MedicalConditionStage? get stage;
 
   /// The status of the study (enumerated).
+  @AnyOf([$EventStatusType, $MedicalStudyStatus, String])
   @Schema(description: "The status of the study (enumerated).")
   $SchemaUnion? get status;
 
@@ -8649,6 +9013,7 @@ abstract class $MedicalDevice implements $MedicalEntity {
   $MedicalEntity? get adverseOutcome;
 
   /// A contraindication for this therapy.
+  @AnyOf([$MedicalContraindication, String])
   @Schema(description: "A contraindication for this therapy.")
   $SchemaUnion? get contraindication;
 
@@ -8707,6 +9072,7 @@ abstract class $MedicalEntity implements $Thing {
   $MedicalGuideline? get guideline;
 
   /// The drug or supplement's legal status, including any controlled substance schedules that apply.
+  @AnyOf([$DrugLegalStatus, $MedicalEnumeration, String])
   @Schema(
     description:
         "The drug or supplement's legal status, including any controlled substance schedules that apply.",
@@ -8857,6 +9223,7 @@ abstract class $MedicalProcedure implements $MedicalEntity {
   String? get howPerformed;
 
   /// Typical preparation that a patient must undergo before having the procedure performed.
+  @AnyOf([$MedicalEntity, String])
   @Schema(
     description:
         "Typical preparation that a patient must undergo before having the procedure performed.",
@@ -8871,6 +9238,7 @@ abstract class $MedicalProcedure implements $MedicalEntity {
   $MedicalProcedureType? get procedureType;
 
   /// The status of the study (enumerated).
+  @AnyOf([$EventStatusType, $MedicalStudyStatus, String])
   @Schema(description: "The status of the study (enumerated).")
   $SchemaUnion? get status;
 }
@@ -8946,6 +9314,7 @@ abstract class $MedicalSign implements $MedicalSignOrSymptom {
 @Schema()
 abstract class $MedicalSignOrSymptom implements $MedicalCondition {
   /// A possible treatment to address this condition, sign or symptom.
+  @AnyOf([$Drug, $DrugClass, $LifestyleModification, $MedicalTherapy])
   @Schema(
     description:
         "A possible treatment to address this condition, sign or symptom.",
@@ -8968,6 +9337,7 @@ abstract class $MedicalStudy implements $MedicalEntity {
   $MedicalCondition? get healthCondition;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -8975,6 +9345,7 @@ abstract class $MedicalStudy implements $MedicalEntity {
   $SchemaUnion? get sponsor;
 
   /// The status of the study (enumerated).
+  @AnyOf([$EventStatusType, $MedicalStudyStatus, String])
   @Schema(description: "The status of the study (enumerated).")
   $SchemaUnion? get status;
 
@@ -9006,6 +9377,7 @@ abstract class $MedicalTest implements $MedicalEntity {
   $Drug? get affectedBy;
 
   /// Range of acceptable values for a typical patient, when applicable.
+  @AnyOf([$MedicalEnumeration, String])
   @Schema(
     description:
         "Range of acceptable values for a typical patient, when applicable.",
@@ -9037,6 +9409,7 @@ abstract class $MedicalTestPanel implements $MedicalTest {
 @Schema()
 abstract class $MedicalTherapy implements $TherapeuticProcedure {
   /// A contraindication for this therapy.
+  @AnyOf([$MedicalContraindication, String])
   @Schema(description: "A contraindication for this therapy.")
   $SchemaUnion? get contraindication;
 
@@ -9075,6 +9448,7 @@ abstract class $MedicalWebPage implements $WebPage {
   String? get aspect;
 
   /// Medical audience for page.
+  @AnyOf([$MedicalAudience, $MedicalAudienceType])
   @Schema(description: "Medical audience for page.")
   $SchemaUnion? get medicalAudience;
 }
@@ -9112,6 +9486,7 @@ abstract class $MemberProgramTier implements $Intangible {
   $TierBenefitEnumeration? get hasTierBenefit;
 
   /// A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, A UnitPriceSpecification if the user is required to pay a (periodic) fee, or a MonetaryAmount if the user needs to spend a minimum amount to join the tier. If a tier is free to join then this property does not need to be specified.
+  @AnyOf([$CreditCard, $MonetaryAmount, String, $UnitPriceSpecification])
   @Schema(
     description:
         "A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, A UnitPriceSpecification if the user is required to pay a (periodic) fee, or a MonetaryAmount if the user needs to spend a minimum amount to join the tier. If a tier is free to join then this property does not need to be specified.",
@@ -9123,6 +9498,7 @@ abstract class $MemberProgramTier implements $Intangible {
   $MemberProgram? get isTierOf;
 
   /// The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)",
@@ -9155,6 +9531,7 @@ abstract class $Menu implements $CreativeWork {
 @Schema()
 abstract class $MenuItem implements $Intangible {
   /// Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.
+  @AnyOf([$MenuItem, $MenuSection])
   @Schema(
     description:
         "Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.",
@@ -9166,6 +9543,7 @@ abstract class $MenuItem implements $Intangible {
   $NutritionInformation? get nutrition;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -9173,6 +9551,7 @@ abstract class $MenuItem implements $Intangible {
   $SchemaUnion? get offers;
 
   /// Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
+  @AnyOf([$Diet, $RestrictedDiet])
   @Schema(
     description:
         "Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.",
@@ -9212,6 +9591,7 @@ abstract class $MerchantReturnPolicy implements $Intangible {
   $PropertyValue? get additionalProperty;
 
   /// A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.",
@@ -9274,6 +9654,7 @@ abstract class $MerchantReturnPolicy implements $Intangible {
   $MonetaryAmount? get itemDefectReturnShippingFeesAmount;
 
   /// Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
+  @AnyOf([String, num])
   @Schema(
     description:
         "Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].",
@@ -9291,6 +9672,7 @@ abstract class $MerchantReturnPolicy implements $Intangible {
   $RefundTypeEnumeration? get refundType;
 
   /// Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(
     description:
         "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.",
@@ -9325,6 +9707,7 @@ abstract class $MerchantReturnPolicy implements $Intangible {
   $MerchantReturnEnumeration? get returnPolicyCategory;
 
   /// The country where the product has to be sent to for returns, for example "Ireland" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent to.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "The country where the product has to be sent to for returns, for example \"Ireland\" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent to.",
@@ -9361,6 +9744,7 @@ abstract class $MerchantReturnPolicySeasonalOverride implements $Intangible {
   $SchemaUnion? get endDate;
 
   /// Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
+  @AnyOf([String, num])
   @Schema(
     description:
         "Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].",
@@ -9372,6 +9756,7 @@ abstract class $MerchantReturnPolicySeasonalOverride implements $Intangible {
   $RefundTypeEnumeration? get refundType;
 
   /// Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(
     description:
         "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.",
@@ -9417,6 +9802,7 @@ abstract class $MerchantReturnPolicySeasonalOverride implements $Intangible {
 @Schema()
 abstract class $Message implements $CreativeWork {
   /// A sub property of recipient. The recipient blind copied on a message.
+  @AnyOf([$ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of recipient. The recipient blind copied on a message.",
@@ -9424,6 +9810,7 @@ abstract class $Message implements $CreativeWork {
   $SchemaUnion? get bccRecipient;
 
   /// A sub property of recipient. The recipient copied on a message.
+  @AnyOf([$ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of recipient. The recipient copied on a message.",
@@ -9453,6 +9840,7 @@ abstract class $Message implements $CreativeWork {
   $CreativeWork? get messageAttachment;
 
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -9460,6 +9848,7 @@ abstract class $Message implements $CreativeWork {
   $SchemaUnion? get recipient;
 
   /// A sub property of participant. The participant who is at the sending end of the action.
+  @AnyOf([$Audience, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the sending end of the action.",
@@ -9467,6 +9856,7 @@ abstract class $Message implements $CreativeWork {
   $SchemaUnion? get sender;
 
   /// A sub property of recipient. The recipient who was directly sent the message.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of recipient. The recipient who was directly sent the message.",
@@ -9532,6 +9922,7 @@ abstract class $MolecularEntity implements $BioChemEntity {
   String? get molecularFormula;
 
   /// This is the molecular weight of the entity being described, not of the parent. Units should be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "This is the molecular weight of the entity being described, not of the parent. Units should be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;.",
@@ -9539,6 +9930,7 @@ abstract class $MolecularEntity implements $BioChemEntity {
   $SchemaUnion? get molecularWeight;
 
   /// The monoisotopic mass is the sum of the masses of the atoms in a molecule using the unbound, ground-state, rest mass of the principal (most abundant) isotope for each element instead of the isotopic average mass. Please include the units in the form '&lt;Number&gt; &lt;unit&gt;', for example '770.230488 g/mol' or as '&lt;QuantitativeValue&gt;.
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "The monoisotopic mass is the sum of the masses of the atoms in a molecule using the unbound, ground-state, rest mass of the principal (most abundant) isotope for each element instead of the isotopic average mass. Please include the units in the form '&lt;Number&gt; &lt;unit&gt;', for example '770.230488 g/mol' or as '&lt;QuantitativeValue&gt;.",
@@ -9587,6 +9979,7 @@ abstract class $MonetaryAmount implements $StructuredValue {
   $SchemaUnion? get validThrough;
 
   /// The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([bool, num, $QualitativeValue, $StructuredValue, String])
   @Schema(
     description:
         "The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -9610,10 +10003,12 @@ abstract class $MonetaryAmountDistribution
 @Schema()
 abstract class $MonetaryGrant implements $Grant {
   /// The amount of money.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -9625,10 +10020,12 @@ abstract class $MonetaryGrant implements $Grant {
 @Schema()
 abstract class $MoneyTransfer implements $TransferAction {
   /// The amount of money.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(description: "The amount of money.")
   $SchemaUnion? get amount;
 
   /// A bank or bank’s branch, financial institution or international financial institution operating the beneficiary’s bank account or releasing funds for the beneficiary.
+  @AnyOf([$BankOrCreditUnion, String])
   @Schema(
     description:
         "A bank or bank’s branch, financial institution or international financial institution operating the beneficiary’s bank account or releasing funds for the beneficiary.",
@@ -9704,6 +10101,7 @@ abstract class $MoveAction implements $Action {
 @Schema()
 abstract class $Movie implements $CreativeWork {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -9739,6 +10137,7 @@ abstract class $Movie implements $CreativeWork {
   $Person? get directors;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -9746,6 +10145,7 @@ abstract class $Movie implements $CreativeWork {
   $SchemaUnion? get duration;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -9757,6 +10157,7 @@ abstract class $Movie implements $CreativeWork {
   $Organization? get productionCompany;
 
   /// Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -9790,6 +10191,7 @@ abstract class $MovieRentalStore implements $Store {}
 @Schema()
 abstract class $MovieSeries implements $CreativeWorkSeries {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -9818,6 +10220,7 @@ abstract class $MovieSeries implements $CreativeWorkSeries {
   $Person? get directors;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -9907,6 +10310,7 @@ abstract class $MusicAlbum implements $MusicPlaylist {
   $MusicAlbumReleaseType? get albumReleaseType;
 
   /// The artist that performed this album or recording.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The artist that performed this album or recording.")
   $SchemaUnion? get byArtist;
 }
@@ -9923,6 +10327,7 @@ abstract class $MusicAlbumReleaseType implements $Enumeration {}
 @Schema()
 abstract class $MusicComposition implements $CreativeWork {
   /// The person or organization who wrote a composition, or who is the composer of a work performed at some event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The person or organization who wrote a composition, or who is the composer of a work performed at some event.",
@@ -9991,6 +10396,7 @@ abstract class $MusicGroup implements $PerformingGroup {
   $MusicAlbum? get albums;
 
   /// Genre of the creative work, broadcast channel or group.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description: "Genre of the creative work, broadcast channel or group.",
   )
@@ -10004,6 +10410,7 @@ abstract class $MusicGroup implements $PerformingGroup {
   $Person? get musicGroupMember;
 
   /// A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
+  @AnyOf([$ItemList, $MusicRecording])
   @Schema(
     description:
         "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.",
@@ -10025,6 +10432,7 @@ abstract class $MusicPlaylist implements $CreativeWork {
   num? get numTracks;
 
   /// A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
+  @AnyOf([$ItemList, $MusicRecording])
   @Schema(
     description:
         "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.",
@@ -10042,10 +10450,12 @@ abstract class $MusicPlaylist implements $CreativeWork {
 @Schema()
 abstract class $MusicRecording implements $CreativeWork {
   /// The artist that performed this album or recording.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The artist that performed this album or recording.")
   $SchemaUnion? get byArtist;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -10079,6 +10489,7 @@ abstract class $MusicRelease implements $MusicPlaylist {
   String? get catalogNumber;
 
   /// The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to "Stefani Germanotta Band", but by Lady Gaga.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga.",
@@ -10086,6 +10497,7 @@ abstract class $MusicRelease implements $MusicPlaylist {
   $SchemaUnion? get creditedTo;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -10154,6 +10566,7 @@ abstract class $Nerve implements $AnatomicalStructure {
   $Muscle? get nerveMotor;
 
   /// The neurological pathway extension that inputs and sends information to the brain or spinal cord.
+  @AnyOf([$AnatomicalStructure, $SuperficialAnatomy])
   @Schema(
     description:
         "The neurological pathway extension that inputs and sends information to the brain or spinal cord.",
@@ -10208,6 +10621,7 @@ abstract class $NewsArticle implements $Article {
 @Schema()
 abstract class $NewsMediaOrganization implements $Organization {
   /// For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.",
@@ -10215,6 +10629,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get actionableFeedbackPolicy;
 
   /// For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.",
@@ -10222,6 +10637,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get correctionsPolicy;
 
   /// Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.",
@@ -10229,6 +10645,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get diversityPolicy;
 
   /// For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+  @AnyOf([$Article, String])
   @Schema(
     description:
         "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.",
@@ -10236,6 +10653,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get diversityStaffingReport;
 
   /// Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.",
@@ -10243,6 +10661,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get ethicsPolicy;
 
   /// For a [[NewsMediaOrganization]], a link to the masthead page or a page listing top editorial management.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For a [[NewsMediaOrganization]], a link to the masthead page or a page listing top editorial management.",
@@ -10250,6 +10669,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get masthead;
 
   /// For a [[NewsMediaOrganization]], a statement on coverage priorities, including any public agenda or stance on issues.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For a [[NewsMediaOrganization]], a statement on coverage priorities, including any public agenda or stance on issues.",
@@ -10257,6 +10677,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get missionCoveragePrioritiesPolicy;
 
   /// For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement explaining when authors of articles are not named in bylines.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement explaining when authors of articles are not named in bylines.",
@@ -10264,6 +10685,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get noBylinesPolicy;
 
   /// For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
+  @AnyOf([$AboutPage, $CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.",
@@ -10271,6 +10693,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get ownershipFundingInfo;
 
   /// For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.",
@@ -10278,6 +10701,7 @@ abstract class $NewsMediaOrganization implements $Organization {
   $SchemaUnion? get unnamedSourcesPolicy;
 
   /// Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]].
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]].",
@@ -10385,6 +10809,7 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
   $StatisticalVariable? get measurementDenominator;
 
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -10399,6 +10824,7 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
   $Enumeration? get measurementQualifier;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -10406,6 +10832,7 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
   $SchemaUnion? get measurementTechnique;
 
   /// The [[observationAbout]] property identifies an entity, often a [[Place]], associated with an [[Observation]].
+  @AnyOf([$Place, $Thing])
   @Schema(
     description:
         "The [[observationAbout]] property identifies an entity, often a [[Place]], associated with an [[Observation]].",
@@ -10424,6 +10851,7 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
   String? get observationPeriod;
 
   /// The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]].
+  @AnyOf([$Property, $PropertyValue, $StatisticalVariable, String])
   @Schema(
     description:
         "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]].",
@@ -10435,6 +10863,7 @@ abstract class $Observation implements $Intangible, $QuantitativeValue {
 @Schema()
 abstract class $Occupation implements $Intangible {
   /// Educational background needed for the position or Occupation.
+  @AnyOf([$EducationalOccupationalCredential, String])
   @Schema(
     description:
         "Educational background needed for the position or Occupation.",
@@ -10442,6 +10871,7 @@ abstract class $Occupation implements $Intangible {
   $SchemaUnion? get educationRequirements;
 
   /// An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
+  @AnyOf([$MonetaryAmount, $MonetaryAmountDistribution, num])
   @Schema(
     description:
         "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.",
@@ -10449,6 +10879,7 @@ abstract class $Occupation implements $Intangible {
   $SchemaUnion? get estimatedSalary;
 
   /// Description of skills and experience needed for the position or Occupation.
+  @AnyOf([$OccupationalExperienceRequirements, String])
   @Schema(
     description:
         "Description of skills and experience needed for the position or Occupation.",
@@ -10463,6 +10894,7 @@ abstract class $Occupation implements $Intangible {
   $AdministrativeArea? get occupationLocation;
 
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.",
@@ -10470,6 +10902,7 @@ abstract class $Occupation implements $Intangible {
   $SchemaUnion? get occupationalCategory;
 
   /// Specific qualifications required for this role or Occupation.
+  @AnyOf([$Credential, String])
   @Schema(
     description:
         "Specific qualifications required for this role or Occupation.",
@@ -10483,6 +10916,7 @@ abstract class $Occupation implements $Intangible {
   String? get responsibilities;
 
   /// A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.",
@@ -10513,6 +10947,7 @@ abstract class $OceanBodyOfWater implements $BodyOfWater {}
 @Schema()
 abstract class $Offer implements $Intangible {
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
+  @AnyOf([$LoanOrCredit, $PaymentMethod, String])
   @Schema(
     description:
         "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.",
@@ -10548,6 +10983,7 @@ abstract class $Offer implements $Intangible {
   $AggregateRating? get aggregateRating;
 
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -10601,6 +11037,7 @@ abstract class $Offer implements $Intangible {
   $BusinessFunction? get businessFunction;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -10639,6 +11076,7 @@ abstract class $Offer implements $Intangible {
   $QuantitativeValue? get eligibleQuantity;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].",
@@ -10695,6 +11133,7 @@ abstract class $Offer implements $Intangible {
   $AdultOrientedEnumeration? get hasAdultConsideration;
 
   /// A link to a Digital Product Passport (DPP) or a digital record detailing the lifecycle, sustainability, and compliance data for this product or offer. This may be a direct URL, a GS1 Digital Link URI, or a nested DigitalProductPassport object. Note: This property is aligned with the IANA 'dpp' link relation and the GS1 Web Vocabulary 'dpp' link type.
+  @AnyOf([$DigitalProductPassport, String])
   @Schema(
     description:
         "A link to a Digital Product Passport (DPP) or a digital record detailing the lifecycle, sustainability, and compliance data for this product or offer. This may be a direct URL, a GS1 Digital Link URI, or a nested DigitalProductPassport object. Note: This property is aligned with the IANA 'dpp' link relation and the GS1 Web Vocabulary 'dpp' link type.",
@@ -10729,6 +11168,7 @@ abstract class $Offer implements $Intangible {
   $TypeAndQuantityNode? get includesObject;
 
   /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
+  @AnyOf([$GeoShape, $Place, String])
   @Schema(
     description:
         "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].",
@@ -10754,6 +11194,15 @@ abstract class $Offer implements $Intangible {
   $OfferItemCondition? get itemCondition;
 
   /// An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([
+    $AggregateOffer,
+    $CreativeWork,
+    $Event,
+    $MenuItem,
+    $Product,
+    $Service,
+    $Trip,
+  ])
   @Schema(
     description:
         "An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -10761,6 +11210,7 @@ abstract class $Offer implements $Intangible {
   $SchemaUnion? get itemOffered;
 
   /// A measure of the relative popularity or sales rank of the offer within a marketplace, catalog, or platform (e.g. a platform-specific bestseller ranking or sales rank). This property is intended for platform-level or catalog-wide comparative rankings rather than self-asserted promotional claims.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "A measure of the relative popularity or sales rank of the offer within a marketplace, catalog, or platform (e.g. a platform-specific bestseller ranking or sales rank). This property is intended for platform-level or catalog-wide comparative rankings rather than self-asserted promotional claims.",
@@ -10768,6 +11218,7 @@ abstract class $Offer implements $Intangible {
   $SchemaUnion? get itemPopularity;
 
   /// Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.",
@@ -10789,12 +11240,14 @@ abstract class $Offer implements $Intangible {
   String? get mpn;
 
   /// A pointer to the organization or person making the offer.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description: "A pointer to the organization or person making the offer.",
   )
   $SchemaUnion? get offeredBy;
 
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '\$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
@@ -10828,6 +11281,7 @@ abstract class $Offer implements $Intangible {
   $Review? get reviews;
 
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
@@ -10905,6 +11359,7 @@ abstract class $OfferShippingDetails implements $StructuredValue {
   $ShippingDeliveryTime? get deliveryTime;
 
   /// The depth of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The depth of the item.")
   $SchemaUnion? get depth;
 
@@ -10923,10 +11378,12 @@ abstract class $OfferShippingDetails implements $StructuredValue {
   $ShippingService? get hasShippingService;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -10955,6 +11412,7 @@ abstract class $OfferShippingDetails implements $StructuredValue {
   $DefinedRegion? get shippingOrigin;
 
   /// The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
+  @AnyOf([$MonetaryAmount, $ShippingRateSettings])
   @Schema(
     description:
         "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
@@ -10983,10 +11441,12 @@ abstract class $OfferShippingDetails implements $StructuredValue {
   $MemberProgramTier? get validForMemberTier;
 
   /// The weight of the product or person.
+  @AnyOf([$Mass, $QuantitativeValue])
   @Schema(description: "The weight of the product or person.")
   $SchemaUnion? get weight;
 
   /// The width of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The width of the item.")
   $SchemaUnion? get width;
 }
@@ -11081,6 +11541,7 @@ abstract class $Order implements $Intangible {
   $PostalAddress? get billingAddress;
 
   /// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.",
@@ -11095,10 +11556,12 @@ abstract class $Order implements $Intangible {
   String? get confirmationNumber;
 
   /// Party placing the order or paying the invoice.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "Party placing the order or paying the invoice.")
   $SchemaUnion? get customer;
 
   /// Any discount applied (to an Order).
+  @AnyOf([num, String])
   @Schema(description: "Any discount applied (to an Order).")
   $SchemaUnion? get discount;
 
@@ -11121,6 +11584,7 @@ abstract class $Order implements $Intangible {
   bool? get isGift;
 
   /// 'merchant' is an out-dated term for 'seller'.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "'merchant' is an out-dated term for 'seller'.")
   $SchemaUnion? get merchant;
 
@@ -11144,6 +11608,7 @@ abstract class $Order implements $Intangible {
   $OrderStatus? get orderStatus;
 
   /// The item ordered.
+  @AnyOf([$OrderItem, $Product, $Service])
   @Schema(description: "The item ordered.")
   $SchemaUnion? get orderedItem;
 
@@ -11162,6 +11627,7 @@ abstract class $Order implements $Intangible {
   $SchemaUnion? get paymentDueDate;
 
   /// The name of the credit card or other method of payment for the order.
+  @AnyOf([$PaymentMethod, String])
   @Schema(
     description:
         "The name of the credit card or other method of payment for the order.",
@@ -11180,6 +11646,7 @@ abstract class $Order implements $Intangible {
   String? get paymentUrl;
 
   /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
@@ -11214,6 +11681,7 @@ abstract class $OrderItem implements $StructuredValue {
   $OrderStatus? get orderItemStatus;
 
   /// The number of the item ordered. If the property is not set, assume the quantity is one.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of the item ordered. If the property is not set, assume the quantity is one.",
@@ -11221,6 +11689,7 @@ abstract class $OrderItem implements $StructuredValue {
   $SchemaUnion? get orderQuantity;
 
   /// The item ordered.
+  @AnyOf([$OrderItem, $Product, $Service])
   @Schema(description: "The item ordered.")
   $SchemaUnion? get orderedItem;
 }
@@ -11233,6 +11702,7 @@ abstract class $OrderStatus implements $StatusEnumeration {}
 @Schema()
 abstract class $Organization implements $Thing {
   /// The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
+  @AnyOf([$LoanOrCredit, $PaymentMethod, String])
   @Schema(
     description:
         "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.",
@@ -11240,6 +11710,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get acceptedPaymentMethod;
 
   /// For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.",
@@ -11247,6 +11718,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get actionableFeedbackPolicy;
 
   /// Physical address of the item.
+  @AnyOf([$PostalAddress, String])
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
 
@@ -11269,6 +11741,7 @@ abstract class $Organization implements $Thing {
   $Person? get alumni;
 
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -11276,6 +11749,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get areaServed;
 
   /// An organization or person officially appointed to act on behalf of the manufacturer in a specific region or context.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An organization or person officially appointed to act on behalf of the manufacturer in a specific region or context.",
@@ -11291,6 +11765,7 @@ abstract class $Organization implements $Thing {
   String? get awards;
 
   /// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+  @AnyOf([$Brand, $Organization])
   @Schema(
     description:
         "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
@@ -11313,6 +11788,7 @@ abstract class $Organization implements $Thing {
   $ContactPoint? get contactPoints;
 
   /// For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.",
@@ -11331,6 +11807,7 @@ abstract class $Organization implements $Thing {
   String? get dissolutionDate;
 
   /// Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.",
@@ -11338,6 +11815,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get diversityPolicy;
 
   /// For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+  @AnyOf([$Article, String])
   @Schema(
     description:
         "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.",
@@ -11364,6 +11842,7 @@ abstract class $Organization implements $Thing {
   $Person? get employees;
 
   /// Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.",
@@ -11389,6 +11868,7 @@ abstract class $Organization implements $Thing {
   String? get faxNumber;
 
   /// A person or organization who founded this organization.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description: "A person or organization who founded this organization.",
   )
@@ -11407,6 +11887,7 @@ abstract class $Organization implements $Thing {
   $Place? get foundingLocation;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -11506,6 +11987,7 @@ abstract class $Organization implements $Thing {
   String? get iso6523Code;
 
   /// Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
@@ -11513,6 +11995,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get keywords;
 
   /// Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.",
@@ -11520,6 +12003,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get knowsAbout;
 
   /// Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).",
@@ -11555,6 +12039,7 @@ abstract class $Organization implements $Thing {
   String? get leiCode;
 
   /// The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+  @AnyOf([$Place, $PostalAddress, String, $VirtualLocation])
   @Schema(
     description:
         "The location of, for example, where an event is happening, where an organization is located, or where an action takes place.",
@@ -11562,6 +12047,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get location;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
@@ -11573,6 +12059,7 @@ abstract class $Organization implements $Thing {
   $Offer? get makesOffer;
 
   /// A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.",
@@ -11580,6 +12067,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get member;
 
   /// An Organization (or ProgramMembership) to which this Person or Organization belongs.
+  @AnyOf([$MemberProgramTier, $Organization, $ProgramMembership])
   @Schema(
     description:
         "An Organization (or ProgramMembership) to which this Person or Organization belongs.",
@@ -11587,6 +12075,7 @@ abstract class $Organization implements $Thing {
   $SchemaUnion? get memberOf;
 
   /// A member of this organization.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A member of this organization.")
   $SchemaUnion? get members;
 
@@ -11611,6 +12100,7 @@ abstract class $Organization implements $Thing {
   $QuantitativeValue? get numberOfEmployees;
 
   /// For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
+  @AnyOf([$AboutPage, $CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.",
@@ -11629,6 +12119,7 @@ abstract class $Organization implements $Thing {
   $Organization? get parentOrganization;
 
   /// The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.",
@@ -11651,10 +12142,12 @@ abstract class $Organization implements $Thing {
   $Demand? get seeks;
 
   /// The geographic area where the service is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place])
   @Schema(description: "The geographic area where the service is provided.")
   $SchemaUnion? get serviceArea;
 
   /// A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.",
@@ -11666,6 +12159,7 @@ abstract class $Organization implements $Thing {
   String? get slogan;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -11691,6 +12185,7 @@ abstract class $Organization implements $Thing {
   String? get telephone;
 
   /// For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.",
@@ -11728,6 +12223,7 @@ abstract class $OutletStore implements $Store {}
 @Schema()
 abstract class $OwnershipInfo implements $StructuredValue {
   /// The organization or person from which the product was acquired.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The organization or person from which the product was acquired.",
@@ -11745,6 +12241,7 @@ abstract class $OwnershipInfo implements $StructuredValue {
   String? get ownedThrough;
 
   /// The product that this structured value is referring to.
+  @AnyOf([$Product, $Service])
   @Schema(
     description: "The product that this structured value is referring to.",
   )
@@ -11813,6 +12310,7 @@ abstract class $ParcelDelivery implements $Intangible {
   $Order? get partOfOrder;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -11889,6 +12387,7 @@ abstract class $PawnShop implements $Store {}
 @Schema()
 abstract class $PayAction implements $TradeAction {
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -11900,6 +12399,7 @@ abstract class $PayAction implements $TradeAction {
 @Schema()
 abstract class $PaymentCard implements $FinancialProduct, $PaymentMethod {
   /// A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
+  @AnyOf([bool, num])
   @Schema(
     description:
         "A cardholder benefit that pays the cardholder a small percentage of their net expenditures.",
@@ -11921,6 +12421,7 @@ abstract class $PaymentCard implements $FinancialProduct, $PaymentMethod {
   $MonetaryAmount? get floorLimit;
 
   /// The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(
     description:
         "The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.",
@@ -11996,6 +12497,7 @@ abstract class $PeopleAudience implements $Audience {
   $QuantitativeValue? get suggestedAge;
 
   /// The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
+  @AnyOf([$GenderType, String])
   @Schema(
     description:
         "The suggested gender of the intended person or audience, for example \"male\", \"female\", or \"unisex\".",
@@ -12109,6 +12611,7 @@ abstract class $Person implements $Thing {
   String? get additionalName;
 
   /// Physical address of the item.
+  @AnyOf([$PostalAddress, String])
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
 
@@ -12127,6 +12630,7 @@ abstract class $Person implements $Thing {
   $InteractionCounter? get agentInteractionStatistic;
 
   /// An organization that the person is an alumni of.
+  @AnyOf([$EducationalOrganization, $Organization])
   @Schema(description: "An organization that the person is an alumni of.")
   $SchemaUnion? get alumniOf;
 
@@ -12147,6 +12651,7 @@ abstract class $Person implements $Thing {
   $Place? get birthPlace;
 
   /// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+  @AnyOf([$Brand, $Organization])
   @Schema(
     description:
         "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
@@ -12165,6 +12670,7 @@ abstract class $Person implements $Thing {
   $Person? get children;
 
   /// A colleague of the person.
+  @AnyOf([$Person, String])
   @Schema(description: "A colleague of the person.")
   $SchemaUnion? get colleague;
 
@@ -12212,6 +12718,7 @@ abstract class $Person implements $Thing {
   $Person? get follows;
 
   /// A person or organization that supports (sponsors) something through some kind of financial contribution.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports (sponsors) something through some kind of financial contribution.",
@@ -12226,6 +12733,7 @@ abstract class $Person implements $Thing {
   $Grant? get funding;
 
   /// Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
+  @AnyOf([$GenderType, String])
   @Schema(
     description:
         "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\".",
@@ -12275,10 +12783,12 @@ abstract class $Person implements $Thing {
   $Place? get hasPOS;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
   /// A contact location for a person's residence.
+  @AnyOf([$ContactPoint, $Place])
   @Schema(description: "A contact location for a person's residence.")
   $SchemaUnion? get homeLocation;
 
@@ -12311,6 +12821,7 @@ abstract class $Person implements $Thing {
   String? get isicV4;
 
   /// The job title of the person (for example, Financial Manager).
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "The job title of the person (for example, Financial Manager).",
@@ -12322,6 +12833,7 @@ abstract class $Person implements $Thing {
   $Person? get knows;
 
   /// Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.",
@@ -12329,6 +12841,7 @@ abstract class $Person implements $Thing {
   $SchemaUnion? get knowsAbout;
 
   /// Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).",
@@ -12350,6 +12863,7 @@ abstract class $Person implements $Thing {
   $Offer? get makesOffer;
 
   /// An Organization (or ProgramMembership) to which this Person or Organization belongs.
+  @AnyOf([$MemberProgramTier, $Organization, $ProgramMembership])
   @Schema(
     description:
         "An Organization (or ProgramMembership) to which this Person or Organization belongs.",
@@ -12368,6 +12882,7 @@ abstract class $Person implements $Thing {
   $Country? get nationality;
 
   /// The total financial value of the person as calculated by subtracting the total value of liabilities from the total value of assets.
+  @AnyOf([$MonetaryAmount, $PriceSpecification])
   @Schema(
     description:
         "The total financial value of the person as calculated by subtracting the total value of liabilities from the total value of assets.",
@@ -12393,6 +12908,7 @@ abstract class $Person implements $Thing {
   $Event? get performerIn;
 
   /// A short string listing or describing pronouns for a person. Typically the person concerned is the best authority as pronouns are a critical part of personal identity and expression. Publishers and consumers of this information are reminded to treat this data responsibly, take country-specific laws related to gender expression into account, and be wary of out-of-date data and drawing unwarranted inferences about the person being described.  In English, formulations such as "they/them", "she/her", and "he/him" are commonly used online and can also be used here. We do not intend to enumerate all possible micro-syntaxes in all languages. More structured and well-defined external values for pronouns can be referenced using the [[StructuredValue]] or [[DefinedTerm]] values.
+  @AnyOf([$DefinedTerm, $StructuredValue, String])
   @Schema(
     description:
         "A short string listing or describing pronouns for a person. Typically the person concerned is the best authority as pronouns are a critical part of personal identity and expression. Publishers and consumers of this information are reminded to treat this data responsibly, take country-specific laws related to gender expression into account, and be wary of out-of-date data and drawing unwarranted inferences about the person being described.  In English, formulations such as \"they/them\", \"she/her\", and \"he/him\" are commonly used online and can also be used here. We do not intend to enumerate all possible micro-syntaxes in all languages. More structured and well-defined external values for pronouns can be referenced using the [[StructuredValue]] or [[DefinedTerm]] values.",
@@ -12400,6 +12916,7 @@ abstract class $Person implements $Thing {
   $SchemaUnion? get pronouns;
 
   /// The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].  While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.",
@@ -12426,6 +12943,7 @@ abstract class $Person implements $Thing {
   $Person? get siblings;
 
   /// A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.",
@@ -12433,6 +12951,7 @@ abstract class $Person implements $Thing {
   $SchemaUnion? get skills;
 
   /// A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -12462,10 +12981,12 @@ abstract class $Person implements $Thing {
   String? get vatID;
 
   /// The weight of the product or person.
+  @AnyOf([$Mass, $QuantitativeValue])
   @Schema(description: "The weight of the product or person.")
   $SchemaUnion? get weight;
 
   /// A contact location for a person's place of work.
+  @AnyOf([$ContactPoint, $Place])
   @Schema(description: "A contact location for a person's place of work.")
   $SchemaUnion? get workLocation;
 
@@ -12494,6 +13015,7 @@ abstract class $PhotographAction implements $CreateAction {}
 @Schema()
 abstract class $PhysicalActivity implements $LifestyleModification {
   /// The anatomy of the underlying organ system or structures associated with this entity.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem, $SuperficialAnatomy])
   @Schema(
     description:
         "The anatomy of the underlying organ system or structures associated with this entity.",
@@ -12501,6 +13023,7 @@ abstract class $PhysicalActivity implements $LifestyleModification {
   $SchemaUnion? get associatedAnatomy;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -12539,6 +13062,7 @@ abstract class $PhysicalTherapy implements $MedicalTherapy {}
 @Schema()
 abstract class $Physician implements $MedicalBusiness, $MedicalOrganization {
   /// A medical service available from this provider.
+  @AnyOf([$MedicalProcedure, $MedicalTest, $MedicalTherapy])
   @Schema(description: "A medical service available from this provider.")
   $SchemaUnion? get availableService;
 
@@ -12553,6 +13077,7 @@ abstract class $Physician implements $MedicalBusiness, $MedicalOrganization {
   $MedicalSpecialty? get medicalSpecialty;
 
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.",
@@ -12582,6 +13107,7 @@ abstract class $Place implements $Thing {
   $PropertyValue? get additionalProperty;
 
   /// Physical address of the item.
+  @AnyOf([$PostalAddress, String])
   @Schema(description: "Physical address of the item.")
   $SchemaUnion? get address;
 
@@ -12646,10 +13172,12 @@ abstract class $Place implements $Thing {
   String? get faxNumber;
 
   /// The geo coordinates of the place.
+  @AnyOf([$GeoCoordinates, $GeoShape])
   @Schema(description: "The geo coordinates of the place.")
   $SchemaUnion? get geo;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12657,6 +13185,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoContains;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12664,6 +13193,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoCoveredBy;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. \"Every point of b is a point of (the interior or boundary of) a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12671,6 +13201,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoCovers;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: \"a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12678,6 +13209,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoCrosses;
 
   /// Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: "they have no point in common. They form a set of disconnected geometries." (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: \"they have no point in common. They form a set of disconnected geometries.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
@@ -12685,6 +13217,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoDisjoint;
 
   /// Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). \"Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other\" (a symmetric relationship).",
@@ -12692,6 +13225,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoEquals;
 
   /// Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12699,6 +13233,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoIntersects;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12706,6 +13241,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoOverlaps;
 
   /// Represents spatial relations in which two geometries (or the places they represent) touch: "they have at least one boundary point in common, but no interior points." (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents spatial relations in which two geometries (or the places they represent) touch: \"they have at least one boundary point in common, but no interior points.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
@@ -12713,6 +13249,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get geoTouches;
 
   /// Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+  @AnyOf([$GeospatialGeometry, $Place])
   @Schema(
     description:
         "Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -12748,6 +13285,7 @@ abstract class $Place implements $Thing {
   String? get hasGS1DigitalLink;
 
   /// A URL to a map of the place.
+  @AnyOf([$Map, String])
   @Schema(description: "A URL to a map of the place.")
   $SchemaUnion? get hasMap;
 
@@ -12766,6 +13304,7 @@ abstract class $Place implements $Thing {
   String? get isicV4;
 
   /// Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
@@ -12773,6 +13312,7 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get keywords;
 
   /// The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+  @AnyOf([num, String])
   @Schema(
     description:
         "The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
@@ -12780,10 +13320,12 @@ abstract class $Place implements $Thing {
   $SchemaUnion? get latitude;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
   /// The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+  @AnyOf([num, String])
   @Schema(
     description:
         "The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
@@ -12810,10 +13352,12 @@ abstract class $Place implements $Thing {
   $OpeningHoursSpecification? get openingHoursSpecification;
 
   /// A photograph of this place.
+  @AnyOf([$ImageObject, $Photograph])
   @Schema(description: "A photograph of this place.")
   $SchemaUnion? get photo;
 
   /// Photographs of this place.
+  @AnyOf([$ImageObject, $Photograph])
   @Schema(description: "Photographs of this place.")
   $SchemaUnion? get photos;
 
@@ -12900,6 +13444,7 @@ abstract class $PlayAction implements $Action {
 @Schema()
 abstract class $PlayGameAction implements $ConsumeAction {
   /// Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.
+  @AnyOf([$GameAvailabilityEnumeration, String])
   @Schema(
     description:
         "Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.",
@@ -12927,6 +13472,7 @@ abstract class $PodcastSeason implements $CreativeWorkSeason {}
 @Schema()
 abstract class $PodcastSeries implements $CreativeWorkSeries {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -12934,6 +13480,7 @@ abstract class $PodcastSeries implements $CreativeWorkSeries {
   $SchemaUnion? get actor;
 
   /// The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
+  @AnyOf([$DataFeed, String])
   @Schema(
     description:
         "The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.",
@@ -12961,6 +13508,7 @@ abstract class $PostOffice implements $GovernmentOffice {}
 @Schema()
 abstract class $PostalAddress implements $ContactPoint {
   /// The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example "US". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as "SGP" or a full country name such as "Singapore" can also be used.
+  @AnyOf([$Country, String])
   @Schema(
     description:
         "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used.",
@@ -12975,6 +13523,7 @@ abstract class $PostalAddress implements $ContactPoint {
   String? get addressLocality;
 
   /// The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany.
+  @AnyOf([$AdministrativeArea, String])
   @Schema(
     description:
         "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany.",
@@ -13068,6 +13617,7 @@ abstract class $PriceSpecification implements $StructuredValue {
   num? get maxPrice;
 
   /// The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)",
@@ -13079,6 +13629,7 @@ abstract class $PriceSpecification implements $StructuredValue {
   num? get minPrice;
 
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '\$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
@@ -13154,6 +13705,7 @@ abstract class $Product implements $Thing {
   $Audience? get audience;
 
   /// An organization or person officially appointed to act on behalf of the manufacturer in a specific region or context.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An organization or person officially appointed to act on behalf of the manufacturer in a specific region or context.",
@@ -13169,6 +13721,7 @@ abstract class $Product implements $Thing {
   String? get awards;
 
   /// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+  @AnyOf([$Brand, $Organization])
   @Schema(
     description:
         "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
@@ -13176,6 +13729,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get brand;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -13187,6 +13741,7 @@ abstract class $Product implements $Thing {
   String? get color;
 
   /// A color swatch image, visualizing the color of a [[Product]]. Should match the textual description specified in the [[color]] property. This can be a URL or a fully described ImageObject.
+  @AnyOf([$ImageObject, String])
   @Schema(
     description:
         "A color swatch image, visualizing the color of a [[Product]]. Should match the textual description specified in the [[color]] property. This can be a URL or a fully described ImageObject.",
@@ -13194,6 +13749,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get colorSwatch;
 
   /// A consumer notice, such as a safety warning or mandatory information, related to the product.
+  @AnyOf([String, $TextObject, $WebContent])
   @Schema(
     description:
         "A consumer notice, such as a safety warning or mandatory information, related to the product.",
@@ -13219,6 +13775,7 @@ abstract class $Product implements $Thing {
   $Country? get countryOfOrigin;
 
   /// The depth of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The depth of the item.")
   $SchemaUnion? get depth;
 
@@ -13286,6 +13843,7 @@ abstract class $Product implements $Thing {
   $Certification? get hasCertification;
 
   /// A link to a Digital Product Passport (DPP) or a digital record detailing the lifecycle, sustainability, and compliance data for this product or offer. This may be a direct URL, a GS1 Digital Link URI, or a nested DigitalProductPassport object. Note: This property is aligned with the IANA 'dpp' link relation and the GS1 Web Vocabulary 'dpp' link type.
+  @AnyOf([$DigitalProductPassport, String])
   @Schema(
     description:
         "A link to a Digital Product Passport (DPP) or a digital record detailing the lifecycle, sustainability, and compliance data for this product or offer. This may be a direct URL, a GS1 Digital Link URI, or a nested DigitalProductPassport object. Note: This property is aligned with the IANA 'dpp' link relation and the GS1 Web Vocabulary 'dpp' link type.",
@@ -13326,10 +13884,12 @@ abstract class $Product implements $Thing {
   $ProductReturnPolicy? get hasProductReturnPolicy;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
   /// An organization or person who imports the product into a specific market or region.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An organization or person who imports the product into a specific market or region.",
@@ -13369,6 +13929,7 @@ abstract class $Product implements $Thing {
   $Product? get isOftenBoughtWith;
 
   /// A pointer to another, somehow related product (or multiple products).
+  @AnyOf([$Product, $Service])
   @Schema(
     description:
         "A pointer to another, somehow related product (or multiple products).",
@@ -13376,6 +13937,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get isRelatedTo;
 
   /// A pointer to another, functionally similar product (or multiple products).
+  @AnyOf([$Product, $Service])
   @Schema(
     description:
         "A pointer to another, functionally similar product (or multiple products).",
@@ -13383,6 +13945,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get isSimilarTo;
 
   /// Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
+  @AnyOf([$ProductGroup, $ProductModel])
   @Schema(
     description:
         "Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.",
@@ -13397,6 +13960,7 @@ abstract class $Product implements $Thing {
   $OfferItemCondition? get itemCondition;
 
   /// Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
@@ -13404,6 +13968,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get keywords;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
@@ -13412,6 +13977,7 @@ abstract class $Product implements $Thing {
   $Organization? get manufacturer;
 
   /// A material that something is made from, e.g. leather, wool, cotton, paper.
+  @AnyOf([$Product, String])
   @Schema(
     description:
         "A material that something is made from, e.g. leather, wool, cotton, paper.",
@@ -13426,6 +13992,7 @@ abstract class $Product implements $Thing {
   String? get mobileUrl;
 
   /// The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
+  @AnyOf([$ProductModel, String])
   @Schema(
     description:
         "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.",
@@ -13440,6 +14007,7 @@ abstract class $Product implements $Thing {
   String? get mpn;
 
   /// Provides negative considerations regarding something, most typically in pro/con lists for reviews (alongside [[positiveNotes]]). For symmetry   In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described. Since product descriptions  tend to emphasise positive claims, it may be relatively unusual to find [[negativeNotes]] used in this way. Nevertheless for the sake of symmetry, [[negativeNotes]] can be used on [[Product]].  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most negative is at the beginning of the list).
+  @AnyOf([$ItemList, $ListItem, String, $WebContent])
   @Schema(
     description:
         "Provides negative considerations regarding something, most typically in pro/con lists for reviews (alongside [[positiveNotes]]). For symmetry   In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described. Since product descriptions  tend to emphasise positive claims, it may be relatively unusual to find [[negativeNotes]] used in this way. Nevertheless for the sake of symmetry, [[negativeNotes]] can be used on [[Product]].  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most negative is at the beginning of the list).",
@@ -13454,6 +14022,7 @@ abstract class $Product implements $Thing {
   String? get nsn;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -13461,6 +14030,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get offers;
 
   /// A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
+  @AnyOf([$DefinedTerm, String])
   @Schema(
     description:
         "A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.",
@@ -13468,6 +14038,7 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get pattern;
 
   /// Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.  In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list).
+  @AnyOf([$ItemList, $ListItem, String, $WebContent])
   @Schema(
     description:
         "Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.  In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list).",
@@ -13512,6 +14083,7 @@ abstract class $Product implements $Thing {
   $Review? get reviews;
 
   /// A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
+  @AnyOf([$DefinedTerm, $QuantitativeValue, $SizeSpecification, String])
   @Schema(
     description:
         "A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.",
@@ -13537,6 +14109,7 @@ abstract class $Product implements $Thing {
   $PropertyValue? get specification;
 
   /// A substance of concern (SoC) contained within the product, typically based on regulatory lists like REACH or RoHS.
+  @AnyOf([$ChemicalSubstance, $DefinedTerm, String])
   @Schema(
     description:
         "A substance of concern (SoC) contained within the product, typically based on regulatory lists like REACH or RoHS.",
@@ -13544,10 +14117,12 @@ abstract class $Product implements $Thing {
   $SchemaUnion? get substanceOfConcern;
 
   /// The weight of the product or person.
+  @AnyOf([$Mass, $QuantitativeValue])
   @Schema(description: "The weight of the product or person.")
   $SchemaUnion? get weight;
 
   /// The width of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The width of the item.")
   $SchemaUnion? get width;
 }
@@ -13578,6 +14153,7 @@ abstract class $ProductGroup implements $Product {
   String? get productGroupID;
 
   /// Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. "color"; terms defined elsewhere can be referenced with their URIs. Variant properties can be provided using [[PropertyValue]] instead of plain [[Text]], to allow specification of the values available for a variant property.
+  @AnyOf([$DefinedTerm, $PropertyValue, String])
   @Schema(
     description:
         "Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. \"color\"; terms defined elsewhere can be referenced with their URIs. Variant properties can be provided using [[PropertyValue]] instead of plain [[Text]], to allow specification of the values available for a variant property.",
@@ -13589,6 +14165,7 @@ abstract class $ProductGroup implements $Product {
 @Schema()
 abstract class $ProductModel implements $Product {
   /// Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
+  @AnyOf([$ProductGroup, $ProductModel])
   @Schema(
     description:
         "Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.",
@@ -13650,6 +14227,7 @@ abstract class $ProgramMembership implements $Intangible {
   $Organization? get hostingOrganization;
 
   /// A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.",
@@ -13657,6 +14235,7 @@ abstract class $ProgramMembership implements $Intangible {
   $SchemaUnion? get member;
 
   /// A member of this organization.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A member of this organization.")
   $SchemaUnion? get members;
 
@@ -13665,6 +14244,7 @@ abstract class $ProgramMembership implements $Intangible {
   String? get membershipNumber;
 
   /// The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)",
@@ -13694,6 +14274,7 @@ abstract class $Project implements $Organization {}
 @Schema()
 abstract class $PronounceableText implements $Text {
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -13744,6 +14325,7 @@ abstract class $Property implements $Intangible {
   $Class? get rangeIncludes;
 
   /// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+  @AnyOf([$Class, $Enumeration, $Property])
   @Schema(
     description:
         "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
@@ -13759,6 +14341,7 @@ abstract class $PropertyValue implements $StructuredValue {
   num? get maxValue;
 
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -13766,6 +14349,7 @@ abstract class $PropertyValue implements $StructuredValue {
   $SchemaUnion? get measurementMethod;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -13798,6 +14382,7 @@ abstract class $PropertyValue implements $StructuredValue {
   String? get unitText;
 
   /// The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([bool, num, $QualitativeValue, $StructuredValue, String])
   @Schema(
     description:
         "The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -13812,6 +14397,16 @@ abstract class $PropertyValue implements $StructuredValue {
   String? get valueGroup;
 
   /// A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+  @AnyOf([
+    $DefinedTerm,
+    $Enumeration,
+    $MeasurementTypeEnumeration,
+    $PropertyValue,
+    $QualitativeValue,
+    $QuantitativeValue,
+    $StructuredValue,
+    String,
+  ])
   @Schema(
     description:
         "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.",
@@ -13823,6 +14418,7 @@ abstract class $PropertyValue implements $StructuredValue {
 @Schema()
 abstract class $PropertyValueSpecification implements $Intangible {
   /// The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.",
@@ -13928,6 +14524,7 @@ abstract class $PublicationEvent implements $Event {
   bool? get free;
 
   /// An agent associated with the publication event.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "An agent associated with the publication event.")
   $SchemaUnion? get publishedBy;
 
@@ -13942,6 +14539,7 @@ abstract class $PublicationEvent implements $Event {
 @Schema()
 abstract class $PublicationIssue implements $CreativeWork {
   /// Identifies the issue of publication; for example, "iii" or "2".
+  @AnyOf([num, String])
   @Schema(
     description:
         "Identifies the issue of publication; for example, \"iii\" or \"2\".",
@@ -13949,6 +14547,7 @@ abstract class $PublicationIssue implements $CreativeWork {
   $SchemaUnion? get issueNumber;
 
   /// The page on which the work ends; for example "138" or "xvi".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work ends; for example \"138\" or \"xvi\".",
@@ -13956,6 +14555,7 @@ abstract class $PublicationIssue implements $CreativeWork {
   $SchemaUnion? get pageEnd;
 
   /// The page on which the work starts; for example "135" or "xiii".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -13974,6 +14574,7 @@ abstract class $PublicationIssue implements $CreativeWork {
 @Schema()
 abstract class $PublicationVolume implements $CreativeWork {
   /// The page on which the work ends; for example "138" or "xvi".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work ends; for example \"138\" or \"xvi\".",
@@ -13981,6 +14582,7 @@ abstract class $PublicationVolume implements $CreativeWork {
   $SchemaUnion? get pageEnd;
 
   /// The page on which the work starts; for example "135" or "xiii".
+  @AnyOf([num, String])
   @Schema(
     description:
         "The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -13995,6 +14597,7 @@ abstract class $PublicationVolume implements $CreativeWork {
   String? get pagination;
 
   /// Identifies the volume of publication or multi-part work; for example, "iii" or "2".
+  @AnyOf([num, String])
   @Schema(
     description:
         "Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\".",
@@ -14063,6 +14666,16 @@ abstract class $QualitativeValue implements $Enumeration {
   $QualitativeValue? get nonEqual;
 
   /// A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+  @AnyOf([
+    $DefinedTerm,
+    $Enumeration,
+    $MeasurementTypeEnumeration,
+    $PropertyValue,
+    $QualitativeValue,
+    $QuantitativeValue,
+    $StructuredValue,
+    String,
+  ])
   @Schema(
     description:
         "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.",
@@ -14103,6 +14716,7 @@ abstract class $QuantitativeValue implements $StructuredValue {
   String? get unitText;
 
   /// The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([bool, num, $QualitativeValue, $StructuredValue, String])
   @Schema(
     description:
         "The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', 'StructuredValue' or 'QualitativeValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -14110,6 +14724,16 @@ abstract class $QuantitativeValue implements $StructuredValue {
   $SchemaUnion? get value;
 
   /// A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+  @AnyOf([
+    $DefinedTerm,
+    $Enumeration,
+    $MeasurementTypeEnumeration,
+    $PropertyValue,
+    $QualitativeValue,
+    $QuantitativeValue,
+    $StructuredValue,
+    String,
+  ])
   @Schema(
     description:
         "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.",
@@ -14121,6 +14745,7 @@ abstract class $QuantitativeValue implements $StructuredValue {
 @Schema()
 abstract class $QuantitativeValueDistribution implements $StructuredValue {
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -14156,6 +14781,7 @@ abstract class $Quantity implements $SchemaThing {}
 @Schema()
 abstract class $Question implements $Comment {
   /// The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
+  @AnyOf([$Answer, $ItemList])
   @Schema(
     description:
         "The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.",
@@ -14174,6 +14800,7 @@ abstract class $Question implements $Comment {
   String? get eduQuestionType;
 
   /// The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.
+  @AnyOf([$Comment, $CreativeWork])
   @Schema(
     description:
         "The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it.",
@@ -14181,6 +14808,7 @@ abstract class $Question implements $Comment {
   $SchemaUnion? get parentItem;
 
   /// An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
+  @AnyOf([$Answer, $ItemList])
   @Schema(
     description:
         "An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.",
@@ -14196,6 +14824,7 @@ abstract class $Quiz implements $LearningResource {}
 @Schema()
 abstract class $Quotation implements $CreativeWork {
   /// The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.",
@@ -14239,6 +14868,7 @@ abstract class $RadioSeason implements $CreativeWorkSeason {}
 @Schema()
 abstract class $RadioSeries implements $CreativeWorkSeries {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -14282,6 +14912,7 @@ abstract class $RadioSeries implements $CreativeWorkSeries {
   $Episode? get episodes;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -14301,6 +14932,7 @@ abstract class $RadioSeries implements $CreativeWorkSeries {
   $Organization? get productionCompany;
 
   /// A season in a media series.
+  @AnyOf([$CreativeWorkSeason, String])
   @Schema(description: "A season in a media series.")
   $SchemaUnion? get season;
 
@@ -14324,6 +14956,7 @@ abstract class $RadioStation implements $LocalBusiness {}
 @Schema()
 abstract class $Rating implements $Intangible {
   /// The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
@@ -14331,6 +14964,7 @@ abstract class $Rating implements $Intangible {
   $SchemaUnion? get author;
 
   /// The highest value allowed in this rating system.
+  @AnyOf([num, String])
   @Schema(description: "The highest value allowed in this rating system.")
   $SchemaUnion? get bestRating;
 
@@ -14342,6 +14976,7 @@ abstract class $Rating implements $Intangible {
   String? get ratingExplanation;
 
   /// The rating for the content.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The rating for the content.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -14349,6 +14984,7 @@ abstract class $Rating implements $Intangible {
   $SchemaUnion? get ratingValue;
 
   /// This Review or Rating is relevant to this part or facet of the itemReviewed.
+  @AnyOf([$StructuredValue, String])
   @Schema(
     description:
         "This Review or Rating is relevant to this part or facet of the itemReviewed.",
@@ -14356,6 +14992,7 @@ abstract class $Rating implements $Intangible {
   $SchemaUnion? get reviewAspect;
 
   /// The lowest value allowed in this rating system.
+  @AnyOf([num, String])
   @Schema(description: "The lowest value allowed in this rating system.")
   $SchemaUnion? get worstRating;
 }
@@ -14380,6 +15017,7 @@ abstract class $RealEstateListing implements $WebPage {
   $SchemaUnion? get datePosted;
 
   /// Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.",
@@ -14395,6 +15033,7 @@ abstract class $ReceiveAction implements $TransferAction {
   $DeliveryMethod? get deliveryMethod;
 
   /// A sub property of participant. The participant who is at the sending end of the action.
+  @AnyOf([$Audience, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the sending end of the action.",
@@ -14442,6 +15081,7 @@ abstract class $Recipe implements $HowTo {
   String? get recipeCuisine;
 
   /// An ingredient or ordered list of ingredients and potentially quantities used in the recipe, e.g. 1 cup of sugar, flour or garlic.  The ingredients can be represented as free text or more structured values.
+  @AnyOf([$ItemList, $PropertyValue, String])
   @Schema(
     description:
         "An ingredient or ordered list of ingredients and potentially quantities used in the recipe, e.g. 1 cup of sugar, flour or garlic.  The ingredients can be represented as free text or more structured values.",
@@ -14449,6 +15089,7 @@ abstract class $Recipe implements $HowTo {
   $SchemaUnion? get recipeIngredient;
 
   /// A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
+  @AnyOf([$CreativeWork, $ItemList, String])
   @Schema(
     description:
         "A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.",
@@ -14456,6 +15097,7 @@ abstract class $Recipe implements $HowTo {
   $SchemaUnion? get recipeInstructions;
 
   /// The quantity produced by the recipe (for example, number of people served, number of servings, etc).
+  @AnyOf([$QuantitativeValue, String])
   @Schema(
     description:
         "The quantity produced by the recipe (for example, number of people served, number of servings, etc).",
@@ -14463,6 +15105,7 @@ abstract class $Recipe implements $HowTo {
   $SchemaUnion? get recipeYield;
 
   /// Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
+  @AnyOf([$Diet, $RestrictedDiet])
   @Schema(
     description:
         "Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.",
@@ -14474,6 +15117,7 @@ abstract class $Recipe implements $HowTo {
 @Schema()
 abstract class $Recommendation implements $Review {
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -14505,6 +15149,7 @@ abstract class $RejectAction implements $AllocateAction {}
 @Schema()
 abstract class $RentAction implements $TradeAction {
   /// A sub property of participant. The owner of the real estate property.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The owner of the real estate property.",
@@ -14549,6 +15194,7 @@ abstract class $RentalCarReservation implements $Reservation {
 @Schema()
 abstract class $RepaymentSpecification implements $StructuredValue {
   /// a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.
+  @AnyOf([$MonetaryAmount, num])
   @Schema(
     description:
         "a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.",
@@ -14641,6 +15287,7 @@ abstract class $Researcher implements $Audience {}
 @Schema()
 abstract class $Reservation implements $Intangible {
   /// 'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.",
@@ -14652,6 +15299,7 @@ abstract class $Reservation implements $Intangible {
   String? get bookingTime;
 
   /// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.",
@@ -14677,6 +15325,7 @@ abstract class $Reservation implements $Intangible {
   $ProgramMembership? get programMembershipUsed;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -14702,6 +15351,7 @@ abstract class $Reservation implements $Intangible {
   $Ticket? get reservedTicket;
 
   /// The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([num, $PriceSpecification, String])
   @Schema(
     description:
         "The total price for the reservation or ticket, including applicable taxes, shipping, etc.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -14709,6 +15359,7 @@ abstract class $Reservation implements $Intangible {
   $SchemaUnion? get totalPrice;
 
   /// The person or organization the reservation or ticket is for.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description: "The person or organization the reservation or ticket is for.",
   )
@@ -14777,6 +15428,7 @@ abstract class $ResumeAction implements $ControlAction {}
 @Schema()
 abstract class $ReturnAction implements $TransferAction {
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -14822,6 +15474,7 @@ abstract class $Review implements $CreativeWork {
   $Thing? get itemReviewed;
 
   /// Provides negative considerations regarding something, most typically in pro/con lists for reviews (alongside [[positiveNotes]]). For symmetry   In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described. Since product descriptions  tend to emphasise positive claims, it may be relatively unusual to find [[negativeNotes]] used in this way. Nevertheless for the sake of symmetry, [[negativeNotes]] can be used on [[Product]].  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most negative is at the beginning of the list).
+  @AnyOf([$ItemList, $ListItem, String, $WebContent])
   @Schema(
     description:
         "Provides negative considerations regarding something, most typically in pro/con lists for reviews (alongside [[positiveNotes]]). For symmetry   In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described. Since product descriptions  tend to emphasise positive claims, it may be relatively unusual to find [[negativeNotes]] used in this way. Nevertheless for the sake of symmetry, [[negativeNotes]] can be used on [[Product]].  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most negative is at the beginning of the list).",
@@ -14829,6 +15482,7 @@ abstract class $Review implements $CreativeWork {
   $SchemaUnion? get negativeNotes;
 
   /// Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.  In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list).
+  @AnyOf([$ItemList, $ListItem, String, $WebContent])
   @Schema(
     description:
         "Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.  In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list).",
@@ -14836,6 +15490,7 @@ abstract class $Review implements $CreativeWork {
   $SchemaUnion? get positiveNotes;
 
   /// This Review or Rating is relevant to this part or facet of the itemReviewed.
+  @AnyOf([$StructuredValue, String])
   @Schema(
     description:
         "This Review or Rating is relevant to this part or facet of the itemReviewed.",
@@ -14952,6 +15607,7 @@ abstract class $SatiricalArticle implements $Article {}
 @Schema()
 abstract class $Schedule implements $Intangible {
   /// Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.
+  @AnyOf([$DayOfWeek, String])
   @Schema(
     description:
         "Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.",
@@ -14980,6 +15636,7 @@ abstract class $Schedule implements $Intangible {
   num? get byMonthWeek;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -15015,6 +15672,7 @@ abstract class $Schedule implements $Intangible {
   num? get repeatCount;
 
   /// Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between       events should be defined as a [[Duration]] of time.
+  @AnyOf([$Duration, String])
   @Schema(
     description:
         "Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between       events should be defined as a [[Duration]] of time.",
@@ -15063,6 +15721,7 @@ abstract class $SchoolDistrict implements $AdministrativeArea {}
 @Schema()
 abstract class $ScreeningEvent implements $Event {
   /// Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -15129,6 +15788,7 @@ abstract class $Seat implements $Intangible {
   String? get seatSection;
 
   /// The type/class of the seat.
+  @AnyOf([$QualitativeValue, String])
   @Schema(description: "The type/class of the seat.")
   $SchemaUnion? get seatingType;
 }
@@ -15137,6 +15797,7 @@ abstract class $Seat implements $Intangible {
 @Schema()
 abstract class $SeekToAction implements $Action {
   /// The start time of the clip expressed as the number of seconds from the beginning of the work.
+  @AnyOf([$HyperTocEntry, num])
   @Schema(
     description:
         "The start time of the clip expressed as the number of seconds from the beginning of the work.",
@@ -15152,6 +15813,7 @@ abstract class $SelfStorage implements $LocalBusiness {}
 @Schema()
 abstract class $SellAction implements $TradeAction {
   /// A sub property of participant. The participant/person/organization that bought the object.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant/person/organization that bought the object.",
@@ -15171,6 +15833,7 @@ abstract class $SendAction implements $TransferAction {
   $DeliveryMethod? get deliveryMethod;
 
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -15197,6 +15860,7 @@ abstract class $Service implements $Intangible {
   $AggregateRating? get aggregateRating;
 
   /// The geographic area where a service or offered item is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place, String])
   @Schema(
     description:
         "The geographic area where a service or offered item is provided.",
@@ -15222,6 +15886,7 @@ abstract class $Service implements $Intangible {
   String? get award;
 
   /// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+  @AnyOf([$Brand, $Organization])
   @Schema(
     description:
         "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
@@ -15229,6 +15894,7 @@ abstract class $Service implements $Intangible {
   $SchemaUnion? get brand;
 
   /// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.",
@@ -15236,6 +15902,7 @@ abstract class $Service implements $Intangible {
   $SchemaUnion? get broker;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -15263,6 +15930,7 @@ abstract class $Service implements $Intangible {
   $OpeningHoursSpecification? get hoursAvailable;
 
   /// A pointer to another, somehow related product (or multiple products).
+  @AnyOf([$Product, $Service])
   @Schema(
     description:
         "A pointer to another, somehow related product (or multiple products).",
@@ -15270,6 +15938,7 @@ abstract class $Service implements $Intangible {
   $SchemaUnion? get isRelatedTo;
 
   /// A pointer to another, functionally similar product (or multiple products).
+  @AnyOf([$Product, $Service])
   @Schema(
     description:
         "A pointer to another, functionally similar product (or multiple products).",
@@ -15277,10 +15946,12 @@ abstract class $Service implements $Intangible {
   $SchemaUnion? get isSimilarTo;
 
   /// An associated logo.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "An associated logo.")
   $SchemaUnion? get logo;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -15295,6 +15966,7 @@ abstract class $Service implements $Intangible {
   $Thing? get produces;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -15313,6 +15985,7 @@ abstract class $Service implements $Intangible {
   $Review? get review;
 
   /// The geographic area where the service is provided.
+  @AnyOf([$AdministrativeArea, $GeoShape, $Place])
   @Schema(description: "The geographic area where the service is provided.")
   $SchemaUnion? get serviceArea;
 
@@ -15328,6 +16001,7 @@ abstract class $Service implements $Intangible {
   $Thing? get serviceOutput;
 
   /// The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+  @AnyOf([$GovernmentBenefitsType, String])
   @Schema(
     description:
         "The type of service being offered, e.g. veterans' benefits, emergency relief, etc.",
@@ -15347,6 +16021,7 @@ abstract class $Service implements $Intangible {
 @Schema()
 abstract class $ServiceChannel implements $Intangible {
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
@@ -15392,6 +16067,7 @@ abstract class $ServiceChannel implements $Intangible {
 @Schema()
 abstract class $ServicePeriod implements $StructuredValue {
   /// Days of the week when the merchant typically operates, indicated via opening hours markup.
+  @AnyOf([$DayOfWeek, $OpeningHoursSpecification])
   @Schema(
     description:
         "Days of the week when the merchant typically operates, indicated via opening hours markup.",
@@ -15406,6 +16082,7 @@ abstract class $ServicePeriod implements $StructuredValue {
   String? get cutoffTime;
 
   /// The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+  @AnyOf([$Duration, $QuantitativeValue])
   @Schema(
     description:
         "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
@@ -15425,6 +16102,7 @@ abstract class $SheetMusic implements $CreativeWork {}
 @Schema()
 abstract class $ShippingConditions implements $StructuredValue {
   /// The depth of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The depth of the item.")
   $SchemaUnion? get depth;
 
@@ -15436,6 +16114,7 @@ abstract class $ShippingConditions implements $StructuredValue {
   bool? get doesNotShip;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
@@ -15474,6 +16153,7 @@ abstract class $ShippingConditions implements $StructuredValue {
   $DefinedRegion? get shippingOrigin;
 
   /// The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
+  @AnyOf([$MonetaryAmount, $ShippingRateSettings])
   @Schema(
     description:
         "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
@@ -15481,6 +16161,7 @@ abstract class $ShippingConditions implements $StructuredValue {
   $SchemaUnion? get shippingRate;
 
   /// The typical delay the order has been sent for delivery and the goods reach the final customer.    In the context of [[ShippingDeliveryTime]], use the [[QuantitativeValue]]. Typical properties: minValue, maxValue, unitCode (d for DAY).    In the context of [[ShippingConditions]], use the [[ServicePeriod]]. It has a duration (as a [[QuantitativeValue]]) and also business days and a cut-off time.
+  @AnyOf([$QuantitativeValue, $ServicePeriod])
   @Schema(
     description:
         "The typical delay the order has been sent for delivery and the goods reach the final customer.    In the context of [[ShippingDeliveryTime]], use the [[QuantitativeValue]]. Typical properties: minValue, maxValue, unitCode (d for DAY).    In the context of [[ShippingConditions]], use the [[ServicePeriod]]. It has a duration (as a [[QuantitativeValue]]) and also business days and a cut-off time.",
@@ -15488,10 +16169,12 @@ abstract class $ShippingConditions implements $StructuredValue {
   $SchemaUnion? get transitTime;
 
   /// The weight of the product or person.
+  @AnyOf([$Mass, $QuantitativeValue])
   @Schema(description: "The weight of the product or person.")
   $SchemaUnion? get weight;
 
   /// The width of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The width of the item.")
   $SchemaUnion? get width;
 }
@@ -15500,6 +16183,7 @@ abstract class $ShippingConditions implements $StructuredValue {
 @Schema()
 abstract class $ShippingDeliveryTime implements $StructuredValue {
   /// Days of the week when the merchant typically operates, indicated via opening hours markup.
+  @AnyOf([$DayOfWeek, $OpeningHoursSpecification])
   @Schema(
     description:
         "Days of the week when the merchant typically operates, indicated via opening hours markup.",
@@ -15514,6 +16198,7 @@ abstract class $ShippingDeliveryTime implements $StructuredValue {
   String? get cutoffTime;
 
   /// The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.  In the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as "d"), i.e. only counting days when the business normally operates.  In the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration.
+  @AnyOf([$QuantitativeValue, $ServicePeriod])
   @Schema(
     description:
         "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.  In the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as \"d\"), i.e. only counting days when the business normally operates.  In the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration.",
@@ -15521,6 +16206,7 @@ abstract class $ShippingDeliveryTime implements $StructuredValue {
   $SchemaUnion? get handlingTime;
 
   /// The typical delay the order has been sent for delivery and the goods reach the final customer.    In the context of [[ShippingDeliveryTime]], use the [[QuantitativeValue]]. Typical properties: minValue, maxValue, unitCode (d for DAY).    In the context of [[ShippingConditions]], use the [[ServicePeriod]]. It has a duration (as a [[QuantitativeValue]]) and also business days and a cut-off time.
+  @AnyOf([$QuantitativeValue, $ServicePeriod])
   @Schema(
     description:
         "The typical delay the order has been sent for delivery and the goods reach the final customer.    In the context of [[ShippingDeliveryTime]], use the [[QuantitativeValue]]. Typical properties: minValue, maxValue, unitCode (d for DAY).    In the context of [[ShippingConditions]], use the [[ServicePeriod]]. It has a duration (as a [[QuantitativeValue]]) and also business days and a cut-off time.",
@@ -15539,6 +16225,7 @@ abstract class $ShippingRateSettings implements $StructuredValue {
   bool? get doesNotShip;
 
   /// A monetary value above (or at) which the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]].
+  @AnyOf([$DeliveryChargeSpecification, $MonetaryAmount])
   @Schema(
     description:
         "A monetary value above (or at) which the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]].",
@@ -15553,6 +16240,7 @@ abstract class $ShippingRateSettings implements $StructuredValue {
   bool? get isUnlabelledFallback;
 
   /// The minimum order value required for this shipping rate to apply.
+  @AnyOf([$MonetaryAmount, num, $PriceSpecification])
   @Schema(
     description:
         "The minimum order value required for this shipping rate to apply.",
@@ -15581,6 +16269,7 @@ abstract class $ShippingRateSettings implements $StructuredValue {
   String? get shippingLabel;
 
   /// The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
+  @AnyOf([$MonetaryAmount, $ShippingRateSettings])
   @Schema(
     description:
         "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
@@ -15605,6 +16294,7 @@ abstract class $ShippingService implements $StructuredValue {
   $FulfillmentTypeEnumeration? get fulfillmentType;
 
   /// The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.  In the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as "d"), i.e. only counting days when the business normally operates.  In the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration.
+  @AnyOf([$QuantitativeValue, $ServicePeriod])
   @Schema(
     description:
         "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.  In the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as \"d\"), i.e. only counting days when the business normally operates.  In the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration.",
@@ -15642,6 +16332,7 @@ abstract class $ShortStory implements $CreativeWork {}
 @Schema()
 abstract class $SingleFamilyResidence implements $House {
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -15675,6 +16366,7 @@ abstract class $SizeSpecification implements $QualitativeValue {
   $QuantitativeValue? get hasMeasurement;
 
   /// The size group (also known as "size type") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example "men's big and tall", "petite maternity" or "regular".
+  @AnyOf([$SizeGroupEnumeration, String])
   @Schema(
     description:
         "The size group (also known as \"size type\") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example \"men's big and tall\", \"petite maternity\" or \"regular\".",
@@ -15682,6 +16374,7 @@ abstract class $SizeSpecification implements $QualitativeValue {
   $SchemaUnion? get sizeGroup;
 
   /// The size system used to identify a product's size. Typically either a standard (for example, "GS1" or "ISO-EN13402"), country code (for example "US" or "JP"), or a measuring system (for example "Metric" or "Imperial").
+  @AnyOf([$SizeSystemEnumeration, String])
   @Schema(
     description:
         "The size system used to identify a product's size. Typically either a standard (for example, \"GS1\" or \"ISO-EN13402\"), country code (for example \"US\" or \"JP\"), or a measuring system (for example \"Metric\" or \"Imperial\").",
@@ -15696,6 +16389,7 @@ abstract class $SizeSpecification implements $QualitativeValue {
   $QuantitativeValue? get suggestedAge;
 
   /// The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
+  @AnyOf([$GenderType, String])
   @Schema(
     description:
         "The suggested gender of the intended person or audience, for example \"male\", \"female\", or \"unisex\".",
@@ -15811,6 +16505,7 @@ abstract class $SoftwareApplication implements $CreativeWork {
   $SchemaUnion? get memoryRequirements;
 
   /// Operating systems supported (Windows 7, OS X 10.6, Android 1.6).
+  @AnyOf([$OperatingSystem, String])
   @Schema(
     description:
         "Operating systems supported (Windows 7, OS X 10.6, Android 1.6).",
@@ -15843,6 +16538,7 @@ abstract class $SoftwareApplication implements $CreativeWork {
   $SchemaUnion? get requirements;
 
   /// Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).
+  @AnyOf([$RuntimePlatform, String])
   @Schema(
     description:
         "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).",
@@ -15850,6 +16546,7 @@ abstract class $SoftwareApplication implements $CreativeWork {
   $SchemaUnion? get runtimePlatform;
 
   /// A link to a screenshot image of the app.
+  @AnyOf([$ImageObject, String])
   @Schema(description: "A link to a screenshot image of the app.")
   $SchemaUnion? get screenshot;
 
@@ -15862,6 +16559,7 @@ abstract class $SoftwareApplication implements $CreativeWork {
   $CreativeWork? get softwareHelp;
 
   /// Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).
+  @AnyOf([$SoftwareApplication, String])
   @Schema(
     description:
         "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
@@ -15899,6 +16597,7 @@ abstract class $SoftwareSourceCode implements $CreativeWork {
   String? get codeSampleType;
 
   /// The computer programming language.
+  @AnyOf([$ComputerLanguage, String])
   @Schema(description: "The computer programming language.")
   $SchemaUnion? get programmingLanguage;
 
@@ -15910,6 +16609,7 @@ abstract class $SoftwareSourceCode implements $CreativeWork {
   String? get runtime;
 
   /// Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).
+  @AnyOf([$RuntimePlatform, String])
   @Schema(
     description:
         "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).",
@@ -15975,6 +16675,7 @@ abstract class $SpeakableSpecification implements $Intangible {
 @Schema()
 abstract class $SpecialAnnouncement implements $CreativeWork {
   /// Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].
+  @AnyOf([$CivicStructure, $LocalBusiness])
   @Schema(
     description:
         "Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].",
@@ -15982,6 +16683,7 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get announcementLocation;
 
   /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+  @AnyOf([$CategoryCode, $PhysicalActivityCategory, String, $Thing])
   @Schema(
     description:
         "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
@@ -15993,10 +16695,12 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get datePosted;
 
   /// Information about disease prevention.
+  @AnyOf([String, $WebContent])
   @Schema(description: "Information about disease prevention.")
   $SchemaUnion? get diseasePreventionInfo;
 
   /// Statistical information about the spread of a disease, either as [[WebContent]], or   described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset. When a [[WebContent]] URL is   provided, the page indicated might also contain more such markup.
+  @AnyOf([$Dataset, $Observation, String, $WebContent])
   @Schema(
     description:
         "Statistical information about the spread of a disease, either as [[WebContent]], or   described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset. When a [[WebContent]] URL is   provided, the page indicated might also contain more such markup.",
@@ -16004,6 +16708,7 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get diseaseSpreadStatistics;
 
   /// Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.
+  @AnyOf([String, $WebContent])
   @Schema(
     description:
         "Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.",
@@ -16018,6 +16723,7 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $GovernmentService? get governmentBenefitsInfo;
 
   /// Indicates a page with news updates and guidelines. This could often be (but is not required to be) the main page containing [[SpecialAnnouncement]] markup on a site.
+  @AnyOf([String, $WebContent])
   @Schema(
     description:
         "Indicates a page with news updates and guidelines. This could often be (but is not required to be) the main page containing [[SpecialAnnouncement]] markup on a site.",
@@ -16025,10 +16731,12 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get newsUpdatesAndGuidelines;
 
   /// Information about public transport closures.
+  @AnyOf([String, $WebContent])
   @Schema(description: "Information about public transport closures.")
   $SchemaUnion? get publicTransportClosuresInfo;
 
   /// Guidelines about quarantine rules, e.g. in the context of a pandemic.
+  @AnyOf([String, $WebContent])
   @Schema(
     description:
         "Guidelines about quarantine rules, e.g. in the context of a pandemic.",
@@ -16036,10 +16744,12 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get quarantineGuidelines;
 
   /// Information about school closures.
+  @AnyOf([String, $WebContent])
   @Schema(description: "Information about school closures.")
   $SchemaUnion? get schoolClosuresInfo;
 
   /// Information about travel bans, e.g. in the context of a pandemic.
+  @AnyOf([String, $WebContent])
   @Schema(
     description:
         "Information about travel bans, e.g. in the context of a pandemic.",
@@ -16047,6 +16757,7 @@ abstract class $SpecialAnnouncement implements $CreativeWork {
   $SchemaUnion? get travelBans;
 
   /// The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
+  @AnyOf([$DataFeed, String])
   @Schema(
     description:
         "The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.",
@@ -16074,14 +16785,17 @@ abstract class $SportsClub implements $SportsActivityLocation {}
 @Schema()
 abstract class $SportsEvent implements $Event {
   /// The away team in a sports event.
+  @AnyOf([$Person, $SportsTeam])
   @Schema(description: "The away team in a sports event.")
   $SchemaUnion? get awayTeam;
 
   /// A competitor in a sports event.
+  @AnyOf([$Person, $SportsTeam])
   @Schema(description: "A competitor in a sports event.")
   $SchemaUnion? get competitor;
 
   /// The home team in a sports event.
+  @AnyOf([$Person, $SportsTeam])
   @Schema(description: "The home team in a sports event.")
   $SchemaUnion? get homeTeam;
 
@@ -16122,6 +16836,7 @@ abstract class $SportsTeam implements $SportsOrganization {
   $Person? get coach;
 
   /// Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
+  @AnyOf([$GenderType, String])
   @Schema(
     description:
         "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\".",
@@ -16175,6 +16890,7 @@ abstract class $StatisticalVariable implements $ConstraintNode {
   $StatisticalVariable? get measurementDenominator;
 
   /// A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
@@ -16189,6 +16905,7 @@ abstract class $StatisticalVariable implements $ConstraintNode {
   $Enumeration? get measurementQualifier;
 
   /// A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the [[variableMeasured]] is "depression rating", the [[measurementTechnique]] could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].
+  @AnyOf([$DefinedTerm, $MeasurementMethodEnum, String])
   @Schema(
     description:
         "A technique, method or technology used in an [[Observation]], [[StatisticalVariable]] or [[Dataset]] (or [[DataDownload]], [[DataCatalog]]), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using [[variableMeasured]]; for [[Observation]], a [[StatisticalVariable]]). Often but not necessarily each [[variableMeasured]] will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of [[variableMeasured]] called [[measuredProperty]] is applicable.      The [[measurementTechnique]] property helps when extra clarification is needed about how a [[measuredProperty]] was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery.   For example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".   If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]]. The value can also be from an enumeration, organized as a [[MeasurementMethodEnum]].",
@@ -16203,6 +16920,7 @@ abstract class $StatisticalVariable implements $ConstraintNode {
   $Class? get populationType;
 
   /// Indicates the kind of statistic represented by a [[StatisticalVariable]], e.g. mean, count etc. The value of statType is a property, either from within Schema.org (e.g. [[median]], [[marginOfError]], [[maxValue]], [[minValue]]) or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org.
+  @AnyOf([$Property, String])
   @Schema(
     description:
         "Indicates the kind of statistic represented by a [[StatisticalVariable]], e.g. mean, count etc. The value of statType is a property, either from within Schema.org (e.g. [[median]], [[marginOfError]], [[maxValue]], [[minValue]]) or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org.",
@@ -16256,6 +16974,7 @@ abstract class $SubwayStation implements $CivicStructure {}
 @Schema()
 abstract class $Suite implements $Accommodation {
   /// The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
+  @AnyOf([$BedDetails, $BedType, String])
   @Schema(
     description:
         "The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.       If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.",
@@ -16263,6 +16982,7 @@ abstract class $Suite implements $Accommodation {
   $SchemaUnion? get bed;
 
   /// The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
@@ -16288,6 +17008,7 @@ abstract class $SuperficialAnatomy implements $MedicalEntity {
   String? get associatedPathophysiology;
 
   /// Anatomical systems or structures that relate to the superficial anatomy.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem])
   @Schema(
     description:
         "Anatomical systems or structures that relate to the superficial anatomy.",
@@ -16349,6 +17070,7 @@ abstract class $TVEpisode implements $Episode {
   $TVSeries? get partOfTVSeries;
 
   /// Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -16389,6 +17111,7 @@ abstract class $TVSeason implements $CreativeWork, $CreativeWorkSeason {
 @Schema()
 abstract class $TVSeries implements $CreativeWork, $CreativeWorkSeries {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -16439,6 +17162,7 @@ abstract class $TVSeries implements $CreativeWork, $CreativeWorkSeries {
   $Episode? get episodes;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -16458,6 +17182,7 @@ abstract class $TVSeries implements $CreativeWork, $CreativeWorkSeries {
   $Organization? get productionCompany;
 
   /// A season in a media series.
+  @AnyOf([$CreativeWorkSeason, String])
   @Schema(description: "A season in a media series.")
   $SchemaUnion? get season;
 
@@ -16500,6 +17225,7 @@ abstract class $Taxi implements $Service {}
 @Schema()
 abstract class $TaxiReservation implements $Reservation {
   /// Number of people the reservation should accommodate.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "Number of people the reservation should accommodate.")
   $SchemaUnion? get partySize;
 
@@ -16530,6 +17256,7 @@ abstract class $TaxiStand implements $CivicStructure {}
 @Schema()
 abstract class $Taxon implements $Thing {
   /// Closest child taxa of the taxon in question.
+  @AnyOf([$Taxon, String])
   @Schema(description: "Closest child taxa of the taxon in question.")
   $SchemaUnion? get childTaxon;
 
@@ -16538,10 +17265,12 @@ abstract class $Taxon implements $Thing {
   $DefinedTerm? get hasDefinedTerm;
 
   /// Closest parent taxon of the taxon in question.
+  @AnyOf([$Taxon, String])
   @Schema(description: "Closest parent taxon of the taxon in question.")
   $SchemaUnion? get parentTaxon;
 
   /// The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs.
+  @AnyOf([$PropertyValue, String])
   @Schema(
     description:
         "The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs.",
@@ -16647,6 +17376,7 @@ abstract class $Thing implements $SchemaThing {
   String? get alternateName;
 
   /// A description of the item.
+  @AnyOf([String, $TextObject])
   @Schema(description: "A description of the item.")
   $SchemaUnion? get description;
 
@@ -16658,6 +17388,7 @@ abstract class $Thing implements $SchemaThing {
   String? get disambiguatingDescription;
 
   /// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+  @AnyOf([$PropertyValue, String])
   @Schema(
     description:
         "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.",
@@ -16665,6 +17396,7 @@ abstract class $Thing implements $SchemaThing {
   $SchemaUnion? get identifier;
 
   /// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+  @AnyOf([$ImageObject, String])
   @Schema(
     description:
         "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
@@ -16672,6 +17404,7 @@ abstract class $Thing implements $SchemaThing {
   $SchemaUnion? get image;
 
   /// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description:
         "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.",
@@ -16683,6 +17416,7 @@ abstract class $Thing implements $SchemaThing {
   String? get name;
 
   /// A person or organization who owns this Thing.
+  @AnyOf([$Organization, $Person])
   @Schema(description: "A person or organization who owns this Thing.")
   $SchemaUnion? get owner;
 
@@ -16701,6 +17435,7 @@ abstract class $Thing implements $SchemaThing {
   String? get sameAs;
 
   /// A CreativeWork or Event about this Thing.
+  @AnyOf([$CreativeWork, $Event])
   @Schema(description: "A CreativeWork or Event about this Thing.")
   $SchemaUnion? get subjectOf;
 
@@ -16746,6 +17481,7 @@ abstract class $Ticket implements $Intangible {
   $Seat? get ticketedSeat;
 
   /// The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+  @AnyOf([num, $PriceSpecification, String])
   @Schema(
     description:
         "The total price for the reservation or ticket, including applicable taxes, shipping, etc.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -16753,6 +17489,7 @@ abstract class $Ticket implements $Intangible {
   $SchemaUnion? get totalPrice;
 
   /// The person or organization the reservation or ticket is for.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description: "The person or organization the reservation or ticket is for.",
   )
@@ -16775,6 +17512,7 @@ abstract class $Time implements $SchemaThing {}
 @Schema()
 abstract class $TipAction implements $TradeAction {
   /// A sub property of participant. The participant who is at the receiving end of the action.
+  @AnyOf([$Audience, $ContactPoint, $Organization, $Person])
   @Schema(
     description:
         "A sub property of participant. The participant who is at the receiving end of the action.",
@@ -16790,6 +17528,7 @@ abstract class $TireShop implements $Store {}
 @Schema()
 abstract class $TouristAttraction implements $Place {
   /// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
@@ -16797,6 +17536,7 @@ abstract class $TouristAttraction implements $Place {
   $SchemaUnion? get availableLanguage;
 
   /// Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.
+  @AnyOf([$Audience, String])
   @Schema(
     description:
         "Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.",
@@ -16812,6 +17552,7 @@ abstract class $TouristDestination implements $Place {
   $TouristAttraction? get includesAttraction;
 
   /// Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.
+  @AnyOf([$Audience, String])
   @Schema(
     description:
         "Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.",
@@ -16827,6 +17568,7 @@ abstract class $TouristInformationCenter implements $LocalBusiness {}
 @Schema()
 abstract class $TouristTrip implements $Trip {
   /// Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.
+  @AnyOf([$Audience, String])
   @Schema(
     description:
         "Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc.",
@@ -16850,6 +17592,7 @@ abstract class $TrackAction implements $FindAction {
 @Schema()
 abstract class $TradeAction implements $Action {
   /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.
+  @AnyOf([num, String])
   @Schema(
     description:
         "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '\$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
@@ -16953,6 +17696,7 @@ abstract class $Trip implements $Intangible {
   $SchemaUnion? get departureTime;
 
   /// Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).
+  @AnyOf([$ItemList, $Place])
   @Schema(
     description:
         "Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).",
@@ -16960,6 +17704,7 @@ abstract class $Trip implements $Intangible {
   $SchemaUnion? get itinerary;
 
   /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+  @AnyOf([$Demand, $Offer])
   @Schema(
     description:
         "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
@@ -16974,6 +17719,7 @@ abstract class $Trip implements $Intangible {
   $Trip? get partOfTrip;
 
   /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
@@ -17010,6 +17756,7 @@ abstract class $TypeAndQuantityNode implements $StructuredValue {
   $BusinessFunction? get businessFunction;
 
   /// The product that this structured value is referring to.
+  @AnyOf([$Product, $Service])
   @Schema(
     description: "The product that this structured value is referring to.",
   )
@@ -17050,6 +17797,7 @@ abstract class $UnRegisterAction implements $InteractAction {}
 @Schema()
 abstract class $UnitPriceSpecification implements $PriceSpecification {
   /// Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).
+  @AnyOf([$Duration, num, $QuantitativeValue])
   @Schema(
     description:
         "Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).",
@@ -17078,6 +17826,7 @@ abstract class $UnitPriceSpecification implements $PriceSpecification {
   $PriceComponentTypeEnumeration? get priceComponentType;
 
   /// Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or, a UN/EDIFACT 5387 code, or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
+  @AnyOf([$PriceTypeEnumeration, String])
   @Schema(
     description:
         "Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or, a UN/EDIFACT 5387 code, or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.",
@@ -17148,6 +17897,7 @@ abstract class $UserComments implements $UserInteraction {
   $SchemaUnion? get commentTime;
 
   /// The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
@@ -17215,6 +17965,7 @@ abstract class $Vehicle implements $Product {
   $QuantitativeValue? get accelerationTime;
 
   /// Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).",
@@ -17243,6 +17994,7 @@ abstract class $Vehicle implements $Product {
   String? get dateVehicleFirstRegistered;
 
   /// The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
+  @AnyOf([$DriveWheelConfigurationValue, String])
   @Schema(
     description:
         "The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.",
@@ -17278,6 +18030,7 @@ abstract class $Vehicle implements $Product {
   $QuantitativeValue? get fuelEfficiency;
 
   /// The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.",
@@ -17292,6 +18045,7 @@ abstract class $Vehicle implements $Product {
   String? get knownVehicleDamages;
 
   /// Indicates that the vehicle meets the respective emission standard.
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "Indicates that the vehicle meets the respective emission standard.",
@@ -17313,18 +18067,22 @@ abstract class $Vehicle implements $Product {
   String? get modelDate;
 
   /// The number or type of airbags in the vehicle.
+  @AnyOf([num, String])
   @Schema(description: "The number or type of airbags in the vehicle.")
   $SchemaUnion? get numberOfAirbags;
 
   /// The number of axles.\n\nTypical unit code(s): C62.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "The number of axles.\\n\\nTypical unit code(s): C62.")
   $SchemaUnion? get numberOfAxles;
 
   /// The number of doors.\n\nTypical unit code(s): C62.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(description: "The number of doors.\\n\\nTypical unit code(s): C62.")
   $SchemaUnion? get numberOfDoors;
 
   /// The total number of forward gears available for the transmission system of the vehicle.\n\nTypical unit code(s): C62.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The total number of forward gears available for the transmission system of the vehicle.\\n\\nTypical unit code(s): C62.",
@@ -17332,6 +18090,7 @@ abstract class $Vehicle implements $Product {
   $SchemaUnion? get numberOfForwardGears;
 
   /// The number of owners of the vehicle, including the current one.\n\nTypical unit code(s): C62.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of owners of the vehicle, including the current one.\\n\\nTypical unit code(s): C62.",
@@ -17357,6 +18116,7 @@ abstract class $Vehicle implements $Product {
   String? get purchaseDate;
 
   /// The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons.",
@@ -17433,6 +18193,7 @@ abstract class $Vehicle implements $Product {
   String? get vehicleModelDate;
 
   /// The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons.
+  @AnyOf([num, $QuantitativeValue])
   @Schema(
     description:
         "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons.",
@@ -17440,6 +18201,7 @@ abstract class $Vehicle implements $Product {
   $SchemaUnion? get vehicleSeatingCapacity;
 
   /// Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
+  @AnyOf([$CarUsageType, String])
   @Schema(
     description:
         "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.",
@@ -17447,6 +18209,7 @@ abstract class $Vehicle implements $Product {
   $SchemaUnion? get vehicleSpecialUsage;
 
   /// The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
+  @AnyOf([$QualitativeValue, String])
   @Schema(
     description:
         "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars).",
@@ -17476,6 +18239,7 @@ abstract class $Vein implements $Vessel {
   $Vessel? get drainsTo;
 
   /// The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
+  @AnyOf([$AnatomicalStructure, $AnatomicalSystem])
   @Schema(
     description:
         "The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.",
@@ -17506,6 +18270,7 @@ abstract class $VideoGallery implements $MediaGallery {}
 @Schema()
 abstract class $VideoGame implements $Game, $SoftwareApplication {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -17542,6 +18307,7 @@ abstract class $VideoGame implements $Game, $SoftwareApplication {
   String? get gameEdition;
 
   /// The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "The electronic systems used to play <a href=\"http://en.wikipedia.org/wiki/Category:Video_game_platforms\">video games</a>.",
@@ -17557,6 +18323,7 @@ abstract class $VideoGame implements $Game, $SoftwareApplication {
   $CreativeWork? get gameTip;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -17583,6 +18350,7 @@ abstract class $VideoGameClip implements $Clip {}
 @Schema()
 abstract class $VideoGameSeries implements $CreativeWorkSeries {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -17644,12 +18412,14 @@ abstract class $VideoGameSeries implements $CreativeWorkSeries {
   $Thing? get gameItem;
 
   /// Real or fictional location of the game (or part of game).
+  @AnyOf([$Place, $PostalAddress, String])
   @Schema(
     description: "Real or fictional location of the game (or part of game).",
   )
   $SchemaUnion? get gameLocation;
 
   /// The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
+  @AnyOf([String, $Thing])
   @Schema(
     description:
         "The electronic systems used to play <a href=\"http://en.wikipedia.org/wiki/Category:Video_game_platforms\">video games</a>.",
@@ -17657,6 +18427,7 @@ abstract class $VideoGameSeries implements $CreativeWorkSeries {
   $SchemaUnion? get gamePlatform;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -17697,6 +18468,7 @@ abstract class $VideoGameSeries implements $CreativeWorkSeries {
   $Thing? get quest;
 
   /// A season in a media series.
+  @AnyOf([$CreativeWorkSeason, String])
   @Schema(description: "A season in a media series.")
   $SchemaUnion? get season;
 
@@ -17716,6 +18488,7 @@ abstract class $VideoGameSeries implements $CreativeWorkSeries {
 @Schema()
 abstract class $VideoObject implements $MediaObject {
   /// An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+  @AnyOf([$PerformingGroup, $Person])
   @Schema(
     description:
         "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
@@ -17730,6 +18503,7 @@ abstract class $VideoObject implements $MediaObject {
   $Person? get actors;
 
   /// The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+  @AnyOf([$MediaObject, String])
   @Schema(
     description:
         "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].",
@@ -17758,6 +18532,7 @@ abstract class $VideoObject implements $MediaObject {
   String? get embeddedTextCaption;
 
   /// The composer of the soundtrack.
+  @AnyOf([$MusicGroup, $Person])
   @Schema(description: "The composer of the soundtrack.")
   $SchemaUnion? get musicBy;
 
@@ -17797,6 +18572,7 @@ abstract class $VisualArtsEvent implements $Event {}
 @Schema()
 abstract class $VisualArtwork implements $CreativeWork {
   /// The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example "20").
+  @AnyOf([num, String])
   @Schema(
     description:
         "The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example \"20\").",
@@ -17836,10 +18612,12 @@ abstract class $VisualArtwork implements $CreativeWork {
   $Person? get colorist;
 
   /// The depth of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The depth of the item.")
   $SchemaUnion? get depth;
 
   /// The height of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The height of the item.")
   $SchemaUnion? get height;
 
@@ -17871,10 +18649,12 @@ abstract class $VisualArtwork implements $CreativeWork {
   $SchemaUnion? get surface;
 
   /// The weight of the product or person.
+  @AnyOf([$Mass, $QuantitativeValue])
   @Schema(description: "The weight of the product or person.")
   $SchemaUnion? get weight;
 
   /// The width of the item.
+  @AnyOf([$Distance, $QuantitativeValue])
   @Schema(description: "The width of the item.")
   $SchemaUnion? get width;
 }
@@ -17967,6 +18747,7 @@ abstract class $WearableSizeSystemEnumeration
 @Schema()
 abstract class $WebAPI implements $Service {
   /// Further documentation describing the Web API in more detail.
+  @AnyOf([$CreativeWork, String])
   @Schema(
     description: "Further documentation describing the Web API in more detail.",
   )
@@ -17992,6 +18773,7 @@ abstract class $WebContent implements $CreativeWork {}
 @Schema()
 abstract class $WebPage implements $CreativeWork {
   /// A set of links that can help a user understand and navigate a website hierarchy.
+  @AnyOf([$BreadcrumbList, String])
   @Schema(
     description:
         "A set of links that can help a user understand and navigate a website hierarchy.",
@@ -18024,6 +18806,7 @@ abstract class $WebPage implements $CreativeWork {
   String? get relatedLink;
 
   /// People or organizations that have reviewed the content on this web page for accuracy and/or completeness.
+  @AnyOf([$Organization, $Person])
   @Schema(
     description:
         "People or organizations that have reviewed the content on this web page for accuracy and/or completeness.",
@@ -18045,6 +18828,7 @@ abstract class $WebPage implements $CreativeWork {
   String? get significantLinks;
 
   /// Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.  The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:  1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.  2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.  3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.   For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.
+  @AnyOf([$SpeakableSpecification, String])
   @Schema(
     description:
         "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.  The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:  1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.  2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.  3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.   For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.",
@@ -18110,6 +18894,7 @@ abstract class $Winery implements $FoodEstablishment {}
 @Schema()
 abstract class $WorkBasedProgram implements $EducationalOccupationalProgram {
   /// A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
+  @AnyOf([$CategoryCode, String])
   @Schema(
     description:
         "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.",
@@ -18129,6 +18914,7 @@ abstract class $WorkersUnion implements $Organization {}
 @Schema()
 abstract class $WriteAction implements $CreateAction {
   /// The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+  @AnyOf([$Language, String])
   @Schema(
     description:
         "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",

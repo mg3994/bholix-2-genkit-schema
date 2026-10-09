@@ -186,8 +186,12 @@ abstract class \$SchemaUnion {
         processedPropNames.add(propName);
 
         final propType = _resolvePropertyType(prop.rangeIds);
+        final anyOfTypes = _buildAnyOfTypes(prop.rangeIds);
 
         sb.writeln('  /// ${_escapeComment(prop.comment)}');
+        if (anyOfTypes != null) {
+          sb.writeln('  @AnyOf([$anyOfTypes])');
+        }
         sb.writeln(
           "  @Schema(description: ${_jsonStringLiteral(prop.comment)})",
         );
@@ -202,6 +206,48 @@ abstract class \$SchemaUnion {
     return sb.toString();
   }
 
+  String? _buildAnyOfTypes(List<String> rangeIds) {
+    if (rangeIds.length <= 1) return null;
+
+    final typeList = <String>[];
+    for (final rangeId in rangeIds) {
+      final t = _mapSchemaTypeToDartType(rangeId);
+      if (t != null && !typeList.contains(t)) {
+        typeList.add(t);
+      }
+    }
+
+    if (typeList.length <= 1) return null;
+    return typeList.join(', ');
+  }
+
+  String? _mapSchemaTypeToDartType(String typeId) {
+    switch (typeId) {
+      case 'schema:Text':
+      case 'schema:URL':
+      case 'schema:CssSelectorType':
+      case 'schema:XPathType':
+      case 'schema:PronounceableText':
+        return 'String';
+      case 'schema:Number':
+      case 'schema:Float':
+      case 'schema:Integer':
+        return 'num';
+      case 'schema:Boolean':
+        return 'bool';
+      case 'schema:Date':
+      case 'schema:DateTime':
+      case 'schema:Time':
+        return 'String';
+      default:
+        if (classes.containsKey(typeId)) {
+          final targetName = classes[typeId]!.name;
+          return '\$${_toDartClassName(targetName)}';
+        }
+        return null;
+    }
+  }
+
   String _resolvePropertyType(List<String> rangeIds) {
     if (rangeIds.isEmpty) return 'Object?';
 
@@ -213,30 +259,9 @@ abstract class \$SchemaUnion {
   }
 
   String _mapSchemaTypeToDart(String typeId) {
-    switch (typeId) {
-      case 'schema:Text':
-      case 'schema:URL':
-      case 'schema:CssSelectorType':
-      case 'schema:XPathType':
-      case 'schema:PronounceableText':
-        return 'String?';
-      case 'schema:Number':
-      case 'schema:Float':
-      case 'schema:Integer':
-        return 'num?';
-      case 'schema:Boolean':
-        return 'bool?';
-      case 'schema:Date':
-      case 'schema:DateTime':
-      case 'schema:Time':
-        return 'String?';
-      default:
-        if (classes.containsKey(typeId)) {
-          final targetName = classes[typeId]!.name;
-          return '\$${_toDartClassName(targetName)}?';
-        }
-        return 'Object?';
-    }
+    final t = _mapSchemaTypeToDartType(typeId);
+    if (t != null) return '$t?';
+    return 'Object?';
   }
 
   String _toDartClassName(String name) {
