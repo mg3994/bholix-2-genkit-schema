@@ -1,11 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // Schema.org Genkit Dart Core Library
 
-/// Annotation class for Genkit / Schemantic / Genkit A2UI schema compatibility
-class Schema {
-  final String? description;
-  const Schema({this.description});
-}
+import 'package:schemantic/schemantic.dart';
 
 /// Base interface for all Schema.org entities
 @Schema()

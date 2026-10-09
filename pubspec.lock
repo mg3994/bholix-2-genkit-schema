@@ -233,6 +233,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  decimal:
+    dependency: transitive
+    description:
+      name: decimal
+      sha256: "2c3c8b74f2948066d3f42585477aec9cfc48fefd7a723a4d4274a6c71a5c0df7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.6"
   drift:
     dependency: "direct main"
     description:
@@ -257,6 +265,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.7"
+  email_validator:
+    dependency: transitive
+    description:
+      name: email_validator
+      sha256: b19aa5d92fdd76fbc65112060c94d45ba855105a28bb6e462de7ff03b12fa1fb
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -424,6 +440,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.12.0"
+  json_schema_builder:
+    dependency: transitive
+    description:
+      name: json_schema_builder
+      sha256: "657db3229ba10305c48e8686e8b3aca16e12e639c3a7b96687a6eeb7836b6e1b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.7"
   kaisel:
     dependency: "direct main"
     description:
@@ -648,6 +672,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.0"
+  rational:
+    dependency: transitive
+    description:
+      name: rational
+      sha256: cb808fb6f1a839e6fc5f7d8cb3b0a10e1db48b3be102de73938c627f0b636336
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.3"
   recase:
     dependency: transitive
     description:
@@ -664,6 +696,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
+  schemantic:
+    dependency: "direct main"
+    description:
+      name: schemantic
+      sha256: "3597f1c6bfcfc95e92bb215a8868be0494105b6b6c12228b184253616047d5d2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   scratch_space:
     dependency: transitive
     description:

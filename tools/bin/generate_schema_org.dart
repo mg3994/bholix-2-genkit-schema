@@ -83,11 +83,7 @@ class SchemaCodeGenerator {
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // Schema.org Genkit Dart Core Library
 
-/// Annotation class for Genkit / Schemantic / Genkit A2UI schema compatibility
-class Schema {
-  final String? description;
-  const Schema({this.description});
-}
+import 'package:schemantic/schemantic.dart';
 
 /// Base interface for all Schema.org entities
 @Schema()
@@ -139,6 +135,7 @@ abstract class \$SchemaUnion {
     sb.writeln(
       "// ignore_for_file: annotate_overrides, non_constant_identifier_names",
     );
+    sb.writeln("import 'package:schemantic/schemantic.dart';");
     sb.writeln("import 'schema_core.dart';");
     sb.writeln();
 
